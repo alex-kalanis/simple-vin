@@ -23,24 +23,13 @@
   <!-- phpunit 9+ -->
   <coverage>
     <include>
-      <directory suffix=".php">php-src/</directory>
+      <directory suffix=".php">php-src</directory>
     </include>
     <report>
       <clover outputFile="php-tests/data/clover.xml"/>
       <text outputFile="php://stdout" showUncoveredFiles="false"/>
     </report>
   </coverage>
-
-  <!-- phpunit 8- -->
-  <filter>
-    <whitelist>
-      <directory suffix=".php">php-src/</directory>
-    </whitelist>
-  </filter>
-  <logging>
-    <log type="coverage-text" target="php://stdout" showUncoveredFiles="false" />
-    <log type="coverage-clover" target="php-tests/data/clover.xml" />
-  </logging>
 
   <!-- rest as usual -->
   <testsuites>
