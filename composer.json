@@ -1,0 +1,37 @@
+{
+    "name": "alex-kalanis/simple-vin",
+    "description": "Simple checking of Vehicle Identification Numbers",
+    "keywords": [
+        "vin"
+    ],
+    "license": "BSD-3-Clause",
+    "type": "library",
+    "require": {
+        "psr/clock": "^1.0.0",
+        "ext-mbstring": "*",
+        "php": ">=8.0.0"
+    },
+    "require-dev": {
+        "shipmonk/composer-dependency-analyser": "^1.4",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpunit/phpunit": ">=10.0 <=12"
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-4": {
+            "kalanis\\simple_vin\\": "php-src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "\\": "php-tests/"
+        }
+    },
+    "scripts": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
