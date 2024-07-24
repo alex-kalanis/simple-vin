@@ -20,6 +20,7 @@
         backupStaticProperties="false"
         requireCoverageMetadata="false"
 >
+  <!-- phpunit 9+ -->
   <coverage>
     <include>
       <directory suffix=".php">php-src/</directory>
@@ -30,6 +31,18 @@
     </report>
   </coverage>
 
+  <!-- phpunit 8- -->
+  <filter>
+    <whitelist>
+      <directory suffix=".php">php-src/</directory>
+    </whitelist>
+  </filter>
+  <logging>
+    <log type="coverage-text" target="php://stdout" showUncoveredFiles="false" />
+    <log type="coverage-clover" target="php-tests/data/clover.xml" />
+  </logging>
+
+  <!-- rest as usual -->
   <testsuites>
     <testsuite name="ALL">
       <directory>php-tests/BasicTests</directory>
