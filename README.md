@@ -10,7 +10,7 @@
 
 This is a set of PHP libraries for **V**ehicle **I**dentification **N**umbers.
 
-Ported from .Net library [Vin](https://github.com/dalenewman/Vin) and extended for specific manufacturers.
+Ported from .Net library [Vin](https://github.com/dalenewman/Vin) .
 
 ## PHP installation
 
@@ -26,6 +26,8 @@ $lib = new \kalanis\simple_vin\SimpleVin(); // can be set via DI, usually no mor
 $x = $lib->isValid('11111111111111111'); // true
 $m = $lib->getWorldManufacturer('TMP......D.......'); // Skoda Trolleybuses
 $y = $lib->getModelYear('TMP......D.......'); // 2013
+$k = $lib->restoreChecksumCharacter('1FTKR1AD_APA11957'); // X
+$c = $lib->restoreChecksum('1FTKR1AD_APA11957'); // 1FTKR1ADXAPA11957
 ```
 
 (Refer to [Composer Documentation](https://github.com/composer/composer/blob/master/doc/00-intro.md#introduction) if you are not

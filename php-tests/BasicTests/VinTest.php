@@ -37,7 +37,7 @@ class VinTest extends CommonTestClass
     public function testBadChecksumPos(): void
     {
         $lib = new SimpleVin(new XDate());
-        $this->assertFalse($lib->isValid('11111111O11111111'), 'Letter O is not defined');
+        $this->assertFalse($lib->isValid('1111O111111111111'), 'Letter O is not defined');
     }
 
     public function testRealVin(): void
@@ -50,6 +50,38 @@ class VinTest extends CommonTestClass
     {
         $lib = new SimpleVin(new XDate());
         $this->assertFalse($lib->isValid('1ITKR1ADXAPA11957'), 'Must fail because I replaced F with I.');
+    }
+
+    public function testRestoreRealVinChecksum(): void
+    {
+        $lib = new SimpleVin(new XDate());
+        $this->assertEquals('X', $lib->restoreChecksumCharacter('1FTKR1AD_APA11957'));
+        $this->assertEquals('1', $lib->restoreChecksumCharacter('TMBGDM9A_KP042788'));
+    }
+
+    public function testRestoreBadLength(): void
+    {
+        $lib = new SimpleVin(new XDate());
+        $this->assertNull($lib->restoreChecksumCharacter('111111'));
+    }
+
+    public function testRestoreBadChars(): void
+    {
+        $lib = new SimpleVin(new XDate());
+        $this->assertNull($lib->restoreChecksumCharacter('111O1111111111111'));
+    }
+
+    public function testRestoreRealVin(): void
+    {
+        $lib = new SimpleVin(new XDate());
+        $this->assertEquals('1FTKR1ADXAPA11957', $lib->restoreChecksum('1FTKR1AD_APA11957'));
+        $this->assertEquals('TMBGDM9A1KP042788', $lib->restoreChecksum('TMBGDM9A_KP042788'));
+    }
+
+    public function testRestoreFail(): void
+    {
+        $lib = new SimpleVin(new XDate());
+        $this->assertNull($lib->restoreChecksum('111111'));
     }
 
     public function testInvalidWmi(): void

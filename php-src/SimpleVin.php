@@ -44,25 +44,63 @@ class SimpleVin
 
     public function isValid(string $vin): bool
     {
-        $value = 0;
-
         if (static::VALID_VIN_LENGTH != strlen($vin)) {
             return false;
         }
 
         $checkCharacter = $vin[static::CHECK_INDEX_ON_DIGIT];
-        if (!isset($this->validCheckCharacters[$checkCharacter])) {
+
+        $calculated = $this->calculateChecksum($vin);
+        if (is_null($calculated)) {
             return false;
         }
 
+        return $calculated == $this->validCheckCharacters[$checkCharacter];
+    }
+
+    public function restoreChecksum(string $vin): ?string
+    {
+        $char = $this->restoreChecksumCharacter($vin);
+
+        if (is_null($char)) {
+            return null;
+        }
+
+        $vin[static::CHECK_INDEX_ON_DIGIT] = $char;
+        return $vin;
+    }
+
+    public function restoreChecksumCharacter(string $vin): ?string
+    {
+        if (static::VALID_VIN_LENGTH != strlen($vin)) {
+            return null;
+        }
+
+        $calculated = $this->calculateChecksum($vin);
+        if (is_null($calculated)) {
+            return null;
+        }
+
+        $chars = array_map('strval', array_flip($this->validCheckCharacters->getArrayCopy()));
+
+        return $chars[$calculated] ?? null;
+    }
+
+    protected function calculateChecksum(string $vin): ?int
+    {
+        $value = 0;
+
         for ($i = 0; $i < static::VALID_VIN_LENGTH; $i++) {
+            if (empty(static::$CharacterWeights[$i])) {
+                continue;
+            }
             if (!isset($this->characterTransliteration[$vin[$i]])) {
-                return false;
+                return null;
             }
             $value += (static::$CharacterWeights[$i] * ($this->characterTransliteration[$vin[$i]]));
         }
 
-        return ($value % 11) == $this->validCheckCharacters[$checkCharacter];
+        return $value % 11;
     }
 
     public function getWorldManufacturer(string $vinOrWmi): string
