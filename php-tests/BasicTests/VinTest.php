@@ -7,7 +7,7 @@ use DateTimeImmutable;
 use kalanis\simple_vin\SimpleVin;
 use Psr\Clock\ClockInterface;
 
-class TestVin extends CommonTestClass
+class VinTest extends CommonTestClass
 {
 
     public function test17Ones(): void

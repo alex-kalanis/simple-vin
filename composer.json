@@ -16,18 +16,13 @@
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "phpunit/phpunit": ">=10.0 <=12"
+        "phpunit/phpunit": ">=9.0 <=12"
     },
     "suggest": {
     },
     "autoload": {
         "psr-4": {
             "kalanis\\simple_vin\\": "php-src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "\\": "php-tests/"
         }
     },
     "scripts": {
