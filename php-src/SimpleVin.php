@@ -15,6 +15,7 @@ class SimpleVin
     protected const VALID_VIN_LENGTH = 17;
     protected const CHECK_INDEX_ON_DIGIT = 8;
     // Character weights for 17 characters in VIN
+    // Beware - some cars (like in Australia) does not have 17 characters VIN; then you cannot use this library
     /** @var int[] */
     protected static array $CharacterWeights = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
 
@@ -114,7 +115,7 @@ class SimpleVin
         }
 
         $prefix = substr($vinOrWmi, 0, 3);
-        if (strlen($vinOrWmi) > 2 && isset($this->worldManufacturerIdentifiers[$prefix])) {
+        if (2 < strlen($vinOrWmi) && isset($this->worldManufacturerIdentifiers[$prefix])) {
             return $this->worldManufacturerIdentifiers[$prefix];
         }
 
