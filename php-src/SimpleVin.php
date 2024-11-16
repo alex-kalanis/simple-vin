@@ -27,7 +27,7 @@ class SimpleVin
     protected Datasources\WorldManufacturerIdentifiers $worldManufacturerIdentifiers;
 
     public function __construct(
-        ?ClockInterface $clock = null
+        ?ClockInterface $clock = null,
     )
     {
         // no DI

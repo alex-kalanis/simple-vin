@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <phpunit
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
         bootstrap="php-tests/_bootstrap.php"
         backupGlobals="false"
         colors="true"
@@ -22,19 +22,20 @@
 >
   <!-- phpunit 9+ -->
   <coverage>
-    <include>
-      <directory suffix=".php">php-src</directory>
-    </include>
     <report>
       <clover outputFile="php-tests/data/clover.xml"/>
       <text outputFile="php://stdout" showUncoveredFiles="false"/>
     </report>
   </coverage>
-
   <!-- rest as usual -->
   <testsuites>
     <testsuite name="ALL">
       <directory>php-tests/BasicTests</directory>
     </testsuite>
   </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">php-src</directory>
+    </include>
+  </source>
 </phpunit>

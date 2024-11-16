@@ -2,10 +2,12 @@
 
 namespace BasicTests;
 
+
 use CommonTestClass;
 use DateTimeImmutable;
 use kalanis\simple_vin\SimpleVin;
 use Psr\Clock\ClockInterface;
+
 
 class VinTest extends CommonTestClass
 {
@@ -105,13 +107,13 @@ class VinTest extends CommonTestClass
     public function testFord(): void
     {
         $lib = new SimpleVin(new XDate());
-        $this->assertEquals('Ford Motor Company', $lib->getWorldManufacturer('1FD'));
+        $this->assertEquals('Ford Motor Company incomplete', $lib->getWorldManufacturer('1FD'));
     }
 
     public function testInternational(): void
     {
         $lib = new SimpleVin(new XDate());
-        $this->assertEquals('International', $lib->getWorldManufacturer('1HT'));
+        $this->assertEquals('International trucks & Caterpillar trucks', $lib->getWorldManufacturer('1HT'));
     }
 
     public function testToyotaMatchingFirstTwo(): void
