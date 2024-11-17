@@ -44,3 +44,4 @@ familiar with composer)
 - v1.0.0 - Initial port and refactor with extended tests
 - v1.1.0 - Calculate checksum characters from the rest of code
 - v1.2.0 - Update VIN manufacturer codes in accordance with the current Wikipedia page
+- v2.0.0 - Update VIN manufacturer format, update minimal php version

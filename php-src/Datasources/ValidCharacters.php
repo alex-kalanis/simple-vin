@@ -9,7 +9,7 @@ use ArrayObject;
 /**
  * @extends ArrayObject<string|int, int>
  */
-class ValidCharacters extends ArrayObject
+final class ValidCharacters extends ArrayObject
 {
     public function __construct()
     {

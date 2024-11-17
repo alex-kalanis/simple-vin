@@ -9,7 +9,7 @@ use ArrayObject;
 /**
  * @extends ArrayObject<string|int, int>
  */
-class CharacterTransliteration extends ArrayObject
+final class CharacterTransliteration extends ArrayObject
 {
     public function __construct()
     {

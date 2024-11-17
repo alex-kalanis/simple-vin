@@ -9,7 +9,7 @@ use ArrayObject;
 /**
  * @extends ArrayObject<string|int, int>
  */
-class Years extends ArrayObject
+final class Years extends ArrayObject
 {
     public function __construct()
     {

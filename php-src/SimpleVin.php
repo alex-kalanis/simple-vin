@@ -19,13 +19,13 @@ class SimpleVin
     /** @var int[] */
     protected static array $CharacterWeights = [8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2];
 
-    protected int $startYear;
-    protected int $nextYear;
+    protected readonly int $startYear;
+    protected readonly int $nextYear;
 
-    protected Datasources\Years $years;
-    protected Datasources\ValidCharacters $validCheckCharacters;
-    protected Datasources\CharacterTransliteration $characterTransliteration;
-    protected Datasources\WorldManufacturerIdentifiers $worldManufacturerIdentifiers;
+    protected readonly Datasources\Years $years;
+    protected readonly Datasources\ValidCharacters $validCheckCharacters;
+    protected readonly Datasources\CharacterTransliteration $characterTransliteration;
+    protected readonly Datasources\WorldManufacturerIdentifiers $worldManufacturerIdentifiers;
 
     public function __construct(
         ?ClockInterface $clock = null,

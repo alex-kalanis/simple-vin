@@ -9,7 +9,7 @@ use ArrayObject;
 /**
  * @extends ArrayObject<string, string>
  */
-class WorldManufacturerIdentifiers extends ArrayObject
+final class WorldManufacturerIdentifiers extends ArrayObject
 {
     public function __construct()
     {
