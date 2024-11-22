@@ -3,1758 +3,1745 @@
 namespace kalanis\simple_vin\Datasources;
 
 
-use ArrayObject;
+use SplObjectStorage;
 use kalanis\simple_vin\Support\Manufacturer;
 
 
 /**
- * @extends ArrayObject<string|int, string|Manufacturer>
+ * @extends SplObjectStorage<Manufacturer, Manufacturer>
  */
-final class WorldManufacturerClasses extends ArrayObject
+final class WorldManufacturerClasses extends SplObjectStorage
 {
     public function __construct()
     {
-        parent::__construct([
-            Manufacturer::init('AAA', 'Audi', country: 'South Africa'),
-            Manufacturer::init('AAK', 'FAW', '', '', 'FAW Vehicle Manufacturers SA (PTY) Ltd.', 'South Africa'),
-            Manufacturer::init('AAM', 'MAN', '', '', 'MAN Automotive (South Africa) (Pty) Ltd.', 'South Africa'),
-            Manufacturer::init('AAM', 'Volkswagen', 'truck, bus', '', 'MAN Automotive (South Africa) (Pty) Ltd.', 'South Africa'),
-            Manufacturer::init('AAV', 'Volkswagen', '', '', 'Volkswagen of South Africa', 'South Africa'),
-            Manufacturer::init('ABJ', 'Mitsubishi', 'pickups', 'Mitsubishi Colt & Triton', 'Mercedes-Benz South Africa', 'South Africa', 1994, 2011),
-            Manufacturer::init('ABJ', 'Mitsubishi', '', 'Fuso', 'Daimler Trucks & Buses Southern Africa', 'South Africa'),
-            Manufacturer::init('ABM', 'BMW', '', '', 'BMW Southern Africa', 'South Africa'),
-            Manufacturer::init('AB8', 'Rimac', '', '', 'Rimac Automobili', 'South Africa'),
-            Manufacturer::init('ACV', 'Isuzu', '', '', 'Isuzu Motors South Africa', 'South Africa', 2018),
-            Manufacturer::init('AC5', 'Hyundai', 'cars', '', 'Hyundai South Africa', 'South Africa'),
-            Manufacturer::init('ADD', 'UD Trucks', '', '', 'UD Trucks Southern Africa (Pty) Ltd', 'South Africa'),
-            Manufacturer::init('ADM', 'GM', '', '', 'General Motors South Africa', 'South Africa'),
-            Manufacturer::init('ADM', 'Isuzu', '', '', 'General Motors South Africa', 'South Africa', 2018, 2018),
-            Manufacturer::init('ADN', 'Nissan', '', '', 'Nissan South Africa (Pty) Ltd', 'South Africa'),
-            Manufacturer::init('ADR', 'Renault', '', 'Sandero', 'Nissan South Africa (Pty) Ltd', 'South Africa'),
-            Manufacturer::init('ADX', 'Tata', '', '', 'Tata Automobile Corporation (SA) Ltd.', 'South Africa'),
-            Manufacturer::init('AFA', 'Ford', '', '', 'Ford South Africa', 'South Africa'),
-            Manufacturer::init('AF8', 'Mazda', '', 'BT-50', 'Ford South Africa', 'South Africa'),
-            Manufacturer::init('AHH', 'Hino', '', '', 'Hino South Africa', 'South Africa'),
-            Manufacturer::init('AHM', 'Honda', '', 'Ballade', 'Mercedes-Benz South Africa', 'South Africa', 1982, 2000),
-            Manufacturer::init('AHT', 'Toyota', '', '', 'Toyota South Africa', 'South Africa'),
-            Manufacturer::init('BAB', 'BMW', 'cars', '', 'BMW', '', 1986, 2019),
-            Manufacturer::init('BF9', 'KIBO', 'motorcycles', '', 'KIBO Motorcycles', 'Kenya'),
-            Manufacturer::init('CL9', 'Wallyscar', '', '', 'Wallyscar', 'Tunisia'),
-            Manufacturer::init('DAA', 'Fiat', '', '', 'Fiat Auto Egypt Industrial Co', 'Egypt'),
-            Manufacturer::init('DAB', 'BMW', '', '', 'BMW Egypt SKD', 'Egypt'),
-            Manufacturer::init('DA1', '', '', '', 'Arab American Vehicles', 'Egypt'),
-            Manufacturer::init('DA4', '', '', '', 'Arab American Vehicles', 'Egypt'),
-            Manufacturer::init('DF9', 'Laraki', '', '', 'Laraki', 'Morocco'),
-            Manufacturer::init('GA1', 'Renault', '', '', 'Renault/SOMACOA', 'Madagascar'),
-            Manufacturer::init('J81', 'Chevrolet', 'car', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('J81', 'Geo', 'car', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('J87', 'Pontiac', 'car', '', 'Isuzu', 'Japan', null, null, 'for GM Canada'),
-            Manufacturer::init('J87', 'Asüna', 'car', '', 'Isuzu', 'Japan', null, null, 'for GM Canada'),
-            Manufacturer::init('J8B', 'Chevrolet', 'trucks', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('J8C', 'Chevrolet', 'trucks', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('J8D', 'GMC', 'trucks', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('J8T', 'GMC', 'trucks', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('J8Z', 'Chevrolet', 'pickup', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('JA', 'Isuzu', '', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('JAA', 'Isuzu', 'truck', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('JAB', 'Isuzu', 'car', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('JAC', 'Isuzu', 'SUV', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('JAE', 'Acura', '', 'SLX', 'Isuzu', 'Japan'),
-            Manufacturer::init('JAL', 'Isuzu', 'trucks', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('JAL', 'Chevrolet', 'trucks', '', 'Isuzu', 'Japan', 2016),
-            Manufacturer::init('JAL', 'Hino', 'trucks', 'S-series', 'Isuzu', 'Japan'),
-            Manufacturer::init('JAM', 'Isuzu', 'trucks', '', 'Isuzu', 'Japan'),
-            Manufacturer::init('JA3', 'Mitsubishi', 'car', '', 'Mitsubishi', 'Japan'),
-            Manufacturer::init('JA4', 'Mitsubishi', 'MPV/SUV', '', 'Mitsubishi', 'Japan'),
-            Manufacturer::init('JA7', 'Mitsubishi', 'truck', '', 'Mitsubishi', 'Japan'),
-            Manufacturer::init('JB3', 'Dodge', 'car', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JB4', 'Dodge', 'MPV/SUV', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JB7', 'Dodge', 'truck', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JC0', 'Ford', 'car', '', 'Mazda', 'Japan'),
-            Manufacturer::init('JC1', 'Fiat', 'car', '124 Spider', 'Mazda', 'Japan'),
-            Manufacturer::init('JC2', 'Ford', '', 'Courier', 'Mazda', 'Japan'),
-            Manufacturer::init('JD', 'Daihatsu', 'car', '', 'Daihatsu', 'Japan'),
-            Manufacturer::init('JD1', 'Daihatsu', 'SUV', '', 'Daihatsu', 'Japan'),
-            Manufacturer::init('JD2', 'Daihatsu', 'truck', '', 'Daihatsu', 'Japan'),
-            Manufacturer::init('JE3', 'Eagle', 'car', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JF', 'Subaru', '', '', 'Fuji Heavy Industries', 'Japan'),
-            Manufacturer::init('JF1', 'Subaru', 'car', '', 'Subaru', 'Japan'),
-            Manufacturer::init('JF2', 'Subaru', 'SUV', '', 'Subaru', 'Japan'),
-            Manufacturer::init('JF3', 'Subaru', 'truck', '', 'Subaru', 'Japan'),
-            Manufacturer::init('JF4', 'Saab', '', '9-2X', 'Subaru', 'Japan'),
-            Manufacturer::init('JG1', 'Chevrolet, Geo', 'car', '', 'Suzuki', 'Japan'),
-            Manufacturer::init('JG7', 'Pontiac/Asuna', 'car', '', 'Suzuki', 'Japan', null, null, 'for GM Canada'),
-            Manufacturer::init('JGC', 'Chevrolet, Geo', 'SUV', '', 'Suzuki', 'Japan'),
-            Manufacturer::init('JGT', 'GMC', 'SUV', '', 'Suzuki', 'Japan', null, null, 'for GM Canada'),
-            Manufacturer::init('JH', 'Honda', '', '', 'Honda', 'Japan'),
-            Manufacturer::init('JH2', 'Honda', 'motocycles/ATV', '', 'Honda', 'Japan'),
-            Manufacturer::init('JH3', 'Honda', 'ATV', '', 'Honda', 'Japan'),
-            Manufacturer::init('JH4', 'Acura', 'car', '', 'Acura', 'Japan'),
-            Manufacturer::init('JHA', 'Hino', '', '', 'Hino', 'Japan'),
-            Manufacturer::init('JHB', 'Hino', '', '', 'Hino', 'Japan'),
-            Manufacturer::init('JHD', 'Hino', '', '', 'Hino', 'Japan'),
-            Manufacturer::init('JHF', 'Hino', '', '', 'Hino', 'Japan'),
-            Manufacturer::init('JHH', 'Hino', '', '', 'Hino', 'Japan'),
-            Manufacturer::init('JHL', 'Honda', 'MPV/SUV', '', 'Honda', 'Japan'),
-            Manufacturer::init('JHM', 'Honda', 'car', '', 'Honda', 'Japan'),
-            Manufacturer::init('JJ3', 'Chrysler', '', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JK', 'Kawasaki', 'motorcycles', '', 'Kawasaki', 'Japan'),
-            Manufacturer::init('JKA', 'Kawasaki', 'motorcycles', '', 'Kawasaki', 'Japan'),
-            Manufacturer::init('JKB', 'Kawasaki', 'motorcycles', '', 'Kawasaki', 'Japan'),
-            Manufacturer::init('JKS', 'Suzuki', 'motorcycles', 'Marauder 1600', 'Kawasaki', 'Japan'),
-            Manufacturer::init('JKS', 'Suzuki', 'motorcycles', 'Boulevard M95', 'Kawasaki', 'Japan'),
-            Manufacturer::init('JK8', 'Suzuki', 'UTV', 'QUV620F', 'Kawasaki', 'Japan'),
-            Manufacturer::init('JL5', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'),
-            Manufacturer::init('JL6', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'),
-            Manufacturer::init('JLF', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'),
-            Manufacturer::init('JLS', 'Sterling', 'trucks', '360', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'),
-            Manufacturer::init('JM0', 'Mazda', '', '', 'Mazda', 'Japan', null, null, 'Oceania export'),
-            Manufacturer::init('JM1', 'Mazda', 'car', '', 'Mazda', 'Japan'),
-            Manufacturer::init('JM2', 'Mazda', 'truck', '', 'Mazda', 'Japan'),
-            Manufacturer::init('JM3', 'Mazda', 'MPV/SUV', '', 'Mazda', 'Japan'),
-            Manufacturer::init('JM6', 'Mazda', '', '', 'Mazda', 'Japan'),
-            Manufacturer::init('JM7', 'Mazda', '', '', 'Mazda', 'Japan'),
-            Manufacturer::init('JMA', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JMB', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JMF', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JMY', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JMZ', 'Mazda', '', '', 'Mazda', 'Japan', null, null, 'Europe export'),
-            Manufacturer::init('JN', 'Nissan', '', '', 'Nissan', 'Japan'),
-            Manufacturer::init('JN1', 'Nissan', 'car', '', 'Nissan', 'Japan'),
-            Manufacturer::init('JN1', 'Infiniti', 'car', '', 'Infiniti', 'Japan'),
-            Manufacturer::init('JN3', 'Nissan', 'incomplete', '', 'Nissan', 'Japan'),
-            Manufacturer::init('JN4', 'Nissan', '', '', 'Nissan', 'Japan'),
-            Manufacturer::init('JN6', 'Nissan', 'truck', '', 'Nissan', 'Japan'),
-            Manufacturer::init('JN8', 'Nissan', 'MPV/SUV', '', 'Nissan', 'Japan'),
-            Manufacturer::init('JN8', 'Infiniti', 'SUV', '', 'Infiniti', 'Japan'),
-            Manufacturer::init('JNA', 'Nissan Diesel', 'incomplete vehicle', '', 'Nissan Diesel', 'Japan'),
-            Manufacturer::init('JNA', 'UD Trucks', 'incomplete vehicle', '', 'UD Trucks', 'Japan'),
-            Manufacturer::init('JNC', 'Nissan Diesel', '', '', 'Nissan Diesel', 'Japan'),
-            Manufacturer::init('JNC', 'UD Trucks', '', '', 'UD Trucks', 'Japan'),
-            Manufacturer::init('JNE', 'Nissan Diesel', 'truck', '', 'Nissan Diesel', 'Japan'),
-            Manufacturer::init('JNE', 'UD Trucks', 'truck', '', 'UD Trucks', 'Japan'),
-            Manufacturer::init('JNK', 'Infiniti', 'car', '', 'Infiniti', 'Japan'),
-            Manufacturer::init('JNR', 'Infiniti', 'SUV', '', 'Infiniti', 'Japan'),
-            Manufacturer::init('JNX', 'Infiniti', 'incomplete', '', 'Infiniti', 'Japan'),
-            Manufacturer::init('JP3', 'Plymouth', 'car', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JP4', 'Plymouth', 'MPV/SUV', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JP7', 'Plymouth', 'truck', '', 'Mitsubishi Motors', 'Japan'),
-            Manufacturer::init('JPC', 'Nissan Diesel', '', '', 'Nissan Diesel', 'Japan'),
-            Manufacturer::init('JPC', 'UD Trucks', '', '', 'UD Trucks', 'Japan'),
-            Manufacturer::init('JR2', 'Isuzu', '', 'Oasis', 'Honda', 'Japan'),
-            Manufacturer::init('JS', 'Suzuki', '', '', 'Suzuki', 'Japan'),
-            Manufacturer::init('JS1', 'Suzuki', 'motocycles', '', 'Suzuki', 'Japan'),
-            Manufacturer::init('JS1', 'Kawasaki', 'motocycles', 'KLX400S', 'Suzuki', 'Japan'),
-            Manufacturer::init('JS1', 'Kawasaki', 'motocycles', 'KLX400SR', 'Suzuki', 'Japan'),
-            Manufacturer::init('JS2', 'Suzuki', 'car', '', 'Suzuki', 'Japan'),
-            Manufacturer::init('JS3', 'Suzuki', 'SUV', '', 'Suzuki', 'Japan'),
-            Manufacturer::init('JS4', 'Suzuki', '', '', 'Suzuki', 'Japan'),
-            Manufacturer::init('JSA', 'Kawasaki', 'ATV', 'KFX400', 'Suzuki', 'Japan'),
-            Manufacturer::init('JSK', 'Kawasaki', 'motorcycle', 'KLX125', 'Suzuki', 'Japan'),
-            Manufacturer::init('JSK', 'Kawasaki', 'motorcycle', 'KLX125L', 'Suzuki', 'Japan'),
-            Manufacturer::init('JSL', 'Kawasaki', 'ATV', 'KFX400', 'Suzuki', 'Japan'),
-            Manufacturer::init('JT', 'Toyota', '', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JT2', 'Toyota', 'car', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JT3', 'Toyota', 'MPV/SUV', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JT4', 'Toyota', 'truck', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JT5', 'Toyota', 'incomplete', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JT6', 'Lexus', 'SUV', '', 'Lexus', 'Japan'),
-            Manufacturer::init('JT8', 'Lexus', 'car', '', 'Lexus', 'Japan'),
-            Manufacturer::init('JTD', 'Toyota', 'car', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JTE', 'Toyota', 'van/truck', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JTG', 'Toyota', 'MPV/bus', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JTH', 'Lexus', 'car', '', 'Lexus', 'Japan'),
-            Manufacturer::init('JTJ', 'Lexus', 'SUV', '', 'Lexus', 'Japan'),
-            Manufacturer::init('JTK', 'Scion', 'car', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JTL', 'Scion', 'SUV', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JTM', 'Toyota', 'SUV', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JTN', 'Toyota', 'car', '', 'Toyota', 'Japan'),
-            Manufacturer::init('JW6', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan', 2023, 2023),
-            Manufacturer::init('JW7', 'Mitsubishi', '', '', 'Mitsubishi', 'Japan'),
-            Manufacturer::init('JY', 'Yamaha', 'motorcycles', '', 'Yamaha Motor', 'Japan'),
-            Manufacturer::init('JY3', 'Yamaha', '3-wheel ATV', '', 'Yamaha Motor', 'Japan'),
-            Manufacturer::init('JY4', 'Yamaha', '4-wheel ATV', '', 'Yamaha Motor', 'Japan'),
-            Manufacturer::init('JYA', 'Yamaha', 'motocycles', '', 'Yamaha Motor', 'Japan'),
-            Manufacturer::init('JYE', 'Yamaha', 'snowmobile', '', 'Yamaha Motor', 'Japan'),
-            Manufacturer::init('KAA', '', '', '', 'RS Automotive', 'Sri Lanka'),
-            Manufacturer::init('KAL', 'Ashok Leyland', '', '', 'Lanka Ashok Leyland', 'Sri Lanka'),
-            Manufacturer::init('KA1', '', '', '', 'KEWR Technologies', 'Sri Lanka'),
-            Manufacturer::init('KF3', 'Merkavim', '', '', 'Merkavim', 'Israel'),
-            Manufacturer::init('KF6', '', '', '', 'Automotive Industries, Ltd.', 'Israel'),
-            Manufacturer::init('KF9', 'Tomcar', '', '', 'Tomcar', 'Israel'),
-            Manufacturer::init('KL', 'Daewoo General Motors', '', '', 'Daewoo General Motors South Korea', 'South Korea'),
-            Manufacturer::init('KLA', 'Daewoo General Motors', '', '', 'Daewoo General Motors South Korea', 'South Korea'),
-            Manufacturer::init('KLT', 'Tata Daewoo', '', '', 'Tata Daewoo', 'South Korea'),
-            Manufacturer::init('KLU', 'Tata Daewoo', '', '', 'Tata Daewoo', 'South Korea'),
-            Manufacturer::init('KL1', 'Chevrolet', 'car', '', 'GM Daewoo/GM Korea', 'South Korea'),
-            Manufacturer::init('KL2', 'Pontiac', '', '', 'Daewoo/GM Daewoo', 'South Korea'),
-            Manufacturer::init('KL3', 'Holden', '', '', 'GM Daewoo/GM Korea', 'South Korea'),
-            Manufacturer::init('KL4', 'Buick', '', '', 'GM Korea', 'South Korea'),
-            Manufacturer::init('KL5', 'Suzuki', '', '', 'GM Daewoo', 'South Korea'),
-            Manufacturer::init('KL6', 'GMC', '', '', 'GM Daewoo', 'South Korea'),
-            Manufacturer::init('KL7', 'Passport', '', '', 'Daewoo GM Canada', 'South Korea', null, 2000),
-            Manufacturer::init('KL7', 'Asuna', '', '', 'Daewoo GM Canada', 'South Korea', null, 2000),
-            Manufacturer::init('KL7', 'Chevrolet', 'MPV/SUV', '', 'Daewoo GM Canada', 'South Korea', 2000),
-            Manufacturer::init('KL8', 'Chevrolet', 'car', 'Spark', 'GM Daewoo/GM Korea', 'South Korea'),
-            Manufacturer::init('KM', 'Hyundai', '', '', 'Hyundai', 'South Korea'),
-            Manufacturer::init('KMA', '', '', '', 'Asia Motors', 'South Korea'),
-            Manufacturer::init('KME', 'Hyundai', 'commercial truck', '', 'Hyundai', 'South Korea'),
-            Manufacturer::init('KMF', 'Hyundai', 'truck', '', 'Hyundai van & commercial truck', 'South Korea'),
-            Manufacturer::init('KMF', 'Bering', 'truck', '', 'Bering Truck', 'South Korea'),
-            Manufacturer::init('KM1', 'Hyosung', 'motorcycles', '', 'Hyosung', 'South Korea'),
-            Manufacturer::init('KMH', 'Hyundai', 'car', '', 'Hyundai', 'South Korea'),
-            Manufacturer::init('KMJ', 'Hyundai', 'bus, minibus', '', 'Hyundai', 'South Korea'),
-            Manufacturer::init('KMT', 'Genesis Motor', 'car', '', 'Genesis Motor', 'South Korea'),
-            Manufacturer::init('KMU', 'Genesis Motor', 'SUV', '', 'Genesis Motor', 'South Korea'),
-            Manufacturer::init('KMY', '', '', '', 'Daelim Motor Company, Ltd/DNA Motors Co., Ltd.', 'South Korea'),
-            Manufacturer::init('KM4', '', '', '', 'Hyosung Motors/S&T Motors/KR Motors', 'South Korea'),
-            Manufacturer::init('KM8', 'Hyundai', 'SUV', '', 'Hyundai', 'South Korea'),
-            Manufacturer::init('KN', 'Kia', '', '', 'Kia', 'South Korea'),
-            Manufacturer::init('KNA', 'Kia', 'car', '', 'Kia', 'South Korea'),
-            Manufacturer::init('KNC', 'Kia', 'car', '', 'Kia', 'South Korea'),
-            Manufacturer::init('KND', 'Kia', 'SUV/MPV', '', 'Kia', 'South Korea'),
-            Manufacturer::init('KND', 'Hyundai', '', 'Entourage', 'Hyundai', 'South Korea'),
-            Manufacturer::init('KNE', 'Kia', 'car', '', 'Kia', 'South Korea'),
-            Manufacturer::init('KNJ', 'Ford', '', 'Festiva & Aspire', 'Ford', 'South Korea'),
-            Manufacturer::init('KNM', 'Renault', '', '', 'Renault Samsung Motors', 'South Korea'),
-            Manufacturer::init('KNM', 'Nissan', '', 'Rogue', 'Renault Samsung Motors', 'South Korea'),
-            Manufacturer::init('KPA', 'SsangYong', 'pickup', '', 'SsangYong', 'South Korea'),
-            Manufacturer::init('KPB', 'SsangYong', 'car', '', 'SsangYong', 'South Korea'),
-            Manufacturer::init('KPH', 'Mitsubishi', '', 'Precis', 'Mitsubishi Motors', 'South Korea'),
-            Manufacturer::init('KPT', 'SsangYong', 'SUV/MPV', '', 'SsangYong', 'South Korea'),
-            Manufacturer::init('L1C', '', '', '', 'Hubei Huawei Special-Purpose Automobile', 'China'),
-            Manufacturer::init('L2C', '', '', '', 'Chery Jaguar Land Rover', 'China'),
-            Manufacturer::init('L4B', 'Xingyue', 'motorcycles', '', 'Xingyue Group', 'China'),
-            Manufacturer::init('L5C', 'KangDi', 'ATV', '', 'KangDi', 'China'),
-            Manufacturer::init('L5K', 'Zhejiang Yongkang', '', '', 'Zhejiang Yongkang Easy Vehicle', 'China'),
-            Manufacturer::init('L5N', 'Zhejiang Taotao', 'ATV & motorcycles', '', 'Zhejiang Taotao', 'China'),
-            Manufacturer::init('L5Y', 'Znen Taizhou Zhongneng', 'motorcycles', '', 'Znen Taizhou Zhongneng Motorcycle Co. Ltd.', 'China'),
-            Manufacturer::init('L6T', 'Geely', '', '', 'Geely', 'China'),
-            Manufacturer::init('L8A', 'Jinhua', '', '', 'Jinhua Youngman Automobile Manufacturing Co., Ltd.', 'China'),
-            Manufacturer::init('L8Y', 'Zhejiang Jonway', 'motorcycles', '', 'Zhejiang Jonway Motorcycle Manufacturing Co., Ltd.', 'China'),
-            Manufacturer::init('L85', 'Zhejiang Yongkang Huabao', '', '', 'Zhejiang Yongkang Huabao Electric Appliance', 'China'),
-            Manufacturer::init('L8X', 'Zhejiang Summit Huawin', 'motorcycles', '', 'Zhejiang Summit Huawin Motorcycle', 'China'),
-            Manufacturer::init('L9N', 'Zhejiang Taotao', '', '', 'Zhejiang Taotao Vehicles Co., Ltd.', 'China'),
-            Manufacturer::init('LAL', 'Sundiro Honda', '', '', 'Sundiro Honda Motorcycle Co., Ltd.', 'China'),
-            Manufacturer::init('LAN', 'Changzhou Yamasaki', 'motorcycles', '', 'Changzhou Yamasaki Motorcycle', 'China'),
-            Manufacturer::init('LA6', 'King Long', '', '', 'King Long', 'China'),
-            Manufacturer::init('LA9', 'BYD', '', '', 'BYD Auto', 'China'),
-            Manufacturer::init('LB1', 'Fujian Benz', '', '', 'Fujian Benz', 'China'),
-            Manufacturer::init('LB2', 'Geely', 'motorcycles', '', 'Geely Motorcycles', 'China'),
-            Manufacturer::init('LB3', 'Geely', '', '', 'Geely', 'China'),
-            Manufacturer::init('LBB', 'Qianjiang', 'motorcycles', '', 'Qianjiang Motorcycle', 'China'),
-            Manufacturer::init('LBB', 'Benelli', '', '', 'Benelli', 'China'),
-            Manufacturer::init('LBE', 'Hyundai', '', '', 'Beijing Hyundai', 'China'),
-            Manufacturer::init('LBM', 'Zongshen Piaggio', '', '', 'Zongshen Piaggio', 'China'),
-            Manufacturer::init('LBP', '', '', '', 'Chongqing Jianshe Yamaha Motor Co. Ltd.', 'China'),
-            Manufacturer::init('LBW', 'BMW', '', '', 'BMW Brilliance', 'China'),
-            Manufacturer::init('LCE', 'CF Moto', 'motorcycles', '', 'Chunfeng Holding Group Hangzhou Motorcycles Manufacturing Co., Ltd.', 'China'),
-            Manufacturer::init('LCR', 'Gonow', '', '', 'Gonow', 'China'),
-            Manufacturer::init('LC0', 'BYD', '', '', 'BYD Auto Industry Co. Ltd.', 'China'),
-            Manufacturer::init('LC2', '', '', '', 'Changzhou Kwang Yang Motor Co., Ltd.', 'China'),
-            Manufacturer::init('LC6', 'Suzuki', '', '', 'Changzhou Haojue Suzuki Motorcycle Co. Ltd.', 'China'),
-            Manufacturer::init('LDC', 'Peugeot', '', '', 'Dongfeng Peugeot-Citroën', 'China'),
-            Manufacturer::init('LDC', 'Citroën', '', '', 'Dongfeng Peugeot-Citroën', 'China'),
-            Manufacturer::init('LDD', 'Dandong Huanghai', '', '', 'Dandong Huanghai Automobile', 'China'),
-            Manufacturer::init('LDK', 'FAW', 'bus', '', 'FAW Bus (Dalian) Co., Ltd.', 'China'),
-            Manufacturer::init('LDN', 'SouEast', '', '', 'SouEast Motor', 'China'),
-            Manufacturer::init('LDY', 'Zhongtong', 'bus', '', 'Zhongtong Bus', 'China'),
-            Manufacturer::init('LEF', 'JMC', '', '', 'JMC', 'China'),
-            Manufacturer::init('LES', 'Isuzu', '', '', 'Isuzu', 'China'),
-            Manufacturer::init('LET', 'Isuzu', '', '', 'Jiangling-Isuzu Motors', 'China'),
-            Manufacturer::init('LE4', '', '', '', 'Beijing Benz & Beijing Benz-Daimler Chrysler Automotive Co., Ltd.', 'China'),
-            Manufacturer::init('LFA', 'Ford', '', '', 'Ford Lio Ho Motor Co Ltd old designation', 'China'),
-            Manufacturer::init('LFB', 'FAW Jilin', 'busses', '', 'FAW Jilin', 'China'),
-            Manufacturer::init('LFG', 'Taizhou Chuanl', 'motorcycles', '', 'Taizhou Chuanl Motorcycle Manufacturing', 'China'),
-            Manufacturer::init('LFM', 'Toyota', '', '', 'FAW Toyota', 'China'),
-            Manufacturer::init('LFN', 'FAW', 'bus', '', 'FAW Bus (Wuxi) Co., Ltd.', 'China'),
-            Manufacturer::init('LFP', 'FAW', 'car', '', 'FAW Car', 'China'),
-            Manufacturer::init('LFT', 'FAW', 'trailers', '', 'FAW', 'China'),
-            Manufacturer::init('LFV', 'Volkswagen', '', '', 'FAW-Volkswagen', 'China'),
-            Manufacturer::init('LFW', 'FAW JieFang', '', '', 'FAW JieFang', 'China'),
-            Manufacturer::init('LFY', 'Changshu', 'motorcycles', '', 'Changshu Light Motorcycle Factory', 'China'),
-            Manufacturer::init('LF3', 'Lifan', 'motorcycles', '', 'Lifan motorcycle', 'China'),
-            Manufacturer::init('LGA', 'Dongfeng', 'trucks', '', 'Dongfeng Commercial Vehicle Co., Ltd.', 'China'),
-            Manufacturer::init('LGB', 'Dongfeng Nissan', '', '', 'Dongfeng Nissan', 'China'),
-            Manufacturer::init('LGC', 'Dongfeng', 'buses', '', 'Dongfeng Commercial Vehicle Co., Ltd.', 'China'),
-            Manufacturer::init('LGG', 'Dongfeng Liuzhou', '', '', 'Dongfeng Liuzhou Motor', 'China'),
-            Manufacturer::init('LGH', 'Qoros', '', '', 'Qoros (formerly Dong Feng (DFM))', 'China'),
-            Manufacturer::init('LGJ', 'Dongfeng Fengshen', '', '', 'Dongfeng Fengshen (Aeolus)', 'China'),
-            Manufacturer::init('LGL', 'Guilin Daewoo', '', '', 'Guilin Daewoo', 'China'),
-            Manufacturer::init('LGW', 'Great Wall', '', '', 'Great Wall (Haval)', 'China'),
-            Manufacturer::init('LGX', 'BYD', '', '', 'BYD Auto', 'China'),
-            Manufacturer::init('LGZ', 'Guangzhou Denway', 'bus', '', 'Guangzhou Denway Bus', 'China'),
-            Manufacturer::init('LHB', 'BAI', '', '', 'Beijing Automotive Industry Holding', 'China'),
-            Manufacturer::init('LHG', 'Guangzhou Honda', '', '', 'Guangzhou Honda', 'China'),
-            Manufacturer::init('LH1', 'FAW-Haima', '', '', 'FAW-Haima', 'China'),
-            Manufacturer::init('LJC', 'Jincheng', '', '', 'Jincheng Corporation', 'China'),
-            Manufacturer::init('LJD', 'Dongfeng Yueda', '', '', 'Dongfeng Yueda Kia', 'China'),
-            Manufacturer::init('LJN', 'Nissan', '', '', 'Zhengzhou Nissan', 'China'),
-            Manufacturer::init('LJS', 'Yaxing', '', '', 'Yaxing Coach', 'China'),
-            Manufacturer::init('LJU', '', '', '', 'Shanghai Maple Automobile', 'China'),
-            Manufacturer::init('LJU', 'Kandi', '', '', 'Kandi', 'China'),
-            Manufacturer::init('LJV', '', '', '', 'Sinotruk Chengdu Wangpai Commercial Vehicle Co., Ltd.', 'China'),
-            Manufacturer::init('LJX', 'JMC Ford', '', '', 'JMC Ford', 'China'),
-            Manufacturer::init('LJ1', 'JAC', '', '', 'JAC', 'China'),
-            Manufacturer::init('LJ8', 'Zotye', '', '', 'Zotye Auto', 'China'),
-            Manufacturer::init('LKC', 'Changhe', '', '', 'Changhe', 'China'),
-            Manufacturer::init('LKG', 'Youngman Lotus', '', '', 'Youngman Lotus Automobile Co., Ltd.', 'China'),
-            Manufacturer::init('LKL', 'Higer Bus', '', '', 'Higer Bus', 'China'),
-            Manufacturer::init('LKT', '', '', '', 'Yunnan Lifan Junma Vehicle Co., Ltd.', 'China', null, null, 'commercial vehicles'),
-            Manufacturer::init('LLC', '', '', '', 'Loncin Holdings', 'China'),
-            Manufacturer::init('LLN', 'Qoros', '', '', 'Qoros', 'China'),
-            Manufacturer::init('LLV', 'Lifan', '', '', 'Lifan', 'China'),
-            Manufacturer::init('LL3', 'Xiamen', '', '', 'Xiamen Golden Dragon Bus Co. Ltd', 'China'),
-            Manufacturer::init('LL6', 'GAC Mitsubishi', '', '', 'GAC Mitsubishi', 'China'),
-            Manufacturer::init('LL8', 'Yamaha', '', '', 'Jiangsu Linhai Yamaha Motor Co., Ltd.', 'China'),
-            Manufacturer::init('LMC', 'Suzuki', 'motorcycles', '', 'Suzuki Hong Kong', 'China'),
-            Manufacturer::init('LMG', 'GAC Trumpchi', '', '', 'GAC Trumpchi', 'China'),
-            Manufacturer::init('LM1', 'Tai Ling', '', '', 'Tai Ling Motor Co Ltd old designation', 'China'),
-            Manufacturer::init('LM4', 'Tai Ling', '', '', 'Tai Ling Motor Co Ltd old designation', 'China'),
-            Manufacturer::init('LM5', 'Isuzu', '', '', 'Isuzu', 'China'),
-            Manufacturer::init('LM6', 'SWM', 'automobiles', '', 'SWM', 'China'),
-            Manufacturer::init('LNB', 'BAIC', '', '', 'BAIC Motor', 'China'),
-            Manufacturer::init('LNP', 'MG', '', '', 'NAC MG UK Limited ', 'China'),
-            Manufacturer::init('LNP', 'Fiat', '', '', 'Nanjing Fiat Automobile', 'China'),
-            Manufacturer::init('LNY', 'Yuejin', '', '', 'Yuejin', 'China'),
-            Manufacturer::init('LPA', 'Changan PSA', '', '', 'Changan PSA (DS Automobiles)', 'China'),
-            Manufacturer::init('LPE', 'BYD', '', '', 'BYD Auto', 'China'),
-            Manufacturer::init('LPR', 'Yamaha', 'motorcycles', '', 'Yamaha Hong Kong', 'China'),
-            Manufacturer::init('LPS', 'Polestar', '', '', 'Polestar', 'China'),
-            Manufacturer::init('LRB', 'Buick', '', '', 'SAIC General Motors Buick', 'China'),
-            Manufacturer::init('LRD', 'Auman', 'trucks', '', 'Beijing Foton Daimler Automotive Co., Ltd.', 'China'),
-            Manufacturer::init('LRE', 'Cadillac', '', '', 'SAIC General Motors', 'China'),
-            Manufacturer::init('LRW', 'Tesla', '', '', 'Tesla', 'China'),
-            Manufacturer::init('LSF', 'SAIC', '', '', 'SAIC Maxus', 'China'),
-            Manufacturer::init('LSF', 'Sunwin', 'bus', '', 'Shanghai Sunwin Bus Corporation', 'China'),
-            Manufacturer::init('LSG', 'Chevrolet', '', '', 'SAIC General Motors', 'China'),
-            Manufacturer::init('LSH', 'SAIC', '', '', 'SAIC Maxus', 'China'),
-            Manufacturer::init('LSJ', 'MG', '', '', 'SAIC MG', 'China'),
-            Manufacturer::init('LSJ', 'Roewe', '', '', 'SAIC Roewe', 'China'),
-            Manufacturer::init('LSK', 'SAIC', '', '', 'SAIC Maxus', 'China'),
-            Manufacturer::init('LSV', 'Volkswagen', '', '', 'SAIC Volkswagen', 'China'),
-            Manufacturer::init('LSY', 'Brilliance', '', '', 'Brilliance', 'China'),
-            Manufacturer::init('LSY', 'Jinbei GM', '', '', 'Jinbei GM', 'China'),
-            Manufacturer::init('LS5', 'Changan', '', '', 'Changan Automobile', 'China'),
-            Manufacturer::init('LS5', 'Changan', '', '', 'Changan Suzuki', 'China'),
-            Manufacturer::init('LS7', 'JMC', '', '', 'JMC Heavy Duty Vehicle', 'China'),
-            Manufacturer::init('LTA', 'ZX Auto', '', '', 'ZX Auto', 'China'),
-            Manufacturer::init('LTN', '', '', '', 'Soueast built Chrysler & Dodge vehicles', 'China'),
-            Manufacturer::init('LTV', 'FAW Toyota', '', '', 'FAW Toyota (Tianjin)', 'China'),
-            Manufacturer::init('LUC', 'Honda', '', '', 'Honda Automobile', 'China'),
-            Manufacturer::init('LUD', 'Dongfeng Nissan', '', '', 'Dongfeng Nissan Diesel Motor Co Ltd', 'China'),
-            Manufacturer::init('LUX', 'Dongfeng Yulon', '', '', 'Dongfeng Yulon Motor Co. Ltd', 'China'),
-            Manufacturer::init('LVA', 'Foton', '', '', 'Foton Motor', 'China'),
-            Manufacturer::init('LVB', 'Foton', '', '', 'Foton Motor', 'China'),
-            Manufacturer::init('LVC', 'Foton', '', '', 'Foton Motor', 'China'),
-            Manufacturer::init('LVF', 'Changhe', '', '', 'Changhe Suzuki', 'China'),
-            Manufacturer::init('LVG', 'GAC Toyota', '', '', 'GAC Toyota', 'China'),
-            Manufacturer::init('LVH', '', '', '', 'Dongfeng Honda', 'China'),
-            Manufacturer::init('LVM', 'Chery', '', '', 'Chery Commercial Vehicle', 'China'),
-            Manufacturer::init('LVR', 'Changan Mazda', '', '', 'Changan Mazda', 'China'),
-            Manufacturer::init('LVS', 'Changan Ford', '', '', 'Changan Ford', 'China'),
-            Manufacturer::init('LVS', 'Changan Mazda', '', '', 'Changan Ford Mazda', 'China'),
-            Manufacturer::init('LVV', 'Chery', '', '', 'Chery', 'China'),
-            Manufacturer::init('LVX', 'Landwind', '', '', 'Landwind', 'China'),
-            Manufacturer::init('LVY', 'Volvo', '', '', 'Volvo Cars Daqing factory', 'China'),
-            Manufacturer::init('LVZ', 'DFSK', '', '', 'Dong Feng Sokon Motor Company (DFSK)', 'China'),
-            Manufacturer::init('LWB', 'Wuyang Honda', '', '', 'Wuyang Honda Motorcycle (Guangzhou) Co., Ltd.', 'China'),
-            Manufacturer::init('LWL', 'Qingling Isuzu', '', '', 'Qingling Isuzu', 'China'),
-            Manufacturer::init('LWV', 'GAC Fiat', '', '', 'GAC Fiat Chrysler', 'China'),
-            Manufacturer::init('LXV', '', '', '', 'Beijing Borgward Automotive Co., Ltd.', 'China'),
-            Manufacturer::init('LXY', '', '', '', 'Chongqing Shineray Motorcycle Co., Ltd.', 'China'),
-            Manufacturer::init('LYB', '', '', '', 'Weichai (Yangzhou) Yaxing Automobile Co., Ltd.', 'China'),
-            Manufacturer::init('LYM', '', '', '', 'Zhuzhou Jianshe Yamaha Motorcycle Co., Ltd.', 'China'),
-            Manufacturer::init('LYV', 'Volvo', '', '', 'Volvo Cars Chengdu factory', 'China'),
-            Manufacturer::init('LYV', 'Luqiao', '', '', 'Luqiao factory', 'China'),
-            Manufacturer::init('LZE', 'Isuzu', '', '', 'Isuzu Guangzhou', 'China'),
-            Manufacturer::init('LZF', 'SAIC Iveco', '', '', 'SAIC Iveco Hongyan', 'China'),
-            Manufacturer::init('LZG', 'Shaanxi', 'bus', '', 'Shaanxi Automobile Group Shacman Bus', 'China'),
-            Manufacturer::init('LZK', 'CNHTC', 'bus', '', 'Sinotruk (CNHTC) Huanghe Bus', 'China'),
-            Manufacturer::init('LZS', 'Zongshen', '', '', 'Zongshen', 'China'),
-            Manufacturer::init('LZM', 'MAN', '', '', 'MAN China', 'China'),
-            Manufacturer::init('LZP', 'Baotian', '', '', 'Zhongshan Guochi Motorcycle (Baotian)', 'China'),
-            Manufacturer::init('LZU', 'Isuzu', 'bus', '', 'Guangzhou Isuzu Bus', 'China'),
-            Manufacturer::init('LZW', 'SAIC GM', '', '', 'SAIC GM Wuling', 'China'),
-            Manufacturer::init('LZY', 'Yutong Zhengzhou', '', '', 'Yutong Zhengzhou', 'China'),
-            Manufacturer::init('LZZ', 'CNHTC', '', '', 'Sinotruk (CNHTC) Howo, Sitrak', 'China'),
-            Manufacturer::init('MAB', 'Mahindra', '', '', 'Mahindra', 'India'),
-            Manufacturer::init('MAC', 'Mahindra', '', '', 'Mahindra', 'India'),
-            Manufacturer::init('MAH', 'Fiat', '', '', 'Fiat India Automobiles Pvt. Ltd', 'India'),
-            Manufacturer::init('MAJ', 'Ford', '', '', 'Ford India', 'India'),
-            Manufacturer::init('MAK', 'Honda', '', '', 'Honda Siel Cars India', 'India'),
-            Manufacturer::init('MAL', 'Hyundai', '', '', 'Hyundai Motor India', 'India'),
-            Manufacturer::init('MAN', 'Eicher Polaris Multix', '', '', 'Eicher Polaris Multix', 'India'),
-            Manufacturer::init('MAT', 'Tata', '', '', 'Tata Motors', 'India'),
-            Manufacturer::init('MA1', 'Mahindra', '', '', 'Mahindra', 'India'),
-            Manufacturer::init('MA3', 'Suzuki', '', '', 'Maruti Suzuki India Limited', 'India'),
-            Manufacturer::init('MA6', 'GM', '', '', 'General Motors India Pvt. Ltd.', 'India'),
-            Manufacturer::init('MA7', 'Hindustan', '', '', 'Hindustan Motors Ltd', 'India'),
-            Manufacturer::init('MA7', 'Mitsubishi', '', '', 'Hindustan Motors Ltd', 'India'),
-            Manufacturer::init('MA7', 'Isuzu', '', '', 'Hindustan Motors Ltd', 'India'),
-            Manufacturer::init('MBF', 'Royal Enfield', '', '', 'Royal Enfield', 'India'),
-            Manufacturer::init('MBH', 'Nissan', '', 'Pixo', 'Maruti Suzuki India Limited', 'India'),
-            Manufacturer::init('MBJ', 'Toyota', '', '', 'Toyota Kirloskar Motor Pvt Ltd', 'India'),
-            Manufacturer::init('MBK', 'MAN', 'trucks', '', 'MAN Trucks India Pvt. Ltd', 'India'),
-            Manufacturer::init('MBL', 'Hero MotoCorp', '', '', 'Hero MotoCorp', 'India'),
-            Manufacturer::init('MBR', 'Mercedes-Benz', '', '', 'Mercedes-Benz India', 'India'),
-            Manufacturer::init('MBU', 'Swaraj', '', '', 'Swaraj Vehicles Limited', 'India'),
-            Manufacturer::init('MBV', 'Premier', '', '', 'Premier Automobiles Ltd', 'India'),
-            Manufacturer::init('MBX', 'Piaggio', '', '', 'Piaggio India Piaggio Ape', 'India'),
-            Manufacturer::init('MBY', '', '', '', 'Asia Motor Works Ltd', 'India'),
-            Manufacturer::init('MB1', 'Ashok Leyland', '', '', 'Ashok Leyland Ltd', 'India'),
-            Manufacturer::init('MB8', 'Suzuki', '', '', 'Suzuki Motorcycle India Limited', 'India'),
-            Manufacturer::init('MCA', '', '', '', 'FCA India Automobiles Pvt. Ltd', 'India'),
-            Manufacturer::init('MCB', '', '', '', 'General Motors India Pvt. Ltd.', 'India'),
-            Manufacturer::init('MCD', '', '', '', 'Mahindra Two Wheelers', 'India'),
-            Manufacturer::init('MCG', 'Atul', '', '', 'Atul Auto', 'India'),
-            Manufacturer::init('MCL', '', '', '', 'International Cars And Motors Ltd', 'India'),
-            Manufacturer::init('MC1', '', '', '', 'Force Motors Limited', 'India'),
-            Manufacturer::init('MC2', '', '', '', 'Eicher Motors Limited', 'India'),
-            Manufacturer::init('MC4', '', '', '', 'Dilip Chhabria Design Pvt Ltd', 'India'),
-            Manufacturer::init('MDE', '', '', '', 'Kinetic Engineering Limited', 'India'),
-            Manufacturer::init('MDH', 'Nissan', '', '', 'Nissan Motor India Pvt Ltd', 'India'),
-            Manufacturer::init('MDT', 'Kerala', '', '', 'Kerala Automobiles Limited', 'India'),
-            Manufacturer::init('MD2', 'Bajaj Auto', '', '', 'Bajaj Auto Ltd', 'India'),
-            Manufacturer::init('MD2', 'KTM', '', '', 'Bajaj Auto Ltd', 'India'),
-            Manufacturer::init('MD2', 'Husqvarna', '', '', 'Bajaj Auto Ltd', 'India'),
-            Manufacturer::init('MD6', '', '', '', 'TVS Motor Company', 'India'),
-            Manufacturer::init('MD7', 'LML', '', '', 'LML Ltd', 'India', null, null, 'including Genuine Scooter Company Stella'),
-            Manufacturer::init('ME1', '', '', '', 'India Yamaha Motor Pvt. Ltd', 'India'),
-            Manufacturer::init('ME3', 'Royal Enfield', '', '', 'Royal Enfield', 'India'),
-            Manufacturer::init('ME4', 'Honda', '', '', 'Honda Motorcycle and Scooter India', 'India'),
-            Manufacturer::init('ME9', 'BUYMYEV', '', '', 'BUYMYEV TECHNOLOGY PVT LTD', 'India'),
-            Manufacturer::init('MEC', 'Daimler', '', '', 'Daimler India Commercial Vehicles Pvt. Ltd. BharatBenz', 'India'),
-            Manufacturer::init('MEE', 'Renault', '', '', 'Renault India Private Limited', 'India'),
-            Manufacturer::init('MEG', 'Harley-Davidson', '', '', 'Harley-Davidson India', 'India'),
-            Manufacturer::init('MER', 'Benelli', '', '', 'Benelli', 'India'),
-            Manufacturer::init('MET', 'Piaggio', '', '', 'Piaggio India Vespa', 'India'),
-            Manufacturer::init('MEX', 'Škoda', '', '', 'Škoda Auto Volkswagen India Pvt. Ltd.', 'India', 2015),
-            Manufacturer::init('MH1', 'Honda', '', '', 'PT Astra Honda Motor', 'Indonesia'),
-            Manufacturer::init('MH3', 'Yamaha', '', '', 'PT Yamaha Indonesia Motor Mfg.', 'Indonesia'),
-            Manufacturer::init('MH4', 'Kawasaki', '', '', 'PT Kawasaki Motor Indonesia', 'Indonesia'),
-            Manufacturer::init('MHF', 'Toyota', '', '', 'PT Toyota Astra Motor Indonesia', 'Indonesia'),
-            Manufacturer::init('MHH', 'BMW', '', '', 'BMW cars', 'Indonesia', 2003, 2019),
-            Manufacturer::init('MHK', 'Astra Daihatsu', '', '', 'PT Astra Daihatsu Motor', 'Indonesia'),
-            Manufacturer::init('MHK', 'Toyota', '', '', 'PT Astra Daihatsu Motor', 'Indonesia'),
-            Manufacturer::init('MHL', 'Mercedes-Benz', '', '', 'PT Mercedes-Benz Indonesia', 'Indonesia'),
-            Manufacturer::init('MHR', 'Honda', '', '', 'PT Honda Prospect Motor Indonesia', 'Indonesia'),
-            Manufacturer::init('MHY', 'Suzuki', '', '', 'PT Suzuki Indomobil Motor', 'Indonesia'),
-            Manufacturer::init('MJB', 'GM', '', '', 'GM Indonesia', 'Indonesia'),
-            Manufacturer::init('MK2', 'Mitsubishi', '', '', 'Mitsubishi Motors Krama Yudha Indonesia', 'Indonesia'),
-            Manufacturer::init('MK3', 'SGMW', '', '', 'PT SGMW Motor Indonesia Wuling', 'Indonesia'),
-            Manufacturer::init('ML0', 'Ducati', '', '', 'Ducati Motor (Thailand) Co., Ltd.', 'Thailand'),
-            Manufacturer::init('ML3', 'Mitsubishi', '', '', 'Mitsubishi Motors (Thailand)', 'Thailand'),
-            Manufacturer::init('ML5', 'Kawasaki', '', '', 'Kawasaki Motors Enterprise Co. Ltd.', 'Thailand'),
-            Manufacturer::init('MLC', 'Suzuki', '', '', 'Thai Suzuki Motor Co., Ltd.', 'Thailand'),
-            Manufacturer::init('MLE', 'Yamaha', '', '', 'Thai Yamaha Motor Co., Ltd.', 'Thailand'),
-            Manufacturer::init('MLH', 'Honda', 'motorcycle', '', 'Honda', 'Thailand'),
-            Manufacturer::init('MLY', 'Harley-Davidson', 'motorcycle', '', 'Harley-Davidson', 'Thailand'),
-            Manufacturer::init('MM0', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'),
-            Manufacturer::init('MM6', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'),
-            Manufacturer::init('MM7', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'),
-            Manufacturer::init('MM8', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'),
-            Manufacturer::init('MMA', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'),
-            Manufacturer::init('MMB', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'),
-            Manufacturer::init('MMC', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'),
-            Manufacturer::init('MMD', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'),
-            Manufacturer::init('MMF', 'BMW', '', '', 'BMW', 'Thailand'),
-            Manufacturer::init('MMH', 'Tata', '', '', 'Tata', 'Thailand'),
-            Manufacturer::init('MMK', 'Toyota', '', '', 'Toyota Auto Works plant', 'Thailand'),
-            Manufacturer::init('MMM', 'Chevrolet', '', '', 'Chevrolet', 'Thailand'),
-            Manufacturer::init('MML', 'MG', '', '', 'MG', 'Thailand'),
-            Manufacturer::init('MMR', 'Subaru', '', '', 'Subaru', 'Thailand'),
-            Manufacturer::init('MMS', 'Suzuki', '', '', 'Suzuki', 'Thailand'),
-            Manufacturer::init('MMT', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'),
-            Manufacturer::init('MMU', 'Holden', '', '', 'Holden', 'Thailand'),
-            Manufacturer::init('MNA', 'Ford', '', '', 'Ford (Ford-Mazda AAT plant)', 'Thailand', null, null, 'export Australia/New Zealand'),
-            Manufacturer::init('MNB', 'Ford', '', '', 'Ford (Ford-Mazda AAT plant)', 'Thailand', null, null, 'export for other RHD'),
-            Manufacturer::init('MNC', 'Ford', '', '', 'Ford (Ford-Mazda AAT plant)', 'Thailand', null, null, 'export for LHD'),
-            Manufacturer::init('MNK', 'Hino', '', '', 'Hino Motors Manufacturing Thailand Co Ltd', 'Thailand'),
-            Manufacturer::init('MNT', 'Nissan', '', '', 'Nissan Motor Thailand', 'Thailand'),
-            Manufacturer::init('MPA', 'Isuzu', '', '', 'IMCT Isuzu Motors Company Thailand', 'Thailand'),
-            Manufacturer::init('MPB', 'Ford', '', '', 'Ford (FTM plant)', 'Thailand'),
-            Manufacturer::init('MP1', 'Isuzu', '', '', 'IMCT Isuzu Motors Company Thailand', 'Thailand'),
-            Manufacturer::init('MP2', 'Mazda', 'pickup', 'BT-50', 'Isuzu Motors (Thailand) Co., Ltd.', 'Thailand'),
-            Manufacturer::init('MP5', 'Foton', '', '', 'Foton', 'Thailand'),
-            Manufacturer::init('MRH', 'Honda', 'car', '', 'Honda', 'Thailand'),
-            Manufacturer::init('MR0', 'Toyota', '', '', 'Toyota (Ban Pho and Samrong plant)', 'Thailand'),
-            Manufacturer::init('MR1', 'Toyota', '', '', 'Toyota (Samrong plant) (Fortuner)', 'Thailand'),
-            Manufacturer::init('MR2', 'Toyota', '', '', 'Toyota (Gateway plant)', 'Thailand'),
-            Manufacturer::init('MS0', 'Kia', '', '', 'SSS MOTORS Myanmar/Kia', 'Myanmar'),
-            Manufacturer::init('MS3', 'Suzuki', '', '', 'Suzuki Myanmar Motor Co., Ltd.', 'Myanmar'),
-            Manufacturer::init('MXV', 'IMZ-Ural', '', '', 'IMZ-Ural Ural Motorcycles', 'Kazakhstan'),
-            Manufacturer::init('MX3', 'Hyundai', '', '', 'Hyundai Trans Auto', 'Kazakhstan'),
-            Manufacturer::init('MYH', 'Ather Energy', '', '', 'Ather Energy', 'India'),
-            Manufacturer::init('MZ7', 'MG', '', '', 'MG Motor India Pvt. Ltd.', 'India'),
-            Manufacturer::init('MZB', 'Kia', '', '', 'Kia India Pvt. Ltd.', 'India'),
-            Manufacturer::init('MZD', 'Jawa', '', '', 'Classic Legends Private Limited', 'India'),
-            Manufacturer::init('M3G', 'Isuzu', '', '', 'Isuzu Motors India', 'India'),
-            Manufacturer::init('M6F', '', '', '', 'UM Lohia Two Wheelers Private Limited', 'India'),
-            Manufacturer::init('N3C', 'Kavir', '', '', 'Kavir motor Company (Yektaz)', 'Iran'),
-            Manufacturer::init('N58', 'Kavir', '', '', 'Kavir motor Company (EURASIA)', 'Iran'),
-            Manufacturer::init('NAA', '', '', '', 'Iran khodro Company', 'Iran'),
-            Manufacturer::init('NAD', 'Saipa', '', '', 'Saipa Diesel', 'Iran'),
-            Manufacturer::init('NAG', '', '', '', 'Bahman Industrial Group', 'Iran'),
-            Manufacturer::init('NAP', 'Pars Khodro', '', '', 'Pars Khodro', 'Iran'),
-            Manufacturer::init('NAS', 'Saipa', '', '', 'Saipa Co.', 'Iran'),
-            Manufacturer::init('NC0', '', '', '', 'BMW South Africa', 'South Africa'),
-            Manufacturer::init('NFB', 'Honda', '', '', 'Honda Atlas Cars Pakistan Ltd', 'Pakistan'),
-            Manufacturer::init('NG3', 'Lucky Motor', '', '', 'Lucky Motor Corporation', 'Pakistan'),
-            Manufacturer::init('NLA', 'Honda', '', '', 'Honda Türkiye', 'Turkey'),
-            Manufacturer::init('NLC', '', '', '', 'Askam Kamyon Imalat Ve Ticaret A.S.', 'Turkey'),
-            Manufacturer::init('NLE', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz Türk Truck', 'Turkey'),
-            Manufacturer::init('NLH', 'Hyundai', 'car/SUV', '', 'Hyundai Assan Otomotiv', 'Turkey'),
-            Manufacturer::init('NLJ', 'Hyundai', 'van', '', 'Hyundai Assan Otomotiv', 'Turkey'),
-            Manufacturer::init('NLN', 'Karsan', '', '', 'Karsan Automotive Industry & Trade', 'Turkey'),
-            Manufacturer::init('NLR', 'Otokar', '', '', 'Otokar', 'Turkey'),
-            Manufacturer::init('NLT', 'TEMSA', '', '', 'TEMSA', 'Turkey'),
-            Manufacturer::init('NL1', 'Togg', '', '', 'Togg', 'Turkey'),
-            Manufacturer::init('NMA', 'MAN', '', '', 'MAN Türkiye A.Ş.', 'Turkey'),
-            Manufacturer::init('NMB', 'Mercedes-Benz', '', '', 'Mercedes-Benz Türk A.S.', 'Turkey'),
-            Manufacturer::init('NMC', 'BMC', '', '', 'BMC Otomotiv Sanayi ve Ticaret A.Ş.', 'Turkey'),
-            Manufacturer::init('NMH', 'Honda', 'motorcycle', '', 'Honda', 'Turkey'),
-            Manufacturer::init('NMT', 'Toyota', '', '', 'Toyota Motor Manufacturing Turkey', 'Turkey'),
-            Manufacturer::init('NM0', 'Ford', '', '', 'Ford Otosan Turkey', 'Turkey'),
-            Manufacturer::init('NM1', 'Renault', '', '', 'Oyak-Renault Oto Fab AS', 'Turkey'),
-            Manufacturer::init('NM4', 'Tofas', '', '', 'Tofas (Turk Otomobil Fabrikasi AS)', 'Turkey'),
-            Manufacturer::init('NNA', 'Isuzu', '', '', 'Anadolu Isuzu', 'Turkey'),
-            Manufacturer::init('PAB', 'Isuzu', '', '', 'Isuzu Philippines Corporation', 'Philippines'),
-            Manufacturer::init('PAD', 'Honda', '', '', 'Honda Cars Philippines', 'Philippines'),
-            Manufacturer::init('PAF', 'BMW', '', '', 'BMW Philippines', 'Philippines'),
-            Manufacturer::init('PE1', 'Ford', '', '', 'Ford Motor Company Philippines', 'Philippines'),
-            Manufacturer::init('PE3', 'Mazda', '', '', 'Ford Motor Company Philippines', 'Philippines'),
-            Manufacturer::init('PL1', 'Proton', '', '', 'Proton', 'Malaysia'),
-            Manufacturer::init('PL8', 'Hyundai', '', '', 'Hyundai/Inokom', 'Malaysia'),
-            Manufacturer::init('PLP', 'Subaru', '', '', 'Subaru', 'Malaysia'),
-            Manufacturer::init('PLZ', 'Isuzu', '', '', 'Isuzu Malaysia', 'Malaysia'),
-            Manufacturer::init('PMH', 'Honda', 'car', '', 'Honda', 'Malaysia'),
-            Manufacturer::init('PML', 'Hicom', '', '', 'Hicom', 'Malaysia'),
-            Manufacturer::init('PM1', 'BMW', '', '', 'BMW', 'Malaysia'),
-            Manufacturer::init('PM2', 'Perodua', '', '', 'Perodua', 'Malaysia'),
-            Manufacturer::init('PM9', 'Bufori', '', '', 'Bufori', 'Malaysia'),
-            Manufacturer::init('PMK', 'Honda', 'motorcycle', '', 'Honda Boon Siew', 'Malaysia'),
-            Manufacturer::init('PMN', 'Modenas', '', '', 'Modenas', 'Malaysia'),
-            Manufacturer::init('PMV', 'Yamaha', '', '', 'Hong Leong Yamaha Motor Sdn. Bhd.', 'Malaysia'),
-            Manufacturer::init('PNA', '', '', '', 'Naza/Kia/Peugeot', 'Malaysia'),
-            Manufacturer::init('PNV', 'Volvo', '', '', 'Volvo Cars', 'Malaysia'),
-            Manufacturer::init('PN1', 'Toyota', '', '', 'Toyota', 'Malaysia'),
-            Manufacturer::init('PN2', 'Toyota', '', '', 'Toyota', 'Malaysia'),
-            Manufacturer::init('PN8', 'Nissan', '', '', 'Nissan', 'Malaysia'),
-            Manufacturer::init('PP1', 'Mazda', '', '', 'Mazda', 'Malaysia'),
-            Manufacturer::init('PP3', 'Hyundai', '', '', 'Hyundai', 'Malaysia'),
-            Manufacturer::init('PPP', 'Suzuki', '', '', 'Suzuki', 'Malaysia'),
-            Manufacturer::init('PPV', 'Volkswagen', '', '', 'Volkswagen', 'Malaysia'),
-            Manufacturer::init('PR8', 'Ford', '', '', 'Ford', 'Malaysia'),
-            Manufacturer::init('PRA', 'Sinotruk', '', '', 'Sinotruk', 'Malaysia'),
-            Manufacturer::init('PRH', 'Chery', '', '', 'Chery', 'Malaysia'),
-            Manufacturer::init('RF3', 'Aeon', '', '', 'Aeon Motor', 'Taiwan'),
-            Manufacturer::init('RF5', 'Yulon', '', '', 'Yulon Motor Co Ltd', 'Taiwan'),
-            Manufacturer::init('RFB', 'Kymco', '', '', 'Kymco', 'Taiwan'),
-            Manufacturer::init('RFC', '', '', '', 'Taiwan Golden Bee', 'Taiwan'),
-            Manufacturer::init('RFD', '', '', '', 'Tai Ling Motor Co Ltd', 'Taiwan', null, null, 'new designation'),
-            Manufacturer::init('RFG', 'Sanyang', '', '', 'Sanyang SYM', 'Taiwan'),
-            Manufacturer::init('RFL', 'Adly', '', '', 'Adly', 'Taiwan'),
-            Manufacturer::init('RFT', 'CPI', '', '', 'CPI', 'Taiwan'),
-            Manufacturer::init('RFV', 'PGO', '', '', 'PGO Scooters', 'Taiwan'),
-            Manufacturer::init('RFV', 'Genuine Scooter Company', '', '', 'PGO Scooters', 'Taiwan'),
-            Manufacturer::init('RGS', 'Kawasaki', '', '', 'Kymco', 'Taiwan'),
-            Manufacturer::init('RHA', 'Ford', '', '', 'Ford Lio Ho Motor Co Ltd', 'Taiwan', null, null, 'new designation'),
-            Manufacturer::init('RK7', 'Kawasaki', 'ATV', '', 'Tai Ling Motor Co Ltd', 'Taiwan', null, null, '(rebadged Suzuki ATV) new designation'),
-            Manufacturer::init('RKJ', 'Prince', '', '', 'Prince Motors Taiwan', 'Taiwan'),
-            Manufacturer::init('RKL', 'Kuozui', '', '', 'Kuozui Motors (Toyota)', 'Taiwan'),
-            Manufacturer::init('RKM', 'CMC', '', '', 'China Motor Corporation', 'Taiwan'),
-            Manufacturer::init('RKR', '', '', '', 'Yamaha Motor Taiwan Co. Ltd.', 'Taiwan', null, null, 'new designation'),
-            Manufacturer::init('RKT', 'Honda', '', '', 'Honda Taiwan', 'Taiwan'),
-            Manufacturer::init('RL0', 'Ford', '', '', 'Ford Vietnam', 'Vietnam'),
-            Manufacturer::init('RL4', 'Toyota', '', '', 'Toyota Motor Vietnam', 'Vietnam'),
-            Manufacturer::init('RLA', 'Mitsubishi', '', '', 'Vina Star Motors Corp.', 'Vietnam'),
-            Manufacturer::init('RLC', 'Yamaha', '', '', 'Yamaha Motor Vietnam Co. Ltd.', 'Vietnam'),
-            Manufacturer::init('RLE', 'Isuzu', '', '', 'Isuzu Vietnam Co.', 'Vietnam'),
-            Manufacturer::init('RLF', 'BMW', 'cars', '', 'BMW', 'Vietnam', 2003, 2014),
-            Manufacturer::init('RLH', 'Honda', '', '', 'Honda Vietnam Co. Ltd.', 'Vietnam'),
-            Manufacturer::init('RLL', 'VinFast', 'SUV', '', 'VinFast', 'Vietnam'),
-            Manufacturer::init('RLM', 'Mercedes-Benz', '', '', 'Mercedes-Benz Vietnam', 'Vietnam'),
-            Manufacturer::init('RLV', 'Can-Am', '', 'DS 70', 'Vietnam Precision Industrial CO., Ltd.', 'Vietnam'),
-            Manufacturer::init('RLV', 'Can-Am', '', 'DS 90', 'Vietnam Precision Industrial CO., Ltd.', 'Vietnam'),
-            Manufacturer::init('RP8', 'Piaggio', '', '', 'Piaggio Vietnam Co. Ltd.', 'Vietnam'),
-            Manufacturer::init('R4N', 'Elyx', '', '', 'Elyx Smart Technology Holdings (Hong Kong) Ltd.', 'Hong Kong'),
-            Manufacturer::init('SA9', 'Morgan', '', '', 'Morgan Motor Company', 'United Kingdom'),
-            Manufacturer::init('SA9', 'OX Global', '', '', 'OX Global', 'United Kingdom'),
-            Manufacturer::init('SA9', 'Panther', '', '', 'Panther', 'United Kingdom'),
-            Manufacturer::init('SA9', 'TVR', '', '', 'TVR', 'United Kingdom'),
-            Manufacturer::init('SA9', 'Westfield Sportscars', '', '', 'Westfield Sportscars', 'United Kingdom'),
-            Manufacturer::init('SA9', 'McLaren F1', '', '', 'McLaren F1', 'United Kingdom'),
-            Manufacturer::init('SA9', 'Marcos Engineering', '', '', 'Marcos Engineering', 'United Kingdom'),
-            Manufacturer::init('SA9', 'MG Sport and Racing', '', '', 'MG Sport and Racing', 'United Kingdom'),
-            Manufacturer::init('SA9', 'Morgan 3-Wheeler', '', '', 'Morgan 3-Wheeler', 'United Kingdom'),
-            Manufacturer::init('SA9', 'KaiserRushforth', '', '', 'KaiserRushforth', 'United Kingdom'),
-            Manufacturer::init('SAA', 'Austin', '', '', 'Austin', 'United Kingdom'),
-            Manufacturer::init('SAB', 'Optare', '', '', 'Optare', 'United Kingdom'),
-            Manufacturer::init('SAD', 'Daimler', '', '', 'Daimler', 'United Kingdom', null, 1987),
-            Manufacturer::init('SAD', 'Jaguar', 'SUV', '', 'Jaguar', 'United Kingdom'),
-            Manufacturer::init('SAF', 'ERF', '', '', 'ERF', 'United Kingdom'),
-            Manufacturer::init('SAH', 'Honda', '', '', 'Austin Rover Group', 'United Kingdom'),
-            Manufacturer::init('SAJ', 'Jaguar', '', '', 'Jaguar', 'United Kingdom'),
-            Manufacturer::init('SAM', 'Morris', '', '', 'Morris', 'United Kingdom'),
-            Manufacturer::init('SAL', 'Land Rover', '', '', 'Land Rover', 'United Kingdom'),
-            Manufacturer::init('SAR', 'Rover', '', '', 'Rover', 'United Kingdom'),
-            Manufacturer::init('SAR', 'Rover', '', '', 'MG Rover Group', 'United Kingdom'),
-            Manufacturer::init('SAT', 'Triumph', 'car', '', 'Triumph', 'United Kingdom'),
-            Manufacturer::init('SAX', '', '', '', 'Austin Rover Group', 'United Kingdom', null, null, 'including Sterling Cars'),
-            Manufacturer::init('SAY', 'Norton', '', '', 'Norton Motorcycles', 'United Kingdom'),
-            Manufacturer::init('SAZ', 'Freight Rover', '', '', 'Freight Rover', 'United Kingdom'),
-            Manufacturer::init('SBB', 'Leyland', '', '', 'Leyland Vehicles', 'United Kingdom'),
-            Manufacturer::init('SBC', 'Iveco', '', '', 'Iveco Ford Truck', 'United Kingdom'),
-            Manufacturer::init('SBJ', 'Leyland', 'bus', '', 'Leyland Bus', 'United Kingdom'),
-            Manufacturer::init('SBL', 'Leyland', '', '', 'Leyland Motors', 'United Kingdom'),
-            Manufacturer::init('SBL', 'Leyland DAF', '', '', 'Leyland DAF', 'United Kingdom'),
-            Manufacturer::init('SBM', 'McLaren', '', '', 'McLaren Group', 'United Kingdom'),
-            Manufacturer::init('SBS', 'Scammell', '', '', 'Scammell', 'United Kingdom'),
-            Manufacturer::init('SBV', 'Kenworth', '', '', 'Leyland Trucks', 'United Kingdom'),
-            Manufacturer::init('SBV', 'Peterbilt', '', '', 'Leyland Trucks', 'United Kingdom'),
-            Manufacturer::init('SB1', 'Toyota', '', '', 'Toyota Manufacturing UK', 'United Kingdom'),
-            Manufacturer::init('SCA', 'Rolls Royce', '', '', 'Rolls Royce', 'United Kingdom'),
-            Manufacturer::init('SCB', 'Bentley', '', '', 'Bentley Motors Limited', 'United Kingdom'),
-            Manufacturer::init('SCC', 'Lotus', '', '', 'Lotus Cars Limited', 'United Kingdom'),
-            Manufacturer::init('SCE', 'DeLorean', '', '', 'DeLorean Motor Cars N. Ireland (UK)', 'United Kingdom'),
-            Manufacturer::init('SCF', 'Aston Martin', '', '', 'Aston Martin Lagonda Limited', 'United Kingdom'),
-            Manufacturer::init('SCG', '', '', '', 'Triumph Engineering', 'United Kingdom', null, null, 'original Triumph Motorcycle company'),
-            Manufacturer::init('SCK', '', '', '', 'Ifor Williams Trailers', 'United Kingdom'),
-            Manufacturer::init('SCR', '', '', '', 'London Electric Vehicle Company', 'United Kingdom'),
-            Manufacturer::init('SCR', '', '', '', 'London Taxi Company', 'United Kingdom'),
-            Manufacturer::init('SCR', '', '', '', 'London Taxis International', 'United Kingdom'),
-            Manufacturer::init('SCV', 'Volvo', '', '', 'Volvo Truck & Bus', 'United Kingdom'),
-            Manufacturer::init('SC6', '', '', '', 'INEOS Automotive', 'United Kingdom'),
-            Manufacturer::init('SDB', 'Peugeot', '', '', 'Peugeot UK (formerly Talbot)', 'United Kingdom'),
-            Manufacturer::init('SDB', 'Talbot', '', '', 'Peugeot UK (formerly Talbot)', 'United Kingdom'),
-            Manufacturer::init('SDF', 'Dodge', '', '', 'Dodge Trucks – UK', 'United Kingdom', 1981, 1984),
-            Manufacturer::init('SDG', 'Renault', '', '', 'Renault Trucks Industries', 'United Kingdom', 1985, 1992),
-            Manufacturer::init('SDK', 'Caterham Cars', '', '', 'Caterham Cars', 'United Kingdom'),
-            Manufacturer::init('SDL', 'TVR', '', '', 'TVR Engineering', 'United Kingdom'),
-            Manufacturer::init('SDP', 'MG', '', '', 'MG Motor NAC MG UK', 'United Kingdom'),
-            Manufacturer::init('SDP', 'MG', '', '', 'MG Motor UK', 'United Kingdom'),
-            Manufacturer::init('SD7', 'Aston Martin', '', '', 'Aston Martin SUVs', 'United Kingdom'),
-            Manufacturer::init('SED', 'IBC', '', '', 'IBC Vehicles (Isuzu Bedford Company)', 'United Kingdom'),
-            Manufacturer::init('SEG', 'Dennis Eagle', '', '', 'Dennis Eagle', 'United Kingdom'),
-            Manufacturer::init('SEY', 'LDV', '', '', 'LDV Group', 'United Kingdom'),
-            Manufacturer::init('SFA', 'Ford', '', '', 'Ford of Britain', 'United Kingdom'),
-            Manufacturer::init('SFD', '', '', '', 'Alexander Dennis UK', 'United Kingdom'),
-            Manufacturer::init('SFE', '', '', '', 'Alexander Dennis UK', 'United Kingdom'),
-            Manufacturer::init('SFN', 'Foden', '', '', 'Foden', 'United Kingdom'),
-            Manufacturer::init('SFZ', 'Tesla', '', 'Roadster', 'Lotus', 'United Kingdom'),
-            Manufacturer::init('SGD', 'Swift', '', '', 'Swift Group Ltd.', 'United Kingdom'),
-            Manufacturer::init('SHH', 'Honda', 'car', '', 'Honda UK Manufacturing', 'United Kingdom'),
-            Manufacturer::init('SHS', 'Honda', 'SUV', '', 'Honda UK Manufacturing', 'United Kingdom'),
-            Manufacturer::init('SJA', 'Bentley', 'SUV', '', 'Bentley', 'United Kingdom'),
-            Manufacturer::init('SJK', 'Infiniti', '', '', 'Nissan Motor Manufacturing UK', 'United Kingdom'),
-            Manufacturer::init('SJN', 'Nissan', '', '', 'Nissan Motor Manufacturing UK', 'United Kingdom'),
-            Manufacturer::init('SKA', 'Vauxhall', '', '', 'Vauxhall Motors', 'United Kingdom'),
-            Manufacturer::init('SKF', 'Bedford', '', '', 'Bedford Vehicles', 'United Kingdom'),
-            Manufacturer::init('SLA', 'Rolls-Royce', 'SUV', '', 'Rolls-Royce Motor Cars', 'United Kingdom'),
-            Manufacturer::init('SLP', 'JCB', '', '', 'JC Bamford Excavators', 'United Kingdom'),
-            Manufacturer::init('SLV', 'Volvo', 'bus', '', 'Volvo Bus', 'United Kingdom'),
-            Manufacturer::init('SL5', 'SOR', 'bus', '', 'SOR Libchavy', 'Czech Republic'),
-            Manufacturer::init('SMT', 'Triumph', '', '', 'Triumph Motorcycles', 'United Kingdom'),
-            Manufacturer::init('SNE', 'Wartburg', '', '', 'VEB Automobilwerk Eisenach', 'East Germany'),
-            Manufacturer::init('SNT', 'Trabant', '', '', 'VEB Sachsenring Automobilwerke Zwickau', 'East Germany'),
-            Manufacturer::init('SNZ', 'MZ', '', '', 'MZ Motorrad- und Zweiradwerk', 'East Germany'),
-            Manufacturer::init('SUA', 'Sanok', '', '', 'Sanocka Fabryka Autobusow Sfa', 'Poland'),
-            Manufacturer::init('SUA', 'Autosan', '', '', 'Autosan', 'Poland'),
-            Manufacturer::init('SUD', 'Wielton', '', '', 'Wielton', 'Poland'),
-            Manufacturer::init('SUE', 'BOSMAL', '', '', 'BOSMAL', 'Poland'),
-            Manufacturer::init('SUF', 'Fiat', '', '', 'Fabryka Samochodów Małolitrażowych', 'Poland'),
-            Manufacturer::init('SUJ', 'Jelcz', '', '', 'Jelcz', 'Poland'),
-            Manufacturer::init('SUL', 'Honker', '', '', 'FSC Lublin Automotive Factory', 'Poland'),
-            Manufacturer::init('SUM', '', '', '', 'Metal-Fach Sp. z o.o.', 'Poland'),
-            Manufacturer::init('SUN', 'FSD', '', '', 'FSD', 'Poland'),
-            Manufacturer::init('SUP', 'Daewoo', '', '', 'Fabryka Samochodow Osobowych', 'Poland'),
-            Manufacturer::init('SUR', 'Polmo', '', '', 'Factory of Agricultural Vehicles ‘Polmo’ in Poznań', 'Poland'),
-            Manufacturer::init('SUS', 'Star', '', '', 'Fabryka Samochodów Ciężarowych „Star”', 'Poland'),
-            Manufacturer::init('SUU', 'Solaris', '', '', 'Solaris Bus & Coach', 'Poland'),
-            Manufacturer::init('SUZ', 'Zasław', '', '', 'Zasław', 'Poland'),
-            Manufacturer::init('SW9', 'Solbus', '', '', 'Solbus', 'Poland'),
-            Manufacturer::init('SX9', 'SOMMER', '', '', 'SOMMER', 'Poland'),
-            Manufacturer::init('SZ9', 'EPOKA', '', '', 'EPOKA', 'Poland'),
-            Manufacturer::init('SZA', 'Scania', '', '', 'Scania Production Slupsk', 'Poland'),
-            Manufacturer::init('SZB', 'Pronar', '', '', 'Pronar', 'Poland'),
-            Manufacturer::init('SZH', 'BWW', '', '', 'BWW', 'Poland'),
-            Manufacturer::init('SZR', 'BORO', '', '', 'BORO', 'Poland'),
-            Manufacturer::init('TAM', 'Mowag', '', '', 'Mowag', 'Switzerland'),
-            Manufacturer::init('TAP', 'Polaris', '', '', 'Polaris Europe (based in Switzerland)', 'Switzerland'),
-            Manufacturer::init('TCC', '', '', '', 'Micro Compact Car AG', 'Switzerland', 1998, 1999),
-            Manufacturer::init('TEB', '', '', '', 'Bucher Municipal', 'Switzerland', null, null, 'including Johnston Sweepers of the UK (owned by Bucher Municipal of Switzerland)'),
-            Manufacturer::init('TDM', 'QUANTYA', '', '', 'QUANTYA Swiss Electric Movement', 'Switzerland'),
-            Manufacturer::init('TK9', 'SOR', '', '', 'SOR Libchavy', 'Czech Republic'),
-            Manufacturer::init('TLJ', 'Jawa', '', '', 'Jawa Moto', 'Czech Republic'),
-            Manufacturer::init('TM9', 'Škoda', 'trolleybus', '', 'Škoda', 'Czech Republic'),
-            Manufacturer::init('TMA', 'Hyundai', '', '', 'Hyundai Motor Manufacturing Czech', 'Czech Republic'),
-            Manufacturer::init('TMB', 'Škoda', '', '', 'Škoda Auto', 'Czech Republic'),
-            Manufacturer::init('TMC', 'Hyundai', '', '', 'Hyundai Motor Manufacturing Czech', 'Czech Republic'),
-            Manufacturer::init('TMK', 'Karosa', '', '', 'Karosa', 'Czech Republic'),
-            Manufacturer::init('TMP', 'Škoda', 'trolleybus', '', 'Škoda Ostrov', 'Czech Republic'),
-            Manufacturer::init('TMT', 'Tatra', 'car', '', '', 'Czech Republic'),
-            Manufacturer::init('TNA', 'Avia', '', '', 'Avia/Daewoo Avia', 'Czech Republic'),
-            Manufacturer::init('TN9', 'Karosa', '', '', 'Karosa', 'Czech Republic'),
-            Manufacturer::init('TNE', 'TAZ', '', '', 'TAZ Trenčín', 'Slovakia'),
-            Manufacturer::init('TNT', 'Tatra', '', '', 'Tatra trucks', 'Czech Republic'),
-            Manufacturer::init('TNU', 'Tatra', '', '', 'Tatra trucks', 'Czech Republic'),
-            Manufacturer::init('TRA', 'Ikarus', '', '', 'Ikarus Bus', 'Hungary'),
-            Manufacturer::init('TRU', 'Audi', '', '', 'Audi', 'Hungary'),
-            Manufacturer::init('TSE', 'Ikarus', '', '', 'Ikarus Egyedi Autobuszgyar', 'Hungary'),
-            Manufacturer::init('TSM', 'Suzuki', '', '', 'Suzuki', 'Hungary'),
-            Manufacturer::init('TW1', 'Toyota', '', '', 'Toyota Caetano Portugal', 'Portugal'),
-            Manufacturer::init('TW3', 'Renault', '', '', 'Renault Portuguesa SARL', 'Portugal'),
-            Manufacturer::init('TW7', 'Mini', '', 'Moke', 'British Leyland & Austin Rover', 'Portugal'),
-            Manufacturer::init('TW8', 'GM', '', '', 'General Motors De Portugal Lda', 'Portugal'),
-            Manufacturer::init('TWG', 'Salvador Caetano', '', '', 'Salvador Caetano', 'Portugal'),
-            Manufacturer::init('TX5', 'Mini', '', 'Moke', 'Cagiva', 'Portugal'),
-            Manufacturer::init('TYA', 'Mitsubishi Fuso', '', '', 'Mitsubishi Fuso Truck and Bus Corp.', 'Portugal'),
-            Manufacturer::init('TYB', 'Mitsubishi Fuso', '', '', 'Mitsubishi Fuso Truck and Bus Corp.', 'Portugal'),
-            Manufacturer::init('U5Y', 'Kia', 'car', '', 'Kia Motors Slovakia', 'Slovakia'),
-            Manufacturer::init('U6Y', 'Kia', 'SUV', '', 'Kia Motors Slovakia', 'Slovakia'),
-            Manufacturer::init('UKH', 'HARDI', 'Agricultural Machinery', '', 'HARDI International A/S', 'Denmark'),
-            Manufacturer::init('ULA', 'ASA-LIFT', 'Agricultural Machinery', '', 'ASA-LIFT: Vegetable Technology Specialist', 'Denmark'),
-            Manufacturer::init('UU1', 'Dacia', '', '', 'Renault Dacia', 'Romania'),
-            Manufacturer::init('UU2', 'Oltcit', '', '', 'Oltcit', 'Romania'),
-            Manufacturer::init('UU3', 'ARO', '', '', 'ARO', 'Romania'),
-            Manufacturer::init('UU5', 'Rocar', '', '', 'Rocar', 'Romania'),
-            Manufacturer::init('UU6', 'Daewoo', '', '', 'Daewoo Romania', 'Romania'),
-            Manufacturer::init('UU7', 'Euro Bus', '', '', 'Euro Bus Diamond', 'Romania'),
-            Manufacturer::init('UU9', 'Astra Bus', '', '', 'Astra Bus', 'Romania'),
-            Manufacturer::init('UZT', 'UTB', '', '', 'UTB (Uzina de Tractoare Brașov)', 'Romania'),
-            Manufacturer::init('VA0', 'ÖAF', '', '', 'ÖAF', 'Austria'),
-            Manufacturer::init('VAG', 'Puch', '', 'G', 'Steyr-Daimler-Puch', 'Austria'),
-            Manufacturer::init('VAG', 'Pinzgauer', '', '', 'Steyr-Puch', 'Austria'),
-            Manufacturer::init('VAN', 'Steyr Trucks', '', '', 'Steyr-Daimler-Puch', 'Austria'),
-            Manufacturer::init('VAK', '', '', '', 'Kässbohrer Transport Technik', 'Austria'),
-            Manufacturer::init('VBK', 'KTM', 'motorcycle', '', 'KTM', 'Austria'),
-            Manufacturer::init('VCF', 'Fisker Inc.', '', '', 'Magna Steyr', 'Austria', null, null, '(Fisker Ocean)'),
-            Manufacturer::init('VFA', 'Alpine', '', '', 'Alpine', 'France'),
-            Manufacturer::init('VF1', 'Renault', '', '', 'Renault', 'France'),
-            Manufacturer::init('VF2', 'Renault', '', '', 'Renault Trucks', 'France'),
-            Manufacturer::init('VF3', 'Peugeot', '', '', 'Peugeot', 'France'),
-            Manufacturer::init('VF4', 'Talbot', '', '', 'Talbot', 'France'),
-            Manufacturer::init('VF5', 'Iveco', '', '', 'Iveco Unic', 'France'),
-            Manufacturer::init('VF6', 'Renault', '', '', 'Renault (Trucks & Buses)', 'France'),
-            Manufacturer::init('VF7', 'Citroën', '', '', 'Citroën', 'France'),
-            Manufacturer::init('VF8', 'Matra', '', '', 'Matra', 'France'),
-            Manufacturer::init('VF9', 'Fayat', '', '', 'Mathieu Fayat Group', 'France'),
-            Manufacturer::init('VF9', 'Venturi', '', '', 'Venturi Automobiles', 'France'),
-            Manufacturer::init('VF9', 'Bugatti', '', '', 'Bugatti Automobiles S.A.S.', 'France'),
-            Manufacturer::init('VGA', 'Peugeot', '', '', 'Peugeot Motocycles', 'France'),
-            Manufacturer::init('VG5', 'MBK', 'motorcycles', '', 'MBK', 'France'),
-            Manufacturer::init('VG5', 'Yamaha', 'motorcycles', '', 'Yamaha Motor', 'France'),
-            Manufacturer::init('VG6', 'Renault', '', '', 'Renault Trucks', 'France', null, null, 'medium duty trucks'),
-            Manufacturer::init('VG6', 'Mack', '', '', 'Renault Trucks', 'France', null, null, 'medium duty trucks'),
-            Manufacturer::init('VG7', 'Renault', '', '', 'Renault Trucks', 'France'),
-            Manufacturer::init('VG8', 'Renault', '', '', 'Renault Trucks', 'France'),
-            Manufacturer::init('VG9', 'EVRARD', '', '', 'EVRARD', 'France', null, null, 'Agricultural Machinery'),
-            Manufacturer::init('VJ1', 'Heuliez', '', '', 'Heuliez Bus', 'France'),
-            Manufacturer::init('VK8', 'Venturi', '', '', 'Venturi Automobiles', 'France'),
-            Manufacturer::init('VL4', 'Bluecar', '', '', 'Bluecar', 'France'),
-            Manufacturer::init('VLU', 'Scania', '', '', 'Scania Production Angers', 'France'),
-            Manufacturer::init('VMK', 'Renault', '', 'Spider', 'Renault Sport', 'France'),
-            Manufacturer::init('VN1', 'SOVAB', '', '', 'SOVAB', 'France'),
-            Manufacturer::init('VNE', 'Iveco', '', '', 'Iveco Bus / Irisbus', 'France'),
-            Manufacturer::init('VNK', 'Toyota', '', '', 'Toyota Motor Manufacturing France', 'France'),
-            Manufacturer::init('VNV', 'Nissan', '', '', 'Nissan', 'France'),
-            Manufacturer::init('VPS', 'MLT', '', '', 'MLT Automotive', 'France'),
-            Manufacturer::init('VR1', 'DS Automobiles', '', '', 'DS Automobiles', 'France'),
-            Manufacturer::init('VR3', 'Peugeot', '', '', 'Peugeot', 'France'),
-            Manufacturer::init('VR7', 'Citroën', '', '', 'Citroën', 'France'),
-            Manufacturer::init('VS1', 'Pegaso', '', '', 'Pegaso', 'Spain'),
-            Manufacturer::init('VS5', 'Renault', '', '', 'Renault España', 'Spain'),
-            Manufacturer::init('VS6', 'Ford', '', '', 'Ford Espana', 'Spain'),
-            Manufacturer::init('VS7', 'Citroën', '', '', 'Citroën', 'Spain'),
-            Manufacturer::init('VS8', 'Peugeot', '', '', 'Peugeot', 'Spain'),
-            Manufacturer::init('VS9', 'Carrocerias Ayats', '', '', 'Carrocerias Ayats', 'Spain'),
-            Manufacturer::init('VSA', 'Mercedes-Benz', '', '', 'Mercedes-Benz Espana SA', 'Spain'),
-            Manufacturer::init('VSC', 'Mercedes-Benz', '', 'Vitoria', 'Mercedes-Benz Espana SA', 'Spain'),
-            Manufacturer::init('VSE', 'Santana', '', '', 'Santana Motor', 'Spain'),
-            Manufacturer::init('VSK', 'Nissan', 'car/MPV/van/SUV/pickup', '', 'Nissan Motor Iberica SA', 'Spain'),
-            Manufacturer::init('VSK', 'Nissan', 'car/MPV/van/SUV/pickup', '', 'Nissan passenger', 'Spain'),
-            Manufacturer::init('VSK', 'Ford', '', 'Maverick', '', 'Spain', 1993, 1999),
-            Manufacturer::init('VSS', 'Seat', '', '', 'Seat', 'Spain'),
-            Manufacturer::init('VSX', 'Opel', '', '', 'Opel Automobile Espana, SA', 'Spain'),
-            Manufacturer::init('VTD', 'Honda', 'motorcycle', '', 'Montesa Honda', 'Spain'),
-            Manufacturer::init('VTH', 'Derbi', 'motorcycle', '', 'Derbi', 'Spain'),
-            Manufacturer::init('VTL', 'Yamaha', '', '', 'Yamaha Motor España SA', 'Spain'),
-            Manufacturer::init('VTL', 'Yamaha', '', '', 'Yamaha Sociedad Española de Motocicletas', 'Spain'),
-            Manufacturer::init('VTM', 'Honda', 'motorcycle', '', 'Montesa Honda', 'Spain'),
-            Manufacturer::init('VTR', 'Gas Gas', '', '', 'Gas Gas', 'Spain'),
-            Manufacturer::init('VTT', 'Suzuki', 'motorcycle', '', 'Suzuki Motor España', 'Spain'),
-            Manufacturer::init('VV9', 'Tauro Sport Auto', '', '', 'Tauro Sport Auto', 'Spain'),
-            Manufacturer::init('VWA', 'Nissan', '', '', 'Nissan Vehiculos Industriales SA', 'Spain'),
-            Manufacturer::init('VWV', 'Volkswagen', '', '', 'Volkswagen', 'Spain'),
-            Manufacturer::init('VXE', 'Opel', 'van', '', 'Opel Automobile GmbH/Vauxhall', 'Spain'),
-            Manufacturer::init('VXK', 'Opel', 'car/SUV', '', 'Opel Automobile GmbH/Vauxhall', 'Spain'),
-            Manufacturer::init('VX1', 'Zastava', '', '', 'Zastava / Yugo Serbia', 'Yugoslavia'),
-            Manufacturer::init('VYC', 'Lancia', '', '', 'Lancia', 'France', null, null, 'models on PSA CMP platform'),
-            Manufacturer::init('V31', 'TAZ', '', '', 'Tvornica Autobusa Zagreb', 'Croatia'),
-            Manufacturer::init('V39', 'Rimac', '', '', 'Rimac Automobili', 'Croatia'),
-            Manufacturer::init('WAC', 'Audi', '', 'RS 2 Avant', 'Audi/Porsche', 'Germany'),
-            Manufacturer::init('WAG', 'Neoplan', '', '', 'Neoplan', 'Germany'),
-            Manufacturer::init('WAP', 'Alpina', '', '', 'Alpina', 'Germany'),
-            Manufacturer::init('WAU', 'Audi', '', '', 'Audi', 'Germany'),
-            Manufacturer::init('WA1', 'Audi', 'SUV', '', 'Audi', 'Germany'),
-            Manufacturer::init('WBA', 'BMW', 'car', '', 'BMW', 'Germany'),
-            Manufacturer::init('WBS', 'BMW', 'car', 'M', 'BMW', 'Germany'),
-            Manufacturer::init('WBX', 'BMW', 'SUV', '', 'BMW', 'Germany'),
-            Manufacturer::init('WBY', 'BMW', 'car', 'i', 'BMW', 'Germany'),
-            Manufacturer::init('WB1', 'BMW Motorrad', 'Motorcycle', '', 'BMW Motorrad', 'Germany'),
-            Manufacturer::init('WB3', 'BMW Motorrad', 'Motorcycles', '', 'BMW Motorrad', 'Germany', null, null, 'made in India'),
-            Manufacturer::init('WB4', 'BMW Motorrad', 'Motorscooters', '', 'BMW Motorrad', 'Germany', null, null, 'made in China'),
-            Manufacturer::init('WB5', 'BMW', 'SUV', 'i', 'BMW', 'Germany'),
-            Manufacturer::init('WB6', 'BMW', 'SUV', 'M', 'BMW', 'Germany'),
-            Manufacturer::init('WCD', 'Freightliner', 'bus', '', 'Freightliner Sprinter', 'Germany', 2008, 2019),
-            Manufacturer::init('WD0', 'Dodge', 'truck', '', 'Dodge Sprinter', 'Germany', 2005, 2009),
-            Manufacturer::init('WD1', 'Freightliner', '', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2002, 2002),
-            Manufacturer::init('WD1', 'Dodge', 'incomplete', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005),
-            Manufacturer::init('WD1', 'Freightliner', 'incomplete', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005),
-            Manufacturer::init('WD2', 'Freightliner', 'truck', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2002, 2002),
-            Manufacturer::init('WD2', 'Dodge', 'truck', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005),
-            Manufacturer::init('WD2', 'Freightliner', 'truck', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005),
-            Manufacturer::init('WD3', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('WD4', 'Mercedes-Benz', 'MPV', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('WD5', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany', 2002, 2002),
-            Manufacturer::init('WD5', 'Dodge', 'MPV', 'Sprinter', '', 'Germany'), 2003, 2005,
-            Manufacturer::init('WD5', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany'), 2003, 2005,
-            Manufacturer::init('WD6', 'Unimog', 'truck', '', 'Freightliner Unimog', 'Germany'),
-            Manufacturer::init('WD7', 'Unimog', 'incomplete', '', 'Freightliner Unimog', 'Germany'),
-            Manufacturer::init('WD8', 'Dodge', 'MPV', 'Sprinter', '', 'Germany', 2005, 2009),
-            Manufacturer::init('WDA', 'Mercedes-Benz', 'incomplete', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('WDB', 'Maybach', '', '', 'Maybach', 'Germany'),
-            Manufacturer::init('WDB', 'Mercedes-Benz', '', '', 'Mercedes-Benz', 'Germany'),
-            Manufacturer::init('WDC', 'Mercedes-Benz', 'SUV', '', 'Mercedes-Benz', 'Germany'),
-            Manufacturer::init('WDD', 'Mercedes-Benz', 'car', '', 'Mercedes-Benz', 'Germany'),
-            Manufacturer::init('WDF', 'Mercedes-Benz', 'van', '', 'Mercedes-Benz', 'Germany', null, null, 'commercial vehicles'),
-            Manufacturer::init('WDP', 'Freightliner', 'incomplete vehicle', 'Sprinter', '', 'Germany', 2005, 2019),
-            Manufacturer::init('WDR', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany', 2005, 2019),
-            Manufacturer::init('WDW', 'Dodge', 'bus', 'Sprinter', '', 'Germany', 2008, 2009),
-            Manufacturer::init('WDX', 'Dodge', 'incomplete vehicle', 'Sprinter', '', 'Germany', 2005, 2009),
-            Manufacturer::init('WDY', 'Freightliner', 'truck', 'Sprinter', '', 'Germany', 2005, 2019),
-            Manufacturer::init('WDZ', 'Mercedes-Benz', 'bus', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('WEB', 'Evobus', '', '', 'EvoBus Mercedes-Benz buses', 'Germany'),
-            Manufacturer::init('WEL', 'e.GO Mobile', '', '', 'e.GO Mobile AG', 'Germany'),
-            Manufacturer::init('WF0', 'Ford', '', '', 'Ford of Europe', 'Germany'),
-            Manufacturer::init('WF1', 'Merkur', '', '', 'Merkur', 'Germany'),
-            Manufacturer::init('WJM', 'Iveco', '', '', 'Iveco Magirus', 'Germany'),
-            Manufacturer::init('WJR', 'Irmscher', '', '', 'Irmscher', 'Germany'),
-            Manufacturer::init('WKE', 'Krone', '', '', 'Krone Trailer', 'Germany'),
-            Manufacturer::init('WKK', '', '', '', 'Karl Kässbohrer Fahrzeugwerke', 'Germany'),
-            Manufacturer::init('WKK', 'Setra', '', '', 'Setra', 'Germany'),
-            Manufacturer::init('WMA', 'MAN', '', '', 'MAN', 'Germany'),
-            Manufacturer::init('WME', 'Smart', '', '', 'Smart', 'Germany', 1999),
-            Manufacturer::init('WMW', 'Mini', 'car', '', 'Mini', 'Germany'),
-            Manufacturer::init('WMX', 'AMG', '', '', 'Mercedes-AMG', 'Germany'),
-            Manufacturer::init('WMZ', 'Mini', 'SUV', '', 'Mini', 'Germany'),
-            Manufacturer::init('WNA', 'Next.e.GO', '', '', 'Next.e.GO Mobile SE', 'Germany'),
-            Manufacturer::init('WP0', 'Porsche', 'car', '', 'Porsche', 'Germany'),
-            Manufacturer::init('WP1', 'Porsche', 'SUV', '', 'Porsche', 'Germany'),
-            Manufacturer::init('WS5', 'StreetScooter', '', '', 'B-ON GmbH', 'Germany'),
-            Manufacturer::init('WSM', 'Schmitz Cargobull', '', '', 'Schmitz Cargobull', 'Germany'),
-            Manufacturer::init('WUA', 'Audi', 'car', '', 'Audi Sport GmbH', 'Germany'),
-            Manufacturer::init('WUA', 'Audi', 'car', '', 'Quattro GmbH', 'Germany'),
-            Manufacturer::init('WU1', 'Audi', 'SUV', '', 'Audi Sport GmbH', 'Germany'),
-            Manufacturer::init('WV1', 'Volkswagen', '', '', 'Volkswagen', 'Germany', null, null, 'Commercial Vehicles'),
-            Manufacturer::init('WV2', 'Volkswagen', 'Bus/Van', '', 'Volkswagen', 'Germany'),
-            Manufacturer::init('WV3', 'Volkswagen', 'Trucks', '', 'Volkswagen', 'Germany'),
-            Manufacturer::init('WVG', 'Volkswagen', 'MPV/SUV', '', 'Volkswagen', 'Germany'),
-            Manufacturer::init('WVM', 'MAN', '', '', 'Arbeitsgemeinschaft VW-MAN', 'Germany'),
-            Manufacturer::init('WVP', 'Viseon', '', '', 'Viseon Bus', 'Germany'),
-            Manufacturer::init('WVW', 'Volkswagen', '', '', 'Volkswagen', 'Germany'),
-            Manufacturer::init('WZ1', 'Toyota', '', 'Supra Fifth generation', 'Toyota', 'Germany'),
-            Manufacturer::init('W04', 'Buick', '', 'Regal', '', 'Germany'),
-            Manufacturer::init('W04', 'Buick', '', 'Cascada', '', 'Germany'),
-            Manufacturer::init('W06', 'Cadillac', '', 'Catera', '', 'Germany'),
-            Manufacturer::init('W08', 'Saturn', '', 'Astra', '', 'Germany'),
-            Manufacturer::init('W09', 'Bitter Cars', '', '', '', 'Germany'),
-            Manufacturer::init('W09', 'Brabus', '', '', '', 'Germany'),
-            Manufacturer::init('W09', 'Drögmöller', '', '', '', 'Germany'),
-            Manufacturer::init('W09', 'HWA AG', '', '', '', 'Germany'),
-            Manufacturer::init('W09', 'Ruf Automobile', '', '', '', 'Germany'),
-            Manufacturer::init('W0L', 'Opel', '', '', 'Adam Opel AG/Vauxhall', 'Germany'),
-            Manufacturer::init('W0L', 'Holden', '', '', 'Holden', 'Germany'),
-            Manufacturer::init('W0S', 'Opel', 'Special Vehicles', '', 'Opel', 'Germany'),
-            Manufacturer::init('W0V', 'Opel', '', '', 'Opel Automobile Gmbh/Vauxhall', 'Germany'),
-            Manufacturer::init('W0V', 'Holden', '', '', 'Holden', 'Germany'),
-            Manufacturer::init('W1A', 'Smart', '', '', 'Smart', 'Germany'),
-            Manufacturer::init('W1H', 'Freightliner', '', 'Econic', '', 'Germany'),
-            Manufacturer::init('W1K', 'Mercedes-Benz', 'car', '', 'Mercedes-Benz', 'Germany'),
-            Manufacturer::init('W1N', 'Mercedes-Benz', 'SUV', '', 'Mercedes-Benz', 'Germany'),
-            Manufacturer::init('W1T', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Germany'),
-            Manufacturer::init('W1V', 'Mercedes-Benz', 'van', '', 'Mercedes-Benz', 'Germany'),
-            Manufacturer::init('W1W', 'Mercedes-Benz', 'MPV', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('W1X', 'Mercedes-Benz', 'incomplete vehicle', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('W1Y', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('W1Z', 'Mercedes-Benz', 'bus', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'),
-            Manufacturer::init('W2W', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany'),
-            Manufacturer::init('W2X', 'Freightliner', 'incomplete', 'Sprinter', '', 'Germany'),
-            Manufacturer::init('W2Y', 'Freightliner', 'truck', 'Sprinter', '', 'Germany'),
-            Manufacturer::init('W2Z', 'Freightliner', 'bus', 'Sprinter', '', 'Germany'),
-            Manufacturer::init('XBB', 'Great Wall', '', '', 'Great Wall Motors/Litex Motors AD', 'Bulgaria'),
-            Manufacturer::init('XL9', 'Bova', '', '', 'Autobusfabriek Bova BV', 'Netherlands'),
-            Manufacturer::init('XL9', 'Bova', '', '', 'VDL Bova', 'Netherlands'),
-            Manufacturer::init('XL9', 'Spyker', '', '', 'Spyker Cars', 'Netherlands'),
-            Manufacturer::init('XL9', '', '', '', 'Groenewold Carrosseriefabriek B.V.', 'Netherlands'),
-            Manufacturer::init('XLB', 'VDL Nedkar', '', '', 'Volvo Car B.V./NedCar B.V.', 'Netherlands', null, null, 'Volvo Cars'),
-            Manufacturer::init('XLE', 'Scania', '', '', 'Scania Nederland B.V.', 'Netherlands'),
-            Manufacturer::init('XLR', 'DAF Trucks', '', '', 'DAF Trucks', 'Netherlands'),
-            Manufacturer::init('XLR', 'Leyland DAF', '', '', 'Leyland DAF', 'Netherlands'),
-            Manufacturer::init('XLV', 'DAF', '', '', 'DAF Bus', 'Netherlands'),
-            Manufacturer::init('XMC', 'VDL Nedkar', '', '', 'NedCar B.V. Mitsubishi Motors', 'Netherlands'),
-            Manufacturer::init('XMG', 'VDL Nedkar', '', '', 'VDL Bus International', 'Netherlands'),
-            Manufacturer::init('XNC', 'VDL Nedkar', '', '', 'NedCar B.V. Mitsubishi Motors', 'Netherlands', null, null, 'Colt CZC convertible'),
-            Manufacturer::init('XNL', 'VDL', '', '', 'VDL Bus & Coach', 'Netherlands'),
-            Manufacturer::init('XNT', 'Pacton', '', '', 'Pacton Trailer', 'Netherlands'),
-            Manufacturer::init('XP7', 'Tesla', '', '', 'Tesla Europe', 'Netherlands', null, null, 'based in the Netherlands'),
-            Manufacturer::init('XTA', 'Lada', '', '', 'Lada/AutoVaz', 'Russia'),
-            Manufacturer::init('XTB', 'AZLK', '', '', 'AZLK', 'Russia'),
-            Manufacturer::init('XTC', 'KAMAZ', '', '', 'KAMAZ', 'Russia'),
-            Manufacturer::init('XTF', 'GolAZ', '', '', 'GolAZ', 'Russia'),
-            Manufacturer::init('XTH', 'GAZ', '', '', 'GAZ', 'Russia'),
-            Manufacturer::init('XTT', 'UAZ', '', '', 'UAZ/Sollers', 'Russia'),
-            Manufacturer::init('XTY', 'LiAZ', '', '', 'LiAZ', 'Russia'),
-            Manufacturer::init('XUF', 'GM', '', '', 'General Motors Russia', 'Russia'),
-            Manufacturer::init('XUU', 'AvtoTor', '', '', 'AvtoTor (Russia, General Motors SKD)', 'Russia'),
-            Manufacturer::init('XU1', 'UAZ', 'Special Purpose Vehicles', '', 'UAZ', 'Russia'),
-            Manufacturer::init('XWE', 'AvtoTor', '', '', 'AvtoTor (Russia, Hyundai-Kia SKD)', 'Uzbekistan'),
-            Manufacturer::init('XWB', 'Daewoo', '', '', 'UZ-Daewoo', 'Uzbekistan'),
-            Manufacturer::init('XW7', 'Toyota', '', '', 'Toyota Motor Manufacturing Russia', 'Russia'),
-            Manufacturer::init('XW8', 'Volkswagen', '', '', 'Volkswagen Group Russia', 'Russia'),
-            Manufacturer::init('X1E', 'KAvZ', '', '', 'KAvZ', 'Russia'),
-            Manufacturer::init('X1M', 'PAZ', '', '', 'PAZ', 'Russia'),
-            Manufacturer::init('X4X', 'AvtoTor', '', '', 'AvtoTor (Russia, BMW SKD)', 'Russia'),
-            Manufacturer::init('X7L', 'Renault', '', '', 'Renault AvtoFramos', 'Russia'),
-            Manufacturer::init('X7M', 'Hyundai', '', '', 'Hyundai TagAZ', 'Russia'),
-            Manufacturer::init('X8J', 'Ural', 'motorcycles', '', 'IMZ-Ural', 'Russia'),
-            Manufacturer::init('X9F', 'Ford', '', '', 'Ford Motor Company ZAO', 'Russia'),
-            Manufacturer::init('X9L', 'GM', '', '', 'GM-AvtoVAZ', 'Russia'),
-            Manufacturer::init('X9P', 'Volvo', 'Trucks', '', 'Volvo Vostok ZAO', 'Russia'),
-            Manufacturer::init('X9X', 'GWM', '', '', 'Great Wall Motors IMS Avtotrade-12 LLC', 'Russia'),
-            Manufacturer::init('X96', 'GAZ', '', '', 'GAZ', 'Russia'),
-            Manufacturer::init('Y6D', 'Zaporozhets', '', '', 'AvtoZAZ', 'Ukraine'),
-            Manufacturer::init('Y6J', 'Bogdan', '', '', 'Bogdan group', 'Ukraine'),
-            Manufacturer::init('Y6U', 'Škoda', '', '', 'Eurocar - Škoda Auto', 'Ukraine'),
-            Manufacturer::init('Y7B', 'Bogdan', '', '', 'Bogdan group', 'Ukraine'),
-            Manufacturer::init('Y7C', 'Great Wall', '', '', 'Great Wall Motors KrASZ', 'Ukraine'),
-            Manufacturer::init('YAR', 'Toyota', '', 'ProAce', 'Toyota Motor Europe', 'Belgium'),
-            Manufacturer::init('YAR', 'Toyota', '', 'ProAce City', 'Toyota Motor Europe', 'Belgium'),
-            Manufacturer::init('YBW', 'Volkswagen', '', '', 'Volkswagen', 'Belgium'),
-            Manufacturer::init('YB3', 'Volvo', '', '', 'Volvo Trucks', 'Belgium'),
-            Manufacturer::init('YB6', 'Jonckheere', '', '', 'Jonckheere', 'Belgium'),
-            Manufacturer::init('YCM', 'Mazda', '', '', 'Mazda', 'Belgium'),
-            Manufacturer::init('YC1', 'Honda', '', '', 'Honda', 'Belgium'),
-            Manufacturer::init('YE2', 'Van Hool', 'bus', '', 'Van Hool', 'Belgium'),
-            Manufacturer::init('YH2', 'Lynx', 'snowmobile', '', 'Lynx', 'Finland'),
-            Manufacturer::init('YH4', 'Fisker Automotive', '', '', 'Valmet Automotive', 'Finland'),
-            Manufacturer::init('YK1', 'Saab-Valmet', '', '', 'Saab-Valmet', 'Finland'),
-            Manufacturer::init('YK7', 'Sisu Auto', '', '', 'Sisu Auto', 'Finland'),
-            Manufacturer::init('YSC', 'Cadillac', '', 'BLS', 'Saab', 'Sweden'),
-            Manufacturer::init('YSM', 'Polestar', '', '', 'Polestar', 'Sweden'),
-            Manufacturer::init('YS2', 'Scania', '', '', 'Södertälje truck', 'Sweden'),
-            Manufacturer::init('YS3', 'Saab', '', '', 'Saab', 'Sweden'),
-            Manufacturer::init('YS4', 'Scania', 'bus', '', 'Katrineholm', 'Sweden'),
-            Manufacturer::init('YTN', 'Saab', '', '', 'Saab NEVS', 'Sweden'),
-            Manufacturer::init('YT9', '', '', '', 'Koenigsegg Automotive AB', 'Sweden'),
-            Manufacturer::init('YU7', 'Husaberg', 'motorcycles', '', 'Husaberg', 'Sweden', null, null, 'Swedish built models'),
-            Manufacturer::init('YV1', 'Volvo', '', '', 'Volvo Carsr', 'Sweden'),
-            Manufacturer::init('YV2', 'Volvo', '', '', 'Volvo Trucks', 'Sweden'),
-            Manufacturer::init('YV3', 'Volvo', '', '', 'Volvo Buses', 'Sweden'),
-            Manufacturer::init('YV4', 'Volvo', 'SUV', '', 'Volvo Cars', 'Sweden'),
-            Manufacturer::init('YV5', 'Volvo', 'incomplete', '', 'Volvo Trucks', 'Sweden'),
-            Manufacturer::init('YYC', 'Think Nordic', '', '', 'Think Nordic', 'Norway'),
-            Manufacturer::init('ZA9', 'Lamborghini', '', '', 'Lamborghini', 'Italy'),
-            Manufacturer::init('ZA9', 'Cizeta', '', '', 'Cizeta', 'Italy'),
-            Manufacturer::init('ZA9', 'Bugatti', '', '', 'Bugatti', 'Italy'),
-            Manufacturer::init('ZA9', 'Pagani', '', '', 'Pagani', 'Italy'),
-            Manufacturer::init('ZA9', 'Italdesign', '', '', 'Italdesign', 'Italy'),
-            Manufacturer::init('ZA9', 'Dallara', '', '', 'Dallara', 'Italy'),
-            Manufacturer::init('ZA9', 'Pininfarina', '', '', 'Pininfarina', 'Italy'),
-            Manufacturer::init('ZAA', 'Autobianchi', '', '', 'Autobianchi', 'Italy'),
-            Manufacturer::init('ZAC', 'Jeep', '', '', 'Jeep', 'Italy'),
-            Manufacturer::init('ZAC', 'Dodge', '', 'Hornet', '', 'Italy'),
-            Manufacturer::init('ZAH', 'Rolfo', '', '', 'Rolfo', 'Italy'),
-            Manufacturer::init('ZAM', 'Maserati', '', '', 'Maserati', 'Italy'),
-            Manufacturer::init('ZAP', 'Piaggio', '', '', 'Piaggio', 'Italy'),
-            Manufacturer::init('ZAP', 'Vespa', '', '', 'Vespa', 'Italy'),
-            Manufacturer::init('ZAP', 'Gilera', '', '', 'Gilera', 'Italy'),
-            Manufacturer::init('ZAR', 'Alfa Romeo', 'car', '', 'Alfa Romeo', 'Italy'),
-            Manufacturer::init('ZAR', 'Nissan', '', 'Cherry', 'Nissan Cherry Europe', 'Italy'),
-            Manufacturer::init('ZAS', 'Alfa Romeo', '', 'Alfasud', 'Alfa Romeo', 'Italy', 1989, 1989),
-            Manufacturer::init('ZAS', 'Alfa Romeo', '', 'Sprint', 'Alfa Romeo', 'Italy', 1989, 1989),
-            Manufacturer::init('ZAS', 'Alfa Romeo', 'SUV', '', 'Alfa Romeo', 'Italy', 2018),
-            Manufacturer::init('ZBA', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For South africa'),
-            Manufacturer::init('ZBB', 'Bertone', '', '', 'Gruppo Bertone', 'Italy'),
-            Manufacturer::init('ZBI', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Indonesia'),
-            Manufacturer::init('ZBM', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Philippines'),
-            Manufacturer::init('ZBN', 'Benelli', '', '', 'Benelli', 'Italy'),
-            Manufacturer::init('ZBP', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Malaysia'),
-            Manufacturer::init('ZBT', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Thailand'),
-            Manufacturer::init('ZBW', 'Rayton-Fissore', '', '', 'Rayton-Fissore Magnum', 'Italy'),
-            Manufacturer::init('ZCF', 'Iveco', '', '', 'Iveco', 'Italy'),
-            Manufacturer::init('ZCG', '', '', '', 'Cagiva SpA', 'Italy'),
-            Manufacturer::init('ZCG', '', '', '', 'MV Agusta', 'Italy'),
-            Manufacturer::init('ZC2', 'Chrysler', '', 'TC', 'Maserati', 'Italy'),
-            Manufacturer::init('ZC6', '', '', '', 'Effedi Veicoli Commerciali', 'Italy'),
-            Manufacturer::init('ZDC', 'Honda', '', '', 'Honda Italia Industriale S.p.A.', 'Italy'),
-            Manufacturer::init('ZDF', 'Ferrari', '', 'Dino', '', 'Italy'),
-            Manufacturer::init('ZDM', 'Ducati', '', '', 'Ducati Motor Holding', 'Italy'),
-            Manufacturer::init('ZDT', 'De Tomaso', '', '', 'De Tomaso Modena SpA', 'Italy'),
-            Manufacturer::init('ZDY', 'Cacciamali', '', '', 'Cacciamali', 'Italy'),
-            Manufacturer::init('ZD0', '', '', '', 'Yamaha Motor Italia SpA', 'Italy'),
-            Manufacturer::init('ZD0', '', '', '', 'Belgarda SpA', 'Italy'),
-            Manufacturer::init('ZD3', '', '', '', 'Betamotor S.p.A.', 'Italy'),
-            Manufacturer::init('ZD4', 'Aprilia', '', '', 'Aprilia', 'Italy'),
-            Manufacturer::init('ZES', 'Bimota', '', '', 'Bimota', 'Italy'),
-            Manufacturer::init('ZE8', 'Bremach', '', '', 'Bremach', 'Italy'),
-            Manufacturer::init('ZFA', 'Fiat', '', '', 'Fiat', 'Italy'),
-            Manufacturer::init('ZFB', 'Fiat', 'MPV/SUV', '', 'Fiat', 'Italy'),
-            Manufacturer::init('ZFC', 'Ram', '', '1200', 'Fiat V.I.', 'Italy'),
-            Manufacturer::init('ZFF', 'Ferrari', '', '', 'Ferrari', 'Italy'),
-            Manufacturer::init('ZFM', 'Fantic Motor', '', '', 'Fantic Motor', 'Italy'),
-            Manufacturer::init('ZFR', 'Pininfarina', '', '', 'Pininfarina', 'Italy'),
-            Manufacturer::init('ZF4', 'Qvale', '', '', 'Qvale', 'Italy'),
-            Manufacturer::init('ZGA', 'Iveco', '', '', 'Iveco Bus', 'Italy'),
-            Manufacturer::init('ZGU', 'Moto Guzzi', '', '', 'Moto Guzzi', 'Italy'),
-            Manufacturer::init('ZHU', 'Husqvarna', '', '', 'Husqvarna Motorcycles', 'Italy', null, null, 'Under Cagiva ownership'),
-            Manufacturer::init('ZHW', 'Lamborghini', '', '', 'Lamborghini', 'Italy', 2003),
-            Manufacturer::init('ZJM', 'Malaguti', '', '', 'Malaguti', 'Italy'),
-            Manufacturer::init('ZJN', 'Innocenti', '', '', 'Innocenti', 'Italy'),
-            Manufacturer::init('ZJT', 'Italjet', '', '', 'Italjet', 'Italy'),
-            Manufacturer::init('ZKH', 'Husqvarna', '', '', 'Husqvarna Motorcycles Srl', 'Italy', null, null, 'Under BMW ownership'),
-            Manufacturer::init('ZK5', 'Hyundai', '', '', 'Hyundai Automobili Italia Importazioni', 'Italy'),
-            Manufacturer::init('ZLA', 'Lancia', '', '', 'Lancia', 'Italy'),
-            Manufacturer::init('ZLM', 'Moto Morini', '', '', 'Moto Morini srl', 'Italy'),
-            Manufacturer::init('ZLV', 'Laverda', '', '', 'Laverda', 'Italy'),
-            Manufacturer::init('ZNN', 'Energica Motor Company', '', '', 'Energica Motor Company', 'Italy'),
-            Manufacturer::init('ZN0', 'SV.VM', '', '', 'SWM Motorcycles S.r.l.', 'Italy'),
-            Manufacturer::init('ZN3', 'Iveco', '', '', 'Iveco Defence', 'Italy'),
-            Manufacturer::init('ZN6', 'Maserati', 'SUV', '', 'Maserati', 'Italy'),
-            Manufacturer::init('ZOM', 'OM', '', '', 'OM', 'Italy'),
-            Manufacturer::init('ZPB', 'Lamborghini', 'SUV', '', 'Lamborghini', 'Italy'),
-            Manufacturer::init('ZPY', 'DR Automobiles', '', '', 'DR Automobiles', 'Italy'),
-            Manufacturer::init('ZZ1', 'Tomos', 'motorcycle', '', 'Tomos', 'Slovenia'),
-            Manufacturer::init('Z6F', 'Ford', '', '', 'Ford Sollers', 'Russia'),
-            Manufacturer::init('Z8M', 'Marussia', '', '', 'Marussia', 'Russia'),
-            Manufacturer::init('Z8N', 'Nissan', '', '', 'Nissan Manufacturing Rus', 'Russia'),
-            Manufacturer::init('Z8T', 'PCMA', '', '', 'PCMA Rus', 'Russia'),
-            Manufacturer::init('Z9M', 'Mercedes-Benz', '', '', 'Mercedes-Benz Trucks Vostok', 'Russia'),
-            Manufacturer::init('Z94', 'Hyundai', '', '', 'Hyundai Motor Manufacturing Rus', 'Russia'),
-            Manufacturer::init('1AC', '', 'MPV', '', 'American Motors Corporation', 'United States'),
-            Manufacturer::init('1AF', 'ALF', 'truck', '', 'American LaFrance', 'United States'),
-            Manufacturer::init('1AM', '', 'car', '', 'American Motors Corporation', 'United States', 1983, 1983),
-            Manufacturer::init('1AM', '', 'car', '', 'Renault Alliance', 'United States', 1983, 1983),
-            Manufacturer::init('1A4', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'United States', 2006, 2009),
-            Manufacturer::init('1A8', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'United States', 2006, 2009),
-            Manufacturer::init('1BA', '', 'bus', '', 'Blue Bird Corporation', 'United States'),
-            Manufacturer::init('1BB', '', 'MPV', '', 'Blue Bird Wanderlodge', 'United States'),
-            Manufacturer::init('1BD', '', 'incomplete vehicle', '', 'Blue Bird Corporation', 'United States'),
-            Manufacturer::init('1BL', '', '', '', 'Balko, Inc. from Ladysmith, WI', 'United States'),
-            Manufacturer::init('1B3', 'Dodge', 'car', '', 'Dodge', 'United States', 1981, 2011),
-            Manufacturer::init('1B4', 'Dodge', 'MPV/SUV', '', 'Dodge', 'United States', 1981, 2002),
-            Manufacturer::init('1B6', 'Dodge', 'incomplete', '', 'Dodge', 'United States', 1981, 2002),
-            Manufacturer::init('1B7', 'Dodge', 'truck', '', 'Dodge', 'United States', 1981, 2002),
-            Manufacturer::init('1B9', '', '', '', 'Buell Motorcycle Company', 'United States', 1995, 1995),
-            Manufacturer::init('1B9', '', '', '', 'Motus Motorcycles', 'United States'),
-            Manufacturer::init('1CM', '', '', '', 'Checker Motors Corporation', 'United States'),
-            Manufacturer::init('1CU', '', '', '', 'Cushman Haulster', 'United States', null, null, 'Cushman division of Outboard Marine Corporation'),
-            Manufacturer::init('1CY', '', '', '', 'Crane Carrier', 'United States'),
-            Manufacturer::init('1C3', 'Chrysler', 'car', '', 'Chrysler brand', 'United States', 1981, 2011),
-            Manufacturer::init('1C3', 'Chrysler', 'car', '', 'Chrysler Group', 'United States', 2012),
-            Manufacturer::init('1C4', 'Chrysler', 'MPV', '', 'Chrysler brand', 'United States', 1981, 2011),
-            Manufacturer::init('1C4', 'Chrysler', 'MPV', '', 'Chrysler Group', 'United States', 2012),
-            Manufacturer::init('1C6', 'Chrysler', 'truck', '', 'Chrysler Group', 'United States', 2012),
-            Manufacturer::init('1C8', 'Chrysler', 'MPV', '', 'Chrysler brand', 'United States', 2001, 2005),
-            Manufacturer::init('1C9', 'Chance', '', '', 'CX Automotive', 'United States'),
-            Manufacturer::init('1D3', 'Dodge', 'truck', '', 'Dodge', 'United States', 2002, 2009),
-            Manufacturer::init('1D4', 'Dodge', 'MPV/SUV', '', 'Dodge', 'United States', 2003, 2011),
-            Manufacturer::init('1D5', 'Dodge', '', '', 'Dodge', 'United States'),
-            Manufacturer::init('1D7', 'Dodge', 'truck', '', 'Dodge', 'United States', 2002, 2011),
-            Manufacturer::init('1D8', 'Dodge', 'MPV/SUV', '', 'Dodge', 'United States', 2003, 2009),
-            Manufacturer::init('1EC', 'Fleetwood', '', '', 'Fleetwood', 'United States'),
-            Manufacturer::init('1FA', 'Ford', 'car', '', 'Ford Motor Company', 'United States'),
-            Manufacturer::init('1FB', 'Ford', 'bus', '', 'Ford Motor Company', 'United States'),
-            Manufacturer::init('1FC', 'Ford', 'chassis', '', 'Ford Motor Company', 'United States'),
-            Manufacturer::init('1FD', 'Ford', 'incomplete', '', 'Ford Motor Company', 'United States'),
-            Manufacturer::init('1FE', 'Ford', '', '', 'Ford Moter Company', 'United States'),
-            Manufacturer::init('1FM', 'Ford', 'MPV/SUV', '', 'Ford Motor Company', 'United States'),
-            Manufacturer::init('1FT', 'Ford', 'truck', '', 'Ford Motor Company', 'United States'),
-            Manufacturer::init('1FU', 'Freightliner', '', '', 'Freightliner Trucks', 'United States'),
-            Manufacturer::init('1FV', 'Freightliner', '', '', 'Freightliner Trucks', 'United States'),
-            Manufacturer::init('1F1', 'Ford', 'SUV', '', 'Ford Motor Company', 'United States', 2009, 2009),
-            Manufacturer::init('1F6', 'Ford', 'chassis', '', 'Ford Motor Company', 'United States', null, null, 'made by Detroit Chassis LLC'),
-            Manufacturer::init('1F9', '', '', '', 'FWD Corp.', 'United States'),
-            Manufacturer::init('1G', 'GMC', '', '', 'General Motors', 'United States'),
-            Manufacturer::init('1GA', 'Chevrolet', 'bus', '', 'Chevrolet', 'United States'),
-            Manufacturer::init('1GB', 'Chevrolet', 'incomplete', '', 'Chevrolet', 'United States'),
-            Manufacturer::init('1GC', 'Chevrolet', 'truck', '', 'Chevrolet', 'United States'),
-            Manufacturer::init('1GD', 'GMC', 'incomplete', '', 'General Motors', 'United States'),
-            Manufacturer::init('1GE', 'Cadillac', 'incomplete', '', 'Cadillac', 'United States'),
-            Manufacturer::init('1GF', 'Flxible', 'bus', '', 'Flxible', 'United States'),
-            Manufacturer::init('1GG', 'Isuzu', 'pickup trucks', '', 'General Motors', 'United States'),
-            Manufacturer::init('1GH', 'Oldsmobile', 'MPV/SUV', '', 'General Motors', 'United States', 1990, 2004),
-            Manufacturer::init('1GH', 'Holden Acadia', '', '', 'General Motors', 'United States', 2019, 2020),
-            Manufacturer::init('1GJ', 'GMC', 'bus', '', 'General Motors', 'United States', 1987),
-            Manufacturer::init('1GK', 'GMC', 'MPV/SUV', '', 'General Motors', 'United States', 1987),
-            Manufacturer::init('1GM', 'Pontiac', 'MPV', '', 'General Motors', 'United States'),
-            Manufacturer::init('1GN', 'Chevrolet', 'MPV/SUV', '', 'General Motors', 'United States', 1987),
-            Manufacturer::init('1GT', 'GMC', 'Truck', '', 'General Motors', 'United States'),
-            Manufacturer::init('1GY', 'Cadillac', 'SUV', '', 'General Motors', 'United States'),
-            Manufacturer::init('1G0', 'GMC', 'bus', '', 'General Motors', 'United States', 1981, 1986),
-            Manufacturer::init('1G0', 'GMC', 'RTS', '', 'General Motors', 'United States', 1981, 1986),
-            Manufacturer::init('1G0', 'Opel', '', '', 'General Motors', 'United States', 2007, 2017),
-            Manufacturer::init('1G1', 'Chevrolet', '', '', 'General Motors', 'United States'),
-            Manufacturer::init('1G2', 'Pontiac', '', '', 'General Motors', 'United States'),
-            Manufacturer::init('1G3', 'Oldsmobile', '', '', 'General Motors', 'United States'),
-            Manufacturer::init('1G4', 'Buick', '', '', 'General Motors', 'United States'),
-            Manufacturer::init('1G5', 'GMC', 'MPV/SUV', '', 'General Motors', 'United States', 1981, 1986),
-            Manufacturer::init('1G6', 'Cadillac', '', '', 'General Motors', 'United States'),
-            Manufacturer::init('1G8', 'Chevrolet', '', '', 'General Motors', 'United States', 1981, 1986),
-            Manufacturer::init('1G8', 'Saturn', '', '', 'General Motors', 'United States',1991, 2010),
-            Manufacturer::init('1G9', '', '', '', 'Google & Waymo', 'United States'),
-            Manufacturer::init('1H', 'Honda', '', '', 'Honda', 'United States'),
-            Manufacturer::init('1HD', 'Harley-Davidson', '', '', 'Harley-Davidson', 'United States'),
-            Manufacturer::init('1HF', 'Honda', 'motocycle/ATV/UTV', '', 'Honda', 'United States'),
-            Manufacturer::init('1HG', 'Honda', 'car', '', 'Honda', 'United States'),
-            Manufacturer::init('1HS', 'International trucks', '', '', 'International trucks', 'United States'),
-            Manufacturer::init('1HS', 'Cat', '', '', 'Caterpillar trucks', 'United States'),
-            Manufacturer::init('1HT', 'International trucks', 'incomplete', '', 'International trucks', 'United States'),
-            Manufacturer::init('1HT', 'Cat', 'incomplete', '', 'Caterpillar trucks', 'United States'),
-            Manufacturer::init('1HV', 'IC Bus', 'incomplete', '', 'IC Bus', 'United States'),
-            Manufacturer::init('1JC', 'Jeep', '', '', 'AMC', 'United States', 1981, 1988),
-            Manufacturer::init('1JD', 'AMC', '', '', 'AMC', 'United States'),
-            Manufacturer::init('1JT', 'Jeep', 'truck', '', 'AMC', 'United States', 1981, 1988),
-            Manufacturer::init('1J4', 'Jeep', 'SUV', '', 'Jeep', 'United States', 1989, 2011),
-            Manufacturer::init('1J7', 'Jeep', 'truck', '', 'Jeep', 'United States', 1989, 1992),
-            Manufacturer::init('1J8', 'Jeep', 'SUV', '', 'Jeep', 'United States', 2002, 2011),
-            Manufacturer::init('1L', 'Lincoln', '', '', 'Lincoln', 'United States'),
-            Manufacturer::init('1LJ', 'Lincoln', 'incomplete', '', 'Lincoln', 'United States'),
-            Manufacturer::init('1LN', 'Lincoln', 'car', '', 'Lincoln', 'United States'),
-            Manufacturer::init('1LV', 'John Deere', '', '', 'John Deere', 'United States'),
-            Manufacturer::init('1L1', 'Lincoln', 'car - limousine', '', 'Lincoln', 'United States'),
-            Manufacturer::init('1L9', 'Laforza', '', '', 'Laforza', 'United States'),
-            Manufacturer::init('1MB', 'Mercedes-Benz', '', '', 'Mercedes-Benz Truck Co.', 'United States'),
-            Manufacturer::init('1ME', 'Mercury', '', '', 'Mercury', 'United States'),
-            Manufacturer::init('1MR', 'Continental', '', '', 'Continental', 'United States'),
-            Manufacturer::init('1M0', 'John Deere Gator', '', '', 'John Deere Gator', 'United States'),
-            Manufacturer::init('1M1', 'Mack Truck', '', '', 'Mack Truck', 'United States'),
-            Manufacturer::init('1M2', 'Mack Truck', '', '', 'Mack Truck', 'United States'),
-            Manufacturer::init('1M3', 'Mack Truck', '', '', 'Mack Truck', 'United States'),
-            Manufacturer::init('1M4', 'Mack Truck', '', '', 'Mack Truck', 'United States'),
-            Manufacturer::init('1M8', '', '', '', 'Motor Coach Industries', 'United States'),
-            Manufacturer::init('1M9', '', '', '', 'Mynatt Truck & Equipment', 'United States'),
-            Manufacturer::init('1M9', '', '', '', 'Mosler Automotive', 'United States'),
-            Manufacturer::init('1M9', '', '', '', 'Proterra', 'United States', 2019, 2019),
-            Manufacturer::init('1N', 'Nissan', '', '', 'Nissan', 'United States'),
-            Manufacturer::init('1NK', 'Kenworth', 'incomplete', '', 'Kenworth', 'United States'),
-            Manufacturer::init('1NP', 'Peterbilt', 'incomplete', '', 'Peterbilt', 'United States'),
-            Manufacturer::init('1NX', 'Toyota', '', '', 'NUMMI USA', 'United States'),
-            Manufacturer::init('1N4', 'Nissan', 'car', '', 'Nissan', 'United States'),
-            Manufacturer::init('1N6', 'Nissan', 'truck', '', 'Nissan', 'United States'),
-            Manufacturer::init('1N6', 'Datsun', 'truck', '', 'Nissan', 'United States'),
-            Manufacturer::init('1N9', 'Neoplan', '', '', 'Neoplan', 'United States'),
-            Manufacturer::init('1N9', 'Nikola', '', '', 'Nikola', 'United States'),
-            Manufacturer::init('1PY', 'John Deere', '', '', 'John Deere', 'United States'),
-            Manufacturer::init('1P3', 'Plymouth', 'car', '', 'Plymouth', 'United States'),
-            Manufacturer::init('1P4', 'Plymouth', 'MPV/SUV', '', 'Plymouth', 'United States'),
-            Manufacturer::init('1P7', 'Plymouth', '', '', 'Plymouth', 'United States'),
-            Manufacturer::init('1P9', 'Panoz', '', '', 'Panoz', 'United States'),
-            Manufacturer::init('1RF', 'Roadmaster', '', '', 'Roadmaster', 'United States'),
-            Manufacturer::init('1R9', '', '', '', 'Roadrunner Hay Squeeze', 'United States'),
-            Manufacturer::init('1S9', 'Scania', '', 'CN112', 'Scania AB', 'United States'),
-            Manufacturer::init('1S9', 'Saleen', '', '', 'Saleen', 'United States'),
-            Manufacturer::init('1S9', 'SSC', '', '', 'SSC North America', 'United States'),
-            Manufacturer::init('1TU', '', '', '', 'Transportation Manufacturing Corporation', 'United States'),
-            Manufacturer::init('1T7', '', '', '', 'Thomas Built Buses', 'United States'),
-            Manufacturer::init('1T8', '', '', '', 'Thomas Built Buses', 'United States'),
-            Manufacturer::init('1T9', '', '', '', 'Tomcar USA', 'United States'),
-            Manufacturer::init('1UT', 'Jeep', '', 'DJ', 'AM General', 'United States'),
-            Manufacturer::init('1VH', '', '', '', 'Orion Bus Industries', 'United States'),
-            Manufacturer::init('1VR', '', '', '', 'Vermeer Corporation', 'United States'),
-            Manufacturer::init('1VW', 'Volkswagen', 'SUV', '', 'Volkswagen', 'United States'),
-            Manufacturer::init('1V1', 'Volkswagen', 'truck', '', 'Volkswagen', 'United States'),
-            Manufacturer::init('1V9', '', '', '', 'Vector Aeromotive', 'United States'),
-            Manufacturer::init('1WA', 'Autostar', '', '', 'Autostar', 'United States'),
-            Manufacturer::init('1WB', 'Autostar', '', '', 'Autostar', 'United States'),
-            Manufacturer::init('1WU', 'White', 'truck', '', 'Volvo', 'United States'),
-            Manufacturer::init('1WV', '', '', '', 'Winnebago Industries', 'United States'),
-            Manufacturer::init('1WW', '', '', '', 'Winnebago Industries', 'United States'),
-            Manufacturer::init('1WX', '', '', '', 'White incomplete', 'United States'),
-            Manufacturer::init('1WY', '', '', '', 'White incomplete', 'United States'),
-            Manufacturer::init('1XK', 'Kenworth', 'truck', '', 'Kenworth', 'United States'),
-            Manufacturer::init('1XM', '', '', '', 'Renault Alliance/GTA/Encore', 'United States', 1984, 1987),
-            Manufacturer::init('1XP', 'Peterbilt', 'truck', '', 'Peterbilt', 'United States'),
-            Manufacturer::init('1YJ', '', '', '', 'Rokon International, Inc.', 'United States'),
-            Manufacturer::init('1YV', 'Mazda', '', '', 'Mazda', 'United States', null, null, 'AutoAlliance International'),
-            Manufacturer::init('1Y1', 'Chevrolet/Geo', 'car', '', 'NUMMI', 'United States'),
-            Manufacturer::init('1ZV', 'Ford', '', '', 'Ford', 'United States', null, null, 'AutoAlliance International'),
-            Manufacturer::init('1ZW', 'Mercury', '', '', 'Mercury', 'United States', null, null, 'AutoAlliance International'),
-            Manufacturer::init('1Z3', 'Mitsubishi', '', 'Raider', 'Mitsubishi', 'United States'),
-            Manufacturer::init('1Z5', 'Mitsubishi', '', '', 'Mitsubishi', 'United States'),
-            Manufacturer::init('1Z7', 'Mitsubishi', '', 'Raider', 'Mitsubishi', 'United States'),
-            Manufacturer::init('1Z9', '', '', '', 'Oshkosh Specialty Vehicles LLC', 'United States'),
-            Manufacturer::init('10R', '', '', '', 'E-Z-GO', 'United States'),
-            Manufacturer::init('10T', '', '', '', 'Oshkosh Corporation', 'United States'),
-            Manufacturer::init('11V', 'Ottawa', '', '', 'Ottawa', 'United States'),
-            Manufacturer::init('12A', 'Avanti', '', '', 'Avanti', 'United States'),
-            Manufacturer::init('137', 'Hummer', '', '', 'AM General', 'United States'),
-            Manufacturer::init('15G', 'Gillig', 'bus', '', 'Gillig', 'United States'),
-            Manufacturer::init('16X', '', '', '', 'Vixen 21 motorhome', 'United States'),
-            Manufacturer::init('17N', 'John Deere', 'incomplete', '', 'John Deere', 'United States'),
-            Manufacturer::init('177', 'Thomas', '', '', 'Thomas', 'United States'),
-            Manufacturer::init('18X', 'WRV', '', '', 'WRV', 'United States'),
-            Manufacturer::init('19U', 'Acura', '', '', 'Honda', 'United States', null, null, 'America Mfg. in Ohio'),
-            Manufacturer::init('19V', 'Acura', '', '', 'Honda Manufacturing of Indiana', 'United States'),
-            Manufacturer::init('19X', 'Honda', '', '', 'Honda Manufacturing of Indiana', 'United States'),
-            Manufacturer::init('2AY', 'Hino', '', '', 'Hino', 'Canada'),
-            Manufacturer::init('2AZ', 'Hino', '', '', 'Hino', 'Canada'),
-            Manufacturer::init('2A3', 'Imperial', '', '', 'Imperial', 'Canada'),
-            Manufacturer::init('2A4', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'Canada', 2006, 2011),
-            Manufacturer::init('2A8', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'Canada', 2006, 2011),
-            Manufacturer::init('2BC', '', '', '', 'AMC / Jeep Wrangler (YJ)', 'Canada', 1987, 1988),
-            Manufacturer::init('2BP', 'Ski-Doo', '', '', 'Ski-Doo', 'Canada'),
-            Manufacturer::init('2BV', 'Can-Am', '', '', 'Can-Am', 'Canada'),
-            Manufacturer::init('2BV', 'Bombardier ATV', '', '', 'Bombardier ATV', 'Canada'),
-            Manufacturer::init('2BW', 'Can-Am', 'LSV', 'Commander E', 'Can-Am', 'Canada'),
-            Manufacturer::init('2BX', 'Can-Am', '', 'Spyder', 'Can-Am', 'Canada'),
-            Manufacturer::init('2BZ', 'Can-Am', 'Trailer', 'Freedom', 'Can-Am', 'Canada', null, null, 'for Can-Am Spyder'),
-            Manufacturer::init('2B1', '', '', '', 'Orion Bus Industries', 'Canada'),
-            Manufacturer::init('2B3', 'Dodge', 'car', '', 'Dodge', 'Canada', 1981, 2011),
-            Manufacturer::init('2B4', 'Dodge', 'MPV', '', 'Dodge', 'Canada', 1981, 2002),
-            Manufacturer::init('2B5', 'Dodge', 'bus', '', 'Dodge', 'Canada', 1981, 2002),
-            Manufacturer::init('2B6', 'Dodge', 'incomplete', '', 'Dodge', 'Canada', 1981, 2002),
-            Manufacturer::init('2B7', 'Dodge', 'truck', '', 'Dodge', 'Canada', 1981, 2002),
-            Manufacturer::init('2B8', 'Dodge', '', '', 'Dodge', 'Canada'),
-            Manufacturer::init('2CC', 'AMC', 'MPV', '', 'American Motors Corporation', 'Canada'),
-            Manufacturer::init('2CD', 'GMC', 'SUV', 'Terrain', 'CAMI Automotive', 'Canada', 2010, 2011),
-            Manufacturer::init('2CG', 'Asüna', 'SUV', '', 'CAMI Automotive', 'Canada'),
-            Manufacturer::init('2CG', 'Pontiac', 'SUV', '', 'CAMI Automotive', 'Canada'),
-            Manufacturer::init('2CK', 'GMC', 'SUV', 'Tracker', 'CAMI Automotive', 'Canada', 1990, 1991, 'only sold by GM Canada'),
-            Manufacturer::init('2CK', 'Pontiac', 'SUV', 'Torrent', '', 'Canada', 2006, 2009),
-            Manufacturer::init('2CM', 'AMC', 'car', '', 'American Motors Corporation', 'Canada'),
-            Manufacturer::init('2CN', 'Geo/Chevrolet', 'SUV', '', 'CAMI Automotive', 'Canada', 1990, 2011),
-            Manufacturer::init('2C1', 'Geo/Chevrolet', 'car', '', 'CAMI Automotive', 'Canada'),
-            Manufacturer::init('2C3', 'Chrysler', 'car', '', 'Chrysler brand', 'Canada', 1981, 2011),
-            Manufacturer::init('2C3', 'Chrysler', 'car', '', 'Chrysler Group', 'Canada', 2012),
-            Manufacturer::init('2C4', 'Chrysler', 'MPV/SUV', '', 'Chrysler brand', 'Canada', 2000, 2005),
-            Manufacturer::init('2C4', 'Chrysler', 'MPV', '', 'Chrysler Group', 'Canada', 2012),
-            Manufacturer::init('2C7', 'Pontiac', 'car', '', 'CAMI Automotive', 'Canada'),
-            Manufacturer::init('2C8', 'Chrysler', 'MPV/SUV', '', 'Chrysler brand', 'Canada', 2001, 2005),
-            Manufacturer::init('2C9', '', '', '', 'Campagna Motors', 'Canada'),
-            Manufacturer::init('2DG', '', '', '', 'Ontario Drive & Gear', 'Canada'),
-            Manufacturer::init('2D3', 'Dodge', '', '', 'Dodge', 'Canada'),
-            Manufacturer::init('2D4', 'Dodge', 'MPV', '', 'Dodge', 'Canada', 2003, 2011),
-            Manufacturer::init('2D6', 'Dodge', 'incomplete', '', 'Dodge', 'Canada', 2003, 2003),
-            Manufacturer::init('2D7', 'Dodge', 'truck', '', 'Dodge', 'Canada', 2003, 2003),
-            Manufacturer::init('2D8', 'Dodge', 'MPV', '', 'Dodge', 'Canada', 2003, 2011),
-            Manufacturer::init('2E3', 'Eagle', 'car', '', 'Eagle', 'Canada', 1989, 1997),
-            Manufacturer::init('2E4', 'Lancia', 'MPV', '', 'Lancia', 'Canada'),
-            Manufacturer::init('2F', 'Ford', '', '', 'Ford Motor Company', 'Canada'),
-            Manufacturer::init('2FA', 'Ford', 'car', '', 'Ford Motor Company', 'Canada'),
-            Manufacturer::init('2FB', 'Ford', '', '', 'Ford Motor Company', 'Canada'),
-            Manufacturer::init('2FC', 'Ford', '', '', 'Ford Motor Company', 'Canada'),
-            Manufacturer::init('2FD', 'Ford', '', '', 'Ford Motor Company', 'Canada'),
-            Manufacturer::init('2FM', 'Ford', 'MPV/SUV', '', 'Ford Motor Company', 'Canada'),
-            Manufacturer::init('2FT', 'Ford', 'truck', '', 'Ford Motor Company', 'Canada'),
-            Manufacturer::init('2FU', 'Freightliner', '', '', '', 'Canada'),
-            Manufacturer::init('2FV', 'Freightliner', '', '', '', 'Canada'),
-            Manufacturer::init('2FW', 'Sterling', '', '', 'Sterling Trucks', 'Canada'),
-            Manufacturer::init('2FY', 'New Flyer', '', '', 'New Flyer', 'Canada'),
-            Manufacturer::init('2FZ', 'Sterling', 'incomplete', '', 'Sterling Trucks', 'Canada'),
-            Manufacturer::init('2G', 'GMC', '', '', 'General Motors', 'Canada'),
-            Manufacturer::init('2GA', 'Chevrolet', 'bus', '', 'Chevrolet', 'Canada'),
-            Manufacturer::init('2GB', 'Chevrolet', 'incomplete', '', 'Chevrolet', 'Canada'),
-            Manufacturer::init('2GC', 'Chevrolet', 'truck', '', 'Chevrolet', 'Canada'),
-            Manufacturer::init('2GD', 'GMC', 'incomplete', '', 'General Motors', 'Canada'),
-            Manufacturer::init('2GE', 'Cadillac', 'incomplete', '', 'Cadillac', 'Canada'),
-            Manufacturer::init('2GH', 'GMC GM', 'bus', 'New Look', 'General Motors', 'Canada'),
-            Manufacturer::init('2GH', 'GM', 'bus', 'Classic series', 'General Motors', 'Canada'),
-            Manufacturer::init('2GJ', 'GMC', 'bus', '', 'General Motors', 'Canada', 1987),
-            Manufacturer::init('2GK', 'GMC', 'MPV/SUV', '', 'General Motors', 'Canada', 1987),
-            Manufacturer::init('2GN', 'Chevrolet', 'MPV/SUV', '', 'General Motors', 'Canada', 1987),
-            Manufacturer::init('2GT', 'GMC', 'truck', '', 'General Motors', 'Canada'),
-            Manufacturer::init('2G0', 'GMC', 'bus', '', 'General Motors', 'Canada', 1981, 1986),
-            Manufacturer::init('2G1', 'Chevrolet', '', '', 'Chevrolet', 'Canada'),
-            Manufacturer::init('2G2', 'Pontiac', '', '', 'Pontiac', 'Canada'),
-            Manufacturer::init('2G3', 'Oldsmobile', '', '', 'Oldsmobile', 'Canada'),
-            Manufacturer::init('2G4', 'Buick', '', '', 'Buick', 'Canada'),
-            Manufacturer::init('2G5', 'GMC', 'MPV', '', 'General Motors', 'Canada', 1981, 1986),
-            Manufacturer::init('2G5', '', 'van', '', 'BrightDrop Zevo', 'Canada', null, null, 'delivery'),
-            Manufacturer::init('2G6', 'Cadillac', '', '', 'Cadillac', 'Canada'),
-            Manufacturer::init('2G7', 'Pontiac', '', '', 'Pontiac', 'Canada'),
-            Manufacturer::init('2G8', 'Chevrolet', 'MPV', '', 'Chevrolet', 'Canada', 1981, 1986),
-            Manufacturer::init('2G9', '', '', '', 'Gnome Homes', 'Canada'),
-            Manufacturer::init('2HG', 'Honda', 'car', '', 'Honda of Canada Manufacturing', 'Canada'),
-            Manufacturer::init('2HH', 'Acura', 'car', '', 'Honda of Canada Manufacturing', 'Canada'),
-            Manufacturer::init('2HJ', 'Honda', 'truck', '', 'Honda of Canada Manufacturing', 'Canada'),
-            Manufacturer::init('2HK', 'Honda', 'MPV/SUV', '', 'Honda of Canada Manufacturing', 'Canada'),
-            Manufacturer::init('2HM', 'Hyundai', '', '', 'Hyundai', 'Canada'),
-            Manufacturer::init('2HN', 'Acura', 'SUV', '', 'Honda of Canada Manufacturing', 'Canada'),
-            Manufacturer::init('2HS', '', 'truck', '', 'International Trucks', 'Canada'),
-            Manufacturer::init('2HT', '', 'incomplete', '', 'International Trucks', 'Canada'),
-            Manufacturer::init('2J4', 'Jeep', '', 'Wrangler (YJ)', 'Jeep', 'Canada', 1989, 1992),
-            Manufacturer::init('2LJ', 'Lincoln', 'incomplete', '', 'Lincoln', 'Canada'),
-            Manufacturer::init('2LM', 'Lincoln', 'SUV', '', 'Lincoln', 'Canada'),
-            Manufacturer::init('2LN', 'Lincoln', 'car', '', 'Lincoln', 'Canada'),
-            Manufacturer::init('2L1', 'Lincoln', 'incomplete', '', 'Lincoln', 'Canada'),
-            Manufacturer::init('2L9', '', '', '', 'Les Contenants Durabac', 'Canada'),
-            Manufacturer::init('2M', 'Mercury', '', '', 'Mercury', 'Canada'),
-            Manufacturer::init('2ME', 'Mercury', 'car', '', 'Mercury', 'Canada'),
-            Manufacturer::init('2MH', 'Mercury', '', '', 'Mercury', 'Canada'),
-            Manufacturer::init('2MR', 'Mercury', 'MPV', '', 'Mercury', 'Canada'),
-            Manufacturer::init('2M1', 'Mack', '', '', 'Mack Trucks', 'Canada'),
-            Manufacturer::init('2M2', 'Mack', '', '', 'Mack Trucks', 'Canada'),
-            Manufacturer::init('2NK', 'Kenworth', 'incomplete', '', 'Kenworth', 'Canada'),
-            Manufacturer::init('2NP', 'Peterbilt', 'incomplete', '', 'Peterbilt', 'Canada'),
-            Manufacturer::init('2NV', 'Nova Bus', '', '', 'Nova Bus', 'Canada'),
-            Manufacturer::init('2PC', 'Prevost', '', '', 'Prevost', 'Canada', 1996),
-            Manufacturer::init('2P3', 'Plymouth', 'car', '', 'Plymouth', 'Canada'),
-            Manufacturer::init('2P4', 'Plymouth', 'MPV', '', 'Plymouth', 'Canada', 1981, 2000),
-            Manufacturer::init('2P5', 'Plymouth', 'bus', '', 'Plymouth', 'Canada', 1981, 1983),
-            Manufacturer::init('2P9', 'Prevost', '', '', 'Prevost', 'Canada', 1981, 1995),
-            Manufacturer::init('2S2', 'Suzuki', 'car', '', 'CAMI Automotive', 'Canada'),
-            Manufacturer::init('2S3', 'Suzuki', 'SUV', '', 'CAMI Automotive', 'Canada'),
-            Manufacturer::init('2T', 'Toyota', '', '', 'Toyota', 'Canada'),
-            Manufacturer::init('2T1', 'Toyota', 'car', '', 'Toyota', 'Canada'),
-            Manufacturer::init('2T2', 'Lexus', 'SUV', '', 'Lexus', 'Canada'),
-            Manufacturer::init('2T3', 'Toyota', 'SUV', '', 'Toyota', 'Canada'),
-            Manufacturer::init('2V4', 'Volkswagen', '', 'Routan', 'Volkswagen', 'Canada'),
-            Manufacturer::init('2V8', 'Volkswagen', '', 'Routan', 'Volkswagen', 'Canada'),
-            Manufacturer::init('2WK', '', 'truck', '', 'Western Star Trucks', 'Canada'),
-            Manufacturer::init('2WL', '', 'incomplete', '', 'Western Star Trucks', 'Canada'),
-            Manufacturer::init('2WM', '', 'incomplete', '', 'Western Star Trucks', 'Canada'),
-            Manufacturer::init('2XK', 'Kenworth', 'truck', '', 'Kenworth', 'Canada'),
-            Manufacturer::init('2XM', 'Eagle', '', 'Premier', 'Eagle', 'Canada', 1998),
-            Manufacturer::init('2XP', 'Peterbilt', 'truck', '', 'Peterbilt', 'Canada'),
-            Manufacturer::init('3AK', 'Freightliner', '', '', 'Freightliner Trucks', 'Mexico'),
-            Manufacturer::init('3AL', 'Freightliner', '', '', 'Freightliner Trucks', 'Mexico'),
-            Manufacturer::init('3AV', 'BMW', '', '', 'BMW', 'Mexico', 1999, 2009),
-            Manufacturer::init('3A4', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 2006, 2010),
-            Manufacturer::init('3A8', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 2006, 2010),
-            Manufacturer::init('3AB', 'Dina', '', '', 'Dina', 'Mexico'),
-            Manufacturer::init('3BJ', 'Western Star', 'truck', '3700', 'DINA S.A.', 'Mexico'),
-            Manufacturer::init('3BK', 'Kenworth', 'incomplete', '', 'Kenworth', 'Mexico'),
-            Manufacturer::init('3BM', 'Motor Coach Industries', 'bus', '', 'DINA S.A.', 'Mexico'),
-            Manufacturer::init('3BP', 'Peterbilt', 'incomplete', '', 'Peterbilt', 'Mexico'),
-            Manufacturer::init('3B3', 'Dodge', 'car', '', 'Dodge', 'Mexico', 1981, 2011),
-            Manufacturer::init('3B4', 'Dodge', 'SUV', '', 'Dodge', 'Mexico', 1986, 1993),
-            Manufacturer::init('3B6', 'Dodge', 'incomplete', '', 'Dodge', 'Mexico', 1981, 2002),
-            Manufacturer::init('3B7', 'Dodge', 'truck', '', 'Dodge', 'Mexico', 1981, 2002),
-            Manufacturer::init('3CA', 'Chrysler', '', '', 'Chrysler', 'Mexico'),
-            Manufacturer::init('3CE', 'Volvo', '', '', 'Volvo Buses de Mexico', 'Mexico'),
-            Manufacturer::init('3CZ', 'Honda', 'SUV', '', 'Honda', 'Mexico'),
-            Manufacturer::init('3C3', 'Chrysler', 'car', '', 'Chrysler brand', 'Mexico', 1981, 2011),
-            Manufacturer::init('3C3', 'Chrysler', 'car', '', 'Chrysler Group', 'Mexico', 2012),
-            Manufacturer::init('3C4', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 1981, 2011),
-            Manufacturer::init('3C4', 'Chrysler', 'MPV', '', 'Chrysler Group', 'Mexico', 2012),
-            Manufacturer::init('3C6', 'Chrysler', 'truck', '', 'Chrysler Group', 'Mexico', 2012),
-            Manufacturer::init('3C7', 'Chrysler', 'incomplete', '', 'Chrysler Group', 'Mexico', 2012),
-            Manufacturer::init('3C8', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 2001, 2005),
-            Manufacturer::init('3D2', 'Dodge', 'incomplete', '', 'Dodge', 'Mexico', 2007, 2009),
-            Manufacturer::init('3D3', 'Dodge', 'truck', '', 'Dodge', 'Mexico', 2006, 2009),
-            Manufacturer::init('3D4', 'Dodge', 'SUV', '', 'Dodge', 'Mexico', 2009, 2011),
-            Manufacturer::init('3D5', 'Dodge', '', '', 'Dodge', 'Mexico'),
-            Manufacturer::init('3D6', 'Dodge', 'incomplete', '', 'Dodge', 'Mexico', 2009, 2011),
-            Manufacturer::init('3D7', 'Dodge', 'truck', '', 'Dodge', 'Mexico', 2002, 2011),
-            Manufacturer::init('3E4', 'Fiat', 'SUV', '', 'Fiat', 'Mexico'),
-            Manufacturer::init('3F', 'Ford', '', '', 'Ford Motor Company', 'Mexico'),
-            Manufacturer::init('3FA', 'Ford', 'car', '', 'Ford Motor Company', 'Mexico'),
-            Manufacturer::init('3FC', 'Ford', 'chassis', '', 'Ford Motor Company', 'Mexico'),
-            Manufacturer::init('3FD', 'Ford', '', '', 'Ford Motor Company', 'Mexico'),
-            Manufacturer::init('3FE', 'Ford', '', '', 'Ford Motor Company', 'Mexico'),
-            Manufacturer::init('3FM', 'Ford', 'MPV/SUV', '', 'Ford Motor Company', 'Mexico'),
-            Manufacturer::init('3FN', 'Ford', '', 'F-650', 'Blue Diamond Truck Co.', 'Mexico'),
-            Manufacturer::init('3FN', 'Ford', '', 'F-750', 'Blue Diamond Truck Co.', 'Mexico'),
-            Manufacturer::init('3FR', 'Ford', '', 'F-650', 'Blue Diamond Truck Co.', 'Mexico'),
-            Manufacturer::init('3FR', 'Ford', '', 'F-750', 'Blue Diamond Truck Co.', 'Mexico'),
-            Manufacturer::init('3FT', 'Ford', 'truck', '', 'Ford Motor Company', 'Mexico'),
-            Manufacturer::init('3F6', 'Sterling', '', 'Bullet', 'Sterling Bullet', 'Mexico'),
-            Manufacturer::init('3G', 'GMC', '', '', 'General Motors', 'Mexico'),
-            Manufacturer::init('3GB', 'Chevrolet', '', '', 'Chevrolet', 'Mexico'),
-            Manufacturer::init('3GC', 'Chevrolet', 'truck', '', 'Chevrolet', 'Mexico'),
-            Manufacturer::init('3GD', 'GMC', '', '', 'General Motors', 'Mexico'),
-            Manufacturer::init('3GE', 'Chevrolet', '', '', 'Chevrolet', 'Mexico'),
-            Manufacturer::init('3GK', 'GMC', 'SUV', '', 'General Motors', 'Mexico'),
-            Manufacturer::init('3GM', 'Holden', '', 'Suburban', 'Holden', 'Mexico'),
-            Manufacturer::init('3GN', 'Chevrolet', 'SUV', '', 'Chevrolet', 'Mexico'),
-            Manufacturer::init('3GT', 'GMC', 'truck', '', 'General Motors', 'Mexico'),
-            Manufacturer::init('3GY', 'Cadillac', 'SUV', '', 'Cadillac', 'Mexico'),
-            Manufacturer::init('3G0', 'Saab', '', '9-4X', '', 'Mexico', 2011, 2011),
-            Manufacturer::init('3G0', 'Holden', '', 'Equinox', '', 'Mexico', 2018, 2020),
-            Manufacturer::init('3G1', 'Chevrolet', 'car', '', 'Chevrolet', 'Mexico'),
-            Manufacturer::init('3G2', 'Pontiac', 'car', '', 'Pontiac', 'Mexico'),
-            Manufacturer::init('3G4', 'Buick', 'car', '', 'Buick', 'Mexico'),
-            Manufacturer::init('3G5', 'Buick', 'SUV', '', 'Buick', 'Mexico'),
-            Manufacturer::init('3G7', 'Pontiac', 'SUV', '', 'Pontiac', 'Mexico'),
-            Manufacturer::init('3H', 'Honda', '', '', 'Honda', 'Mexico'),
-            Manufacturer::init('3HA', 'International Trucks', 'incomplete', '', 'International Trucks', 'Mexico'),
-            Manufacturer::init('3HC', 'International Trucks', 'truck', '', 'International Trucks', 'Mexico'),
-            Manufacturer::init('3HG', 'Honda', 'car', '', 'Honda', 'Mexico'),
-            Manufacturer::init('3HM', 'Honda', '', '', 'Honda', 'Mexico'),
-            Manufacturer::init('3HS', 'International Trucks', 'truck', '', 'International Trucks', 'Mexico'),
-            Manufacturer::init('3HS', 'Cat', 'truck', '', 'Caterpillar Trucks', 'Mexico'),
-            Manufacturer::init('3HT', 'International Trucks', 'incomplete', '', 'International Trucks', 'Mexico'),
-            Manufacturer::init('3HT', 'Cat', 'incomplete', '', 'Caterpillar Trucks', 'Mexico'),
-            Manufacturer::init('3H1', 'Honda', 'motorcycle/UTV', '', 'Honda', 'Mexico'),
-            Manufacturer::init('3H3', 'Hyundai Translead', 'truck trailers', '', 'Hyundai de Mexico', 'Mexico'),
-            Manufacturer::init('3JB', 'BRP', 'all-terrain vehicles', '', 'BRP', 'Mexico'),
-            Manufacturer::init('3KP', 'Kia/Hyundai', 'car', '', '', 'Mexico'),
-            Manufacturer::init('3LN', 'Lincoln', 'car', '', 'Lincoln', 'Mexico'),
-            Manufacturer::init('3MA', 'Mercury', '', '', 'Mercury', 'Mexico'),
-            Manufacturer::init('3MD', 'Mazda', 'car', '', 'Mazda', 'Mexico'),
-            Manufacturer::init('3ME', 'Mercury', 'car', '', 'Mercury', 'Mexico'),
-            Manufacturer::init('3MV', 'Mazda', 'SUV', '', 'Mazda', 'Mexico'),
-            Manufacturer::init('3MW', 'BMW', '', '', 'BMW', 'Mexico'),
-            Manufacturer::init('3MY', 'Toyota', 'car', '', 'Mazda de Mexico Vehicle Operation', 'Mexico'),
-            Manufacturer::init('3MZ', 'Mazda', 'car', '', 'Mazda', 'Mexico'),
-            Manufacturer::init('3N', 'Nissan', '', '', 'Nissan', 'Mexico'),
-            Manufacturer::init('3NE', '', 'ATV', '', 'Polaris Inc.', 'Mexico'),
-            Manufacturer::init('3NK', 'Kenworth', '', '', 'Kenworth', 'Mexico'),
-            Manufacturer::init('3NM', 'Peterbilt', '', '', 'Peterbilt', 'Mexico'),
-            Manufacturer::init('3NS', '', 'UTV', '', 'Polaris Inc.', 'Mexico'),
-            Manufacturer::init('3N1', 'Nissan', 'car', '', 'Nissan', 'Mexico'),
-            Manufacturer::init('3N6', 'Nissan', 'truck', '', 'Nissan', 'Mexico'),
-            Manufacturer::init('3N6', 'Chevrolet', '', '', 'Chevrolet City Express', 'Mexico'),
-            Manufacturer::init('3N8', 'Nissan', 'MPV', '', 'Nissan', 'Mexico'),
-            Manufacturer::init('3PC', 'Infiniti', 'SUV', '', 'COMPAS', 'Mexico'),
-            Manufacturer::init('3P3', 'Plymouth', 'car', '', 'Plymouth', 'Mexico'),
-            Manufacturer::init('3TM', 'Toyota', 'truck', '', 'TMMBC', 'Mexico'),
-            Manufacturer::init('3TY', 'Toyota', 'truck', '', 'TMMGT', 'Mexico'),
-            Manufacturer::init('3VV', 'Volkswagen', 'SUV', '', 'Volkswagen', 'Mexico'),
-            Manufacturer::init('3VW', 'Volkswagen', 'car', '', 'Volkswagen', 'Mexico'),
-            Manufacturer::init('3WK', 'Kenworth', 'truck', '', 'Kenworth', 'Mexico'),
-            Manufacturer::init('3WP', 'Peterbilt', 'truck', '', 'Peterbilt', 'Mexico'),
-            Manufacturer::init('4A3', 'Mitsubishi', 'car', '', 'Mitsubishi Motors', 'United States'),
-            Manufacturer::init('4A4', 'Mitsubishi', 'SUV', '', 'Mitsubishi Motors', 'United States'),
-            Manufacturer::init('4B3', 'Dodge', 'car', '', 'Diamond-Star Motors', 'United States'),
-            Manufacturer::init('4B9', '', '', '', 'BYD Coach & Bus LLC', 'United States'),
-            Manufacturer::init('4CD', 'Oshkosh', 'incomplete', '', 'Oshkosh Chassis Division', 'United States'),
-            Manufacturer::init('4C3', 'Chrysler', 'car', '', 'Diamond-Star Motors', 'United States'),
-            Manufacturer::init('4C9', 'Czinger', '', '', 'Czinger', 'United States'),
-            Manufacturer::init('4DR', '', '', '', 'IC Bus, Genesis, International', 'United States'),
-            Manufacturer::init('4E3', 'Eagle', 'car', '', 'Diamond-Star Motors', 'United States'),
-            Manufacturer::init('4F', 'Mazda', '', '', 'Mazda', 'United States'),
-            Manufacturer::init('4F2', 'Mazda', 'SUV', '', 'Mazda', 'United States'),
-            Manufacturer::init('4F4', 'Mazda', 'truck', '', 'Mazda', 'United States'),
-            Manufacturer::init('4GD', 'GMC', '', 'WhiteGMC Brigadier', 'General Motors', 'United States', 1988, 1989),
-            Manufacturer::init('4GD', 'Opel', '', 'Sintra', '', 'United States'),
-            Manufacturer::init('4GL', 'Buick', 'incomplete', '', 'Buick', 'United States'),
-            Manufacturer::init('4GT', 'Isuzu', 'incomplete', '', 'Isuzu', 'United States'),
-            Manufacturer::init('4GT', 'WhiteGMC', '', '', 'General Motors', 'United States'),
-            Manufacturer::init('4G1', 'Chevrolet', 'convertible', 'Cavalier', 'Genasys L.C.', 'United States'),
-            Manufacturer::init('4G2', 'Pontiac', 'convertible', 'Sunfire', 'Genasys L.C.', 'United States'),
-            Manufacturer::init('4G3', 'Toyota', '', 'Cavalier', 'General Motors', 'United States'),
-            Manufacturer::init('4G5', 'GMC', '', 'EV1', 'General Motors', 'United States'),
-            Manufacturer::init('4JG', 'Mercedes-Benz', 'SUV', '', 'Mercedes-Benz', 'United States'),
-            Manufacturer::init('4KB', 'Chevrolet', 'incomplete', 'W-Series', 'Chevrolet', 'United States'),
-            Manufacturer::init('4KD', 'GMC', 'incomplete', 'W-Series', 'General Motors', 'United States'),
-            Manufacturer::init('4KL', 'Isuzu', 'truck', '', 'General Motors', 'United States', null, null, 'commercial'),
-            Manufacturer::init('4M', 'Mercury', '', '', 'Mercury', 'United States'),
-            Manufacturer::init('4ML', 'Oshkosh', '', '', 'Oshkosh Trailer Division', 'United States'),
-            Manufacturer::init('4MZ', 'Buell', '', '', 'Buell Motorcycle Company', 'United States'),
-            Manufacturer::init('4M2', 'Mercury', 'MPV/SUV', '', 'Mercury', 'United States'),
-            Manufacturer::init('4NU', 'Isuzu', '', 'Ascender', 'General Motors', 'United States'),
-            Manufacturer::init('4N1', 'Nissan', '', '', 'Nissan', 'United States'),
-            Manufacturer::init('4N2', 'Nissan', '', 'Quest', 'Ford', 'United States'),
-            Manufacturer::init('4P1', '', '', '', 'Pierce Manufacturing', 'United States'),
-            Manufacturer::init('4P3', 'Plymouth', 'car', '', 'Diamond-Star Motors', 'United States', 1990, 1994),
-            Manufacturer::init('4P3', 'Mitsubishi', 'SUV', '', 'Mitsubishi Motors', 'United States', 2013),
-            Manufacturer::init('4RK', 'Nova Bus', '', '', 'Nova Bus', 'United States'),
-            Manufacturer::init('4RK', 'Prevost', '', '', 'Nova Bus', 'United States'),
-            Manufacturer::init('4S', '', '', '', 'Subaru-Isuzu Automotive', 'United States'),
-            Manufacturer::init('4SL', 'Magnum', '', '', 'Magnum', 'United States'),
-            Manufacturer::init('4S1', 'Isuzu', 'truck', '', 'Subaru Isuzu Automotive', 'United States'),
-            Manufacturer::init('4S2', 'Isuzu', 'SUV', '', 'Subaru Isuzu Automotive', 'United States'),
-            Manufacturer::init('4S3', 'Subaru', 'car', '', 'Subaru Isuzu Automotive', 'United States'),
-            Manufacturer::init('4S4', 'Subaru', 'SUV/MPV', '', 'Subaru Isuzu Automotive', 'United States'),
-            Manufacturer::init('4S6', 'Honda', 'SUV', '', 'Subaru Isuzu Automotive', 'United States'),
-            Manufacturer::init('4S7', 'Spartan', 'incomplete', '', 'Spartan Motors', 'United States'),
-            Manufacturer::init('4S9', '', '', '', 'Smith Electric Vehicles US Corp.', 'United States'),
-            Manufacturer::init('4S9', '', 'car', '', 'Scuderia Cameron Glickenhaus', 'United States'),
-            Manufacturer::init('4S9', '', 'M.P.V.', 'SCG Boot', 'Scuderia Cameron Glickenhaus', 'United States'),
-            Manufacturer::init('4S9', 'Spartan', 'truck', '', 'Spartan Fire, LLC', 'United States', null, null, 'formerly Spartan ER'),
-            Manufacturer::init('4S9', 'Spartan', 'incomplete', '', 'Spartan Fire, LLC', 'United States', null, null, 'formerly Spartan ER'),
-            Manufacturer::init('4T', 'Toyota', '', '', 'Toyota', 'United States'),
-            Manufacturer::init('4TA', 'Toyota', 'truck', '', 'NUMMI', 'United States'),
-            Manufacturer::init('4T1', 'Toyota', 'car', '', 'Toyota', 'United States'),
-            Manufacturer::init('4T3', 'Toyota', 'MPV/SUV', '', 'Toyota', 'United States'),
-            Manufacturer::init('4T4', 'Toyota', 'car', '', 'Toyota', 'United States'),
-            Manufacturer::init('4T9', '', '', '', 'Xos, Inc.', 'United States'),
-            Manufacturer::init('4UF', '', '', '', 'Arctic Cat Inc.', 'United States'),
-            Manufacturer::init('4US', 'BMW', 'car', '', 'BMW', 'United States'),
-            Manufacturer::init('4UZ', 'Freightliner', '', '', '', 'United States'),
-            Manufacturer::init('4VA', 'Volvo', 'truck', '', 'Volvo Trucks North America', 'United States'),
-            Manufacturer::init('4VE', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'),
-            Manufacturer::init('4VH', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'),
-            Manufacturer::init('4VG', 'Volvo', 'truck', '', 'Volvo Trucks North America', 'United States'),
-            Manufacturer::init('4VL', 'Volvo', '', '', 'Volvo', 'United States'),
-            Manufacturer::init('4VM', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'),
-            Manufacturer::init('4VZ', 'Spartan', 'incomplete', '', 'Spartan Motors/The Shyft Group', 'United States'),
-            Manufacturer::init('4V1', 'WhiteGMC', 'truck', '', 'General Motors', 'United States'),
-            Manufacturer::init('4V2', 'WhiteGMC', 'incomplete', '', 'General Motors', 'United States'),
-            Manufacturer::init('4V3', 'Volvo', '', '', 'Volvo', 'United States'),
-            Manufacturer::init('4V4', 'Volvo', 'truck', '', 'Volvo Trucks North America', 'United States'),
-            Manufacturer::init('4V5', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'),
-            Manufacturer::init('4V6', 'Volvo', '', '', 'Volvo', 'United States'),
-            Manufacturer::init('4XA', '', '', '', 'Polaris Inc.', 'United States'),
-            Manufacturer::init('4YM', '', '', '', 'Carry-On Trailer, Inc.', 'United States'),
-            Manufacturer::init('4Z3', '', 'truck', '', 'American LaFrance', 'United States'),
-            Manufacturer::init('43C', 'Consulier', '', '', 'Consulier', 'United States'),
-            Manufacturer::init('45V', 'Utilimaster', '', '', 'Utilimaster', 'United States'),
-            Manufacturer::init('46G', 'Gillig', 'incomplete', '', 'Gillig', 'United States'),
-            Manufacturer::init('478', 'Honda', 'ATV', '', 'Honda', 'United States'),
-            Manufacturer::init('480', 'Sterling', 'truck', '', 'Sterling Trucks', 'United States'),
-            Manufacturer::init('49H', 'Sterling', 'incomplete', '', 'Sterling Trucks', 'United States'),
-            Manufacturer::init('5AS', 'GEM', '', '', 'GEM', 'United States'),
-            Manufacturer::init('5BZ', 'Nissan', 'bus', '', 'Nissan', 'United States'),
-            Manufacturer::init('5B4', '', 'incomplete', '', 'Workhorse Custom Chassis, LLC', 'United States'),
-            Manufacturer::init('5CD', '', '', '', 'Indian Motorcycle Company of America Gilroy, CA', 'United States'),
-            Manufacturer::init('5CK', '', '', '', 'Western Star Trucks', 'United States'),
-            Manufacturer::init('5CX', 'Shelby', '', 'Series 1', '', 'United States'),
-            Manufacturer::init('5DF', '', '', '', 'Thomas Dennis Company LLC', 'United States'),
-            Manufacturer::init('5EH', '', '', '', 'Excelsior-Henderson Motorcycle', 'United States'),
-            Manufacturer::init('5F', 'Honda', '', '', 'Honda Manufacturing of Alabama', 'United States'),
-            Manufacturer::init('5FN', 'Honda', 'MPV/SUV', '', 'Honda Manufacturing of Alabama', 'United States'),
-            Manufacturer::init('5FP', 'Honda', 'truck', '', 'Honda Manufacturing of Alabama', 'United States'),
-            Manufacturer::init('5FR', 'Acura', 'SUV', '', 'Honda Manufacturing of Alabama', 'United States'),
-            Manufacturer::init('5FY', '', '', '', 'New Flyer', 'United States'),
-            Manufacturer::init('5GA', 'Buick', 'MPV/SUV', '', 'Buick', 'United States'),
-            Manufacturer::init('5GD', 'Daewoo', '', 'G2X', 'Daewoo', 'United States'),
-            Manufacturer::init('5GN', 'Hummer', '', 'H3T', 'Hummer', 'United States'),
-            Manufacturer::init('5GR', 'Hummer', '', 'H2', 'Hummer', 'United States'),
-            Manufacturer::init('5GT', 'Hummer', '', 'H3', 'Hummer', 'United States'),
-            Manufacturer::init('5GZ', 'Saturn', 'MPV/SUV', '', 'Saturn', 'United States'),
-            Manufacturer::init('5G8', 'Holden', '', 'Volt', '', 'United States'),
-            Manufacturer::init('5HD', 'Harley-Davidson', '', '', 'Harley-Davidson', 'United States'),
-            Manufacturer::init('5J6', 'Honda', 'SUV', '', 'Honda of America Mfg. in Ohio', 'United States'),
-            Manufacturer::init('5J8', 'Acura', 'SUV', '', 'Honda of America Mfg. in Ohio', 'United States'),
-            Manufacturer::init('5KB', 'Honda', 'car', '', 'Honda Manufacturing of Alabama', 'United States'),
-            Manufacturer::init('5KJ', '', '', '', 'Western Star Trucks', 'United States'),
-            Manufacturer::init('5KK', '', '', '', 'Western Star Trucks', 'United States'),
-            Manufacturer::init('5L', 'Lincoln', '', '', 'Lincoln', 'United States'),
-            Manufacturer::init('5LD', 'Ford', 'incomplete', '', 'Ford', 'United States', 2010, 2014),
-            Manufacturer::init('5LD', 'Lincoln', 'incomplete', '', 'Lincoln', 'United States', 2010, 2014),
-            Manufacturer::init('5LM', 'Lincoln', 'SUV', '', 'Lincoln', 'United States'),
-            Manufacturer::init('5LT', 'Lincoln', 'truck', '', 'Lincoln', 'United States'),
-            Manufacturer::init('5L1', 'Lincoln', 'SUV', '', 'Lincoln', 'United States', 2004, 2009),
-            Manufacturer::init('5MZ', '', '', '', 'Buell Motorcycle Company', 'United States'),
-            Manufacturer::init('5NM', 'Hyundai', 'SUV', '', 'Hyundai', 'United States'),
-            Manufacturer::init('5NP', 'Hyundai', 'car', '', 'Hyundai', 'United States'),
-            Manufacturer::init('5NT', 'Hyundai', 'truck', '', 'Hyundai', 'United States'),
-            Manufacturer::init('5N1', 'Nissan', 'SUV', '', '', 'United States'),
-            Manufacturer::init('5N1', 'Infiniti', 'SUV', '', '', 'United States'),
-            Manufacturer::init('5N3', 'Infiniti', 'SUV', '', 'Infiniti', 'United States'),
-            Manufacturer::init('5PV', 'Hino', 'incomplete', '', 'Hino', 'United States'),
-            Manufacturer::init('5SA', 'Suzuki', 'ATV', '', 'Suzuki', 'United States'),
-            Manufacturer::init('5SX', '', 'incomplete', '', 'American LaFrance', 'United States'),
-            Manufacturer::init('5S3', 'Saab', '', '9-7X', 'Saab', 'United States'),
-            Manufacturer::init('5T', 'Toyota', 'trucks', '', 'Toyota', 'United States'),
-            Manufacturer::init('5TB', 'Toyota', 'truck', '', 'TMMI', 'United States'),
-            Manufacturer::init('5TD', 'Toyota', 'MPV/SUV', '', 'TMMI', 'United States'),
-            Manufacturer::init('5TE', 'Toyota', 'truck', '', 'NUMMI', 'United States'),
-            Manufacturer::init('5TF', 'Toyota', 'truck', '', 'TMMTX', 'United States'),
-            Manufacturer::init('5T4', 'Workhorse', '', '', 'Workhorse', 'United States'),
-            Manufacturer::init('5UM', 'BMW', 'car', 'M', 'BMW', 'United States'),
-            Manufacturer::init('5UX', 'BMW', 'SUV', '', 'BMW', 'United States'),
-            Manufacturer::init('5VC', 'Autocar', 'incomplete', '', 'Autocar', 'United States'),
-            Manufacturer::init('5VP', '', '', '', 'Victory Motorcycles', 'United States'),
-            Manufacturer::init('5WE', '', 'incomplete', '', 'IC Bus', 'United States'),
-            Manufacturer::init('5XX', 'Kia', 'car', '', 'Kia', 'United States'),
-            Manufacturer::init('5XY', 'Kia/Hyundai', 'SUV', '', 'Kia/Hyundai', 'United States'),
-            Manufacturer::init('5YA', '', '', '', 'Indian Motorcycle Company Kings Mountain, NC', 'United States'),
-            Manufacturer::init('5YF', 'Toyota', 'car', '', 'TMMMS', 'United States'),
-            Manufacturer::init('5YJ', 'Tesla', '', '', 'Tesla Motors', 'United States'),
-            Manufacturer::init('5YM', 'BMW', 'SUV', 'M', '', 'United States'),
-            Manufacturer::init('5Y2', 'Pontiac', '', 'Vibe', 'NUMMI', 'United States'),
-            Manufacturer::init('5Y4', 'Yamaha', 'ATV, UTV', '', 'Yamaha Motor Company', 'United States'),
-            Manufacturer::init('5Z6', 'Suzuki', 'truck', '', 'Nissan', 'United States'),
-            Manufacturer::init('50E', '', '', '', 'Lucid Motors', 'United States'),
-            Manufacturer::init('50G', '', '', '', 'Karma Automotive', 'United States'),
-            Manufacturer::init('51R', '', '', '', 'Brammo Motorcycles', 'United States'),
-            Manufacturer::init('516', 'Autocar', 'truck', '', 'Autocar', 'United States'),
-            Manufacturer::init('52C', '', '', '', 'GEM subsidiary of Polaris Inc.', 'United States'),
-            Manufacturer::init('523', 'VPG', '', '', '', 'United States'),
-            Manufacturer::init('53G', '', '', '', 'Coda Automotive', 'United States'),
-            Manufacturer::init('53T', '', '', '', 'Think North America', 'United States', null, null, 'in Elkhart, IN'),
-            Manufacturer::init('538', '', '', '', 'Zero Motorcycles', 'United States'),
-            Manufacturer::init('546', 'EBR', '', '', 'EBR', 'United States'),
-            Manufacturer::init('54C', '', 'trailer', '', 'Winnebago Industries', 'United States'),
-            Manufacturer::init('54D', 'Isuzu', 'trucks', '', 'Spartan Motors/The Shyft Group', 'United States'),
-            Manufacturer::init('54D', 'Chevrolet', 'trucks', '', 'Spartan Motors/The Shyft Group', 'United States'),
-            Manufacturer::init('55S', 'Mercedes-Benz', 'car', '', 'Mercedes-Benz', 'United States'),
-            Manufacturer::init('56K', '', '', '', 'Indian Motorcycle International, LLC', 'United States', null, null, 'Polaris subsidiary'),
-            Manufacturer::init('57W', '', '', '', 'Mobility Ventures', 'United States'),
-            Manufacturer::init('57X', 'Polaris', '', 'Slingshot', 'Polaris', 'United States'),
-            Manufacturer::init('58A', 'Lexus', 'car', '', 'TMMK', 'United States'),
-            Manufacturer::init('6AB', 'MAN', '', '', 'MAN', 'Australia'),
-            Manufacturer::init('6FM', 'Mack', '', '', 'Mack Trucks', 'Australia'),
-            Manufacturer::init('6FP', 'Ford', '', '', 'Ford Motor Company', 'Australia'),
-            Manufacturer::init('6F1', 'Ford', '', '', 'Ford Motor Company', 'Australia'),
-            Manufacturer::init('6F2', 'Iveco', '', '', 'Iveco Trucks Australia Ltd.', 'Australia'),
-            Manufacturer::init('6F4', 'Nissan', '', '', 'Nissan Motor', 'Australia'),
-            Manufacturer::init('6F5', 'Kenworth', '', '', 'Kenworth', 'Australia'),
-            Manufacturer::init('6G', '', '', '', 'General Motors', 'Australia'),
-            Manufacturer::init('6G1', 'Holden', '', '', 'General Motors-Holden', 'Australia', 2002),
-            Manufacturer::init('6G2', 'Pontiac', '', '', 'Pontiac', 'Australia'),
-            Manufacturer::init('6G3', 'Chevrolet', '', '', 'Chevrolet', 'Australia'),
-            Manufacturer::init('6H', 'Holden', '', '', 'Holden', 'Australia'),
-            Manufacturer::init('6H8', '', '', '', 'General Motors-Holden', 'Australia', null, 2002),
-            Manufacturer::init('6MM', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Australia'),
-            Manufacturer::init('6MP', 'Mercury', '', 'Capri', 'Mercury', 'Australia'),
-            Manufacturer::init('6T1', 'Toyota', '', '', 'Toyota Motor Corporation', 'Australia'),
-            Manufacturer::init('6T9', '', '', 'Trailer', '', 'Australia'),
-            Manufacturer::init('6U9', '', '', '', 'Privately Imported car in Australia', 'Australia', null, null, 'Low Volume (Grey) Import Vehicles which don\'t have 17 Digit VIN.'),
-            Manufacturer::init('6ZZ', '', '', '', 'Privately Imported car in Australia', 'Australia', null, null, 'Low Volume (Grey) Import Vehicles which don\'t have 17 Digit VIN.'),
-            Manufacturer::init('7A1', 'Mitsubishi', '', '', 'Mitsubishi', 'New Zealand'),
-            Manufacturer::init('7A3', 'Honda', '', '', 'Honda', 'New Zealand'),
-            Manufacturer::init('7A4', 'Toyota', '', '', 'Toyota', 'New Zealand'),
-            Manufacturer::init('7A5', 'Ford', '', '', 'Ford', 'New Zealand'),
-            Manufacturer::init('7A7', 'Nissan', '', '', 'Nissan', 'New Zealand'),
-            Manufacturer::init('7A8', '', '', '', 'NZ Transport Agency', 'New Zealand', null, 2009),
-            Manufacturer::init('7AT', '', '', '', 'NZ Transport Agency', 'New Zealand', 2009),
-            Manufacturer::init('7FA', 'Honda', 'SUV', '', 'Honda Manufacturing of Indiana', 'United States'),
-            Manufacturer::init('7FC', 'Rivian', 'truck', '', 'Rivian', 'United States'),
-            Manufacturer::init('7GZ', 'GMC', 'incomplete', '', 'Navistar International', 'United States'),
-            Manufacturer::init('7G2', 'Tesla', '', 'Cybertruck', 'Tesla', 'United States'),
-            Manufacturer::init('7G2', 'Tesla', '', 'Semi', 'Tesla', 'United States'),
-            Manufacturer::init('7H4', 'Hino', 'truck', '', '', 'United States'),
-            Manufacturer::init('7JR', 'Volvo', 'car', '', 'Volvo Cars', 'United States'),
-            Manufacturer::init('7JZ', 'Proterra', '', '', '', 'United States', 2019),
-            Manufacturer::init('7KG', '', '', '', 'Vanderhall Motor Works', 'United States'),
-            Manufacturer::init('7MM', 'Mazda', 'SUV', '', 'MTMUS (Mazda-Toyota Joint Venture)', 'United States'),
-            Manufacturer::init('7MU', 'Toyota', 'SUV', '', 'MTMUS (Mazda-Toyota Joint Venture)', 'United States'),
-            Manufacturer::init('7NA', '', '', '', 'Navistar Defense', 'United States'),
-            Manufacturer::init('7NY', '', '', '', 'Lordstown Motors', 'United States'),
-            Manufacturer::init('7PD', 'Rivian', 'SUV', '', 'Rivian', 'United States'),
-            Manufacturer::init('7RZ', '', '', '', 'Electric Last Mile Solutions', 'United States'),
-            Manufacturer::init('7R4', '', '', '', 'Icon Electric Vehicles', 'United States'),
-            Manufacturer::init('7SA', 'Tesla', 'SUV', '', 'Tesla', 'United States', 2022),
-            Manufacturer::init('7SU', 'Blue Arc', 'electric trucks', '', 'The Shyft Group', 'United States'),
-            Manufacturer::init('7SV', 'Toyota', 'SUV', '', 'TMMTX', 'United States'),
-            Manufacturer::init('7SX', '', '', '', 'Global Electric Motorcars', 'United States'),
-            Manufacturer::init('7Z0', 'Zoox', '', '', 'Zoox', 'United States'),
-            Manufacturer::init('8AC', 'Mercedes-Benz', 'vans', '', 'Mercedes-Benz', 'Argentina'),
-            Manufacturer::init('8AD', 'Peugeot', '', '', 'Peugeot', 'Argentina'),
-            Manufacturer::init('8AE', 'Peugeot', 'van', '', 'Peugeot', 'Argentina'),
-            Manufacturer::init('8AF', 'Ford', '', '', 'Ford Motor Company', 'Argentina'),
-            Manufacturer::init('8AG', 'Chevrolet', '', '', 'General Motors', 'Argentina'),
-            Manufacturer::init('8AJ', 'Toyota', '', '', 'Toyota', 'Argentina'),
-            Manufacturer::init('8AK', 'Suzuki', '', '', 'Suzuki', 'Argentina'),
-            Manufacturer::init('8AN', 'Nissan', '', '', 'Nissan', 'Argentina'),
-            Manufacturer::init('8AP', 'Fiat', '', '', 'Fiat', 'Argentina'),
-            Manufacturer::init('8AT', 'Iveco', '', '', 'Iveco', 'Argentina'),
-            Manufacturer::init('8AW', 'Volkswagen', '', '', 'Volkswagen', 'Argentina'),
-            Manufacturer::init('8A1', 'Renault', '', '', 'Renault', 'Argentina'),
-            Manufacturer::init('8A3', 'Scania', '', '', 'Scania', 'Argentina'),
-            Manufacturer::init('8BB', '', '', '', 'Agrale Argentina S.A', 'Argentina'),
-            Manufacturer::init('8BC', 'Citroën', '', '', 'Citroën', 'Argentina'),
-            Manufacturer::init('8BN', 'Mercedes-Benz', 'incomplete', '', 'Mercedes-Benz', 'Argentina'),
-            Manufacturer::init('8BR', 'Mercedes-Benz', 'bus', '', 'Mercedes-Benz', 'Argentina'),
-            Manufacturer::init('8BT', 'Mercedes-Benz', 'MPV', '', 'Mercedes-Benz', 'Argentina'),
-            Manufacturer::init('8BU', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Argentina'),
-            Manufacturer::init('8CH', 'Honda', 'motorcycle', '', 'Honda', 'Argentina'),
-            Manufacturer::init('8C3', 'Honda', 'car/SUV', '', 'Honda', 'Argentina'),
-            Manufacturer::init('8F9', '', '', '', 'Reborn Electric Motors SPA', 'Chile'),
-            Manufacturer::init('8GD', 'Peugeot', '', '', 'Automotores Franco Chilena S.A Peugeot', 'Chile'),
-            Manufacturer::init('8GG', 'GMC', '', '', 'General Motors Chile Ltda.', 'Chile'),
-            Manufacturer::init('8G1', 'Renault', '', '', 'Automotores Franco Chilena S.A Renault', 'Chile'),
-            Manufacturer::init('8L4', 'Great Wall Motors', '', '', 'Ciudad del Auto Ciauto Cia. Ltda.', 'Ecuador'),
-            Manufacturer::init('8LB', 'GMC', '', '', 'General Motors OBB', 'Ecuador'),
-            Manufacturer::init('8LF', 'Maresa', '', '', 'Mazda', 'Ecuador'),
-            Manufacturer::init('8LG', 'Aymesa', '', '', 'Hyundai Motor & Kia', 'Ecuador'),
-            Manufacturer::init('8XD', 'Ford', '', '', 'Ford Motor Venezuela', 'Venezuela'),
-            Manufacturer::init('8XJ', 'Mack', '', '', 'Mack de Venezuela C.A.', 'Venezuela'),
-            Manufacturer::init('8XV', 'Iveco', '', '', 'Iveco Venezuela C.A.', 'Venezuela'),
-            Manufacturer::init('8Z1', 'GMC', '', '', 'General Motors Venezolana C.A.', 'Venezuela'),
-            Manufacturer::init('829', '', '', '', 'Quantum Motors', 'Bolivia'),
-            Manufacturer::init('9AM', 'Massari', '', '', 'Massari', 'Brazil'),
-            Manufacturer::init('9BD', 'Fiat', '', '', 'Fiat Automóveis', 'Brazil'),
-            Manufacturer::init('9BF', 'Ford', '', '', 'Ford Brasil', 'Brazil'),
-            Manufacturer::init('9BG', 'Chevrolet', '', '', 'General Motors do Brasil', 'Brazil'),
-            Manufacturer::init('9BH', 'Hyundai', '', '', 'Hyundai Motor Brasil', 'Brazil'),
-            Manufacturer::init('9BM', 'Mercedes-Benz', 'commercial truck', '', '', 'Brazil'),
-            Manufacturer::init('9BM', 'Mercedes-Benz', 'car', '', '', 'Brazil'),
-            Manufacturer::init('9BM', 'Mercedes-Benz', 'SUV', '', '', 'Brazil'),
-            Manufacturer::init('9BN', 'Mafersa', '', '', 'Mafersa', 'Brazil'),
-            Manufacturer::init('9BR', 'Toyota', '', '', 'Toyota', 'Brazil'),
-            Manufacturer::init('9BS', 'Scania', '', '', 'Scania Brazil', 'Brazil'),
-            Manufacturer::init('9BV', 'Volvo', '', '', 'Volvo Trucks', 'Brazil'),
-            Manufacturer::init('9BW', 'Volkswagen', '', '', 'Volkswagen do Brasil', 'Brazil'),
-            Manufacturer::init('9BY', 'Agrale', '', '', 'Agrale S.A.', 'Brazil'),
-            Manufacturer::init('9C2', 'Honda', '', '', 'Honda Motorcycles', 'Brazil'),
-            Manufacturer::init('9C6', 'Yamaha', '', '', 'Yamaha Motor', 'Brazil'),
-            Manufacturer::init('9CD', 'Suzuki', 'motorcycles', '', 'J. Toledo Motos do Brasil', 'Brazil'),
-            Manufacturer::init('9DW', 'Kenworth', 'trucks', '', 'Volkswagen', 'Brazil'),
-            Manufacturer::init('9DW', 'Peterbilt', 'trucks', '', 'Volkswagen', 'Brazil'),
-            Manufacturer::init('9FB̈́', 'Sofasa', '', '', 'Renault', 'Colombia'),
-            Manufacturer::init('9FC', 'Mazda', '', '', 'Compañía Colombiana Automotriz S.A.', 'Colombia'),
-            Manufacturer::init('9GA', 'Chevrolet', '', '', 'GM Colmotores S.A.', 'Colombia'),
-            Manufacturer::init('9UJ', 'Chery', '', '', 'Chery Socma S.A.', 'Uruguay'),
-            Manufacturer::init('9UK', 'Lifan', '', '', 'Lifan', 'Uruguay'),
-            Manufacturer::init('9UW', 'Kia', '', '', 'Nordex S.A.', 'Uruguay'),
-            Manufacturer::init('9V7', 'Citroen', '', '', 'Nordex S.A.', 'Uruguay'),
-            Manufacturer::init('9V8', 'Peugeot', '', '', 'Nordex S.A.', 'Uruguay'),
-            Manufacturer::init('93C', 'Chevrolet', 'SUV', '', 'General Motors do Brasil', 'Brazil'),
-            Manufacturer::init('93H', 'Honda', 'car/SUV', '', 'Honda', 'Brazil'),
-            Manufacturer::init('93K', 'Volvo', '', '', 'Volvo Trucks', 'Brazil'),
-            Manufacturer::init('93P', 'Volare', '', '', 'Volare', 'Brazil'),
-            Manufacturer::init('93R', 'Toyota', '', '', 'Toyota', 'Brazil'),
-            Manufacturer::init('93S', '', '', '', 'Navistar International', 'Brazil'),
-            Manufacturer::init('93U', 'Audi', '', '', 'Audi', 'Brazil', 1999, 2006),
-            Manufacturer::init('93V', '', '', '', 'Navistar International', 'Brazil'),
-            Manufacturer::init('93W', 'Fiat', '', 'Ducato', 'Iveco', 'Brazil', 2000, 2016),
-            Manufacturer::init('93X', 'Suzuki', '', 'Jimny', 'Souza Ramos', 'Brazil'),
-            Manufacturer::init('93X', 'Mitsubishi', '', '', 'Souza Ramos', 'Brazil'),
-            Manufacturer::init('93Y', 'Renault', '', '', 'Renault do Brasil', 'Brazil'),
-            Manufacturer::init('93Z', 'Iveco', '', '', 'Iveco', 'Brazil'),
-            Manufacturer::init('932', 'Harley-Davidson', '', '', 'Harley-Davidson', 'Brazil'),
-            Manufacturer::init('935', 'Citroën', '', '', 'Citroën', 'Brazil'),
-            Manufacturer::init('936', 'Peugeot', '', '', 'Peugeot', 'Brazil'),
-            Manufacturer::init('937', 'Dodge', '', '', 'Dodge', 'Brazil'),
-            Manufacturer::init('94D', 'Nissan', '', '', 'Nissan', 'Brazil'),
-            Manufacturer::init('94G', 'Indabra', '', '', 'Indabra', 'Brazil'),
-            Manufacturer::init('94M', '', '', '', 'HVR-Busscar', 'Brazil'),
-            Manufacturer::init('94N', '', '', '', 'RWM Brazil', 'Brazil'),
-            Manufacturer::init('94T', '', '', '', 'Troller Veículos Especiais', 'Brazil'),
-            Manufacturer::init('953', '', '', '', 'VW Truck & Bus', 'Brazil'),
-            Manufacturer::init('953', '', '', '', 'MAN Truck & Bus', 'Brazil'),
-            Manufacturer::init('95P', 'Hyundai', '', '', 'CAOA', 'Brazil'),
-            Manufacturer::init('95P', 'CAOA', '', 'Chery', 'CAOA', 'Brazil'),
-            Manufacturer::init('95V', 'Dafra', '', '', 'Dafra Motos', 'Brazil', null, null, 'motorscooters from SYM'),
-            Manufacturer::init('95V', 'Ducati', '', '', 'Dafra Motos', 'Brazil'),
-            Manufacturer::init('95V', 'KTM', '', '', 'Dafra Motos', 'Brazil'),
-            Manufacturer::init('95V', 'MV', '', 'Agusta', 'Dafra Motos', 'Brazil'),
-            Manufacturer::init('95V', 'BMW', 'motorcycles', '', 'Dafra Motos', 'Brazil', 2009, 2016),
-            Manufacturer::init('95Z', 'Buell Motorcycle Company', '', '', 'Harley-Davidson Brazil', 'Brazil'),
-            Manufacturer::init('96P', 'Kawasaki', '', '', 'Kawasaki', 'Brazil'),
-            Manufacturer::init('97N', 'Triumph', '', '', 'Triumph Motorcycles Ltd', 'Brazil'),
-            Manufacturer::init('988', 'Jeep', '', '', 'Goiana plant', 'Brazil'),
-            Manufacturer::init('988', 'Fiat', '', '', 'Goiana plant', 'Brazil'),
-            Manufacturer::init('98M', 'BMW', 'car/SUV', '', 'BMW', 'Brazil'),
-            Manufacturer::init('98R', 'Chery', '', '', 'Chery', 'Brazil'),
-            Manufacturer::init('99A', 'Audi', '', '', 'Audi', 'Brazil', 2016),
-            Manufacturer::init('99J', 'JLR', '', '', 'Jaguar Land Rover', 'Brazil'),
-            Manufacturer::init('99K', 'Haojue', '', '', 'JTZ Indústria e Comércio de Motos', 'Brazil'),
-            Manufacturer::init('99K', 'Kymco', '', '', 'JTZ Indústria e Comércio de Motos', 'Brazil'),
-            Manufacturer::init('99L', 'BYD', '', '', 'BYD', 'Brazil'),
-            Manufacturer::init('99Z', 'BMW', '', '', 'BMW Motorrad Motorcycle', 'Brazil', 2017),
-        ]);
-    }
+        $this->attach(new Manufacturer('AAA', 'Audi', country: 'South Africa'));
+        $this->attach(new Manufacturer('AAK', 'FAW', '', '', 'FAW Vehicle Manufacturers SA (PTY) Ltd.', 'South Africa'));
+        $this->attach(new Manufacturer('AAM', 'MAN', '', '', 'MAN Automotive (South Africa) (Pty) Ltd.', 'South Africa'));
+        $this->attach(new Manufacturer('AAM', 'Volkswagen', 'truck, bus', '', 'MAN Automotive (South Africa) (Pty) Ltd.', 'South Africa'));
+        $this->attach(new Manufacturer('AAV', 'Volkswagen', '', '', 'Volkswagen of South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('ABJ', 'Mitsubishi', 'pickups', 'Mitsubishi Colt & Triton', 'Mercedes-Benz South Africa', 'South Africa', 1994, 2011));
+        $this->attach(new Manufacturer('ABJ', 'Mitsubishi', '', 'Fuso', 'Daimler Trucks & Buses Southern Africa', 'South Africa'));
+        $this->attach(new Manufacturer('ABM', 'BMW', '', '', 'BMW Southern Africa', 'South Africa'));
+        $this->attach(new Manufacturer('AB8', 'Rimac', '', '', 'Rimac Automobili', 'South Africa'));
+        $this->attach(new Manufacturer('ACV', 'Isuzu', '', '', 'Isuzu Motors South Africa', 'South Africa', 2018));
+        $this->attach(new Manufacturer('AC5', 'Hyundai', 'cars', '', 'Hyundai South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('ADD', 'UD Trucks', '', '', 'UD Trucks Southern Africa (Pty) Ltd', 'South Africa'));
+        $this->attach(new Manufacturer('ADM', 'GM', '', '', 'General Motors South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('ADM', 'Isuzu', '', '', 'General Motors South Africa', 'South Africa', 2018, 2018));
+        $this->attach(new Manufacturer('ADN', 'Nissan', '', '', 'Nissan South Africa (Pty) Ltd', 'South Africa'));
+        $this->attach(new Manufacturer('ADR', 'Renault', '', 'Sandero', 'Nissan South Africa (Pty) Ltd', 'South Africa'));
+        $this->attach(new Manufacturer('ADX', 'Tata', '', '', 'Tata Automobile Corporation (SA) Ltd.', 'South Africa'));
+        $this->attach(new Manufacturer('AFA', 'Ford', '', '', 'Ford South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('AF8', 'Mazda', '', 'BT-50', 'Ford South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('AHH', 'Hino', '', '', 'Hino South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('AHM', 'Honda', '', 'Ballade', 'Mercedes-Benz South Africa', 'South Africa', 1982, 2000));
+        $this->attach(new Manufacturer('AHT', 'Toyota', '', '', 'Toyota South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('BAB', 'BMW', 'cars', '', 'BMW', '', 1986, 2019));
+        $this->attach(new Manufacturer('BF9', 'KIBO', 'motorcycles', '', 'KIBO Motorcycles', 'Kenya'));
+        $this->attach(new Manufacturer('CL9', 'Wallyscar', '', '', 'Wallyscar', 'Tunisia'));
+        $this->attach(new Manufacturer('DAA', 'Fiat', '', '', 'Fiat Auto Egypt Industrial Co', 'Egypt'));
+        $this->attach(new Manufacturer('DAB', 'BMW', '', '', 'BMW Egypt SKD', 'Egypt'));
+        $this->attach(new Manufacturer('DA1', '', '', '', 'Arab American Vehicles', 'Egypt'));
+        $this->attach(new Manufacturer('DA4', '', '', '', 'Arab American Vehicles', 'Egypt'));
+        $this->attach(new Manufacturer('DF9', 'Laraki', '', '', 'Laraki', 'Morocco'));
+        $this->attach(new Manufacturer('GA1', 'Renault', '', '', 'Renault/SOMACOA', 'Madagascar'));
 
-    /**
-     * @param string $code
-     * @return Manufacturer[]
-     */
-    public function getByCode(string $code): array
-    {
-        $used = [];
-        foreach ($this->getIterator() as $item) {
-            if (is_object($item) && is_a($item, Manufacturer::class) && ($item->code == $code)) {
-                $used[] = $item;
-            }
-        }
-        return $used;
+        $this->attach(new Manufacturer('J81', 'Chevrolet', 'car', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('J81', 'Geo', 'car', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('J87', 'Pontiac', 'car', '', 'Isuzu', 'Japan', null, null, 'for GM Canada'));
+        $this->attach(new Manufacturer('J87', 'Asüna', 'car', '', 'Isuzu', 'Japan', null, null, 'for GM Canada'));
+        $this->attach(new Manufacturer('J8B', 'Chevrolet', 'trucks', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('J8C', 'Chevrolet', 'trucks', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('J8D', 'GMC', 'trucks', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('J8T', 'GMC', 'trucks', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('J8Z', 'Chevrolet', 'pickup', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JA', 'Isuzu', '', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JAA', 'Isuzu', 'truck', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JAB', 'Isuzu', 'car', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JAC', 'Isuzu', 'SUV', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JAE', 'Acura', '', 'SLX', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JAL', 'Isuzu', 'trucks', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JAL', 'Chevrolet', 'trucks', '', 'Isuzu', 'Japan', 2016));
+        $this->attach(new Manufacturer('JAL', 'Hino', 'trucks', 'S-series', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JAM', 'Isuzu', 'trucks', '', 'Isuzu', 'Japan'));
+        $this->attach(new Manufacturer('JA3', 'Mitsubishi', 'car', '', 'Mitsubishi', 'Japan'));
+        $this->attach(new Manufacturer('JA4', 'Mitsubishi', 'MPV/SUV', '', 'Mitsubishi', 'Japan'));
+        $this->attach(new Manufacturer('JA7', 'Mitsubishi', 'truck', '', 'Mitsubishi', 'Japan'));
+        $this->attach(new Manufacturer('JB3', 'Dodge', 'car', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JB4', 'Dodge', 'MPV/SUV', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JB7', 'Dodge', 'truck', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JC0', 'Ford', 'car', '', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JC1', 'Fiat', 'car', '124 Spider', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JC2', 'Ford', '', 'Courier', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JD', 'Daihatsu', 'car', '', 'Daihatsu', 'Japan'));
+        $this->attach(new Manufacturer('JD1', 'Daihatsu', 'SUV', '', 'Daihatsu', 'Japan'));
+        $this->attach(new Manufacturer('JD2', 'Daihatsu', 'truck', '', 'Daihatsu', 'Japan'));
+        $this->attach(new Manufacturer('JE3', 'Eagle', 'car', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JE4', 'Mitsubishi', '', '', 'Mitsubishi', 'Japan'));
+        $this->attach(new Manufacturer('JF', 'Subaru', '', '', 'Fuji Heavy Industries', 'Japan'));
+        $this->attach(new Manufacturer('JF1', 'Subaru', 'car', '', 'Subaru', 'Japan'));
+        $this->attach(new Manufacturer('JF2', 'Subaru', 'SUV', '', 'Subaru', 'Japan'));
+        $this->attach(new Manufacturer('JF3', 'Subaru', 'truck', '', 'Subaru', 'Japan'));
+        $this->attach(new Manufacturer('JF4', 'Saab', '', '9-2X', 'Subaru', 'Japan'));
+        $this->attach(new Manufacturer('JG1', 'Chevrolet, Geo', 'car', '', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JG7', 'Pontiac/Asuna', 'car', '', 'Suzuki', 'Japan', null, null, 'for GM Canada'));
+        $this->attach(new Manufacturer('JGC', 'Chevrolet, Geo', 'SUV', '', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JGT', 'GMC', 'SUV', '', 'Suzuki', 'Japan', null, null, 'for GM Canada'));
+        $this->attach(new Manufacturer('JH', 'Honda', '', '', 'Honda', 'Japan'));
+        $this->attach(new Manufacturer('JH2', 'Honda', 'motocycles/ATV', '', 'Honda', 'Japan'));
+        $this->attach(new Manufacturer('JH3', 'Honda', 'ATV', '', 'Honda', 'Japan'));
+        $this->attach(new Manufacturer('JH4', 'Acura', 'car', '', 'Acura', 'Japan'));
+        $this->attach(new Manufacturer('JHA', 'Hino', '', '', 'Hino', 'Japan'));
+        $this->attach(new Manufacturer('JHB', 'Hino', '', '', 'Hino', 'Japan'));
+        $this->attach(new Manufacturer('JHD', 'Hino', '', '', 'Hino', 'Japan'));
+        $this->attach(new Manufacturer('JHF', 'Hino', '', '', 'Hino', 'Japan'));
+        $this->attach(new Manufacturer('JHH', 'Hino', '', '', 'Hino', 'Japan'));
+        $this->attach(new Manufacturer('JHL', 'Honda', 'MPV/SUV', '', 'Honda', 'Japan'));
+        $this->attach(new Manufacturer('JHM', 'Honda', 'car', '', 'Honda', 'Japan'));
+        $this->attach(new Manufacturer('JJ3', 'Chrysler', '', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JK', 'Kawasaki', 'motorcycles', '', 'Kawasaki', 'Japan'));
+        $this->attach(new Manufacturer('JKA', 'Kawasaki', 'motorcycles', '', 'Kawasaki', 'Japan'));
+        $this->attach(new Manufacturer('JKB', 'Kawasaki', 'motorcycles', '', 'Kawasaki', 'Japan'));
+        $this->attach(new Manufacturer('JKS', 'Suzuki', 'motorcycles', 'Marauder 1600', 'Kawasaki', 'Japan'));
+        $this->attach(new Manufacturer('JKS', 'Suzuki', 'motorcycles', 'Boulevard M95', 'Kawasaki', 'Japan'));
+        $this->attach(new Manufacturer('JK8', 'Suzuki', 'UTV', 'QUV620F', 'Kawasaki', 'Japan'));
+        $this->attach(new Manufacturer('JL5', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'));
+        $this->attach(new Manufacturer('JL6', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'));
+        $this->attach(new Manufacturer('JLF', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'));
+        $this->attach(new Manufacturer('JLS', 'Sterling', 'trucks', '360', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan'));
+        $this->attach(new Manufacturer('JM0', 'Mazda', '', '', 'Mazda', 'Japan', null, null, 'Oceania export'));
+        $this->attach(new Manufacturer('JM1', 'Mazda', 'car', '', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JM2', 'Mazda', 'truck', '', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JM3', 'Mazda', 'MPV/SUV', '', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JM6', 'Mazda', '', '', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JM7', 'Mazda', '', '', 'Mazda', 'Japan'));
+        $this->attach(new Manufacturer('JMA', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JMB', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JMF', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JMY', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JMZ', 'Mazda', '', '', 'Mazda', 'Japan', null, null, 'Europe export'));
+        $this->attach(new Manufacturer('JN', 'Nissan', '', '', 'Nissan', 'Japan'));
+        $this->attach(new Manufacturer('JN1', 'Nissan', 'car', '', 'Nissan', 'Japan'));
+        $this->attach(new Manufacturer('JN1', 'Infiniti', 'car', '', 'Infiniti', 'Japan'));
+        $this->attach(new Manufacturer('JN3', 'Nissan', 'incomplete', '', 'Nissan', 'Japan'));
+        $this->attach(new Manufacturer('JN4', 'Nissan', '', '', 'Nissan', 'Japan'));
+        $this->attach(new Manufacturer('JN6', 'Nissan', 'truck', '', 'Nissan', 'Japan'));
+        $this->attach(new Manufacturer('JN8', 'Nissan', 'MPV/SUV', '', 'Nissan', 'Japan'));
+        $this->attach(new Manufacturer('JN8', 'Infiniti', 'SUV', '', 'Infiniti', 'Japan'));
+        $this->attach(new Manufacturer('JNA', 'Nissan Diesel', 'incomplete vehicle', '', 'Nissan Diesel', 'Japan'));
+        $this->attach(new Manufacturer('JNA', 'UD Trucks', 'incomplete vehicle', '', 'UD Trucks', 'Japan'));
+        $this->attach(new Manufacturer('JNC', 'Nissan Diesel', '', '', 'Nissan Diesel', 'Japan'));
+        $this->attach(new Manufacturer('JNC', 'UD Trucks', '', '', 'UD Trucks', 'Japan'));
+        $this->attach(new Manufacturer('JNE', 'Nissan Diesel', 'truck', '', 'Nissan Diesel', 'Japan'));
+        $this->attach(new Manufacturer('JNE', 'UD Trucks', 'truck', '', 'UD Trucks', 'Japan'));
+        $this->attach(new Manufacturer('JNK', 'Infiniti', 'car', '', 'Infiniti', 'Japan'));
+        $this->attach(new Manufacturer('JNR', 'Infiniti', 'SUV', '', 'Infiniti', 'Japan'));
+        $this->attach(new Manufacturer('JNX', 'Infiniti', 'incomplete', '', 'Infiniti', 'Japan'));
+        $this->attach(new Manufacturer('JP3', 'Plymouth', 'car', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JP4', 'Plymouth', 'MPV/SUV', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JP7', 'Plymouth', 'truck', '', 'Mitsubishi Motors', 'Japan'));
+        $this->attach(new Manufacturer('JPC', 'Nissan Diesel', '', '', 'Nissan Diesel', 'Japan'));
+        $this->attach(new Manufacturer('JPC', 'UD Trucks', '', '', 'UD Trucks', 'Japan'));
+        $this->attach(new Manufacturer('JR2', 'Isuzu', '', 'Oasis', 'Honda', 'Japan'));
+        $this->attach(new Manufacturer('JS', 'Suzuki', '', '', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JS1', 'Suzuki', 'motocycles', '', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JS1', 'Kawasaki', 'motocycles', 'KLX400S', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JS1', 'Kawasaki', 'motocycles', 'KLX400SR', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JS2', 'Suzuki', 'car', '', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JS3', 'Suzuki', 'SUV', '', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JS4', 'Suzuki', '', '', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JSA', 'Kawasaki', 'ATV', 'KFX400', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JSK', 'Kawasaki', 'motorcycle', 'KLX125', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JSK', 'Kawasaki', 'motorcycle', 'KLX125L', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JSL', 'Kawasaki', 'ATV', 'KFX400', 'Suzuki', 'Japan'));
+        $this->attach(new Manufacturer('JT', 'Toyota', '', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JT2', 'Toyota', 'car', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JT3', 'Toyota', 'MPV/SUV', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JT4', 'Toyota', 'truck', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JT5', 'Toyota', 'incomplete', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JT6', 'Lexus', 'SUV', '', 'Lexus', 'Japan'));
+        $this->attach(new Manufacturer('JT8', 'Lexus', 'car', '', 'Lexus', 'Japan'));
+        $this->attach(new Manufacturer('JTD', 'Toyota', 'car', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JTE', 'Toyota', 'van/truck', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JTG', 'Toyota', 'MPV/bus', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JTH', 'Lexus', 'car', '', 'Lexus', 'Japan'));
+        $this->attach(new Manufacturer('JTJ', 'Lexus', 'SUV', '', 'Lexus', 'Japan'));
+        $this->attach(new Manufacturer('JTK', 'Scion', 'car', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JTL', 'Scion', 'SUV', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JTM', 'Toyota', 'SUV', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JTN', 'Toyota', 'car', '', 'Toyota', 'Japan'));
+        $this->attach(new Manufacturer('JW6', 'Mitsubishi', '', '', 'Mitsubishi FUSO Truck & Bus Corp', 'Japan', 2003, 2003));
+        $this->attach(new Manufacturer('JW7', 'Mitsubishi', '', '', 'Mitsubishi', 'Japan'));
+        $this->attach(new Manufacturer('JY', 'Yamaha', 'motorcycles', '', 'Yamaha Motor', 'Japan'));
+        $this->attach(new Manufacturer('JY3', 'Yamaha', '3-wheel ATV', '', 'Yamaha Motor', 'Japan'));
+        $this->attach(new Manufacturer('JY4', 'Yamaha', '4-wheel ATV', '', 'Yamaha Motor', 'Japan'));
+        $this->attach(new Manufacturer('JYA', 'Yamaha', 'motocycles', '', 'Yamaha Motor', 'Japan'));
+        $this->attach(new Manufacturer('JYE', 'Yamaha', 'snowmobile', '', 'Yamaha Motor', 'Japan'));
+        $this->attach(new Manufacturer('KAA', '', '', '', 'RS Automotive', 'Sri Lanka'));
+        $this->attach(new Manufacturer('KAL', 'Ashok Leyland', '', '', 'Lanka Ashok Leyland', 'Sri Lanka'));
+        $this->attach(new Manufacturer('KA1', '', '', '', 'KEWR Technologies', 'Sri Lanka'));
+        $this->attach(new Manufacturer('KF3', 'Merkavim', '', '', 'Merkavim', 'Israel'));
+        $this->attach(new Manufacturer('KF6', '', '', '', 'Automotive Industries, Ltd.', 'Israel'));
+        $this->attach(new Manufacturer('KF9', 'Tomcar', '', '', 'Tomcar', 'Israel'));
+        $this->attach(new Manufacturer('KL', 'Daewoo General Motors', '', '', 'Daewoo General Motors South Korea', 'South Korea'));
+        $this->attach(new Manufacturer('KLA', 'Daewoo General Motors', '', '', 'Daewoo General Motors South Korea', 'South Korea'));
+        $this->attach(new Manufacturer('KLT', 'Tata Daewoo', '', '', 'Tata Daewoo', 'South Korea'));
+        $this->attach(new Manufacturer('KLU', 'Tata Daewoo', '', '', 'Tata Daewoo', 'South Korea'));
+        $this->attach(new Manufacturer('KL1', 'Chevrolet', 'car', '', 'GM Daewoo/GM Korea', 'South Korea'));
+        $this->attach(new Manufacturer('KL2', 'Pontiac', '', '', 'Daewoo/GM Daewoo', 'South Korea'));
+        $this->attach(new Manufacturer('KL3', 'Holden', '', '', 'GM Daewoo/GM Korea', 'South Korea'));
+        $this->attach(new Manufacturer('KL4', 'Buick', '', '', 'GM Korea', 'South Korea'));
+        $this->attach(new Manufacturer('KL5', 'Suzuki', '', '', 'GM Daewoo', 'South Korea'));
+        $this->attach(new Manufacturer('KL6', 'GMC', '', '', 'GM Daewoo', 'South Korea'));
+        $this->attach(new Manufacturer('KL7', 'Passport', '', '', 'Daewoo GM Canada', 'South Korea', null, 2000));
+        $this->attach(new Manufacturer('KL7', 'Asuna', '', '', 'Daewoo GM Canada', 'South Korea', null, 2000));
+        $this->attach(new Manufacturer('KL7', 'Chevrolet', 'MPV/SUV', '', 'Daewoo GM Canada', 'South Korea', 2000));
+        $this->attach(new Manufacturer('KL8', 'Chevrolet', 'car', 'Spark', 'GM Daewoo/GM Korea', 'South Korea'));
+        $this->attach(new Manufacturer('KM', 'Hyundai', '', '', 'Hyundai', 'South Korea'));
+        $this->attach(new Manufacturer('KMA', '', '', '', 'Asia Motors', 'South Korea'));
+        $this->attach(new Manufacturer('KME', 'Hyundai', 'commercial truck', '', 'Hyundai', 'South Korea'));
+        $this->attach(new Manufacturer('KMF', 'Hyundai', 'truck', '', 'Hyundai van & commercial truck', 'South Korea'));
+        $this->attach(new Manufacturer('KMF', 'Bering', 'truck', '', 'Bering Truck', 'South Korea'));
+        $this->attach(new Manufacturer('KM1', 'Hyosung', 'motorcycles', '', 'Hyosung', 'South Korea'));
+        $this->attach(new Manufacturer('KMH', 'Hyundai', 'car', '', 'Hyundai', 'South Korea'));
+        $this->attach(new Manufacturer('KMJ', 'Hyundai', 'bus, minibus', '', 'Hyundai', 'South Korea'));
+        $this->attach(new Manufacturer('KMT', 'Genesis Motor', 'car', '', 'Genesis Motor', 'South Korea'));
+        $this->attach(new Manufacturer('KMU', 'Genesis Motor', 'SUV', '', 'Genesis Motor', 'South Korea'));
+        $this->attach(new Manufacturer('KMY', '', '', '', 'Daelim Motor Company, Ltd/DNA Motors Co., Ltd.', 'South Korea'));
+        $this->attach(new Manufacturer('KM4', '', '', '', 'Hyosung Motors/S&T Motors/KR Motors', 'South Korea'));
+        $this->attach(new Manufacturer('KM8', 'Hyundai', 'SUV', '', 'Hyundai', 'South Korea'));
+        $this->attach(new Manufacturer('KN', 'Kia', '', '', 'Kia', 'South Korea'));
+        $this->attach(new Manufacturer('KNA', 'Kia', 'car', '', 'Kia', 'South Korea'));
+        $this->attach(new Manufacturer('KNC', 'Kia', 'car', '', 'Kia', 'South Korea'));
+        $this->attach(new Manufacturer('KND', 'Kia', 'SUV/MPV', '', 'Kia', 'South Korea'));
+        $this->attach(new Manufacturer('KND', 'Hyundai', '', 'Entourage', 'Hyundai', 'South Korea'));
+        $this->attach(new Manufacturer('KNE', 'Kia', 'car', '', 'Kia', 'South Korea'));
+        $this->attach(new Manufacturer('KNJ', 'Ford', '', 'Festiva & Aspire', 'Ford', 'South Korea'));
+        $this->attach(new Manufacturer('KNM', 'Renault', '', '', 'Renault Samsung Motors', 'South Korea'));
+        $this->attach(new Manufacturer('KNM', 'Nissan', '', 'Rogue', 'Renault Samsung Motors', 'South Korea'));
+        $this->attach(new Manufacturer('KPA', 'SsangYong', 'pickup', '', 'SsangYong', 'South Korea'));
+        $this->attach(new Manufacturer('KPB', 'SsangYong', 'car', '', 'SsangYong', 'South Korea'));
+        $this->attach(new Manufacturer('KPH', 'Mitsubishi', '', 'Precis', 'Mitsubishi Motors', 'South Korea'));
+        $this->attach(new Manufacturer('KPT', 'SsangYong', 'SUV/MPV', '', 'SsangYong', 'South Korea'));
+        $this->attach(new Manufacturer('L1C', '', '', '', 'Hubei Huawei Special-Purpose Automobile', 'China'));
+        $this->attach(new Manufacturer('L2C', '', '', '', 'Chery Jaguar Land Rover', 'China'));
+        $this->attach(new Manufacturer('L4B', 'Xingyue', 'motorcycles', '', 'Xingyue Group', 'China'));
+        $this->attach(new Manufacturer('L5C', 'KangDi', 'ATV', '', 'KangDi', 'China'));
+        $this->attach(new Manufacturer('L5K', 'Zhejiang Yongkang', '', '', 'Zhejiang Yongkang Easy Vehicle', 'China'));
+        $this->attach(new Manufacturer('L5N', 'Zhejiang Taotao', 'ATV & motorcycles', '', 'Zhejiang Taotao', 'China'));
+        $this->attach(new Manufacturer('L5Y', 'Znen Taizhou Zhongneng', 'motorcycles', '', 'Znen Taizhou Zhongneng Motorcycle Co. Ltd.', 'China'));
+        $this->attach(new Manufacturer('L6T', 'Geely', '', '', 'Geely', 'China'));
+        $this->attach(new Manufacturer('L8A', 'Jinhua', '', '', 'Jinhua Youngman Automobile Manufacturing Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('L8Y', 'Zhejiang Jonway', 'motorcycles', '', 'Zhejiang Jonway Motorcycle Manufacturing Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('L85', 'Zhejiang Yongkang Huabao', '', '', 'Zhejiang Yongkang Huabao Electric Appliance', 'China'));
+        $this->attach(new Manufacturer('L8X', 'Zhejiang Summit Huawin', 'motorcycles', '', 'Zhejiang Summit Huawin Motorcycle', 'China'));
+        $this->attach(new Manufacturer('L9N', 'Zhejiang Taotao', '', '', 'Zhejiang Taotao Vehicles Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LAL', 'Sundiro Honda', '', '', 'Sundiro Honda Motorcycle Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LAN', 'Changzhou Yamasaki', 'motorcycles', '', 'Changzhou Yamasaki Motorcycle', 'China'));
+        $this->attach(new Manufacturer('LA6', 'King Long', '', '', 'King Long', 'China'));
+        $this->attach(new Manufacturer('LA9', 'BYD', '', '', 'BYD Auto', 'China'));
+        $this->attach(new Manufacturer('LB1', 'Fujian Benz', '', '', 'Fujian Benz', 'China'));
+        $this->attach(new Manufacturer('LB2', 'Geely', 'motorcycles', '', 'Geely Motorcycles', 'China'));
+        $this->attach(new Manufacturer('LB3', 'Geely', '', '', 'Geely', 'China'));
+        $this->attach(new Manufacturer('LBB', 'Qianjiang', 'motorcycles', '', 'Qianjiang Motorcycle', 'China'));
+        $this->attach(new Manufacturer('LBB', 'Benelli', '', '', 'Benelli', 'China'));
+        $this->attach(new Manufacturer('LBE', 'Hyundai', '', '', 'Beijing Hyundai', 'China'));
+        $this->attach(new Manufacturer('LBM', 'Zongshen Piaggio', '', '', 'Zongshen Piaggio', 'China'));
+        $this->attach(new Manufacturer('LBP', '', '', '', 'Chongqing Jianshe Yamaha Motor Co. Ltd.', 'China'));
+        $this->attach(new Manufacturer('LBV', 'BMW', '', '', 'BMW Brilliance', 'China'));
+        $this->attach(new Manufacturer('LCE', 'CF Moto', 'motorcycles', '', 'Chunfeng Holding Group Hangzhou Motorcycles Manufacturing Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LCR', 'Gonow', '', '', 'Gonow', 'China'));
+        $this->attach(new Manufacturer('LC0', 'BYD', '', '', 'BYD Auto Industry Co. Ltd.', 'China'));
+        $this->attach(new Manufacturer('LC2', '', '', '', 'Changzhou Kwang Yang Motor Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LC6', 'Suzuki', '', '', 'Changzhou Haojue Suzuki Motorcycle Co. Ltd.', 'China'));
+        $this->attach(new Manufacturer('LDC', 'Peugeot', '', '', 'Dongfeng Peugeot-Citroën', 'China'));
+        $this->attach(new Manufacturer('LDC', 'Citroën', '', '', 'Dongfeng Peugeot-Citroën', 'China'));
+        $this->attach(new Manufacturer('LDD', 'Dandong Huanghai', '', '', 'Dandong Huanghai Automobile', 'China'));
+        $this->attach(new Manufacturer('LDK', 'FAW', 'bus', '', 'FAW Bus (Dalian) Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LDN', 'SouEast', '', '', 'SouEast Motor', 'China'));
+        $this->attach(new Manufacturer('LDY', 'Zhongtong', 'bus', '', 'Zhongtong Bus', 'China'));
+        $this->attach(new Manufacturer('LEF', 'JMC', '', '', 'JMC', 'China'));
+        $this->attach(new Manufacturer('LES', 'Isuzu', '', '', 'Isuzu', 'China'));
+        $this->attach(new Manufacturer('LET', 'Isuzu', '', '', 'Jiangling-Isuzu Motors', 'China'));
+        $this->attach(new Manufacturer('LE4', '', '', '', 'Beijing Benz & Beijing Benz-Daimler Chrysler Automotive Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LFA', 'Ford', '', '', 'Ford Lio Ho Motor Co Ltd old designation', 'China'));
+        $this->attach(new Manufacturer('LFB', 'FAW Jilin', 'busses', '', 'FAW Jilin', 'China'));
+        $this->attach(new Manufacturer('LFG', 'Taizhou Chuanl', 'motorcycles', '', 'Taizhou Chuanl Motorcycle Manufacturing', 'China'));
+        $this->attach(new Manufacturer('LFM', 'Toyota', '', '', 'FAW Toyota', 'China'));
+        $this->attach(new Manufacturer('LFN', 'FAW', 'bus', '', 'FAW Bus (Wuxi) Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LFP', 'FAW', 'car', '', 'FAW Car', 'China'));
+        $this->attach(new Manufacturer('LFT', 'FAW', 'trailers', '', 'FAW', 'China'));
+        $this->attach(new Manufacturer('LFV', 'Volkswagen', '', '', 'FAW-Volkswagen', 'China'));
+        $this->attach(new Manufacturer('LFW', 'FAW JieFang', '', '', 'FAW JieFang', 'China'));
+        $this->attach(new Manufacturer('LFY', 'Changshu', 'motorcycles', '', 'Changshu Light Motorcycle Factory', 'China'));
+        $this->attach(new Manufacturer('LF3', 'Lifan', 'motorcycles', '', 'Lifan motorcycle', 'China'));
+        $this->attach(new Manufacturer('LGA', 'Dongfeng', 'trucks', '', 'Dongfeng Commercial Vehicle Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LGB', 'Dongfeng Nissan', '', '', 'Dongfeng Nissan', 'China'));
+        $this->attach(new Manufacturer('LGC', 'Dongfeng', 'buses', '', 'Dongfeng Commercial Vehicle Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LGG', 'Dongfeng Liuzhou', '', '', 'Dongfeng Liuzhou Motor', 'China'));
+        $this->attach(new Manufacturer('LGH', 'Qoros', '', '', 'Qoros (formerly Dong Feng (DFM))', 'China'));
+        $this->attach(new Manufacturer('LGJ', 'Dongfeng Fengshen', '', '', 'Dongfeng Fengshen (Aeolus)', 'China'));
+        $this->attach(new Manufacturer('LGL', 'Guilin Daewoo', '', '', 'Guilin Daewoo', 'China'));
+        $this->attach(new Manufacturer('LGW', 'Great Wall', '', '', 'Great Wall (Haval)', 'China'));
+        $this->attach(new Manufacturer('LGX', 'BYD', '', '', 'BYD Auto', 'China'));
+        $this->attach(new Manufacturer('LGZ', 'Guangzhou Denway', 'bus', '', 'Guangzhou Denway Bus', 'China'));
+        $this->attach(new Manufacturer('LHB', 'BAI', '', '', 'Beijing Automotive Industry Holding', 'China'));
+        $this->attach(new Manufacturer('LHG', 'Guangzhou Honda', '', '', 'Guangzhou Honda', 'China'));
+        $this->attach(new Manufacturer('LH1', 'FAW-Haima', '', '', 'FAW-Haima', 'China'));
+        $this->attach(new Manufacturer('LJC', 'Jincheng', '', '', 'Jincheng Corporation', 'China'));
+        $this->attach(new Manufacturer('LJD', 'Dongfeng Yueda', '', '', 'Dongfeng Yueda Kia', 'China'));
+        $this->attach(new Manufacturer('LJN', 'Nissan', '', '', 'Zhengzhou Nissan', 'China'));
+        $this->attach(new Manufacturer('LJS', 'Yaxing', '', '', 'Yaxing Coach', 'China'));
+        $this->attach(new Manufacturer('LJU', '', '', '', 'Shanghai Maple Automobile', 'China'));
+        $this->attach(new Manufacturer('LJU', 'Kandi', '', '', 'Kandi', 'China'));
+        $this->attach(new Manufacturer('LJV', '', '', '', 'Sinotruk Chengdu Wangpai Commercial Vehicle Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LJX', 'JMC Ford', '', '', 'JMC Ford', 'China'));
+        $this->attach(new Manufacturer('LJ1', 'JAC', '', '', 'JAC', 'China'));
+        $this->attach(new Manufacturer('LJ8', 'Zotye', '', '', 'Zotye Auto', 'China'));
+        $this->attach(new Manufacturer('LKC', 'Changhe', '', '', 'Changhe', 'China'));
+        $this->attach(new Manufacturer('LKG', 'Youngman Lotus', '', '', 'Youngman Lotus Automobile Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LKL', 'Higer Bus', '', '', 'Higer Bus', 'China'));
+        $this->attach(new Manufacturer('LKT', '', '', '', 'Yunnan Lifan Junma Vehicle Co., Ltd.', 'China', null, null, 'commercial vehicles'));
+        $this->attach(new Manufacturer('LLC', '', '', '', 'Loncin Holdings', 'China'));
+        $this->attach(new Manufacturer('LLN', 'Qoros', '', '', 'Qoros', 'China'));
+        $this->attach(new Manufacturer('LLV', 'Lifan', '', '', 'Lifan', 'China'));
+        $this->attach(new Manufacturer('LL3', 'Xiamen', '', '', 'Xiamen Golden Dragon Bus Co. Ltd', 'China'));
+        $this->attach(new Manufacturer('LL6', 'GAC Mitsubishi', '', '', 'GAC Mitsubishi', 'China'));
+        $this->attach(new Manufacturer('LL8', 'Yamaha', '', '', 'Jiangsu Linhai Yamaha Motor Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LMC', 'Suzuki', 'motorcycles', '', 'Suzuki Hong Kong', 'China'));
+        $this->attach(new Manufacturer('LMG', 'GAC Trumpchi', '', '', 'GAC Trumpchi', 'China'));
+        $this->attach(new Manufacturer('LM1', 'Tai Ling', '', '', 'Tai Ling Motor Co Ltd old designation', 'China'));
+        $this->attach(new Manufacturer('LM4', 'Tai Ling', '', '', 'Tai Ling Motor Co Ltd old designation', 'China'));
+        $this->attach(new Manufacturer('LM5', 'Isuzu', '', '', 'Isuzu', 'China'));
+        $this->attach(new Manufacturer('LM6', 'SWM', 'automobiles', '', 'SWM', 'China'));
+        $this->attach(new Manufacturer('LNB', 'BAIC', '', '', 'BAIC Motor', 'China'));
+        $this->attach(new Manufacturer('LNP', 'MG', '', '', 'NAC MG UK Limited ', 'China'));
+        $this->attach(new Manufacturer('LNP', 'Fiat', '', '', 'Nanjing Fiat Automobile', 'China'));
+        $this->attach(new Manufacturer('LNY', 'Yuejin', '', '', 'Yuejin', 'China'));
+        $this->attach(new Manufacturer('LPA', 'Changan PSA', '', '', 'Changan PSA (DS Automobiles)', 'China'));
+        $this->attach(new Manufacturer('LPE', 'BYD', '', '', 'BYD Auto', 'China'));
+        $this->attach(new Manufacturer('LPR', 'Yamaha', 'motorcycles', '', 'Yamaha Hong Kong', 'China'));
+        $this->attach(new Manufacturer('LPS', 'Polestar', '', '', 'Polestar', 'China'));
+        $this->attach(new Manufacturer('LRB', 'Buick', '', '', 'SAIC General Motors Buick', 'China'));
+        $this->attach(new Manufacturer('LRD', 'Auman', 'trucks', '', 'Beijing Foton Daimler Automotive Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LRE', 'Cadillac', '', '', 'SAIC General Motors', 'China'));
+        $this->attach(new Manufacturer('LRW', 'Tesla', '', '', 'Tesla', 'China'));
+        $this->attach(new Manufacturer('LSF', 'SAIC', '', '', 'SAIC Maxus', 'China'));
+        $this->attach(new Manufacturer('LSF', 'Sunwin', 'bus', '', 'Shanghai Sunwin Bus Corporation', 'China'));
+        $this->attach(new Manufacturer('LSG', 'Chevrolet', '', '', 'SAIC General Motors', 'China'));
+        $this->attach(new Manufacturer('LSH', 'SAIC', '', '', 'SAIC Maxus', 'China'));
+        $this->attach(new Manufacturer('LSJ', 'MG', '', '', 'SAIC MG', 'China'));
+        $this->attach(new Manufacturer('LSJ', 'Roewe', '', '', 'SAIC Roewe', 'China'));
+        $this->attach(new Manufacturer('LSK', 'SAIC', '', '', 'SAIC Maxus', 'China'));
+        $this->attach(new Manufacturer('LSV', 'Volkswagen', '', '', 'SAIC Volkswagen', 'China'));
+        $this->attach(new Manufacturer('LSY', 'Brilliance', '', '', 'Brilliance', 'China'));
+        $this->attach(new Manufacturer('LSY', 'Jinbei GM', '', '', 'Jinbei GM', 'China'));
+        $this->attach(new Manufacturer('LS5', 'Changan', '', '', 'Changan Automobile', 'China'));
+        $this->attach(new Manufacturer('LS5', 'Changan', '', '', 'Changan Suzuki', 'China'));
+        $this->attach(new Manufacturer('LS7', 'JMC', '', '', 'JMC Heavy Duty Vehicle', 'China'));
+        $this->attach(new Manufacturer('LTA', 'ZX Auto', '', '', 'ZX Auto', 'China'));
+        $this->attach(new Manufacturer('LTN', '', '', '', 'Soueast built Chrysler & Dodge vehicles', 'China'));
+        $this->attach(new Manufacturer('LTV', 'FAW Toyota', '', '', 'FAW Toyota (Tianjin)', 'China'));
+        $this->attach(new Manufacturer('LUC', 'Honda', '', '', 'Honda Automobile', 'China'));
+        $this->attach(new Manufacturer('LUD', 'Dongfeng Nissan', '', '', 'Dongfeng Nissan Diesel Motor Co Ltd', 'China'));
+        $this->attach(new Manufacturer('LUX', 'Dongfeng Yulon', '', '', 'Dongfeng Yulon Motor Co. Ltd', 'China'));
+        $this->attach(new Manufacturer('LVA', 'Foton', '', '', 'Foton Motor', 'China'));
+        $this->attach(new Manufacturer('LVB', 'Foton', '', '', 'Foton Motor', 'China'));
+        $this->attach(new Manufacturer('LVC', 'Foton', '', '', 'Foton Motor', 'China'));
+        $this->attach(new Manufacturer('LVF', 'Changhe', '', '', 'Changhe Suzuki', 'China'));
+        $this->attach(new Manufacturer('LVG', 'GAC Toyota', '', '', 'GAC Toyota', 'China'));
+        $this->attach(new Manufacturer('LVH', '', '', '', 'Dongfeng Honda', 'China'));
+        $this->attach(new Manufacturer('LVM', 'Chery', '', '', 'Chery Commercial Vehicle', 'China'));
+        $this->attach(new Manufacturer('LVR', 'Changan Mazda', '', '', 'Changan Mazda', 'China'));
+        $this->attach(new Manufacturer('LVS', 'Changan Ford', '', '', 'Changan Ford', 'China'));
+        $this->attach(new Manufacturer('LVS', 'Changan Mazda', '', '', 'Changan Ford Mazda', 'China'));
+        $this->attach(new Manufacturer('LVV', 'Chery', '', '', 'Chery', 'China'));
+        $this->attach(new Manufacturer('LVX', 'Landwind', '', '', 'Landwind', 'China'));
+        $this->attach(new Manufacturer('LVY', 'Volvo', '', '', 'Volvo Cars Daqing factory', 'China'));
+        $this->attach(new Manufacturer('LVZ', 'DFSK', '', '', 'Dong Feng Sokon Motor Company (DFSK)', 'China'));
+        $this->attach(new Manufacturer('LWB', 'Wuyang Honda', '', '', 'Wuyang Honda Motorcycle (Guangzhou) Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LWL', 'Qingling Isuzu', '', '', 'Qingling Isuzu', 'China'));
+        $this->attach(new Manufacturer('LWV', 'GAC Fiat', '', '', 'GAC Fiat Chrysler', 'China'));
+        $this->attach(new Manufacturer('LXV', '', '', '', 'Beijing Borgward Automotive Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LXY', '', '', '', 'Chongqing Shineray Motorcycle Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LYB', '', '', '', 'Weichai (Yangzhou) Yaxing Automobile Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LYM', '', '', '', 'Zhuzhou Jianshe Yamaha Motorcycle Co., Ltd.', 'China'));
+        $this->attach(new Manufacturer('LYV', 'Volvo', '', '', 'Volvo Cars Chengdu factory', 'China'));
+        $this->attach(new Manufacturer('LYV', 'Luqiao', '', '', 'Luqiao factory', 'China'));
+        $this->attach(new Manufacturer('LZE', 'Isuzu', '', '', 'Isuzu Guangzhou', 'China'));
+        $this->attach(new Manufacturer('LZF', 'SAIC Iveco', '', '', 'SAIC Iveco Hongyan', 'China'));
+        $this->attach(new Manufacturer('LZG', 'Shaanxi', 'bus', '', 'Shaanxi Automobile Group Shacman Bus', 'China'));
+        $this->attach(new Manufacturer('LZK', 'CNHTC', 'bus', '', 'Sinotruk (CNHTC) Huanghe Bus', 'China'));
+        $this->attach(new Manufacturer('LZS', 'Zongshen', '', '', 'Zongshen', 'China'));
+        $this->attach(new Manufacturer('LZM', 'MAN', '', '', 'MAN China', 'China'));
+        $this->attach(new Manufacturer('LZP', 'Baotian', '', '', 'Zhongshan Guochi Motorcycle (Baotian)', 'China'));
+        $this->attach(new Manufacturer('LZU', 'Isuzu', 'bus', '', 'Guangzhou Isuzu Bus', 'China'));
+        $this->attach(new Manufacturer('LZW', 'SAIC GM', '', '', 'SAIC GM Wuling', 'China'));
+        $this->attach(new Manufacturer('LZY', 'Yutong Zhengzhou', '', '', 'Yutong Zhengzhou', 'China'));
+        $this->attach(new Manufacturer('LZZ', 'CNHTC', '', '', 'Sinotruk (CNHTC) Howo, Sitrak', 'China'));
+        $this->attach(new Manufacturer('MAB', 'Mahindra', '', '', 'Mahindra', 'India'));
+        $this->attach(new Manufacturer('MAC', 'Mahindra', '', '', 'Mahindra', 'India'));
+        $this->attach(new Manufacturer('MAH', 'Fiat', '', '', 'Fiat India Automobiles Pvt. Ltd', 'India'));
+        $this->attach(new Manufacturer('MAJ', 'Ford', '', '', 'Ford India', 'India'));
+        $this->attach(new Manufacturer('MAK', 'Honda', '', '', 'Honda Siel Cars India', 'India'));
+        $this->attach(new Manufacturer('MAL', 'Hyundai', '', '', 'Hyundai Motor India', 'India'));
+        $this->attach(new Manufacturer('MAN', 'Eicher Polaris Multix', '', '', 'Eicher Polaris Multix', 'India'));
+        $this->attach(new Manufacturer('MAT', 'Tata', '', '', 'Tata Motors', 'India'));
+        $this->attach(new Manufacturer('MA1', 'Mahindra', '', '', 'Mahindra', 'India'));
+        $this->attach(new Manufacturer('MA3', 'Suzuki', '', '', 'Maruti Suzuki India Limited', 'India'));
+        $this->attach(new Manufacturer('MA6', 'GM', '', '', 'General Motors India Pvt. Ltd.', 'India'));
+        $this->attach(new Manufacturer('MA7', 'Hindustan', '', '', 'Hindustan Motors Ltd', 'India'));
+        $this->attach(new Manufacturer('MA7', 'Mitsubishi', '', '', 'Hindustan Motors Ltd', 'India'));
+        $this->attach(new Manufacturer('MA7', 'Isuzu', '', '', 'Hindustan Motors Ltd', 'India'));
+        $this->attach(new Manufacturer('MBF', 'Royal Enfield', '', '', 'Royal Enfield', 'India'));
+        $this->attach(new Manufacturer('MBH', 'Nissan', '', 'Pixo', 'Maruti Suzuki India Limited', 'India'));
+        $this->attach(new Manufacturer('MBJ', 'Toyota', '', '', 'Toyota Kirloskar Motor Pvt Ltd', 'India'));
+        $this->attach(new Manufacturer('MBK', 'MAN', 'trucks', '', 'MAN Trucks India Pvt. Ltd', 'India'));
+        $this->attach(new Manufacturer('MBL', 'Hero MotoCorp', '', '', 'Hero MotoCorp', 'India'));
+        $this->attach(new Manufacturer('MBR', 'Mercedes-Benz', '', '', 'Mercedes-Benz India', 'India'));
+        $this->attach(new Manufacturer('MBU', 'Swaraj', '', '', 'Swaraj Vehicles Limited', 'India'));
+        $this->attach(new Manufacturer('MBV', 'Premier', '', '', 'Premier Automobiles Ltd', 'India'));
+        $this->attach(new Manufacturer('MBX', 'Piaggio', '', '', 'Piaggio India Piaggio Ape', 'India'));
+        $this->attach(new Manufacturer('MBY', '', '', '', 'Asia Motor Works Ltd', 'India'));
+        $this->attach(new Manufacturer('MB1', 'Ashok Leyland', '', '', 'Ashok Leyland Ltd', 'India'));
+        $this->attach(new Manufacturer('MB8', 'Suzuki', '', '', 'Suzuki Motorcycle India Limited', 'India'));
+        $this->attach(new Manufacturer('MCA', '', '', '', 'FCA India Automobiles Pvt. Ltd', 'India'));
+        $this->attach(new Manufacturer('MCB', '', '', '', 'General Motors India Pvt. Ltd.', 'India'));
+        $this->attach(new Manufacturer('MCD', '', '', '', 'Mahindra Two Wheelers', 'India'));
+        $this->attach(new Manufacturer('MCG', 'Atul', '', '', 'Atul Auto', 'India'));
+        $this->attach(new Manufacturer('MCL', '', '', '', 'International Cars And Motors Ltd', 'India'));
+        $this->attach(new Manufacturer('MC1', '', '', '', 'Force Motors Limited', 'India'));
+        $this->attach(new Manufacturer('MC2', '', '', '', 'Eicher Motors Limited', 'India'));
+        $this->attach(new Manufacturer('MC4', '', '', '', 'Dilip Chhabria Design Pvt Ltd', 'India'));
+        $this->attach(new Manufacturer('MDE', '', '', '', 'Kinetic Engineering Limited', 'India'));
+        $this->attach(new Manufacturer('MDH', 'Nissan', '', '', 'Nissan Motor India Pvt Ltd', 'India'));
+        $this->attach(new Manufacturer('MDT', 'Kerala', '', '', 'Kerala Automobiles Limited', 'India'));
+        $this->attach(new Manufacturer('MD2', 'Bajaj Auto', '', '', 'Bajaj Auto Ltd', 'India'));
+        $this->attach(new Manufacturer('MD2', 'KTM', '', '', 'Bajaj Auto Ltd', 'India'));
+        $this->attach(new Manufacturer('MD2', 'Husqvarna', '', '', 'Bajaj Auto Ltd', 'India'));
+        $this->attach(new Manufacturer('MD6', '', '', '', 'TVS Motor Company', 'India'));
+        $this->attach(new Manufacturer('MD7', 'LML', '', '', 'LML Ltd', 'India', null, null, 'including Genuine Scooter Company Stella'));
+        $this->attach(new Manufacturer('ME1', '', '', '', 'India Yamaha Motor Pvt. Ltd', 'India'));
+        $this->attach(new Manufacturer('ME3', 'Royal Enfield', '', '', 'Royal Enfield', 'India'));
+        $this->attach(new Manufacturer('ME4', 'Honda', '', '', 'Honda Motorcycle and Scooter India', 'India'));
+        $this->attach(new Manufacturer('ME9', 'BUYMYEV', '', '', 'BUYMYEV TECHNOLOGY PVT LTD', 'India'));
+        $this->attach(new Manufacturer('MEC', 'Daimler', '', '', 'Daimler India Commercial Vehicles Pvt. Ltd. BharatBenz', 'India'));
+        $this->attach(new Manufacturer('MEE', 'Renault', '', '', 'Renault India Private Limited', 'India'));
+        $this->attach(new Manufacturer('MEG', 'Harley-Davidson', '', '', 'Harley-Davidson India', 'India'));
+        $this->attach(new Manufacturer('MER', 'Benelli', '', '', 'Benelli', 'India'));
+        $this->attach(new Manufacturer('MET', 'Piaggio', '', '', 'Piaggio India Vespa', 'India'));
+        $this->attach(new Manufacturer('MEX', 'Škoda', '', '', 'Škoda Auto Volkswagen India Pvt. Ltd.', 'India', 2015));
+        $this->attach(new Manufacturer('MH1', 'Honda', '', '', 'PT Astra Honda Motor', 'Indonesia'));
+        $this->attach(new Manufacturer('MH3', 'Yamaha', '', '', 'PT Yamaha Indonesia Motor Mfg.', 'Indonesia'));
+        $this->attach(new Manufacturer('MH4', 'Kawasaki', '', '', 'PT Kawasaki Motor Indonesia', 'Indonesia'));
+        $this->attach(new Manufacturer('MHF', 'Toyota', '', '', 'PT Toyota Astra Motor Indonesia', 'Indonesia'));
+        $this->attach(new Manufacturer('MHH', 'BMW', '', '', 'BMW cars', 'Indonesia', 2003, 2019));
+        $this->attach(new Manufacturer('MHK', 'Astra Daihatsu', '', '', 'PT Astra Daihatsu Motor', 'Indonesia'));
+        $this->attach(new Manufacturer('MHK', 'Toyota', '', '', 'PT Astra Daihatsu Motor', 'Indonesia'));
+        $this->attach(new Manufacturer('MHL', 'Mercedes-Benz', '', '', 'PT Mercedes-Benz Indonesia', 'Indonesia'));
+        $this->attach(new Manufacturer('MHR', 'Honda', '', '', 'PT Honda Prospect Motor Indonesia', 'Indonesia'));
+        $this->attach(new Manufacturer('MHY', 'Suzuki', '', '', 'PT Suzuki Indomobil Motor', 'Indonesia'));
+        $this->attach(new Manufacturer('MJB', 'GM', '', '', 'GM Indonesia', 'Indonesia'));
+        $this->attach(new Manufacturer('MK2', 'Mitsubishi', '', '', 'Mitsubishi Motors Krama Yudha Indonesia', 'Indonesia'));
+        $this->attach(new Manufacturer('MK3', 'SGMW', '', '', 'PT SGMW Motor Indonesia Wuling', 'Indonesia'));
+        $this->attach(new Manufacturer('ML0', 'Ducati', '', '', 'Ducati Motor (Thailand) Co., Ltd.', 'Thailand'));
+        $this->attach(new Manufacturer('ML3', 'Mitsubishi', '', '', 'Mitsubishi Motors (Thailand)', 'Thailand'));
+        $this->attach(new Manufacturer('ML5', 'Kawasaki', '', '', 'Kawasaki Motors Enterprise Co. Ltd.', 'Thailand'));
+        $this->attach(new Manufacturer('MLC', 'Suzuki', '', '', 'Thai Suzuki Motor Co., Ltd.', 'Thailand'));
+        $this->attach(new Manufacturer('MLE', 'Yamaha', '', '', 'Thai Yamaha Motor Co., Ltd.', 'Thailand'));
+        $this->attach(new Manufacturer('MLH', 'Honda', 'motorcycle', '', 'Honda', 'Thailand'));
+        $this->attach(new Manufacturer('MLY', 'Harley-Davidson', 'motorcycle', '', 'Harley-Davidson', 'Thailand'));
+        $this->attach(new Manufacturer('MM0', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'));
+        $this->attach(new Manufacturer('MM6', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'));
+        $this->attach(new Manufacturer('MM7', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'));
+        $this->attach(new Manufacturer('MM8', 'Mazda', '', '', 'Mazda (Ford-Mazda AAT plant)', 'Thailand'));
+        $this->attach(new Manufacturer('MMA', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'));
+        $this->attach(new Manufacturer('MMB', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'));
+        $this->attach(new Manufacturer('MMC', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'));
+        $this->attach(new Manufacturer('MMD', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'));
+        $this->attach(new Manufacturer('MMF', 'BMW', '', '', 'BMW', 'Thailand'));
+        $this->attach(new Manufacturer('MMH', 'Tata', '', '', 'Tata', 'Thailand'));
+        $this->attach(new Manufacturer('MMK', 'Toyota', '', '', 'Toyota Auto Works plant', 'Thailand'));
+        $this->attach(new Manufacturer('MMM', 'Chevrolet', '', '', 'Chevrolet', 'Thailand'));
+        $this->attach(new Manufacturer('MML', 'MG', '', '', 'MG', 'Thailand'));
+        $this->attach(new Manufacturer('MMR', 'Subaru', '', '', 'Subaru', 'Thailand'));
+        $this->attach(new Manufacturer('MMS', 'Suzuki', '', '', 'Suzuki', 'Thailand'));
+        $this->attach(new Manufacturer('MMT', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Thailand'));
+        $this->attach(new Manufacturer('MMU', 'Holden', '', '', 'Holden', 'Thailand'));
+        $this->attach(new Manufacturer('MNA', 'Ford', '', '', 'Ford (Ford-Mazda AAT plant)', 'Thailand', null, null, 'export Australia/New Zealand'));
+        $this->attach(new Manufacturer('MNB', 'Ford', '', '', 'Ford (Ford-Mazda AAT plant)', 'Thailand', null, null, 'export for other RHD'));
+        $this->attach(new Manufacturer('MNC', 'Ford', '', '', 'Ford (Ford-Mazda AAT plant)', 'Thailand', null, null, 'export for LHD'));
+        $this->attach(new Manufacturer('MNK', 'Hino', '', '', 'Hino Motors Manufacturing Thailand Co Ltd', 'Thailand'));
+        $this->attach(new Manufacturer('MNT', 'Nissan', '', '', 'Nissan Motor Thailand', 'Thailand'));
+        $this->attach(new Manufacturer('MPA', 'Isuzu', '', '', 'IMCT Isuzu Motors Company Thailand', 'Thailand'));
+        $this->attach(new Manufacturer('MPB', 'Ford', '', '', 'Ford (FTM plant)', 'Thailand'));
+        $this->attach(new Manufacturer('MP1', 'Isuzu', '', '', 'IMCT Isuzu Motors Company Thailand', 'Thailand'));
+        $this->attach(new Manufacturer('MP2', 'Mazda', 'pickup', 'BT-50', 'Isuzu Motors (Thailand) Co., Ltd.', 'Thailand'));
+        $this->attach(new Manufacturer('MP5', 'Foton', '', '', 'Foton', 'Thailand'));
+        $this->attach(new Manufacturer('MRH', 'Honda', 'car', '', 'Honda', 'Thailand'));
+        $this->attach(new Manufacturer('MR0', 'Toyota', '', '', 'Toyota (Ban Pho and Samrong plant)', 'Thailand'));
+        $this->attach(new Manufacturer('MR1', 'Toyota', '', '', 'Toyota (Samrong plant) (Fortuner)', 'Thailand'));
+        $this->attach(new Manufacturer('MR2', 'Toyota', '', '', 'Toyota (Gateway plant)', 'Thailand'));
+        $this->attach(new Manufacturer('MS0', 'Kia', '', '', 'SSS MOTORS Myanmar/Kia', 'Myanmar'));
+        $this->attach(new Manufacturer('MS3', 'Suzuki', '', '', 'Suzuki Myanmar Motor Co., Ltd.', 'Myanmar'));
+        $this->attach(new Manufacturer('MXV', 'IMZ-Ural', '', '', 'IMZ-Ural Ural Motorcycles', 'Kazakhstan'));
+        $this->attach(new Manufacturer('MX3', 'Hyundai', '', '', 'Hyundai Trans Auto', 'Kazakhstan'));
+        $this->attach(new Manufacturer('MYH', 'Ather Energy', '', '', 'Ather Energy', 'India'));
+        $this->attach(new Manufacturer('MZ7', 'MG', '', '', 'MG Motor India Pvt. Ltd.', 'India'));
+        $this->attach(new Manufacturer('MZB', 'Kia', '', '', 'Kia India Pvt. Ltd.', 'India'));
+        $this->attach(new Manufacturer('MZD', 'Jawa', '', '', 'Classic Legends Private Limited', 'India'));
+        $this->attach(new Manufacturer('M3G', 'Isuzu', '', '', 'Isuzu Motors India', 'India'));
+        $this->attach(new Manufacturer('M6F', '', '', '', 'UM Lohia Two Wheelers Private Limited', 'India'));
+        $this->attach(new Manufacturer('N3C', 'Kavir', '', '', 'Kavir motor Company (Yektaz)', 'Iran'));
+        $this->attach(new Manufacturer('N58', 'Kavir', '', '', 'Kavir motor Company (EURASIA)', 'Iran'));
+        $this->attach(new Manufacturer('NAA', '', '', '', 'Iran khodro Company', 'Iran'));
+        $this->attach(new Manufacturer('NAD', 'Saipa', '', '', 'Saipa Diesel', 'Iran'));
+        $this->attach(new Manufacturer('NAG', '', '', '', 'Bahman Industrial Group', 'Iran'));
+        $this->attach(new Manufacturer('NAP', 'Pars Khodro', '', '', 'Pars Khodro', 'Iran'));
+        $this->attach(new Manufacturer('NAS', 'Saipa', '', '', 'Saipa Co.', 'Iran'));
+        $this->attach(new Manufacturer('NC0', 'BMW', '', '', 'BMW South Africa', 'South Africa'));
+        $this->attach(new Manufacturer('NFB', 'Honda', '', '', 'Honda Atlas Cars Pakistan Ltd', 'Pakistan'));
+        $this->attach(new Manufacturer('NG3', 'Lucky Motor', '', '', 'Lucky Motor Corporation', 'Pakistan'));
+        $this->attach(new Manufacturer('NLA', 'Honda', '', '', 'Honda Türkiye', 'Turkey'));
+        $this->attach(new Manufacturer('NLC', '', '', '', 'Askam Kamyon Imalat Ve Ticaret A.S.', 'Turkey'));
+        $this->attach(new Manufacturer('NLE', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz Türk Truck', 'Turkey'));
+        $this->attach(new Manufacturer('NLH', 'Hyundai', 'car/SUV', '', 'Hyundai Assan Otomotiv', 'Turkey'));
+        $this->attach(new Manufacturer('NLJ', 'Hyundai', 'van', '', 'Hyundai Assan Otomotiv', 'Turkey'));
+        $this->attach(new Manufacturer('NLN', 'Karsan', '', '', 'Karsan Automotive Industry & Trade', 'Turkey'));
+        $this->attach(new Manufacturer('NLR', 'Otokar', '', '', 'Otokar', 'Turkey'));
+        $this->attach(new Manufacturer('NLT', 'TEMSA', '', '', 'TEMSA', 'Turkey'));
+        $this->attach(new Manufacturer('NL1', 'Togg', '', '', 'Togg', 'Turkey'));
+        $this->attach(new Manufacturer('NMA', 'MAN', '', '', 'MAN Türkiye A.Ş.', 'Turkey'));
+        $this->attach(new Manufacturer('NMB', 'Mercedes-Benz', '', '', 'Mercedes-Benz Türk A.S.', 'Turkey'));
+        $this->attach(new Manufacturer('NMC', 'BMC', '', '', 'BMC Otomotiv Sanayi ve Ticaret A.Ş.', 'Turkey'));
+        $this->attach(new Manufacturer('NMH', 'Honda', 'motorcycle', '', 'Honda', 'Turkey'));
+        $this->attach(new Manufacturer('NMT', 'Toyota', '', '', 'Toyota Motor Manufacturing Turkey', 'Turkey'));
+        $this->attach(new Manufacturer('NM0', 'Ford', '', '', 'Ford Otosan Turkey', 'Turkey'));
+        $this->attach(new Manufacturer('NM1', 'Renault', '', '', 'Oyak-Renault Oto Fab AS', 'Turkey'));
+        $this->attach(new Manufacturer('NM4', 'Tofas', '', '', 'Tofas (Turk Otomobil Fabrikasi AS)', 'Turkey'));
+        $this->attach(new Manufacturer('NNA', 'Isuzu', '', '', 'Anadolu Isuzu', 'Turkey'));
+        $this->attach(new Manufacturer('PAB', 'Isuzu', '', '', 'Isuzu Philippines Corporation', 'Philippines'));
+        $this->attach(new Manufacturer('PAD', 'Honda', '', '', 'Honda Cars Philippines', 'Philippines'));
+        $this->attach(new Manufacturer('PAF', 'BMW', '', '', 'BMW Philippines', 'Philippines'));
+        $this->attach(new Manufacturer('PE1', 'Ford', '', '', 'Ford Motor Company Philippines', 'Philippines'));
+        $this->attach(new Manufacturer('PE3', 'Mazda', '', '', 'Ford Motor Company Philippines', 'Philippines'));
+        $this->attach(new Manufacturer('PL1', 'Proton', '', '', 'Proton', 'Malaysia'));
+        $this->attach(new Manufacturer('PL8', 'Hyundai', '', '', 'Hyundai/Inokom', 'Malaysia'));
+        $this->attach(new Manufacturer('PLP', 'Subaru', '', '', 'Subaru', 'Malaysia'));
+        $this->attach(new Manufacturer('PLZ', 'Isuzu', '', '', 'Isuzu Malaysia', 'Malaysia'));
+        $this->attach(new Manufacturer('PMH', 'Honda', 'car', '', 'Honda', 'Malaysia'));
+        $this->attach(new Manufacturer('PML', 'Hicom', '', '', 'Hicom', 'Malaysia'));
+        $this->attach(new Manufacturer('PM1', 'BMW', '', '', 'BMW', 'Malaysia'));
+        $this->attach(new Manufacturer('PM2', 'Perodua', '', '', 'Perodua', 'Malaysia'));
+        $this->attach(new Manufacturer('PM9', 'Bufori', '', '', 'Bufori', 'Malaysia'));
+        $this->attach(new Manufacturer('PMK', 'Honda', 'motorcycle', '', 'Honda Boon Siew', 'Malaysia'));
+        $this->attach(new Manufacturer('PMN', 'Modenas', '', '', 'Modenas', 'Malaysia'));
+        $this->attach(new Manufacturer('PMV', 'Yamaha', '', '', 'Hong Leong Yamaha Motor Sdn. Bhd.', 'Malaysia'));
+        $this->attach(new Manufacturer('PNA', '', '', '', 'Naza/Kia/Peugeot', 'Malaysia'));
+        $this->attach(new Manufacturer('PNV', 'Volvo', '', '', 'Volvo Cars', 'Malaysia'));
+        $this->attach(new Manufacturer('PN1', 'Toyota', '', '', 'Toyota', 'Malaysia'));
+        $this->attach(new Manufacturer('PN2', 'Toyota', '', '', 'Toyota', 'Malaysia'));
+        $this->attach(new Manufacturer('PN8', 'Nissan', '', '', 'Nissan', 'Malaysia'));
+        $this->attach(new Manufacturer('PP1', 'Mazda', '', '', 'Mazda', 'Malaysia'));
+        $this->attach(new Manufacturer('PP3', 'Hyundai', '', '', 'Hyundai', 'Malaysia'));
+        $this->attach(new Manufacturer('PPP', 'Suzuki', '', '', 'Suzuki', 'Malaysia'));
+        $this->attach(new Manufacturer('PPV', 'Volkswagen', '', '', 'Volkswagen', 'Malaysia'));
+        $this->attach(new Manufacturer('PR8', 'Ford', '', '', 'Ford', 'Malaysia'));
+        $this->attach(new Manufacturer('PRA', 'Sinotruk', '', '', 'Sinotruk', 'Malaysia'));
+        $this->attach(new Manufacturer('PRH', 'Chery', '', '', 'Chery', 'Malaysia'));
+        $this->attach(new Manufacturer('RF3', 'Aeon', '', '', 'Aeon Motor', 'Taiwan'));
+        $this->attach(new Manufacturer('RF5', 'Yulon', '', '', 'Yulon Motor Co Ltd', 'Taiwan'));
+        $this->attach(new Manufacturer('RFB', 'Kymco', '', '', 'Kymco', 'Taiwan'));
+        $this->attach(new Manufacturer('RFC', '', '', '', 'Taiwan Golden Bee', 'Taiwan'));
+        $this->attach(new Manufacturer('RFD', '', '', '', 'Tai Ling Motor Co Ltd', 'Taiwan', null, null, 'new designation'));
+        $this->attach(new Manufacturer('RFG', 'Sanyang', '', '', 'Sanyang SYM', 'Taiwan'));
+        $this->attach(new Manufacturer('RFL', 'Adly', '', '', 'Adly', 'Taiwan'));
+        $this->attach(new Manufacturer('RFT', 'CPI', '', '', 'CPI', 'Taiwan'));
+        $this->attach(new Manufacturer('RFV', 'PGO', '', '', 'PGO Scooters', 'Taiwan'));
+        $this->attach(new Manufacturer('RFV', 'Genuine Scooter Company', '', '', 'PGO Scooters', 'Taiwan'));
+        $this->attach(new Manufacturer('RGS', 'Kawasaki', '', '', 'Kymco', 'Taiwan'));
+        $this->attach(new Manufacturer('RHA', 'Ford', '', '', 'Ford Lio Ho Motor Co Ltd', 'Taiwan', null, null, 'new designation'));
+        $this->attach(new Manufacturer('RK7', 'Kawasaki', 'ATV', '', 'Tai Ling Motor Co Ltd', 'Taiwan', null, null, '(rebadged Suzuki ATV) new designation'));
+        $this->attach(new Manufacturer('RKJ', 'Prince', '', '', 'Prince Motors Taiwan', 'Taiwan'));
+        $this->attach(new Manufacturer('RKL', 'Kuozui', '', '', 'Kuozui Motors (Toyota)', 'Taiwan'));
+        $this->attach(new Manufacturer('RKM', 'CMC', '', '', 'China Motor Corporation', 'Taiwan'));
+        $this->attach(new Manufacturer('RKR', '', '', '', 'Yamaha Motor Taiwan Co. Ltd.', 'Taiwan', null, null, 'new designation'));
+        $this->attach(new Manufacturer('RKT', 'Honda', '', '', 'Honda Taiwan', 'Taiwan'));
+        $this->attach(new Manufacturer('RL0', 'Ford', '', '', 'Ford Vietnam', 'Vietnam'));
+        $this->attach(new Manufacturer('RL4', 'Toyota', '', '', 'Toyota Motor Vietnam', 'Vietnam'));
+        $this->attach(new Manufacturer('RLA', 'Mitsubishi', '', '', 'Vina Star Motors Corp.', 'Vietnam'));
+        $this->attach(new Manufacturer('RLC', 'Yamaha', '', '', 'Yamaha Motor Vietnam Co. Ltd.', 'Vietnam'));
+        $this->attach(new Manufacturer('RLE', 'Isuzu', '', '', 'Isuzu Vietnam Co.', 'Vietnam'));
+        $this->attach(new Manufacturer('RLF', 'BMW', 'cars', '', 'BMW', 'Vietnam', 2003, 2014));
+        $this->attach(new Manufacturer('RLH', 'Honda', '', '', 'Honda Vietnam Co. Ltd.', 'Vietnam'));
+        $this->attach(new Manufacturer('RLL', 'VinFast', 'SUV', '', 'VinFast', 'Vietnam'));
+        $this->attach(new Manufacturer('RLM', 'Mercedes-Benz', '', '', 'Mercedes-Benz Vietnam', 'Vietnam'));
+        $this->attach(new Manufacturer('RLV', 'Can-Am', '', 'DS 70', 'Vietnam Precision Industrial CO., Ltd.', 'Vietnam'));
+        $this->attach(new Manufacturer('RLV', 'Can-Am', '', 'DS 90', 'Vietnam Precision Industrial CO., Ltd.', 'Vietnam'));
+        $this->attach(new Manufacturer('RP8', 'Piaggio', '', '', 'Piaggio Vietnam Co. Ltd.', 'Vietnam'));
+        $this->attach(new Manufacturer('R4N', 'Elyx', '', '', 'Elyx Smart Technology Holdings (Hong Kong) Ltd.', 'Hong Kong'));
+
+        $this->attach(new Manufacturer('SA9', 'Morgan', '', '', 'Morgan Motor Company', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'OX Global', '', '', 'OX Global', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'Panther', '', '', 'Panther', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'TVR', '', '', 'TVR', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'Westfield Sportscars', '', '', 'Westfield Sportscars', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'McLaren F1', '', '', 'McLaren F1', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'Marcos Engineering', '', '', 'Marcos Engineering', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'MG Sport and Racing', '', '', 'MG Sport and Racing', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'Morgan 3-Wheeler', '', '', 'Morgan 3-Wheeler', 'United Kingdom'));
+        $this->attach(new Manufacturer('SA9', 'KaiserRushforth', '', '', 'KaiserRushforth', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAA', 'Austin', '', '', 'Austin', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAB', 'Optare', '', '', 'Optare', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAD', 'Daimler', '', '', 'Daimler', 'United Kingdom', null, 1987));
+        $this->attach(new Manufacturer('SAD', 'Jaguar', 'SUV', '', 'Jaguar', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAF', 'ERF', '', '', 'ERF', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAH', 'Honda', '', '', 'Austin Rover Group', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAJ', 'Jaguar', '', '', 'Jaguar', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAL', 'Land Rover', '', '', 'Land Rover', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAM', 'Morris', '', '', 'Morris', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAR', 'Rover', '', '', 'Rover', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAR', 'Rover', '', '', 'MG Rover Group', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAT', 'Triumph', 'car', '', 'Triumph', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAX', '', '', '', 'Austin Rover Group', 'United Kingdom', null, null, 'including Sterling Cars'));
+        $this->attach(new Manufacturer('SAY', 'Norton', '', '', 'Norton Motorcycles', 'United Kingdom'));
+        $this->attach(new Manufacturer('SAZ', 'Freight Rover', '', '', 'Freight Rover', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBB', 'Leyland', '', '', 'Leyland Vehicles', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBC', 'Iveco', '', '', 'Iveco Ford Truck', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBJ', 'Leyland', 'bus', '', 'Leyland Bus', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBL', 'Leyland', '', '', 'Leyland Motors', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBL', 'Leyland DAF', '', '', 'Leyland DAF', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBM', 'McLaren', '', '', 'McLaren Group', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBS', 'Scammell', '', '', 'Scammell', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBV', 'Kenworth', '', '', 'Leyland Trucks', 'United Kingdom'));
+        $this->attach(new Manufacturer('SBV', 'Peterbilt', '', '', 'Leyland Trucks', 'United Kingdom'));
+        $this->attach(new Manufacturer('SB1', 'Toyota', '', '', 'Toyota Manufacturing UK', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCA', 'Rolls Royce', '', '', 'Rolls Royce', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCB', 'Bentley', '', '', 'Bentley Motors Limited', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCC', 'Lotus', '', '', 'Lotus Cars Limited', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCE', 'DeLorean', '', '', 'DeLorean Motor Cars N. Ireland (UK)', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCF', 'Aston Martin', '', '', 'Aston Martin Lagonda Limited', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCG', '', '', '', 'Triumph Engineering', 'United Kingdom', null, null, 'original Triumph Motorcycle company'));
+        $this->attach(new Manufacturer('SCK', '', '', '', 'Ifor Williams Trailers', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCR', '', '', '', 'London Electric Vehicle Company', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCR', '', '', '', 'London Taxi Company', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCR', '', '', '', 'London Taxis International', 'United Kingdom'));
+        $this->attach(new Manufacturer('SCV', 'Volvo', '', '', 'Volvo Truck & Bus', 'United Kingdom'));
+        $this->attach(new Manufacturer('SC6', '', '', '', 'INEOS Automotive', 'United Kingdom'));
+        $this->attach(new Manufacturer('SDB', 'Peugeot', '', '', 'Peugeot UK (formerly Talbot)', 'United Kingdom'));
+        $this->attach(new Manufacturer('SDB', 'Talbot', '', '', 'Peugeot UK (formerly Talbot)', 'United Kingdom'));
+        $this->attach(new Manufacturer('SDF', 'Dodge', '', '', 'Dodge Trucks – UK', 'United Kingdom', 1981, 1984));
+        $this->attach(new Manufacturer('SDG', 'Renault', '', '', 'Renault Trucks Industries', 'United Kingdom', 1985, 1992));
+        $this->attach(new Manufacturer('SDK', 'Caterham Cars', '', '', 'Caterham Cars', 'United Kingdom'));
+        $this->attach(new Manufacturer('SDL', 'TVR', '', '', 'TVR Engineering', 'United Kingdom'));
+        $this->attach(new Manufacturer('SDP', 'MG', '', '', 'MG Motor NAC MG UK', 'United Kingdom'));
+        $this->attach(new Manufacturer('SDP', 'MG', '', '', 'MG Motor UK', 'United Kingdom'));
+        $this->attach(new Manufacturer('SD7', 'Aston Martin', '', '', 'Aston Martin SUVs', 'United Kingdom'));
+        $this->attach(new Manufacturer('SED', 'IBC', '', '', 'IBC Vehicles (Isuzu Bedford Company)', 'United Kingdom'));
+        $this->attach(new Manufacturer('SEG', 'Dennis Eagle', '', '', 'Dennis Eagle', 'United Kingdom'));
+        $this->attach(new Manufacturer('SEY', 'LDV', '', '', 'LDV Group', 'United Kingdom'));
+        $this->attach(new Manufacturer('SFA', 'Ford', '', '', 'Ford of Britain', 'United Kingdom'));
+        $this->attach(new Manufacturer('SFD', '', '', '', 'Alexander Dennis UK', 'United Kingdom'));
+        $this->attach(new Manufacturer('SFE', '', '', '', 'Alexander Dennis UK', 'United Kingdom'));
+        $this->attach(new Manufacturer('SFN', 'Foden', '', '', 'Foden', 'United Kingdom'));
+        $this->attach(new Manufacturer('SFZ', 'Tesla', '', 'Roadster', 'Lotus', 'United Kingdom'));
+        $this->attach(new Manufacturer('SGD', 'Swift', '', '', 'Swift Group Ltd.', 'United Kingdom'));
+        $this->attach(new Manufacturer('SHH', 'Honda', 'car', '', 'Honda UK Manufacturing', 'United Kingdom'));
+        $this->attach(new Manufacturer('SHS', 'Honda', 'SUV', '', 'Honda UK Manufacturing', 'United Kingdom'));
+        $this->attach(new Manufacturer('SJA', 'Bentley', 'SUV', '', 'Bentley', 'United Kingdom'));
+        $this->attach(new Manufacturer('SJK', 'Infiniti', '', '', 'Nissan Motor Manufacturing UK', 'United Kingdom'));
+        $this->attach(new Manufacturer('SJN', 'Nissan', '', '', 'Nissan Motor Manufacturing UK', 'United Kingdom'));
+        $this->attach(new Manufacturer('SKA', 'Vauxhall', '', '', 'Vauxhall Motors', 'United Kingdom'));
+        $this->attach(new Manufacturer('SKF', 'Bedford', '', '', 'Bedford Vehicles', 'United Kingdom'));
+        $this->attach(new Manufacturer('SLA', 'Rolls-Royce', 'SUV', '', 'Rolls-Royce Motor Cars', 'United Kingdom'));
+        $this->attach(new Manufacturer('SLP', 'JCB', '', '', 'JC Bamford Excavators', 'United Kingdom'));
+        $this->attach(new Manufacturer('SLV', 'Volvo', 'bus', '', 'Volvo Bus', 'United Kingdom'));
+        $this->attach(new Manufacturer('SL5', 'SOR', 'bus', '', 'SOR Libchavy', 'Czech Republic'));
+        $this->attach(new Manufacturer('SMT', 'Triumph', '', '', 'Triumph Motorcycles', 'United Kingdom'));
+        $this->attach(new Manufacturer('SNE', 'Wartburg', '', '', 'VEB Automobilwerk Eisenach', 'East Germany'));
+        $this->attach(new Manufacturer('SNT', 'Trabant', '', '', 'VEB Sachsenring Automobilwerke Zwickau', 'East Germany'));
+        $this->attach(new Manufacturer('SNZ', 'MZ', '', '', 'MZ Motorrad- und Zweiradwerk', 'East Germany'));
+        $this->attach(new Manufacturer('SUA', 'Sanok', '', '', 'Sanocka Fabryka Autobusow Sfa', 'Poland'));
+        $this->attach(new Manufacturer('SUA', 'Autosan', '', '', 'Autosan', 'Poland'));
+        $this->attach(new Manufacturer('SUD', 'Wielton', '', '', 'Wielton', 'Poland'));
+        $this->attach(new Manufacturer('SUE', 'BOSMAL', '', '', 'BOSMAL', 'Poland'));
+        $this->attach(new Manufacturer('SUF', 'Fiat', '', '', 'Fabryka Samochodów Małolitrażowych', 'Poland'));
+        $this->attach(new Manufacturer('SUJ', 'Jelcz', '', '', 'Jelcz', 'Poland'));
+        $this->attach(new Manufacturer('SUL', 'Honker', '', '', 'FSC Lublin Automotive Factory', 'Poland'));
+        $this->attach(new Manufacturer('SUM', '', '', '', 'Metal-Fach Sp. z o.o.', 'Poland'));
+        $this->attach(new Manufacturer('SUN', 'FSD', '', '', 'FSD', 'Poland'));
+        $this->attach(new Manufacturer('SUP', 'Daewoo', '', '', 'Fabryka Samochodow Osobowych', 'Poland'));
+        $this->attach(new Manufacturer('SUR', 'Polmo', '', '', 'Factory of Agricultural Vehicles ‘Polmo’ in Poznań', 'Poland'));
+        $this->attach(new Manufacturer('SUS', 'Star', '', '', 'Fabryka Samochodów Ciężarowych „Star”', 'Poland'));
+        $this->attach(new Manufacturer('SUU', 'Solaris', '', '', 'Solaris Bus & Coach', 'Poland'));
+        $this->attach(new Manufacturer('SUZ', 'Zasław', '', '', 'Zasław', 'Poland'));
+        $this->attach(new Manufacturer('SW9', 'Solbus', '', '', 'Solbus', 'Poland'));
+        $this->attach(new Manufacturer('SX9', 'SOMMER', '', '', 'SOMMER', 'Poland'));
+        $this->attach(new Manufacturer('SZ9', 'EPOKA', '', '', 'EPOKA', 'Poland'));
+        $this->attach(new Manufacturer('SZA', 'Scania', '', '', 'Scania Production Slupsk', 'Poland'));
+        $this->attach(new Manufacturer('SZB', 'Pronar', '', '', 'Pronar', 'Poland'));
+        $this->attach(new Manufacturer('SZH', 'BWW', '', '', 'BWW', 'Poland'));
+        $this->attach(new Manufacturer('SZR', 'BORO', '', '', 'BORO', 'Poland'));
+        $this->attach(new Manufacturer('TAM', 'Mowag', '', '', 'Mowag', 'Switzerland'));
+        $this->attach(new Manufacturer('TAP', 'Polaris', '', '', 'Polaris Europe (based in Switzerland)', 'Switzerland'));
+        $this->attach(new Manufacturer('TCC', '', '', '', 'Micro Compact Car AG', 'Switzerland', 1998, 1999));
+        $this->attach(new Manufacturer('TEB', '', '', '', 'Bucher Municipal', 'Switzerland', null, null, 'including Johnston Sweepers of the UK (owned by Bucher Municipal of Switzerland)'));
+        $this->attach(new Manufacturer('TDM', 'QUANTYA', '', '', 'QUANTYA Swiss Electric Movement', 'Switzerland'));
+        $this->attach(new Manufacturer('TK9', 'SOR', '', '', 'SOR Libchavy', 'Czech Republic'));
+        $this->attach(new Manufacturer('TLJ', 'Jawa', '', '', 'Jawa Moto', 'Czech Republic'));
+        $this->attach(new Manufacturer('TM9', 'Škoda', 'trolleybus', '', 'Škoda', 'Czech Republic'));
+        $this->attach(new Manufacturer('TMA', 'Hyundai', '', '', 'Hyundai Motor Manufacturing Czech', 'Czech Republic'));
+        $this->attach(new Manufacturer('TMB', 'Škoda', '', '', 'Škoda Auto', 'Czech Republic'));
+        $this->attach(new Manufacturer('TMC', 'Hyundai', '', '', 'Hyundai Motor Manufacturing Czech', 'Czech Republic'));
+        $this->attach(new Manufacturer('TMK', 'Karosa', '', '', 'Karosa', 'Czech Republic'));
+        $this->attach(new Manufacturer('TMP', 'Škoda', 'trolleybus', '', 'Škoda Ostrov', 'Czech Republic'));
+        $this->attach(new Manufacturer('TMT', 'Tatra', 'car', '', '', 'Czech Republic'));
+        $this->attach(new Manufacturer('TNA', 'Avia', '', '', 'Avia/Daewoo Avia', 'Czech Republic'));
+        $this->attach(new Manufacturer('TN9', 'Karosa', '', '', 'Karosa', 'Czech Republic'));
+        $this->attach(new Manufacturer('TNE', 'TAZ', '', '', 'TAZ Trenčín', 'Slovakia'));
+        $this->attach(new Manufacturer('TNT', 'Tatra', '', '', 'Tatra trucks', 'Czech Republic'));
+        $this->attach(new Manufacturer('TNU', 'Tatra', '', '', 'Tatra trucks', 'Czech Republic'));
+        $this->attach(new Manufacturer('TRA', 'Ikarus', '', '', 'Ikarus Bus', 'Hungary'));
+        $this->attach(new Manufacturer('TRU', 'Audi', '', '', 'Audi', 'Hungary'));
+        $this->attach(new Manufacturer('TSE', 'Ikarus', '', '', 'Ikarus Egyedi Autobuszgyar', 'Hungary'));
+        $this->attach(new Manufacturer('TSM', 'Suzuki', '', '', 'Suzuki', 'Hungary'));
+        $this->attach(new Manufacturer('TW1', 'Toyota', '', '', 'Toyota Caetano Portugal', 'Portugal'));
+        $this->attach(new Manufacturer('TW3', 'Renault', '', '', 'Renault Portuguesa SARL', 'Portugal'));
+        $this->attach(new Manufacturer('TW7', 'Mini', '', 'Moke', 'British Leyland & Austin Rover', 'Portugal'));
+        $this->attach(new Manufacturer('TW8', 'GM', '', '', 'General Motors De Portugal Lda', 'Portugal'));
+        $this->attach(new Manufacturer('TWG', 'Salvador Caetano', '', '', 'Salvador Caetano', 'Portugal'));
+        $this->attach(new Manufacturer('TX5', 'Mini', '', 'Moke', 'Cagiva', 'Portugal'));
+        $this->attach(new Manufacturer('TYA', 'Mitsubishi Fuso', '', '', 'Mitsubishi Fuso Truck and Bus Corp.', 'Portugal'));
+        $this->attach(new Manufacturer('TYB', 'Mitsubishi Fuso', '', '', 'Mitsubishi Fuso Truck and Bus Corp.', 'Portugal'));
+        $this->attach(new Manufacturer('U5Y', 'Kia', 'car', '', 'Kia Motors Slovakia', 'Slovakia'));
+        $this->attach(new Manufacturer('U6Y', 'Kia', 'SUV', '', 'Kia Motors Slovakia', 'Slovakia'));
+        $this->attach(new Manufacturer('UKH', 'HARDI', 'Agricultural Machinery', '', 'HARDI International A/S', 'Denmark'));
+        $this->attach(new Manufacturer('ULA', 'ASA-LIFT', 'Agricultural Machinery', '', 'ASA-LIFT: Vegetable Technology Specialist', 'Denmark'));
+        $this->attach(new Manufacturer('UU1', 'Dacia', '', '', 'Renault Dacia', 'Romania'));
+        $this->attach(new Manufacturer('UU2', 'Oltcit', '', '', 'Oltcit', 'Romania'));
+        $this->attach(new Manufacturer('UU3', 'ARO', '', '', 'ARO', 'Romania'));
+        $this->attach(new Manufacturer('UU5', 'Rocar', '', '', 'Rocar', 'Romania'));
+        $this->attach(new Manufacturer('UU6', 'Daewoo', '', '', 'Daewoo Romania', 'Romania'));
+        $this->attach(new Manufacturer('UU7', 'Euro Bus', '', '', 'Euro Bus Diamond', 'Romania'));
+        $this->attach(new Manufacturer('UU9', 'Astra Bus', '', '', 'Astra Bus', 'Romania'));
+        $this->attach(new Manufacturer('UZT', 'UTB', '', '', 'UTB (Uzina de Tractoare Brașov)', 'Romania'));
+        $this->attach(new Manufacturer('VA0', 'ÖAF', '', '', 'ÖAF', 'Austria'));
+        $this->attach(new Manufacturer('VAG', 'Puch', '', 'G', 'Steyr-Daimler-Puch', 'Austria'));
+        $this->attach(new Manufacturer('VAG', 'Pinzgauer', '', '', 'Steyr-Puch', 'Austria'));
+        $this->attach(new Manufacturer('VAN', 'Steyr Trucks', '', '', 'Steyr-Daimler-Puch', 'Austria'));
+        $this->attach(new Manufacturer('VAK', '', '', '', 'Kässbohrer Transport Technik', 'Austria'));
+        $this->attach(new Manufacturer('VBK', 'KTM', 'motorcycle', '', 'KTM', 'Austria'));
+        $this->attach(new Manufacturer('VCF', 'Fisker Inc.', '', '', 'Magna Steyr', 'Austria', null, null, '(Fisker Ocean)'));
+        $this->attach(new Manufacturer('VFA', 'Alpine', '', '', 'Alpine', 'France'));
+        $this->attach(new Manufacturer('VF1', 'Renault', '', '', 'Renault', 'France'));
+        $this->attach(new Manufacturer('VF2', 'Renault', '', '', 'Renault Trucks', 'France'));
+        $this->attach(new Manufacturer('VF3', 'Peugeot', '', '', 'Peugeot', 'France'));
+        $this->attach(new Manufacturer('VF4', 'Talbot', '', '', 'Talbot', 'France'));
+        $this->attach(new Manufacturer('VF5', 'Iveco', '', '', 'Iveco Unic', 'France'));
+        $this->attach(new Manufacturer('VF6', 'Renault', '', '', 'Renault (Trucks & Buses)', 'France'));
+        $this->attach(new Manufacturer('VF7', 'Citroën', '', '', 'Citroën', 'France'));
+        $this->attach(new Manufacturer('VF8', 'Matra', '', '', 'Matra', 'France'));
+        $this->attach(new Manufacturer('VF9', 'Fayat', '', '', 'Mathieu Fayat Group', 'France'));
+        $this->attach(new Manufacturer('VF9', 'Venturi', '', '', 'Venturi Automobiles', 'France'));
+        $this->attach(new Manufacturer('VF9', 'Bugatti', '', '', 'Bugatti Automobiles S.A.S.', 'France'));
+        $this->attach(new Manufacturer('VGA', 'Peugeot', '', '', 'Peugeot Motocycles', 'France'));
+        $this->attach(new Manufacturer('VG5', 'MBK', 'motorcycles', '', 'MBK', 'France'));
+        $this->attach(new Manufacturer('VG5', 'Yamaha', 'motorcycles', '', 'Yamaha Motor', 'France'));
+        $this->attach(new Manufacturer('VG6', 'Renault', '', '', 'Renault Trucks', 'France', null, null, 'medium duty trucks'));
+        $this->attach(new Manufacturer('VG6', 'Mack', '', '', 'Renault Trucks', 'France', null, null, 'medium duty trucks'));
+        $this->attach(new Manufacturer('VG7', 'Renault', '', '', 'Renault Trucks', 'France'));
+        $this->attach(new Manufacturer('VG8', 'Renault', '', '', 'Renault Trucks', 'France'));
+        $this->attach(new Manufacturer('VG9', 'EVRARD', '', '', 'EVRARD', 'France', null, null, 'Agricultural Machinery'));
+        $this->attach(new Manufacturer('VJ1', 'Heuliez', '', '', 'Heuliez Bus', 'France'));
+        $this->attach(new Manufacturer('VK8', 'Venturi', '', '', 'Venturi Automobiles', 'France'));
+        $this->attach(new Manufacturer('VL4', 'Bluecar', '', '', 'Bluecar', 'France'));
+        $this->attach(new Manufacturer('VLU', 'Scania', '', '', 'Scania Production Angers', 'France'));
+        $this->attach(new Manufacturer('VMK', 'Renault', '', 'Spider', 'Renault Sport', 'France'));
+        $this->attach(new Manufacturer('VN1', 'SOVAB', '', '', 'SOVAB', 'France'));
+        $this->attach(new Manufacturer('VNE', 'Iveco', '', '', 'Iveco Bus / Irisbus', 'France'));
+        $this->attach(new Manufacturer('VNK', 'Toyota', '', '', 'Toyota Motor Manufacturing France', 'France'));
+        $this->attach(new Manufacturer('VNV', 'Nissan', '', '', 'Nissan', 'France'));
+        $this->attach(new Manufacturer('VPS', 'MLT', '', '', 'MLT Automotive', 'France'));
+        $this->attach(new Manufacturer('VR1', 'DS Automobiles', '', '', 'DS Automobiles', 'France'));
+        $this->attach(new Manufacturer('VR3', 'Peugeot', '', '', 'Peugeot', 'France'));
+        $this->attach(new Manufacturer('VR7', 'Citroën', '', '', 'Citroën', 'France'));
+        $this->attach(new Manufacturer('VS1', 'Pegaso', '', '', 'Pegaso', 'Spain'));
+        $this->attach(new Manufacturer('VS5', 'Renault', '', '', 'Renault España', 'Spain'));
+        $this->attach(new Manufacturer('VS6', 'Ford', '', '', 'Ford Espana', 'Spain'));
+        $this->attach(new Manufacturer('VS7', 'Citroën', '', '', 'Citroën', 'Spain'));
+        $this->attach(new Manufacturer('VS8', 'Peugeot', '', '', 'Peugeot', 'Spain'));
+        $this->attach(new Manufacturer('VS9', 'Carrocerias Ayats', '', '', 'Carrocerias Ayats', 'Spain'));
+        $this->attach(new Manufacturer('VSA', 'Mercedes-Benz', '', '', 'Mercedes-Benz Espana SA', 'Spain'));
+        $this->attach(new Manufacturer('VSC', 'Mercedes-Benz', '', 'Vitoria', 'Mercedes-Benz Espana SA', 'Spain'));
+        $this->attach(new Manufacturer('VSE', 'Santana', '', '', 'Santana Motor', 'Spain'));
+        $this->attach(new Manufacturer('VSK', 'Nissan', 'car/MPV/van/SUV/pickup', '', 'Nissan Motor Iberica SA', 'Spain'));
+        $this->attach(new Manufacturer('VSK', 'Nissan', 'car/MPV/van/SUV/pickup', '', 'Nissan passenger', 'Spain'));
+        $this->attach(new Manufacturer('VSK', 'Ford', '', 'Maverick', '', 'Spain', 1993, 1999));
+        $this->attach(new Manufacturer('VSS', 'Seat', '', '', 'Seat', 'Spain'));
+        $this->attach(new Manufacturer('VSX', 'Opel', '', '', 'Opel Automobile Espana, SA', 'Spain'));
+        $this->attach(new Manufacturer('VTD', 'Honda', 'motorcycle', '', 'Montesa Honda', 'Spain'));
+        $this->attach(new Manufacturer('VTH', 'Derbi', 'motorcycle', '', 'Derbi', 'Spain'));
+        $this->attach(new Manufacturer('VTL', 'Yamaha', '', '', 'Yamaha Motor España SA', 'Spain'));
+        $this->attach(new Manufacturer('VTL', 'Yamaha', '', '', 'Yamaha Sociedad Española de Motocicletas', 'Spain'));
+        $this->attach(new Manufacturer('VTM', 'Honda', 'motorcycle', '', 'Montesa Honda', 'Spain'));
+        $this->attach(new Manufacturer('VTR', 'Gas Gas', '', '', 'Gas Gas', 'Spain'));
+        $this->attach(new Manufacturer('VTT', 'Suzuki', 'motorcycle', '', 'Suzuki Motor España', 'Spain'));
+        $this->attach(new Manufacturer('VV9', 'Tauro Sport Auto', '', '', 'Tauro Sport Auto', 'Spain'));
+        $this->attach(new Manufacturer('VWA', 'Nissan', '', '', 'Nissan Vehiculos Industriales SA', 'Spain'));
+        $this->attach(new Manufacturer('VWV', 'Volkswagen', '', '', 'Volkswagen', 'Spain'));
+        $this->attach(new Manufacturer('VXE', 'Opel', 'van', '', 'Opel Automobile GmbH/Vauxhall', 'Spain'));
+        $this->attach(new Manufacturer('VXK', 'Opel', 'car/SUV', '', 'Opel Automobile GmbH/Vauxhall', 'Spain'));
+        $this->attach(new Manufacturer('VX1', 'Zastava', '', '', 'Zastava / Yugo Serbia', 'Yugoslavia'));
+        $this->attach(new Manufacturer('VYC', 'Lancia', '', '', 'Lancia', 'France', null, null, 'models on PSA CMP platform'));
+        $this->attach(new Manufacturer('V31', 'TAZ', '', '', 'Tvornica Autobusa Zagreb', 'Croatia'));
+        $this->attach(new Manufacturer('V39', 'Rimac', '', '', 'Rimac Automobili', 'Croatia'));
+        $this->attach(new Manufacturer('WAC', 'Audi', '', 'RS 2 Avant', 'Audi/Porsche', 'Germany'));
+        $this->attach(new Manufacturer('WAG', 'Neoplan', '', '', 'Neoplan', 'Germany'));
+        $this->attach(new Manufacturer('WAP', 'Alpina', '', '', 'Alpina', 'Germany'));
+        $this->attach(new Manufacturer('WAU', 'Audi', '', '', 'Audi', 'Germany'));
+        $this->attach(new Manufacturer('WA1', 'Audi', 'SUV', '', 'Audi', 'Germany'));
+        $this->attach(new Manufacturer('WBA', 'BMW', 'car', '', 'BMW', 'Germany'));
+        $this->attach(new Manufacturer('WBS', 'BMW', 'car', 'M', 'BMW', 'Germany'));
+        $this->attach(new Manufacturer('WBX', 'BMW', 'SUV', '', 'BMW', 'Germany'));
+        $this->attach(new Manufacturer('WBY', 'BMW', 'car', 'i', 'BMW', 'Germany'));
+        $this->attach(new Manufacturer('WB1', 'BMW Motorrad', 'Motorcycle', '', 'BMW Motorrad', 'Germany'));
+        $this->attach(new Manufacturer('WB3', 'BMW Motorrad', 'Motorcycles', '', 'BMW Motorrad', 'Germany', null, null, 'made in India'));
+        $this->attach(new Manufacturer('WB4', 'BMW Motorrad', 'Motorscooters', '', 'BMW Motorrad', 'Germany', null, null, 'made in China'));
+        $this->attach(new Manufacturer('WB5', 'BMW', 'SUV', 'i', 'BMW', 'Germany'));
+        $this->attach(new Manufacturer('WB6', 'BMW', 'SUV', 'M', 'BMW', 'Germany'));
+        $this->attach(new Manufacturer('WCD', 'Freightliner', 'bus', '', 'Freightliner Sprinter', 'Germany', 2008, 2019));
+        $this->attach(new Manufacturer('WD0', 'Dodge', 'truck', '', 'Dodge Sprinter', 'Germany', 2005, 2009));
+        $this->attach(new Manufacturer('WD1', 'Freightliner', '', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2002, 2002));
+        $this->attach(new Manufacturer('WD1', 'Dodge', 'incomplete', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005));
+        $this->attach(new Manufacturer('WD1', 'Freightliner', 'incomplete', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005));
+        $this->attach(new Manufacturer('WD2', 'Freightliner', 'truck', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2002, 2002));
+        $this->attach(new Manufacturer('WD2', 'Dodge', 'truck', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005));
+        $this->attach(new Manufacturer('WD2', 'Freightliner', 'truck', 'Sprinter', 'Freightliner Sprinter', 'Germany', 2003, 2005));
+        $this->attach(new Manufacturer('WD3', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('WD4', 'Mercedes-Benz', 'MPV', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('WD5', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany', 2002, 2002));
+        $this->attach(new Manufacturer('WD5', 'Dodge', 'MPV', 'Sprinter', '', 'Germany', 2003, 2005));
+        $this->attach(new Manufacturer('WD5', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany', 2003, 2005));
+        $this->attach(new Manufacturer('WD6', 'Unimog', 'truck', '', 'Freightliner Unimog', 'Germany'));
+        $this->attach(new Manufacturer('WD7', 'Unimog', 'incomplete', '', 'Freightliner Unimog', 'Germany'));
+        $this->attach(new Manufacturer('WD8', 'Dodge', 'MPV', 'Sprinter', '', 'Germany', 2005, 2009));
+        $this->attach(new Manufacturer('WDA', 'Mercedes-Benz', 'incomplete', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('WDB', 'Maybach', '', '', 'Maybach', 'Germany'));
+        $this->attach(new Manufacturer('WDB', 'Mercedes-Benz', '', '', 'Mercedes-Benz', 'Germany'));
+        $this->attach(new Manufacturer('WDC', 'Mercedes-Benz', 'SUV', '', 'Mercedes-Benz', 'Germany'));
+        $this->attach(new Manufacturer('WDD', 'Mercedes-Benz', 'car', '', 'Mercedes-Benz', 'Germany'));
+        $this->attach(new Manufacturer('WDF', 'Mercedes-Benz', 'van', '', 'Mercedes-Benz', 'Germany', null, null, 'commercial vehicles'));
+        $this->attach(new Manufacturer('WDP', 'Freightliner', 'incomplete vehicle', 'Sprinter', '', 'Germany', 2005, 2019));
+        $this->attach(new Manufacturer('WDR', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany', 2005, 2019));
+        $this->attach(new Manufacturer('WDW', 'Dodge', 'bus', 'Sprinter', '', 'Germany', 2008, 2009));
+        $this->attach(new Manufacturer('WDX', 'Dodge', 'incomplete vehicle', 'Sprinter', '', 'Germany', 2005, 2009));
+        $this->attach(new Manufacturer('WDY', 'Freightliner', 'truck', 'Sprinter', '', 'Germany', 2005, 2019));
+        $this->attach(new Manufacturer('WDZ', 'Mercedes-Benz', 'bus', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('WEB', 'Evobus', '', '', 'EvoBus Mercedes-Benz buses', 'Germany'));
+        $this->attach(new Manufacturer('WEL', 'e.GO Mobile', '', '', 'e.GO Mobile AG', 'Germany'));
+        $this->attach(new Manufacturer('WF0', 'Ford', '', '', 'Ford of Europe', 'Germany'));
+        $this->attach(new Manufacturer('WF1', 'Merkur', '', '', 'Merkur', 'Germany'));
+        $this->attach(new Manufacturer('WJM', 'Iveco', '', '', 'Iveco Magirus', 'Germany'));
+        $this->attach(new Manufacturer('WJR', 'Irmscher', '', '', 'Irmscher', 'Germany'));
+        $this->attach(new Manufacturer('WKE', 'Krone', '', '', 'Krone Trailer', 'Germany'));
+        $this->attach(new Manufacturer('WKK', '', '', '', 'Karl Kässbohrer Fahrzeugwerke', 'Germany'));
+        $this->attach(new Manufacturer('WKK', 'Setra', '', '', 'Setra', 'Germany'));
+        $this->attach(new Manufacturer('WMA', 'MAN', '', '', 'MAN', 'Germany'));
+        $this->attach(new Manufacturer('WME', 'Smart', '', '', 'Smart', 'Germany', 1999));
+        $this->attach(new Manufacturer('WMW', 'Mini', 'car', '', 'Mini', 'Germany'));
+        $this->attach(new Manufacturer('WMX', 'AMG', '', '', 'Mercedes-AMG', 'Germany'));
+        $this->attach(new Manufacturer('WMZ', 'Mini', 'SUV', '', 'Mini', 'Germany'));
+        $this->attach(new Manufacturer('WNA', 'Next.e.GO', '', '', 'Next.e.GO Mobile SE', 'Germany'));
+        $this->attach(new Manufacturer('WP0', 'Porsche', 'car', '', 'Porsche', 'Germany'));
+        $this->attach(new Manufacturer('WP1', 'Porsche', 'SUV', '', 'Porsche', 'Germany'));
+        $this->attach(new Manufacturer('WS5', 'StreetScooter', '', '', 'B-ON GmbH', 'Germany'));
+        $this->attach(new Manufacturer('WSM', 'Schmitz Cargobull', '', '', 'Schmitz Cargobull', 'Germany'));
+        $this->attach(new Manufacturer('WUA', 'Audi', 'car', '', 'Audi Sport GmbH', 'Germany'));
+        $this->attach(new Manufacturer('WUA', 'Audi', 'car', '', 'Quattro GmbH', 'Germany'));
+        $this->attach(new Manufacturer('WU1', 'Audi', 'SUV', '', 'Audi Sport GmbH', 'Germany'));
+        $this->attach(new Manufacturer('WVG', 'Volkswagen', 'MPV/SUV', '', 'Volkswagen', 'Germany'));
+        $this->attach(new Manufacturer('WVM', 'MAN', '', '', 'Arbeitsgemeinschaft VW-MAN', 'Germany'));
+        $this->attach(new Manufacturer('WVP', 'Viseon', '', '', 'Viseon Bus', 'Germany'));
+        $this->attach(new Manufacturer('WVW', 'Volkswagen', '', '', 'Volkswagen', 'Germany'));
+        $this->attach(new Manufacturer('WV1', 'Volkswagen', '', '', 'Volkswagen', 'Germany', null, null, 'Commercial Vehicles'));
+        $this->attach(new Manufacturer('WV2', 'Volkswagen', 'Bus/Van', '', 'Volkswagen', 'Germany'));
+        $this->attach(new Manufacturer('WV3', 'Volkswagen', 'Trucks', '', 'Volkswagen', 'Germany'));
+        $this->attach(new Manufacturer('WZ1', 'Toyota', '', 'Supra Fifth generation', 'Toyota', 'Germany'));
+        $this->attach(new Manufacturer('W04', 'Buick', '', 'Regal', '', 'Germany'));
+        $this->attach(new Manufacturer('W04', 'Buick', '', 'Cascada', '', 'Germany'));
+        $this->attach(new Manufacturer('W06', 'Cadillac', '', 'Catera', '', 'Germany'));
+        $this->attach(new Manufacturer('W08', 'Saturn', '', 'Astra', '', 'Germany'));
+        $this->attach(new Manufacturer('W09', 'Bitter Cars', '', '', '', 'Germany'));
+        $this->attach(new Manufacturer('W09', 'Brabus', '', '', '', 'Germany'));
+        $this->attach(new Manufacturer('W09', 'Drögmöller', '', '', '', 'Germany'));
+        $this->attach(new Manufacturer('W09', 'HWA AG', '', '', '', 'Germany'));
+        $this->attach(new Manufacturer('W09', 'Ruf Automobile', '', '', '', 'Germany'));
+        $this->attach(new Manufacturer('W0L', 'Opel', '', '', 'Adam Opel AG/Vauxhall', 'Germany'));
+        $this->attach(new Manufacturer('W0L', 'Holden', '', '', 'Holden', 'Germany'));
+        $this->attach(new Manufacturer('W0S', 'Opel', 'Special Vehicles', '', 'Opel', 'Germany'));
+        $this->attach(new Manufacturer('W0V', 'Opel', '', '', 'Opel Automobile Gmbh/Vauxhall', 'Germany'));
+        $this->attach(new Manufacturer('W0V', 'Holden', '', '', 'Holden', 'Germany'));
+        $this->attach(new Manufacturer('W1A', 'Smart', '', '', 'Smart', 'Germany'));
+        $this->attach(new Manufacturer('W1H', 'Freightliner', '', 'Econic', '', 'Germany'));
+        $this->attach(new Manufacturer('W1K', 'Mercedes-Benz', 'car', '', 'Mercedes-Benz', 'Germany'));
+        $this->attach(new Manufacturer('W1N', 'Mercedes-Benz', 'SUV', '', 'Mercedes-Benz', 'Germany'));
+        $this->attach(new Manufacturer('W1T', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Germany'));
+        $this->attach(new Manufacturer('W1V', 'Mercedes-Benz', 'van', '', 'Mercedes-Benz', 'Germany'));
+        $this->attach(new Manufacturer('W1W', 'Mercedes-Benz', 'MPV', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('W1X', 'Mercedes-Benz', 'incomplete vehicle', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('W1Y', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('W1Z', 'Mercedes-Benz', 'bus', '', 'Mercedes-Benz', 'Germany', null, null, 'North America'));
+        $this->attach(new Manufacturer('W2W', 'Freightliner', 'MPV', 'Sprinter', '', 'Germany'));
+        $this->attach(new Manufacturer('W2X', 'Freightliner', 'incomplete', 'Sprinter', '', 'Germany'));
+        $this->attach(new Manufacturer('W2Y', 'Freightliner', 'truck', 'Sprinter', '', 'Germany'));
+        $this->attach(new Manufacturer('W2Z', 'Freightliner', 'bus', 'Sprinter', '', 'Germany'));
+        $this->attach(new Manufacturer('XBB', 'Great Wall', '', '', 'Great Wall Motors/Litex Motors AD', 'Bulgaria'));
+        $this->attach(new Manufacturer('XL9', 'Bova', '', '', 'Autobusfabriek Bova BV', 'Netherlands'));
+        $this->attach(new Manufacturer('XL9', 'Bova', '', '', 'VDL Bova', 'Netherlands'));
+        $this->attach(new Manufacturer('XL9', 'Spyker', '', '', 'Spyker Cars', 'Netherlands'));
+        $this->attach(new Manufacturer('XL9', '', '', '', 'Groenewold Carrosseriefabriek B.V.', 'Netherlands'));
+        $this->attach(new Manufacturer('XLB', 'VDL Nedkar', '', '', 'Volvo Car B.V./NedCar B.V.', 'Netherlands', null, null, 'Volvo Cars'));
+        $this->attach(new Manufacturer('XLE', 'Scania', '', '', 'Scania Nederland B.V.', 'Netherlands'));
+        $this->attach(new Manufacturer('XLR', 'DAF Trucks', '', '', 'DAF Trucks', 'Netherlands'));
+        $this->attach(new Manufacturer('XLR', 'Leyland DAF', '', '', 'Leyland DAF', 'Netherlands'));
+        $this->attach(new Manufacturer('XLV', 'DAF', '', '', 'DAF Bus', 'Netherlands'));
+        $this->attach(new Manufacturer('XMC', 'VDL Nedkar', '', '', 'NedCar B.V. Mitsubishi Motors', 'Netherlands'));
+        $this->attach(new Manufacturer('XMG', 'VDL Nedkar', '', '', 'VDL Bus International', 'Netherlands'));
+        $this->attach(new Manufacturer('XNC', 'VDL Nedkar', '', '', 'NedCar B.V. Mitsubishi Motors', 'Netherlands', null, null, 'Colt CZC convertible'));
+        $this->attach(new Manufacturer('XNL', 'VDL', '', '', 'VDL Bus & Coach', 'Netherlands'));
+        $this->attach(new Manufacturer('XNT', 'Pacton', '', '', 'Pacton Trailer', 'Netherlands'));
+        $this->attach(new Manufacturer('XP7', 'Tesla', '', '', 'Tesla Europe', 'Netherlands', null, null, 'based in the Netherlands'));
+        $this->attach(new Manufacturer('XTA', 'Lada', '', '', 'Lada/AutoVaz', 'Russia'));
+        $this->attach(new Manufacturer('XTB', 'AZLK', '', '', 'AZLK', 'Russia'));
+        $this->attach(new Manufacturer('XTC', 'KAMAZ', '', '', 'KAMAZ', 'Russia'));
+        $this->attach(new Manufacturer('XTF', 'GolAZ', '', '', 'GolAZ', 'Russia'));
+        $this->attach(new Manufacturer('XTH', 'GAZ', '', '', 'GAZ', 'Russia'));
+        $this->attach(new Manufacturer('XTT', 'UAZ', '', '', 'UAZ/Sollers', 'Russia'));
+        $this->attach(new Manufacturer('XTY', 'LiAZ', '', '', 'LiAZ', 'Russia'));
+        $this->attach(new Manufacturer('XUF', 'GM', '', '', 'General Motors Russia', 'Russia'));
+        $this->attach(new Manufacturer('XUU', 'AvtoTor', '', '', 'AvtoTor (Russia, General Motors SKD)', 'Russia'));
+        $this->attach(new Manufacturer('XU1', 'UAZ', 'Special Purpose Vehicles', '', 'UAZ', 'Russia'));
+        $this->attach(new Manufacturer('XWB', 'Daewoo', '', '', 'UZ-Daewoo', 'Uzbekistan'));
+        $this->attach(new Manufacturer('XWE', 'AvtoTor', '', '', 'AvtoTor (Russia, Hyundai-Kia SKD)', 'Uzbekistan'));
+        $this->attach(new Manufacturer('XW7', 'Toyota', '', '', 'Toyota Motor Manufacturing Russia', 'Russia'));
+        $this->attach(new Manufacturer('XW8', 'Volkswagen', '', '', 'Volkswagen Group Russia', 'Russia'));
+        $this->attach(new Manufacturer('X1E', 'KAvZ', '', '', 'KAvZ', 'Russia'));
+        $this->attach(new Manufacturer('X1M', 'PAZ', '', '', 'PAZ', 'Russia'));
+        $this->attach(new Manufacturer('X4X', 'AvtoTor', '', '', 'AvtoTor (Russia, BMW SKD)', 'Russia'));
+        $this->attach(new Manufacturer('X7L', 'Renault', '', '', 'Renault AvtoFramos', 'Russia'));
+        $this->attach(new Manufacturer('X7M', 'Hyundai', '', '', 'Hyundai TagAZ', 'Russia'));
+        $this->attach(new Manufacturer('X8J', 'Ural', 'motorcycles', '', 'IMZ-Ural', 'Russia'));
+        $this->attach(new Manufacturer('X9F', 'Ford', '', '', 'Ford Motor Company ZAO', 'Russia'));
+        $this->attach(new Manufacturer('X9L', 'GM', '', '', 'GM-AvtoVAZ', 'Russia'));
+        $this->attach(new Manufacturer('X9P', 'Volvo', 'Trucks', '', 'Volvo Vostok ZAO', 'Russia'));
+        $this->attach(new Manufacturer('X9X', 'GWM', '', '', 'Great Wall Motors IMS Avtotrade-12 LLC', 'Russia'));
+        $this->attach(new Manufacturer('X96', 'GAZ', '', '', 'GAZ', 'Russia'));
+        $this->attach(new Manufacturer('Y6D', 'Zaporozhets', '', '', 'AvtoZAZ', 'Ukraine'));
+        $this->attach(new Manufacturer('Y6J', 'Bogdan', '', '', 'Bogdan group', 'Ukraine'));
+        $this->attach(new Manufacturer('Y6U', 'Škoda', '', '', 'Eurocar - Škoda Auto', 'Ukraine'));
+        $this->attach(new Manufacturer('Y7B', 'Bogdan', '', '', 'Bogdan group', 'Ukraine'));
+        $this->attach(new Manufacturer('Y7C', 'Great Wall', '', '', 'Great Wall Motors KrASZ', 'Ukraine'));
+        $this->attach(new Manufacturer('YAR', 'Toyota', '', 'ProAce', 'Toyota Motor Europe', 'Belgium'));
+        $this->attach(new Manufacturer('YAR', 'Toyota', '', 'ProAce City', 'Toyota Motor Europe', 'Belgium'));
+        $this->attach(new Manufacturer('YBW', 'Volkswagen', '', '', 'Volkswagen', 'Belgium'));
+        $this->attach(new Manufacturer('YB3', 'Volvo', '', '', 'Volvo Trucks', 'Belgium'));
+        $this->attach(new Manufacturer('YB6', 'Jonckheere', '', '', 'Jonckheere', 'Belgium'));
+        $this->attach(new Manufacturer('YCM', 'Mazda', '', '', 'Mazda', 'Belgium'));
+        $this->attach(new Manufacturer('YC1', 'Honda', '', '', 'Honda', 'Belgium'));
+        $this->attach(new Manufacturer('YE2', 'Van Hool', 'bus', '', 'Van Hool', 'Belgium'));
+        $this->attach(new Manufacturer('YH2', 'Lynx', 'snowmobile', '', 'Lynx', 'Finland'));
+        $this->attach(new Manufacturer('YH4', 'Fisker Automotive', '', '', 'Valmet Automotive', 'Finland'));
+        $this->attach(new Manufacturer('YK1', 'Saab-Valmet', '', '', 'Saab-Valmet', 'Finland'));
+        $this->attach(new Manufacturer('YK7', 'Sisu Auto', '', '', 'Sisu Auto', 'Finland'));
+        $this->attach(new Manufacturer('YSC', 'Cadillac', '', 'BLS', 'Saab', 'Sweden'));
+        $this->attach(new Manufacturer('YSM', 'Polestar', '', '', 'Polestar', 'Sweden'));
+        $this->attach(new Manufacturer('YS2', 'Scania', '', '', 'Södertälje truck', 'Sweden'));
+        $this->attach(new Manufacturer('YS3', 'Saab', '', '', 'Saab', 'Sweden'));
+        $this->attach(new Manufacturer('YS4', 'Scania', 'bus', '', 'Katrineholm', 'Sweden'));
+        $this->attach(new Manufacturer('YTN', 'Saab', '', '', 'Saab NEVS', 'Sweden'));
+        $this->attach(new Manufacturer('YT9', '', '', '', 'Koenigsegg Automotive AB', 'Sweden'));
+        $this->attach(new Manufacturer('YU7', 'Husaberg', 'motorcycles', '', 'Husaberg', 'Sweden', null, null, 'Swedish built models'));
+        $this->attach(new Manufacturer('YV1', 'Volvo', '', '', 'Volvo Carsr', 'Sweden'));
+        $this->attach(new Manufacturer('YV2', 'Volvo', '', '', 'Volvo Trucks', 'Sweden'));
+        $this->attach(new Manufacturer('YV3', 'Volvo', '', '', 'Volvo Buses', 'Sweden'));
+        $this->attach(new Manufacturer('YV4', 'Volvo', 'SUV', '', 'Volvo Cars', 'Sweden'));
+        $this->attach(new Manufacturer('YV5', 'Volvo', 'incomplete', '', 'Volvo Trucks', 'Sweden'));
+        $this->attach(new Manufacturer('YYC', 'Think Nordic', '', '', 'Think Nordic', 'Norway'));
+        $this->attach(new Manufacturer('ZA9', 'Lamborghini', '', '', 'Lamborghini', 'Italy', 2003, 2003));
+        $this->attach(new Manufacturer('ZA9', 'Cizeta', '', '', 'Cizeta', 'Italy'));
+        $this->attach(new Manufacturer('ZA9', 'Bugatti', '', '', 'Bugatti', 'Italy'));
+        $this->attach(new Manufacturer('ZA9', 'Pagani', '', '', 'Pagani', 'Italy'));
+        $this->attach(new Manufacturer('ZA9', 'Italdesign', '', '', 'Italdesign', 'Italy'));
+        $this->attach(new Manufacturer('ZA9', 'Dallara', '', '', 'Dallara', 'Italy'));
+        $this->attach(new Manufacturer('ZA9', 'Pininfarina', '', '', 'Pininfarina', 'Italy'));
+        $this->attach(new Manufacturer('ZAA', 'Autobianchi', '', '', 'Autobianchi', 'Italy'));
+        $this->attach(new Manufacturer('ZAC', 'Jeep', '', '', 'Jeep', 'Italy'));
+        $this->attach(new Manufacturer('ZAC', 'Dodge', '', 'Hornet', '', 'Italy'));
+        $this->attach(new Manufacturer('ZAH', 'Rolfo', '', '', 'Rolfo', 'Italy'));
+        $this->attach(new Manufacturer('ZAM', 'Maserati', '', '', 'Maserati', 'Italy'));
+        $this->attach(new Manufacturer('ZAP', 'Piaggio', '', '', 'Piaggio', 'Italy'));
+        $this->attach(new Manufacturer('ZAP', 'Vespa', '', '', 'Vespa', 'Italy'));
+        $this->attach(new Manufacturer('ZAP', 'Gilera', '', '', 'Gilera', 'Italy'));
+        $this->attach(new Manufacturer('ZAR', 'Alfa Romeo', 'car', '', 'Alfa Romeo', 'Italy'));
+        $this->attach(new Manufacturer('ZAR', 'Nissan', '', 'Cherry', 'Nissan Cherry Europe', 'Italy'));
+        $this->attach(new Manufacturer('ZAS', 'Alfa Romeo', '', 'Alfasud', 'Alfa Romeo', 'Italy', 1989, 1989));
+        $this->attach(new Manufacturer('ZAS', 'Alfa Romeo', '', 'Sprint', 'Alfa Romeo', 'Italy', 1989, 1989));
+        $this->attach(new Manufacturer('ZAS', 'Alfa Romeo', 'SUV', '', 'Alfa Romeo', 'Italy', 2018));
+        $this->attach(new Manufacturer('ZBA', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For South africa'));
+        $this->attach(new Manufacturer('ZBB', 'Bertone', '', '', 'Gruppo Bertone', 'Italy'));
+        $this->attach(new Manufacturer('ZBI', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Indonesia'));
+        $this->attach(new Manufacturer('ZBM', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Philippines'));
+        $this->attach(new Manufacturer('ZBN', 'Benelli', '', '', 'Benelli', 'Italy'));
+        $this->attach(new Manufacturer('ZBP', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Malaysia'));
+        $this->attach(new Manufacturer('ZBT', 'BMW', '', '', 'BMW', 'Italy', null, null, 'For Thailand'));
+        $this->attach(new Manufacturer('ZBW', 'Rayton-Fissore', '', '', 'Rayton-Fissore Magnum', 'Italy'));
+        $this->attach(new Manufacturer('ZCF', 'Iveco', '', '', 'Iveco', 'Italy'));
+        $this->attach(new Manufacturer('ZCG', '', '', '', 'Cagiva SpA', 'Italy'));
+        $this->attach(new Manufacturer('ZCG', '', '', '', 'MV Agusta', 'Italy'));
+        $this->attach(new Manufacturer('ZC2', 'Chrysler', '', 'TC', 'Maserati', 'Italy'));
+        $this->attach(new Manufacturer('ZC6', '', '', '', 'Effedi Veicoli Commerciali', 'Italy'));
+        $this->attach(new Manufacturer('ZDC', 'Honda', '', '', 'Honda Italia Industriale S.p.A.', 'Italy'));
+        $this->attach(new Manufacturer('ZDF', 'Ferrari', '', 'Dino', '', 'Italy'));
+        $this->attach(new Manufacturer('ZDM', 'Ducati', '', '', 'Ducati Motor Holding', 'Italy'));
+        $this->attach(new Manufacturer('ZDT', 'De Tomaso', '', '', 'De Tomaso Modena SpA', 'Italy'));
+        $this->attach(new Manufacturer('ZDY', 'Cacciamali', '', '', 'Cacciamali', 'Italy'));
+        $this->attach(new Manufacturer('ZD0', '', '', '', 'Yamaha Motor Italia SpA', 'Italy'));
+        $this->attach(new Manufacturer('ZD0', '', '', '', 'Belgarda SpA', 'Italy'));
+        $this->attach(new Manufacturer('ZD3', '', '', '', 'Betamotor S.p.A.', 'Italy'));
+        $this->attach(new Manufacturer('ZD4', 'Aprilia', '', '', 'Aprilia', 'Italy'));
+        $this->attach(new Manufacturer('ZES', 'Bimota', '', '', 'Bimota', 'Italy'));
+        $this->attach(new Manufacturer('ZE8', 'Bremach', '', '', 'Bremach', 'Italy'));
+        $this->attach(new Manufacturer('ZFA', 'Fiat', '', '', 'Fiat', 'Italy'));
+        $this->attach(new Manufacturer('ZFB', 'Fiat', 'MPV/SUV', '', 'Fiat', 'Italy'));
+        $this->attach(new Manufacturer('ZFC', 'Ram', '', '1200', 'Fiat V.I.', 'Italy'));
+        $this->attach(new Manufacturer('ZFF', 'Ferrari', '', '', 'Ferrari', 'Italy'));
+        $this->attach(new Manufacturer('ZFM', 'Fantic Motor', '', '', 'Fantic Motor', 'Italy'));
+        $this->attach(new Manufacturer('ZFR', 'Pininfarina', '', '', 'Pininfarina', 'Italy'));
+        $this->attach(new Manufacturer('ZF4', 'Qvale', '', '', 'Qvale', 'Italy'));
+        $this->attach(new Manufacturer('ZGA', 'Iveco', '', '', 'Iveco Bus', 'Italy'));
+        $this->attach(new Manufacturer('ZGU', 'Moto Guzzi', '', '', 'Moto Guzzi', 'Italy'));
+        $this->attach(new Manufacturer('ZHU', 'Husqvarna', '', '', 'Husqvarna Motorcycles', 'Italy', null, null, 'Under Cagiva ownership'));
+        $this->attach(new Manufacturer('ZHW', 'Lamborghini', '', '', 'Lamborghini', 'Italy', 2003));
+        $this->attach(new Manufacturer('ZJM', 'Malaguti', '', '', 'Malaguti', 'Italy'));
+        $this->attach(new Manufacturer('ZJN', 'Innocenti', '', '', 'Innocenti', 'Italy'));
+        $this->attach(new Manufacturer('ZJT', 'Italjet', '', '', 'Italjet', 'Italy'));
+        $this->attach(new Manufacturer('ZKH', 'Husqvarna', '', '', 'Husqvarna Motorcycles Srl', 'Italy', null, null, 'Under BMW ownership'));
+        $this->attach(new Manufacturer('ZK5', 'Hyundai', '', '', 'Hyundai Automobili Italia Importazioni', 'Italy'));
+        $this->attach(new Manufacturer('ZLA', 'Lancia', '', '', 'Lancia', 'Italy'));
+        $this->attach(new Manufacturer('ZLM', 'Moto Morini', '', '', 'Moto Morini srl', 'Italy'));
+        $this->attach(new Manufacturer('ZLV', 'Laverda', '', '', 'Laverda', 'Italy'));
+        $this->attach(new Manufacturer('ZNN', 'Energica Motor Company', '', '', 'Energica Motor Company', 'Italy'));
+        $this->attach(new Manufacturer('ZN0', 'SV.VM', '', '', 'SWM Motorcycles S.r.l.', 'Italy'));
+        $this->attach(new Manufacturer('ZN3', 'Iveco', '', '', 'Iveco Defence', 'Italy'));
+        $this->attach(new Manufacturer('ZN6', 'Maserati', 'SUV', '', 'Maserati', 'Italy'));
+        $this->attach(new Manufacturer('ZOM', 'OM', '', '', 'OM', 'Italy'));
+        $this->attach(new Manufacturer('ZPB', 'Lamborghini', 'SUV', '', 'Lamborghini', 'Italy'));
+        $this->attach(new Manufacturer('ZPY', 'DR Automobiles', '', '', 'DR Automobiles', 'Italy'));
+        $this->attach(new Manufacturer('ZZ1', 'Tomos', 'motorcycle', '', 'Tomos', 'Slovenia'));
+        $this->attach(new Manufacturer('Z6F', 'Ford', '', '', 'Ford Sollers', 'Russia'));
+        $this->attach(new Manufacturer('Z8M', 'Marussia', '', '', 'Marussia', 'Russia'));
+        $this->attach(new Manufacturer('Z8N', 'Nissan', '', '', 'Nissan Manufacturing Rus', 'Russia'));
+        $this->attach(new Manufacturer('Z8T', 'PCMA', '', '', 'PCMA Rus', 'Russia'));
+        $this->attach(new Manufacturer('Z9M', 'Mercedes-Benz', '', '', 'Mercedes-Benz Trucks Vostok', 'Russia'));
+        $this->attach(new Manufacturer('Z94', 'Hyundai', '', '', 'Hyundai Motor Manufacturing Rus', 'Russia'));
+
+        $this->attach(new Manufacturer('1AC', '', 'MPV', '', 'American Motors Corporation', 'United States'));
+        $this->attach(new Manufacturer('1AF', 'ALF', 'truck', '', 'American LaFrance', 'United States'));
+        $this->attach(new Manufacturer('1AM', '', 'car', '', 'American Motors Corporation', 'United States', 1983, 1983, '', true));
+        $this->attach(new Manufacturer('1AM', '', 'car', '', 'Renault Alliance', 'United States', 1983, 1983, '', true));
+        $this->attach(new Manufacturer('1A4', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'United States', 2006, 2009, '', true));
+        $this->attach(new Manufacturer('1A8', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'United States', 2006, 2009, '', true));
+        $this->attach(new Manufacturer('1BA', '', 'bus', '', 'Blue Bird Corporation', 'United States'));
+        $this->attach(new Manufacturer('1BB', '', 'MPV', '', 'Blue Bird Wanderlodge', 'United States'));
+        $this->attach(new Manufacturer('1BD', '', 'incomplete vehicle', '', 'Blue Bird Corporation', 'United States'));
+        $this->attach(new Manufacturer('1BL', '', '', '', 'Balko, Inc. from Ladysmith, WI', 'United States'));
+        $this->attach(new Manufacturer('1B3', 'Dodge', 'car', '', 'Dodge', 'United States', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('1B4', 'Dodge', 'MPV/SUV', '', 'Dodge', 'United States', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('1B6', 'Dodge', 'incomplete', '', 'Dodge', 'United States', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('1B7', 'Dodge', 'truck', '', 'Dodge', 'United States', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('1B9', '', '', '', 'Buell Motorcycle Company', 'United States', 1995, 1995, '', true));
+        $this->attach(new Manufacturer('1B9', '', '', '', 'Motus Motorcycles', 'United States'));
+        $this->attach(new Manufacturer('1CM', '', '', '', 'Checker Motors Corporation', 'United States'));
+        $this->attach(new Manufacturer('1CU', '', '', '', 'Cushman Haulster', 'United States', null, null, 'Cushman division of Outboard Marine Corporation'));
+        $this->attach(new Manufacturer('1CY', '', '', '', 'Crane Carrier', 'United States'));
+        $this->attach(new Manufacturer('1C3', 'Chrysler', 'car', '', 'Chrysler brand', 'United States', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('1C3', 'Chrysler', 'car', '', 'Chrysler Group', 'United States', 2012, null, '', true));
+        $this->attach(new Manufacturer('1C4', 'Chrysler', 'MPV', '', 'Chrysler brand', 'United States', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('1C4', 'Chrysler', 'MPV', '', 'Chrysler Group', 'United States', 2012, null, '', true));
+        $this->attach(new Manufacturer('1C6', 'Chrysler', 'truck', '', 'Chrysler Group', 'United States', 2012, null, '', true));
+        $this->attach(new Manufacturer('1C8', 'Chrysler', 'MPV', '', 'Chrysler brand', 'United States', 2001, 2005, '', true));
+        $this->attach(new Manufacturer('1C9', 'Chance', '', '', 'CX Automotive', 'United States'));
+        $this->attach(new Manufacturer('1D3', 'Dodge', 'truck', '', 'Dodge', 'United States', 2002, 2009, '', true));
+        $this->attach(new Manufacturer('1D4', 'Dodge', 'MPV/SUV', '', 'Dodge', 'United States', 2003, 2011, '', true));
+        $this->attach(new Manufacturer('1D5', 'Dodge', '', '', 'Dodge', 'United States'));
+        $this->attach(new Manufacturer('1D7', 'Dodge', 'truck', '', 'Dodge', 'United States', 2002, 2011, '', true));
+        $this->attach(new Manufacturer('1D8', 'Dodge', 'MPV/SUV', '', 'Dodge', 'United States', 2003, 2009, '', true));
+        $this->attach(new Manufacturer('1EC', 'Fleetwood', '', '', 'Fleetwood', 'United States'));
+        $this->attach(new Manufacturer('1FA', 'Ford', 'car', '', 'Ford Motor Company', 'United States'));
+        $this->attach(new Manufacturer('1FB', 'Ford', 'bus', '', 'Ford Motor Company', 'United States'));
+        $this->attach(new Manufacturer('1FC', 'Ford', 'chassis', '', 'Ford Motor Company', 'United States'));
+        $this->attach(new Manufacturer('1FD', 'Ford', 'incomplete', '', 'Ford Motor Company', 'United States'));
+        $this->attach(new Manufacturer('1FE', 'Ford', '', '', 'Ford Moter Company', 'United States'));
+        $this->attach(new Manufacturer('1FM', 'Ford', 'MPV/SUV', '', 'Ford Motor Company', 'United States'));
+        $this->attach(new Manufacturer('1FT', 'Ford', 'truck', '', 'Ford Motor Company', 'United States'));
+        $this->attach(new Manufacturer('1FU', 'Freightliner', '', '', 'Freightliner Trucks', 'United States'));
+        $this->attach(new Manufacturer('1FV', 'Freightliner', '', '', 'Freightliner Trucks', 'United States'));
+        $this->attach(new Manufacturer('1F1', 'Ford', 'SUV', '', 'Ford Motor Company', 'United States', 2009, 2009, '', true));
+        $this->attach(new Manufacturer('1F6', 'Ford', 'chassis', '', 'Ford Motor Company', 'United States', null, null, 'made by Detroit Chassis LLC'));
+        $this->attach(new Manufacturer('1F9', '', '', '', 'FWD Corp.', 'United States'));
+        $this->attach(new Manufacturer('1G', 'GMC', '', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1GA', 'Chevrolet', 'bus', '', 'Chevrolet', 'United States'));
+        $this->attach(new Manufacturer('1GB', 'Chevrolet', 'incomplete', '', 'Chevrolet', 'United States'));
+        $this->attach(new Manufacturer('1GC', 'Chevrolet', 'truck', '', 'Chevrolet', 'United States'));
+        $this->attach(new Manufacturer('1GD', 'GMC', 'incomplete', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1GE', 'Cadillac', 'incomplete', '', 'Cadillac', 'United States'));
+        $this->attach(new Manufacturer('1GF', 'Flxible', 'bus', '', 'Flxible', 'United States'));
+        $this->attach(new Manufacturer('1GG', 'Isuzu', 'pickup trucks', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1GH', 'Oldsmobile', 'MPV/SUV', '', 'General Motors', 'United States', 1990, 2004, '', true));
+        $this->attach(new Manufacturer('1GH', 'Holden Acadia', '', '', 'General Motors', 'United States', 2019, 2020, '', true));
+        $this->attach(new Manufacturer('1GJ', 'GMC', 'bus', '', 'General Motors', 'United States', 1987, null, '', true));
+        $this->attach(new Manufacturer('1GK', 'GMC', 'MPV/SUV', '', 'General Motors', 'United States', 1987, null, '', true));
+        $this->attach(new Manufacturer('1GM', 'Pontiac', 'MPV', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1GN', 'Chevrolet', 'MPV/SUV', '', 'General Motors', 'United States', 1987, null, '', true));
+        $this->attach(new Manufacturer('1GT', 'GMC', 'Truck', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1GY', 'Cadillac', 'SUV', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1G0', 'GMC', 'bus', '', 'General Motors', 'United States', 1981, 1986, '', true));
+        $this->attach(new Manufacturer('1G0', 'GMC', 'RTS', '', 'General Motors', 'United States', 1981, 1986, '', true));
+        $this->attach(new Manufacturer('1G0', 'Opel', '', '', 'General Motors', 'United States', 2007, 2017, '', true));
+        $this->attach(new Manufacturer('1G1', 'Chevrolet', '', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1G2', 'Pontiac', '', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1G3', 'Oldsmobile', '', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1G4', 'Buick', '', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1G5', 'GMC', 'MPV/SUV', '', 'General Motors', 'United States', 1981, 1986, '', true));
+        $this->attach(new Manufacturer('1G6', 'Cadillac', '', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('1G8', 'Chevrolet', '', '', 'General Motors', 'United States', 1981, 1986, '', true));
+        $this->attach(new Manufacturer('1G8', 'Saturn', '', '', 'General Motors', 'United States', 1991, 2010, '', true));
+        $this->attach(new Manufacturer('1G9', '', '', '', 'Google & Waymo', 'United States'));
+        $this->attach(new Manufacturer('1H', 'Honda', '', '', 'Honda', 'United States'));
+        $this->attach(new Manufacturer('1HD', 'Harley-Davidson', '', '', 'Harley-Davidson', 'United States'));
+        $this->attach(new Manufacturer('1HF', 'Honda', 'motocycle/ATV/UTV', '', 'Honda', 'United States'));
+        $this->attach(new Manufacturer('1HG', 'Honda', 'car', '', 'Honda', 'United States'));
+        $this->attach(new Manufacturer('1HS', 'International trucks', '', '', 'International trucks', 'United States'));
+        $this->attach(new Manufacturer('1HS', 'Cat', '', '', 'Caterpillar trucks', 'United States'));
+        $this->attach(new Manufacturer('1HT', 'International trucks', 'incomplete', '', 'International trucks', 'United States'));
+        $this->attach(new Manufacturer('1HT', 'Cat', 'incomplete', '', 'Caterpillar trucks', 'United States'));
+        $this->attach(new Manufacturer('1HV', 'IC Bus', 'incomplete', '', 'IC Bus', 'United States'));
+        $this->attach(new Manufacturer('1JC', 'Jeep', '', '', 'AMC', 'United States', 1981, 1988, '', true));
+        $this->attach(new Manufacturer('1JD', 'AMC', '', '', 'AMC', 'United States'));
+        $this->attach(new Manufacturer('1JT', 'Jeep', 'truck', '', 'AMC', 'United States', 1981, 1988, '', true));
+        $this->attach(new Manufacturer('1J4', 'Jeep', 'SUV', '', 'Jeep', 'United States', 1989, 2011, '', true));
+        $this->attach(new Manufacturer('1J7', 'Jeep', 'truck', '', 'Jeep', 'United States', 1989, 1992, '', true));
+        $this->attach(new Manufacturer('1J8', 'Jeep', 'SUV', '', 'Jeep', 'United States', 2002, 2011, '', true));
+        $this->attach(new Manufacturer('1L', 'Lincoln', '', '', 'Lincoln', 'United States'));
+        $this->attach(new Manufacturer('1LJ', 'Lincoln', 'incomplete', '', 'Lincoln', 'United States'));
+        $this->attach(new Manufacturer('1LN', 'Lincoln', 'car', '', 'Lincoln', 'United States'));
+        $this->attach(new Manufacturer('1LV', 'John Deere', '', '', 'John Deere', 'United States'));
+        $this->attach(new Manufacturer('1L1', 'Lincoln', 'car - limousine', '', 'Lincoln', 'United States'));
+        $this->attach(new Manufacturer('1L9', 'Laforza', '', '', 'Laforza', 'United States'));
+        $this->attach(new Manufacturer('1MB', 'Mercedes-Benz', '', '', 'Mercedes-Benz Truck Co.', 'United States'));
+        $this->attach(new Manufacturer('1ME', 'Mercury', '', '', 'Mercury', 'United States'));
+        $this->attach(new Manufacturer('1MR', 'Continental', '', '', 'Continental', 'United States'));
+        $this->attach(new Manufacturer('1M0', 'John Deere Gator', '', '', 'John Deere Gator', 'United States'));
+        $this->attach(new Manufacturer('1M1', 'Mack Truck', '', '', 'Mack Truck', 'United States'));
+        $this->attach(new Manufacturer('1M2', 'Mack Truck', '', '', 'Mack Truck', 'United States'));
+        $this->attach(new Manufacturer('1M3', 'Mack Truck', '', '', 'Mack Truck', 'United States'));
+        $this->attach(new Manufacturer('1M4', 'Mack Truck', '', '', 'Mack Truck', 'United States'));
+        $this->attach(new Manufacturer('1M8', '', '', '', 'Motor Coach Industries', 'United States'));
+        $this->attach(new Manufacturer('1M9', '', '', '', 'Mynatt Truck & Equipment', 'United States'));
+        $this->attach(new Manufacturer('1M9', '', '', '', 'Mosler Automotive', 'United States'));
+        $this->attach(new Manufacturer('1M9', '', '', '', 'Proterra', 'United States', 2019, 2019, '', true));
+        $this->attach(new Manufacturer('1N', 'Nissan', '', '', 'Nissan', 'United States'));
+        $this->attach(new Manufacturer('1NK', 'Kenworth', 'incomplete', '', 'Kenworth', 'United States'));
+        $this->attach(new Manufacturer('1NP', 'Peterbilt', 'incomplete', '', 'Peterbilt', 'United States'));
+        $this->attach(new Manufacturer('1NX', 'Toyota', '', '', 'NUMMI USA', 'United States'));
+        $this->attach(new Manufacturer('1N4', 'Nissan', 'car', '', 'Nissan', 'United States'));
+        $this->attach(new Manufacturer('1N6', 'Nissan', 'truck', '', 'Nissan', 'United States'));
+        $this->attach(new Manufacturer('1N6', 'Datsun', 'truck', '', 'Nissan', 'United States'));
+        $this->attach(new Manufacturer('1N9', 'Neoplan', '', '', 'Neoplan', 'United States'));
+        $this->attach(new Manufacturer('1N9', 'Nikola', '', '', 'Nikola', 'United States'));
+        $this->attach(new Manufacturer('1PY', 'John Deere', '', '', 'John Deere', 'United States'));
+        $this->attach(new Manufacturer('1P3', 'Plymouth', 'car', '', 'Plymouth', 'United States'));
+        $this->attach(new Manufacturer('1P4', 'Plymouth', 'MPV/SUV', '', 'Plymouth', 'United States'));
+        $this->attach(new Manufacturer('1P7', 'Plymouth', '', '', 'Plymouth', 'United States'));
+        $this->attach(new Manufacturer('1P9', 'Panoz', '', '', 'Panoz', 'United States'));
+        $this->attach(new Manufacturer('1RF', 'Roadmaster', '', '', 'Roadmaster', 'United States'));
+        $this->attach(new Manufacturer('1R9', '', '', '', 'Roadrunner Hay Squeeze', 'United States'));
+        $this->attach(new Manufacturer('1S9', 'Scania', '', 'CN112', 'Scania AB', 'United States'));
+        $this->attach(new Manufacturer('1S9', 'Saleen', '', '', 'Saleen', 'United States'));
+        $this->attach(new Manufacturer('1S9', 'SSC', '', '', 'SSC North America', 'United States'));
+        $this->attach(new Manufacturer('1TU', '', '', '', 'Transportation Manufacturing Corporation', 'United States'));
+        $this->attach(new Manufacturer('1T7', '', '', '', 'Thomas Built Buses', 'United States'));
+        $this->attach(new Manufacturer('1T8', '', '', '', 'Thomas Built Buses', 'United States'));
+        $this->attach(new Manufacturer('1T9', '', '', '', 'Tomcar USA', 'United States'));
+        $this->attach(new Manufacturer('1UT', 'Jeep', '', 'DJ', 'AM General', 'United States'));
+        $this->attach(new Manufacturer('1VH', '', '', '', 'Orion Bus Industries', 'United States'));
+        $this->attach(new Manufacturer('1VR', '', '', '', 'Vermeer Corporation', 'United States'));
+        $this->attach(new Manufacturer('1VW', 'Volkswagen', 'SUV', '', 'Volkswagen', 'United States'));
+        $this->attach(new Manufacturer('1V1', 'Volkswagen', 'truck', '', 'Volkswagen', 'United States'));
+        $this->attach(new Manufacturer('1V9', '', '', '', 'Vector Aeromotive', 'United States'));
+        $this->attach(new Manufacturer('1WA', 'Autostar', '', '', 'Autostar', 'United States'));
+        $this->attach(new Manufacturer('1WB', 'Autostar', '', '', 'Autostar', 'United States'));
+        $this->attach(new Manufacturer('1WU', 'White', 'truck', '', 'Volvo', 'United States'));
+        $this->attach(new Manufacturer('1WV', '', '', '', 'Winnebago Industries', 'United States'));
+        $this->attach(new Manufacturer('1WW', '', '', '', 'Winnebago Industries', 'United States'));
+        $this->attach(new Manufacturer('1WX', '', '', '', 'White incomplete', 'United States'));
+        $this->attach(new Manufacturer('1WY', '', '', '', 'White incomplete', 'United States'));
+        $this->attach(new Manufacturer('1XK', 'Kenworth', 'truck', '', 'Kenworth', 'United States'));
+        $this->attach(new Manufacturer('1XM', '', '', '', 'Renault Alliance/GTA/Encore', 'United States', 1984, 1987, '', true));
+        $this->attach(new Manufacturer('1XP', 'Peterbilt', 'truck', '', 'Peterbilt', 'United States'));
+        $this->attach(new Manufacturer('1YJ', '', '', '', 'Rokon International, Inc.', 'United States'));
+        $this->attach(new Manufacturer('1YV', 'Mazda', '', '', 'Mazda', 'United States', null, null, 'AutoAlliance International'));
+        $this->attach(new Manufacturer('1Y1', 'Chevrolet/Geo', 'car', '', 'NUMMI', 'United States'));
+        $this->attach(new Manufacturer('1ZV', 'Ford', '', '', 'Ford', 'United States', null, null, 'AutoAlliance International'));
+        $this->attach(new Manufacturer('1ZW', 'Mercury', '', '', 'Mercury', 'United States', null, null, 'AutoAlliance International'));
+        $this->attach(new Manufacturer('1Z3', 'Mitsubishi', '', 'Raider', 'Mitsubishi', 'United States'));
+        $this->attach(new Manufacturer('1Z5', 'Mitsubishi', '', '', 'Mitsubishi', 'United States'));
+        $this->attach(new Manufacturer('1Z7', 'Mitsubishi', '', 'Raider', 'Mitsubishi', 'United States'));
+        $this->attach(new Manufacturer('1Z9', '', '', '', 'Oshkosh Specialty Vehicles LLC', 'United States'));
+        $this->attach(new Manufacturer('10R', '', '', '', 'E-Z-GO', 'United States'));
+        $this->attach(new Manufacturer('10T', '', '', '', 'Oshkosh Corporation', 'United States'));
+        $this->attach(new Manufacturer('11V', 'Ottawa', '', '', 'Ottawa', 'United States'));
+        $this->attach(new Manufacturer('12A', 'Avanti', '', '', 'Avanti', 'United States'));
+        $this->attach(new Manufacturer('137', 'Hummer', '', '', 'AM General', 'United States'));
+        $this->attach(new Manufacturer('15G', 'Gillig', 'bus', '', 'Gillig', 'United States'));
+        $this->attach(new Manufacturer('16X', '', '', '', 'Vixen 21 motorhome', 'United States'));
+        $this->attach(new Manufacturer('17N', 'John Deere', 'incomplete', '', 'John Deere', 'United States'));
+        $this->attach(new Manufacturer('177', 'Thomas', '', '', 'Thomas', 'United States'));
+        $this->attach(new Manufacturer('18X', 'WRV', '', '', 'WRV', 'United States'));
+        $this->attach(new Manufacturer('19U', 'Acura', '', '', 'Honda', 'United States', null, null, 'America Mfg. in Ohio'));
+        $this->attach(new Manufacturer('19V', 'Acura', '', '', 'Honda Manufacturing of Indiana', 'United States'));
+        $this->attach(new Manufacturer('19X', 'Honda', '', '', 'Honda Manufacturing of Indiana', 'United States'));
+        $this->attach(new Manufacturer('2AY', 'Hino', '', '', 'Hino', 'Canada'));
+        $this->attach(new Manufacturer('2AZ', 'Hino', '', '', 'Hino', 'Canada'));
+        $this->attach(new Manufacturer('2A3', 'Imperial', '', '', 'Imperial', 'Canada'));
+        $this->attach(new Manufacturer('2A4', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'Canada', 2006, 2011, '', true));
+        $this->attach(new Manufacturer('2A8', 'Chrysler', 'MPV/SUV', '', 'Chrysler', 'Canada', 2006, 2011, '', true));
+        $this->attach(new Manufacturer('2BC', '', '', '', 'AMC / Jeep Wrangler (YJ)', 'Canada', 1987, 1988, '', true));
+        $this->attach(new Manufacturer('2BP', 'Ski-Doo', '', '', 'Ski-Doo', 'Canada'));
+        $this->attach(new Manufacturer('2BV', 'Can-Am', '', '', 'Can-Am', 'Canada'));
+        $this->attach(new Manufacturer('2BV', 'Bombardier ATV', '', '', 'Bombardier ATV', 'Canada'));
+        $this->attach(new Manufacturer('2BW', 'Can-Am', 'LSV', 'Commander E', 'Can-Am', 'Canada'));
+        $this->attach(new Manufacturer('2BX', 'Can-Am', '', 'Spyder', 'Can-Am', 'Canada'));
+        $this->attach(new Manufacturer('2BZ', 'Can-Am', 'Trailer', 'Freedom', 'Can-Am', 'Canada', null, null, 'for Can-Am Spyder'));
+        $this->attach(new Manufacturer('2B1', '', '', '', 'Orion Bus Industries', 'Canada'));
+        $this->attach(new Manufacturer('2B3', 'Dodge', 'car', '', 'Dodge', 'Canada', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('2B4', 'Dodge', 'MPV', '', 'Dodge', 'Canada', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('2B5', 'Dodge', 'bus', '', 'Dodge', 'Canada', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('2B6', 'Dodge', 'incomplete', '', 'Dodge', 'Canada', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('2B7', 'Dodge', 'truck', '', 'Dodge', 'Canada', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('2B8', 'Dodge', '', '', 'Dodge', 'Canada'));
+        $this->attach(new Manufacturer('2CC', 'AMC', 'MPV', '', 'American Motors Corporation', 'Canada'));
+        $this->attach(new Manufacturer('2CD', 'GMC', 'SUV', 'Terrain', 'CAMI Automotive', 'Canada', 2010, 2011, '', true));
+        $this->attach(new Manufacturer('2CG', 'Asüna', 'SUV', '', 'CAMI Automotive', 'Canada'));
+        $this->attach(new Manufacturer('2CG', 'Pontiac', 'SUV', '', 'CAMI Automotive', 'Canada'));
+        $this->attach(new Manufacturer('2CK', 'GMC', 'SUV', 'Tracker', 'CAMI Automotive', 'Canada', 1990, 1991, 'only sold by GM Canada', true));
+        $this->attach(new Manufacturer('2CK', 'Pontiac', 'SUV', 'Torrent', '', 'Canada', 2006, 2009, '', true));
+        $this->attach(new Manufacturer('2CM', 'AMC', 'car', '', 'American Motors Corporation', 'Canada'));
+        $this->attach(new Manufacturer('2CN', 'Geo/Chevrolet', 'SUV', '', 'CAMI Automotive', 'Canada', 1990, 2011, '', true));
+        $this->attach(new Manufacturer('2C1', 'Geo/Chevrolet', 'car', '', 'CAMI Automotive', 'Canada'));
+        $this->attach(new Manufacturer('2C3', 'Chrysler', 'car', '', 'Chrysler brand', 'Canada', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('2C3', 'Chrysler', 'car', '', 'Chrysler Group', 'Canada', 2012, null, '', true));
+        $this->attach(new Manufacturer('2C4', 'Chrysler', 'MPV/SUV', '', 'Chrysler brand', 'Canada', 2000, 2005, '', true));
+        $this->attach(new Manufacturer('2C4', 'Chrysler', 'MPV', '', 'Chrysler Group', 'Canada', 2012, null, '', true));
+        $this->attach(new Manufacturer('2C7', 'Pontiac', 'car', '', 'CAMI Automotive', 'Canada'));
+        $this->attach(new Manufacturer('2C8', 'Chrysler', 'MPV/SUV', '', 'Chrysler brand', 'Canada', 2001, 2005, '', true));
+        $this->attach(new Manufacturer('2C9', '', '', '', 'Campagna Motors', 'Canada'));
+        $this->attach(new Manufacturer('2DG', '', '', '', 'Ontario Drive & Gear', 'Canada'));
+        $this->attach(new Manufacturer('2D3', 'Dodge', '', '', 'Dodge', 'Canada'));
+        $this->attach(new Manufacturer('2D4', 'Dodge', 'MPV', '', 'Dodge', 'Canada', 2003, 2011, '', true));
+        $this->attach(new Manufacturer('2D6', 'Dodge', 'incomplete', '', 'Dodge', 'Canada', 2003, 2003, '', true));
+        $this->attach(new Manufacturer('2D7', 'Dodge', 'truck', '', 'Dodge', 'Canada', 2003, 2003, '', true));
+        $this->attach(new Manufacturer('2D8', 'Dodge', 'MPV', '', 'Dodge', 'Canada', 2003, 2011, '', true));
+        $this->attach(new Manufacturer('2E3', 'Eagle', 'car', '', 'Eagle', 'Canada', 1989, 1997, '', true));
+        $this->attach(new Manufacturer('2E4', 'Lancia', 'MPV', '', 'Lancia', 'Canada'));
+        $this->attach(new Manufacturer('2F', 'Ford', '', '', 'Ford Motor Company', 'Canada'));
+        $this->attach(new Manufacturer('2FA', 'Ford', 'car', '', 'Ford Motor Company', 'Canada'));
+        $this->attach(new Manufacturer('2FB', 'Ford', '', '', 'Ford Motor Company', 'Canada'));
+        $this->attach(new Manufacturer('2FC', 'Ford', '', '', 'Ford Motor Company', 'Canada'));
+        $this->attach(new Manufacturer('2FD', 'Ford', '', '', 'Ford Motor Company', 'Canada'));
+        $this->attach(new Manufacturer('2FM', 'Ford', 'MPV/SUV', '', 'Ford Motor Company', 'Canada'));
+        $this->attach(new Manufacturer('2FT', 'Ford', 'truck', '', 'Ford Motor Company', 'Canada'));
+        $this->attach(new Manufacturer('2FU', 'Freightliner', '', '', '', 'Canada'));
+        $this->attach(new Manufacturer('2FV', 'Freightliner', '', '', '', 'Canada'));
+        $this->attach(new Manufacturer('2FW', 'Sterling', '', '', 'Sterling Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2FY', 'New Flyer', '', '', 'New Flyer', 'Canada'));
+        $this->attach(new Manufacturer('2FZ', 'Sterling', 'incomplete', '', 'Sterling Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2G', 'GMC', '', '', 'General Motors', 'Canada'));
+        $this->attach(new Manufacturer('2GA', 'Chevrolet', 'bus', '', 'Chevrolet', 'Canada'));
+        $this->attach(new Manufacturer('2GB', 'Chevrolet', 'incomplete', '', 'Chevrolet', 'Canada'));
+        $this->attach(new Manufacturer('2GC', 'Chevrolet', 'truck', '', 'Chevrolet', 'Canada'));
+        $this->attach(new Manufacturer('2GD', 'GMC', 'incomplete', '', 'General Motors', 'Canada'));
+        $this->attach(new Manufacturer('2GE', 'Cadillac', 'incomplete', '', 'Cadillac', 'Canada'));
+        $this->attach(new Manufacturer('2GH', 'GMC GM', 'bus', 'New Look', 'General Motors', 'Canada'));
+        $this->attach(new Manufacturer('2GH', 'GM', 'bus', 'Classic series', 'General Motors', 'Canada'));
+        $this->attach(new Manufacturer('2GJ', 'GMC', 'bus', '', 'General Motors', 'Canada', 1987));
+        $this->attach(new Manufacturer('2GK', 'GMC', 'MPV/SUV', '', 'General Motors', 'Canada', 1987, null, '', true));
+        $this->attach(new Manufacturer('2GN', 'Chevrolet', 'MPV/SUV', '', 'General Motors', 'Canada', 1987, null, '', true));
+        $this->attach(new Manufacturer('2GT', 'GMC', 'truck', '', 'General Motors', 'Canada'));
+        $this->attach(new Manufacturer('2G0', 'GMC', 'bus', '', 'General Motors', 'Canada', 1981, 1986, '', true));
+        $this->attach(new Manufacturer('2G1', 'Chevrolet', '', '', 'Chevrolet', 'Canada'));
+        $this->attach(new Manufacturer('2G2', 'Pontiac', '', '', 'Pontiac', 'Canada'));
+        $this->attach(new Manufacturer('2G3', 'Oldsmobile', '', '', 'Oldsmobile', 'Canada'));
+        $this->attach(new Manufacturer('2G4', 'Buick', '', '', 'Buick', 'Canada'));
+        $this->attach(new Manufacturer('2G5', 'GMC', 'MPV', '', 'General Motors', 'Canada', 1981, 1986, '', true));
+        $this->attach(new Manufacturer('2G5', '', 'van', '', 'BrightDrop Zevo', 'Canada', null, null, 'delivery'));
+        $this->attach(new Manufacturer('2G6', 'Cadillac', '', '', 'Cadillac', 'Canada'));
+        $this->attach(new Manufacturer('2G7', 'Pontiac', '', '', 'Pontiac', 'Canada'));
+        $this->attach(new Manufacturer('2G8', 'Chevrolet', 'MPV', '', 'Chevrolet', 'Canada', 1981, 1986, '', true));
+        $this->attach(new Manufacturer('2G9', '', '', '', 'Gnome Homes', 'Canada'));
+        $this->attach(new Manufacturer('2HG', 'Honda', 'car', '', 'Honda of Canada Manufacturing', 'Canada'));
+        $this->attach(new Manufacturer('2HH', 'Acura', 'car', '', 'Honda of Canada Manufacturing', 'Canada'));
+        $this->attach(new Manufacturer('2HJ', 'Honda', 'truck', '', 'Honda of Canada Manufacturing', 'Canada'));
+        $this->attach(new Manufacturer('2HK', 'Honda', 'MPV/SUV', '', 'Honda of Canada Manufacturing', 'Canada'));
+        $this->attach(new Manufacturer('2HM', 'Hyundai', '', '', 'Hyundai', 'Canada'));
+        $this->attach(new Manufacturer('2HN', 'Acura', 'SUV', '', 'Honda of Canada Manufacturing', 'Canada'));
+        $this->attach(new Manufacturer('2HS', '', 'truck', '', 'International Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2HT', '', 'incomplete', '', 'International Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2J4', 'Jeep', '', 'Wrangler (YJ)', 'Jeep', 'Canada', 1989, 1992, '', true));
+        $this->attach(new Manufacturer('2LJ', 'Lincoln', 'incomplete', '', 'Lincoln', 'Canada'));
+        $this->attach(new Manufacturer('2LM', 'Lincoln', 'SUV', '', 'Lincoln', 'Canada'));
+        $this->attach(new Manufacturer('2LN', 'Lincoln', 'car', '', 'Lincoln', 'Canada'));
+        $this->attach(new Manufacturer('2L1', 'Lincoln', 'incomplete', '', 'Lincoln', 'Canada'));
+        $this->attach(new Manufacturer('2L9', '', '', '', 'Les Contenants Durabac', 'Canada'));
+        $this->attach(new Manufacturer('2M', 'Mercury', '', '', 'Mercury', 'Canada'));
+        $this->attach(new Manufacturer('2ME', 'Mercury', 'car', '', 'Mercury', 'Canada'));
+        $this->attach(new Manufacturer('2MH', 'Mercury', '', '', 'Mercury', 'Canada'));
+        $this->attach(new Manufacturer('2MR', 'Mercury', 'MPV', '', 'Mercury', 'Canada'));
+        $this->attach(new Manufacturer('2M1', 'Mack', '', '', 'Mack Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2M2', 'Mack', '', '', 'Mack Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2NK', 'Kenworth', 'incomplete', '', 'Kenworth', 'Canada'));
+        $this->attach(new Manufacturer('2NP', 'Peterbilt', 'incomplete', '', 'Peterbilt', 'Canada'));
+        $this->attach(new Manufacturer('2NV', 'Nova Bus', '', '', 'Nova Bus', 'Canada'));
+        $this->attach(new Manufacturer('2PC', 'Prevost', '', '', 'Prevost', 'Canada', 1996, null, '', true));
+        $this->attach(new Manufacturer('2P3', 'Plymouth', 'car', '', 'Plymouth', 'Canada'));
+        $this->attach(new Manufacturer('2P4', 'Plymouth', 'MPV', '', 'Plymouth', 'Canada', 1981, 2000, '', true));
+        $this->attach(new Manufacturer('2P5', 'Plymouth', 'bus', '', 'Plymouth', 'Canada', 1981, 1983, '', true));
+        $this->attach(new Manufacturer('2P9', 'Prevost', '', '', 'Prevost', 'Canada', 1981, 1995, '', true));
+        $this->attach(new Manufacturer('2S2', 'Suzuki', 'car', '', 'CAMI Automotive', 'Canada'));
+        $this->attach(new Manufacturer('2S3', 'Suzuki', 'SUV', '', 'CAMI Automotive', 'Canada'));
+        $this->attach(new Manufacturer('2T', 'Toyota', '', '', 'Toyota', 'Canada'));
+        $this->attach(new Manufacturer('2T1', 'Toyota', 'car', '', 'Toyota', 'Canada'));
+        $this->attach(new Manufacturer('2T2', 'Lexus', 'SUV', '', 'Lexus', 'Canada'));
+        $this->attach(new Manufacturer('2T3', 'Toyota', 'SUV', '', 'Toyota', 'Canada'));
+        $this->attach(new Manufacturer('2V4', 'Volkswagen', '', 'Routan', 'Volkswagen', 'Canada'));
+        $this->attach(new Manufacturer('2V8', 'Volkswagen', '', 'Routan', 'Volkswagen', 'Canada'));
+        $this->attach(new Manufacturer('2WK', '', 'truck', '', 'Western Star Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2WL', '', 'incomplete', '', 'Western Star Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2WM', '', 'incomplete', '', 'Western Star Trucks', 'Canada'));
+        $this->attach(new Manufacturer('2XK', 'Kenworth', 'truck', '', 'Kenworth', 'Canada'));
+        $this->attach(new Manufacturer('2XM', 'Eagle', '', 'Premier', 'Eagle', 'Canada', 1998, null, '', true));
+        $this->attach(new Manufacturer('2XP', 'Peterbilt', 'truck', '', 'Peterbilt', 'Canada'));
+        $this->attach(new Manufacturer('3AK', 'Freightliner', '', '', 'Freightliner Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3AL', 'Freightliner', '', '', 'Freightliner Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3AV', 'BMW', '', '', 'BMW', 'Mexico', 1999, 2009, '', true));
+        $this->attach(new Manufacturer('3A4', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 2006, 2010, '', true));
+        $this->attach(new Manufacturer('3A8', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 2006, 2010, '', true));
+        $this->attach(new Manufacturer('3AB', 'Dina', '', '', 'Dina', 'Mexico'));
+        $this->attach(new Manufacturer('3BJ', 'Western Star', 'truck', '3700', 'DINA S.A.', 'Mexico'));
+        $this->attach(new Manufacturer('3BK', 'Kenworth', 'incomplete', '', 'Kenworth', 'Mexico'));
+        $this->attach(new Manufacturer('3BM', 'Motor Coach Industries', 'bus', '', 'DINA S.A.', 'Mexico'));
+        $this->attach(new Manufacturer('3BP', 'Peterbilt', 'incomplete', '', 'Peterbilt', 'Mexico'));
+        $this->attach(new Manufacturer('3B3', 'Dodge', 'car', '', 'Dodge', 'Mexico', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('3B4', 'Dodge', 'SUV', '', 'Dodge', 'Mexico', 1986, 1993, '', true));
+        $this->attach(new Manufacturer('3B6', 'Dodge', 'incomplete', '', 'Dodge', 'Mexico', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('3B7', 'Dodge', 'truck', '', 'Dodge', 'Mexico', 1981, 2002, '', true));
+        $this->attach(new Manufacturer('3CA', 'Chrysler', '', '', 'Chrysler', 'Mexico'));
+        $this->attach(new Manufacturer('3CE', 'Volvo', '', '', 'Volvo Buses de Mexico', 'Mexico'));
+        $this->attach(new Manufacturer('3CZ', 'Honda', 'SUV', '', 'Honda', 'Mexico'));
+        $this->attach(new Manufacturer('3C3', 'Chrysler', 'car', '', 'Chrysler brand', 'Mexico', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('3C3', 'Chrysler', 'car', '', 'Chrysler Group', 'Mexico', 2012, null, '', true));
+        $this->attach(new Manufacturer('3C4', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 1981, 2011, '', true));
+        $this->attach(new Manufacturer('3C4', 'Chrysler', 'MPV', '', 'Chrysler Group', 'Mexico', 2012, null, '', true));
+        $this->attach(new Manufacturer('3C6', 'Chrysler', 'truck', '', 'Chrysler Group', 'Mexico', 2012, null, '', true));
+        $this->attach(new Manufacturer('3C7', 'Chrysler', 'incomplete', '', 'Chrysler Group', 'Mexico', 2012, null, '', true));
+        $this->attach(new Manufacturer('3C8', 'Chrysler', 'MPV', '', 'Chrysler brand', 'Mexico', 2001, 2005, '', true));
+        $this->attach(new Manufacturer('3D2', 'Dodge', 'incomplete', '', 'Dodge', 'Mexico', 2007, 2009, '', true));
+        $this->attach(new Manufacturer('3D3', 'Dodge', 'truck', '', 'Dodge', 'Mexico', 2006, 2009, '', true));
+        $this->attach(new Manufacturer('3D4', 'Dodge', 'SUV', '', 'Dodge', 'Mexico', 2009, 2011, '', true));
+        $this->attach(new Manufacturer('3D5', 'Dodge', '', '', 'Dodge', 'Mexico'));
+        $this->attach(new Manufacturer('3D6', 'Dodge', 'incomplete', '', 'Dodge', 'Mexico', 2009, 2011, '', true));
+        $this->attach(new Manufacturer('3D7', 'Dodge', 'truck', '', 'Dodge', 'Mexico', 2002, 2011, '', true));
+        $this->attach(new Manufacturer('3E4', 'Fiat', 'SUV', '', 'Fiat', 'Mexico'));
+        $this->attach(new Manufacturer('3F', 'Ford', '', '', 'Ford Motor Company', 'Mexico'));
+        $this->attach(new Manufacturer('3FA', 'Ford', 'car', '', 'Ford Motor Company', 'Mexico'));
+        $this->attach(new Manufacturer('3FC', 'Ford', 'chassis', '', 'Ford Motor Company', 'Mexico'));
+        $this->attach(new Manufacturer('3FD', 'Ford', '', '', 'Ford Motor Company', 'Mexico'));
+        $this->attach(new Manufacturer('3FE', 'Ford', '', '', 'Ford Motor Company', 'Mexico'));
+        $this->attach(new Manufacturer('3FM', 'Ford', 'MPV/SUV', '', 'Ford Motor Company', 'Mexico'));
+        $this->attach(new Manufacturer('3FN', 'Ford', '', 'F-650', 'Blue Diamond Truck Co.', 'Mexico'));
+        $this->attach(new Manufacturer('3FN', 'Ford', '', 'F-750', 'Blue Diamond Truck Co.', 'Mexico'));
+        $this->attach(new Manufacturer('3FR', 'Ford', '', 'F-650', 'Blue Diamond Truck Co.', 'Mexico'));
+        $this->attach(new Manufacturer('3FR', 'Ford', '', 'F-750', 'Blue Diamond Truck Co.', 'Mexico'));
+        $this->attach(new Manufacturer('3FT', 'Ford', 'truck', '', 'Ford Motor Company', 'Mexico'));
+        $this->attach(new Manufacturer('3F6', 'Sterling', '', 'Bullet', 'Sterling Bullet', 'Mexico'));
+        $this->attach(new Manufacturer('3G', 'GMC', '', '', 'General Motors', 'Mexico'));
+        $this->attach(new Manufacturer('3GB', 'Chevrolet', '', '', 'Chevrolet', 'Mexico'));
+        $this->attach(new Manufacturer('3GC', 'Chevrolet', 'truck', '', 'Chevrolet', 'Mexico'));
+        $this->attach(new Manufacturer('3GD', 'GMC', '', '', 'General Motors', 'Mexico'));
+        $this->attach(new Manufacturer('3GE', 'Chevrolet', '', '', 'Chevrolet', 'Mexico'));
+        $this->attach(new Manufacturer('3GK', 'GMC', 'SUV', '', 'General Motors', 'Mexico'));
+        $this->attach(new Manufacturer('3GM', 'Holden', '', 'Suburban', 'Holden', 'Mexico'));
+        $this->attach(new Manufacturer('3GN', 'Chevrolet', 'SUV', '', 'Chevrolet', 'Mexico'));
+        $this->attach(new Manufacturer('3GT', 'GMC', 'truck', '', 'General Motors', 'Mexico'));
+        $this->attach(new Manufacturer('3GY', 'Cadillac', 'SUV', '', 'Cadillac', 'Mexico'));
+        $this->attach(new Manufacturer('3G0', 'Saab', '', '9-4X', '', 'Mexico', 2011, 2011, '', true));
+        $this->attach(new Manufacturer('3G0', 'Holden', '', 'Equinox', '', 'Mexico', 2018, 2020, '', true));
+        $this->attach(new Manufacturer('3G1', 'Chevrolet', 'car', '', 'Chevrolet', 'Mexico'));
+        $this->attach(new Manufacturer('3G2', 'Pontiac', 'car', '', 'Pontiac', 'Mexico'));
+        $this->attach(new Manufacturer('3G4', 'Buick', 'car', '', 'Buick', 'Mexico'));
+        $this->attach(new Manufacturer('3G5', 'Buick', 'SUV', '', 'Buick', 'Mexico'));
+        $this->attach(new Manufacturer('3G7', 'Pontiac', 'SUV', '', 'Pontiac', 'Mexico'));
+        $this->attach(new Manufacturer('3H', 'Honda', '', '', 'Honda', 'Mexico'));
+        $this->attach(new Manufacturer('3HA', 'International Trucks', 'incomplete', '', 'International Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3HC', 'International Trucks', 'truck', '', 'International Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3HG', 'Honda', 'car', '', 'Honda', 'Mexico'));
+        $this->attach(new Manufacturer('3HM', 'Honda', '', '', 'Honda', 'Mexico'));
+        $this->attach(new Manufacturer('3HS', 'International Trucks', 'truck', '', 'International Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3HS', 'Cat', 'truck', '', 'Caterpillar Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3HT', 'International Trucks', 'incomplete', '', 'International Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3HT', 'Cat', 'incomplete', '', 'Caterpillar Trucks', 'Mexico'));
+        $this->attach(new Manufacturer('3H1', 'Honda', 'motorcycle/UTV', '', 'Honda', 'Mexico'));
+        $this->attach(new Manufacturer('3H3', 'Hyundai Translead', 'truck trailers', '', 'Hyundai de Mexico', 'Mexico'));
+        $this->attach(new Manufacturer('3JB', 'BRP', 'all-terrain vehicles', '', 'BRP', 'Mexico'));
+        $this->attach(new Manufacturer('3KP', 'Kia/Hyundai', 'car', '', '', 'Mexico'));
+        $this->attach(new Manufacturer('3LN', 'Lincoln', 'car', '', 'Lincoln', 'Mexico'));
+        $this->attach(new Manufacturer('3MA', 'Mercury', '', '', 'Mercury', 'Mexico'));
+        $this->attach(new Manufacturer('3MD', 'Mazda', 'car', '', 'Mazda', 'Mexico'));
+        $this->attach(new Manufacturer('3ME', 'Mercury', 'car', '', 'Mercury', 'Mexico'));
+        $this->attach(new Manufacturer('3MV', 'Mazda', 'SUV', '', 'Mazda', 'Mexico'));
+        $this->attach(new Manufacturer('3MW', 'BMW', '', '', 'BMW', 'Mexico'));
+        $this->attach(new Manufacturer('3MY', 'Toyota', 'car', '', 'Mazda de Mexico Vehicle Operation', 'Mexico'));
+        $this->attach(new Manufacturer('3MZ', 'Mazda', 'car', '', 'Mazda', 'Mexico'));
+        $this->attach(new Manufacturer('3N', 'Nissan', '', '', 'Nissan', 'Mexico'));
+        $this->attach(new Manufacturer('3NE', '', 'ATV', '', 'Polaris Inc.', 'Mexico'));
+        $this->attach(new Manufacturer('3NK', 'Kenworth', '', '', 'Kenworth', 'Mexico'));
+        $this->attach(new Manufacturer('3NM', 'Peterbilt', '', '', 'Peterbilt', 'Mexico'));
+        $this->attach(new Manufacturer('3NS', '', 'UTV', '', 'Polaris Inc.', 'Mexico'));
+        $this->attach(new Manufacturer('3N1', 'Nissan', 'car', '', 'Nissan', 'Mexico'));
+        $this->attach(new Manufacturer('3N6', 'Nissan', 'truck', '', 'Nissan', 'Mexico'));
+        $this->attach(new Manufacturer('3N6', 'Chevrolet', '', '', 'Chevrolet City Express', 'Mexico'));
+        $this->attach(new Manufacturer('3N8', 'Nissan', 'MPV', '', 'Nissan', 'Mexico'));
+        $this->attach(new Manufacturer('3PC', 'Infiniti', 'SUV', '', 'COMPAS', 'Mexico'));
+        $this->attach(new Manufacturer('3P3', 'Plymouth', 'car', '', 'Plymouth', 'Mexico'));
+        $this->attach(new Manufacturer('3TM', 'Toyota', 'truck', '', 'TMMBC', 'Mexico'));
+        $this->attach(new Manufacturer('3TY', 'Toyota', 'truck', '', 'TMMGT', 'Mexico'));
+        $this->attach(new Manufacturer('3VV', 'Volkswagen', 'SUV', '', 'Volkswagen', 'Mexico'));
+        $this->attach(new Manufacturer('3VW', 'Volkswagen', 'car', '', 'Volkswagen', 'Mexico'));
+        $this->attach(new Manufacturer('3WK', 'Kenworth', 'truck', '', 'Kenworth', 'Mexico'));
+        $this->attach(new Manufacturer('3WP', 'Peterbilt', 'truck', '', 'Peterbilt', 'Mexico'));
+        $this->attach(new Manufacturer('4A3', 'Mitsubishi', 'car', '', 'Mitsubishi Motors', 'United States'));
+        $this->attach(new Manufacturer('4A4', 'Mitsubishi', 'SUV', '', 'Mitsubishi Motors', 'United States'));
+        $this->attach(new Manufacturer('4B3', 'Dodge', 'car', '', 'Diamond-Star Motors', 'United States'));
+        $this->attach(new Manufacturer('4B9', '', '', '', 'BYD Coach & Bus LLC', 'United States'));
+        $this->attach(new Manufacturer('4CD', 'Oshkosh', 'incomplete', '', 'Oshkosh Chassis Division', 'United States'));
+        $this->attach(new Manufacturer('4C3', 'Chrysler', 'car', '', 'Diamond-Star Motors', 'United States'));
+        $this->attach(new Manufacturer('4C9', 'Czinger', '', '', 'Czinger', 'United States'));
+        $this->attach(new Manufacturer('4DR', '', '', '', 'IC Bus, Genesis, International', 'United States'));
+        $this->attach(new Manufacturer('4E3', 'Eagle', 'car', '', 'Diamond-Star Motors', 'United States'));
+        $this->attach(new Manufacturer('4F', 'Mazda', '', '', 'Mazda', 'United States'));
+        $this->attach(new Manufacturer('4F2', 'Mazda', 'SUV', '', 'Mazda', 'United States'));
+        $this->attach(new Manufacturer('4F4', 'Mazda', 'truck', '', 'Mazda', 'United States'));
+        $this->attach(new Manufacturer('4GD', 'GMC', '', 'WhiteGMC Brigadier', 'General Motors', 'United States', 1988, 1989, '', true));
+        $this->attach(new Manufacturer('4GD', 'Opel', '', 'Sintra', '', 'United States'));
+        $this->attach(new Manufacturer('4GL', 'Buick', 'incomplete', '', 'Buick', 'United States'));
+        $this->attach(new Manufacturer('4GT', 'Isuzu', 'incomplete', '', 'Isuzu', 'United States'));
+        $this->attach(new Manufacturer('4GT', 'WhiteGMC', '', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('4G1', 'Chevrolet', 'convertible', 'Cavalier', 'Genasys L.C.', 'United States'));
+        $this->attach(new Manufacturer('4G2', 'Pontiac', 'convertible', 'Sunfire', 'Genasys L.C.', 'United States'));
+        $this->attach(new Manufacturer('4G3', 'Toyota', '', 'Cavalier', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('4G5', 'GMC', '', 'EV1', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('4JG', 'Mercedes-Benz', 'SUV', '', 'Mercedes-Benz', 'United States'));
+        $this->attach(new Manufacturer('4KB', 'Chevrolet', 'incomplete', 'W-Series', 'Chevrolet', 'United States'));
+        $this->attach(new Manufacturer('4KD', 'GMC', 'incomplete', 'W-Series', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('4KL', 'Isuzu', 'truck', '', 'General Motors', 'United States', null, null, 'commercial'));
+        $this->attach(new Manufacturer('4M', 'Mercury', '', '', 'Mercury', 'United States'));
+        $this->attach(new Manufacturer('4ML', 'Oshkosh', '', '', 'Oshkosh Trailer Division', 'United States'));
+        $this->attach(new Manufacturer('4MZ', 'Buell', '', '', 'Buell Motorcycle Company', 'United States'));
+        $this->attach(new Manufacturer('4M2', 'Mercury', 'MPV/SUV', '', 'Mercury', 'United States'));
+        $this->attach(new Manufacturer('4NU', 'Isuzu', '', 'Ascender', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('4N1', 'Nissan', '', '', 'Nissan', 'United States'));
+        $this->attach(new Manufacturer('4N2', 'Nissan', '', 'Quest', 'Ford', 'United States'));
+        $this->attach(new Manufacturer('4P1', '', '', '', 'Pierce Manufacturing', 'United States'));
+        $this->attach(new Manufacturer('4P3', 'Plymouth', 'car', '', 'Diamond-Star Motors', 'United States', 1990, 1994, '', true));
+        $this->attach(new Manufacturer('4P3', 'Mitsubishi', 'SUV', '', 'Mitsubishi Motors', 'United States', 2013, null, '', true));
+        $this->attach(new Manufacturer('4RK', 'Nova Bus', '', '', 'Nova Bus', 'United States'));
+        $this->attach(new Manufacturer('4RK', 'Prevost', '', '', 'Nova Bus', 'United States'));
+        $this->attach(new Manufacturer('4S', '', '', '', 'Subaru-Isuzu Automotive', 'United States'));
+        $this->attach(new Manufacturer('4SL', 'Magnum', '', '', 'Magnum', 'United States'));
+        $this->attach(new Manufacturer('4S1', 'Isuzu', 'truck', '', 'Subaru Isuzu Automotive', 'United States'));
+        $this->attach(new Manufacturer('4S2', 'Isuzu', 'SUV', '', 'Subaru Isuzu Automotive', 'United States'));
+        $this->attach(new Manufacturer('4S3', 'Subaru', 'car', '', 'Subaru Isuzu Automotive', 'United States'));
+        $this->attach(new Manufacturer('4S4', 'Subaru', 'SUV/MPV', '', 'Subaru Isuzu Automotive', 'United States'));
+        $this->attach(new Manufacturer('4S6', 'Honda', 'SUV', '', 'Subaru Isuzu Automotive', 'United States'));
+        $this->attach(new Manufacturer('4S7', 'Spartan', 'incomplete', '', 'Spartan Motors', 'United States'));
+        $this->attach(new Manufacturer('4S9', '', '', '', 'Smith Electric Vehicles US Corp.', 'United States'));
+        $this->attach(new Manufacturer('4S9', '', 'car', '', 'Scuderia Cameron Glickenhaus', 'United States'));
+        $this->attach(new Manufacturer('4S9', '', 'M.P.V.', 'SCG Boot', 'Scuderia Cameron Glickenhaus', 'United States'));
+        $this->attach(new Manufacturer('4S9', 'Spartan', 'truck', '', 'Spartan Fire, LLC', 'United States', null, null, 'formerly Spartan ER'));
+        $this->attach(new Manufacturer('4S9', 'Spartan', 'incomplete', '', 'Spartan Fire, LLC', 'United States', null, null, 'formerly Spartan ER'));
+        $this->attach(new Manufacturer('4T', 'Toyota', '', '', 'Toyota', 'United States'));
+        $this->attach(new Manufacturer('4TA', 'Toyota', 'truck', '', 'NUMMI', 'United States'));
+        $this->attach(new Manufacturer('4T1', 'Toyota', 'car', '', 'Toyota', 'United States'));
+        $this->attach(new Manufacturer('4T3', 'Toyota', 'MPV/SUV', '', 'Toyota', 'United States'));
+        $this->attach(new Manufacturer('4T4', 'Toyota', 'car', '', 'Toyota', 'United States'));
+        $this->attach(new Manufacturer('4T9', '', '', '', 'Xos, Inc.', 'United States'));
+        $this->attach(new Manufacturer('4UF', '', '', '', 'Arctic Cat Inc.', 'United States'));
+        $this->attach(new Manufacturer('4US', 'BMW', 'car', '', 'BMW', 'United States'));
+        $this->attach(new Manufacturer('4UZ', 'Freightliner', '', '', '', 'United States'));
+        $this->attach(new Manufacturer('4VA', 'Volvo', 'truck', '', 'Volvo Trucks North America', 'United States'));
+        $this->attach(new Manufacturer('4VE', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'));
+        $this->attach(new Manufacturer('4VH', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'));
+        $this->attach(new Manufacturer('4VG', 'Volvo', 'truck', '', 'Volvo Trucks North America', 'United States'));
+        $this->attach(new Manufacturer('4VL', 'Volvo', '', '', 'Volvo', 'United States'));
+        $this->attach(new Manufacturer('4VM', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'));
+        $this->attach(new Manufacturer('4VZ', 'Spartan', 'incomplete', '', 'Spartan Motors/The Shyft Group', 'United States'));
+        $this->attach(new Manufacturer('4V1', 'WhiteGMC', 'truck', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('4V2', 'WhiteGMC', 'incomplete', '', 'General Motors', 'United States'));
+        $this->attach(new Manufacturer('4V3', 'Volvo', '', '', 'Volvo', 'United States'));
+        $this->attach(new Manufacturer('4V4', 'Volvo', 'truck', '', 'Volvo Trucks North America', 'United States'));
+        $this->attach(new Manufacturer('4V5', 'Volvo', 'incomplete', '', 'Volvo Trucks North America', 'United States'));
+        $this->attach(new Manufacturer('4V6', 'Volvo', '', '', 'Volvo', 'United States'));
+        $this->attach(new Manufacturer('4XA', '', '', '', 'Polaris Inc.', 'United States'));
+        $this->attach(new Manufacturer('4YM', '', '', '', 'Carry-On Trailer, Inc.', 'United States'));
+        $this->attach(new Manufacturer('4Z3', '', 'truck', '', 'American LaFrance', 'United States'));
+        $this->attach(new Manufacturer('43C', 'Consulier', '', '', 'Consulier', 'United States'));
+        $this->attach(new Manufacturer('45V', 'Utilimaster', '', '', 'Utilimaster', 'United States'));
+        $this->attach(new Manufacturer('46G', 'Gillig', 'incomplete', '', 'Gillig', 'United States'));
+        $this->attach(new Manufacturer('478', 'Honda', 'ATV', '', 'Honda', 'United States'));
+        $this->attach(new Manufacturer('480', 'Sterling', 'truck', '', 'Sterling Trucks', 'United States'));
+        $this->attach(new Manufacturer('49H', 'Sterling', 'incomplete', '', 'Sterling Trucks', 'United States'));
+        $this->attach(new Manufacturer('5AS', 'GEM', '', '', 'GEM', 'United States'));
+        $this->attach(new Manufacturer('5BZ', 'Nissan', 'bus', '', 'Nissan', 'United States'));
+        $this->attach(new Manufacturer('5B4', '', 'incomplete', '', 'Workhorse Custom Chassis, LLC', 'United States'));
+        $this->attach(new Manufacturer('5CD', '', '', '', 'Indian Motorcycle Company of America Gilroy, CA', 'United States'));
+        $this->attach(new Manufacturer('5CK', '', '', '', 'Western Star Trucks', 'United States'));
+        $this->attach(new Manufacturer('5CX', 'Shelby', '', 'Series 1', '', 'United States'));
+        $this->attach(new Manufacturer('5DF', '', '', '', 'Thomas Dennis Company LLC', 'United States'));
+        $this->attach(new Manufacturer('5EH', '', '', '', 'Excelsior-Henderson Motorcycle', 'United States'));
+        $this->attach(new Manufacturer('5F', 'Honda', '', '', 'Honda Manufacturing of Alabama', 'United States'));
+        $this->attach(new Manufacturer('5FN', 'Honda', 'MPV/SUV', '', 'Honda Manufacturing of Alabama', 'United States'));
+        $this->attach(new Manufacturer('5FP', 'Honda', 'truck', '', 'Honda Manufacturing of Alabama', 'United States'));
+        $this->attach(new Manufacturer('5FR', 'Acura', 'SUV', '', 'Honda Manufacturing of Alabama', 'United States'));
+        $this->attach(new Manufacturer('5FY', '', '', '', 'New Flyer', 'United States'));
+        $this->attach(new Manufacturer('5GA', 'Buick', 'MPV/SUV', '', 'Buick', 'United States'));
+        $this->attach(new Manufacturer('5GD', 'Daewoo', '', 'G2X', 'Daewoo', 'United States'));
+        $this->attach(new Manufacturer('5GN', 'Hummer', '', 'H3T', 'Hummer', 'United States'));
+        $this->attach(new Manufacturer('5GR', 'Hummer', '', 'H2', 'Hummer', 'United States'));
+        $this->attach(new Manufacturer('5GT', 'Hummer', '', 'H3', 'Hummer', 'United States'));
+        $this->attach(new Manufacturer('5GZ', 'Saturn', 'MPV/SUV', '', 'Saturn', 'United States'));
+        $this->attach(new Manufacturer('5G8', 'Holden', '', 'Volt', '', 'United States'));
+        $this->attach(new Manufacturer('5HD', 'Harley-Davidson', '', '', 'Harley-Davidson', 'United States'));
+        $this->attach(new Manufacturer('5J6', 'Honda', 'SUV', '', 'Honda of America Mfg. in Ohio', 'United States'));
+        $this->attach(new Manufacturer('5J8', 'Acura', 'SUV', '', 'Honda of America Mfg. in Ohio', 'United States'));
+        $this->attach(new Manufacturer('5KB', 'Honda', 'car', '', 'Honda Manufacturing of Alabama', 'United States'));
+        $this->attach(new Manufacturer('5KJ', '', '', '', 'Western Star Trucks', 'United States'));
+        $this->attach(new Manufacturer('5KK', '', '', '', 'Western Star Trucks', 'United States'));
+        $this->attach(new Manufacturer('5L', 'Lincoln', '', '', 'Lincoln', 'United States'));
+        $this->attach(new Manufacturer('5LD', 'Ford', 'incomplete', '', 'Ford', 'United States', 2010, 2014, '', true));
+        $this->attach(new Manufacturer('5LD', 'Lincoln', 'incomplete', '', 'Lincoln', 'United States', 2010, 2014, '', true));
+        $this->attach(new Manufacturer('5LM', 'Lincoln', 'SUV', '', 'Lincoln', 'United States'));
+        $this->attach(new Manufacturer('5LT', 'Lincoln', 'truck', '', 'Lincoln', 'United States'));
+        $this->attach(new Manufacturer('5L1', 'Lincoln', 'SUV', '', 'Lincoln', 'United States', 2004, 2009, '', true));
+        $this->attach(new Manufacturer('5MZ', '', '', '', 'Buell Motorcycle Company', 'United States'));
+        $this->attach(new Manufacturer('5NM', 'Hyundai', 'SUV', '', 'Hyundai', 'United States'));
+        $this->attach(new Manufacturer('5NP', 'Hyundai', 'car', '', 'Hyundai', 'United States'));
+        $this->attach(new Manufacturer('5NT', 'Hyundai', 'truck', '', 'Hyundai', 'United States'));
+        $this->attach(new Manufacturer('5N1', 'Nissan', 'SUV', '', '', 'United States'));
+        $this->attach(new Manufacturer('5N1', 'Infiniti', 'SUV', '', '', 'United States'));
+        $this->attach(new Manufacturer('5N3', 'Infiniti', 'SUV', '', 'Infiniti', 'United States'));
+        $this->attach(new Manufacturer('5PV', 'Hino', 'incomplete', '', 'Hino', 'United States'));
+        $this->attach(new Manufacturer('5SA', 'Suzuki', 'ATV', '', 'Suzuki', 'United States'));
+        $this->attach(new Manufacturer('5SX', '', 'incomplete', '', 'American LaFrance', 'United States'));
+        $this->attach(new Manufacturer('5S3', 'Saab', '', '9-7X', 'Saab', 'United States'));
+        $this->attach(new Manufacturer('5T', 'Toyota', 'trucks', '', 'Toyota', 'United States'));
+        $this->attach(new Manufacturer('5TB', 'Toyota', 'truck', '', 'TMMI', 'United States'));
+        $this->attach(new Manufacturer('5TD', 'Toyota', 'MPV/SUV', '', 'TMMI', 'United States'));
+        $this->attach(new Manufacturer('5TE', 'Toyota', 'truck', '', 'NUMMI', 'United States'));
+        $this->attach(new Manufacturer('5TF', 'Toyota', 'truck', '', 'TMMTX', 'United States'));
+        $this->attach(new Manufacturer('5T4', 'Workhorse', '', '', 'Workhorse', 'United States'));
+        $this->attach(new Manufacturer('5UM', 'BMW', 'car', 'M', 'BMW', 'United States'));
+        $this->attach(new Manufacturer('5UX', 'BMW', 'SUV', '', 'BMW', 'United States'));
+        $this->attach(new Manufacturer('5VC', 'Autocar', 'incomplete', '', 'Autocar', 'United States'));
+        $this->attach(new Manufacturer('5VP', '', '', '', 'Victory Motorcycles', 'United States'));
+        $this->attach(new Manufacturer('5WE', '', 'incomplete', '', 'IC Bus', 'United States'));
+        $this->attach(new Manufacturer('5XX', 'Kia', 'car', '', 'Kia', 'United States'));
+        $this->attach(new Manufacturer('5XY', 'Kia/Hyundai', 'SUV', '', 'Kia/Hyundai', 'United States'));
+        $this->attach(new Manufacturer('5YA', '', '', '', 'Indian Motorcycle Company Kings Mountain, NC', 'United States'));
+        $this->attach(new Manufacturer('5YF', 'Toyota', 'car', '', 'TMMMS', 'United States'));
+        $this->attach(new Manufacturer('5YJ', 'Tesla', '', '', 'Tesla Motors', 'United States'));
+        $this->attach(new Manufacturer('5YM', 'BMW', 'SUV', 'M', '', 'United States'));
+        $this->attach(new Manufacturer('5Y2', 'Pontiac', '', 'Vibe', 'NUMMI', 'United States'));
+        $this->attach(new Manufacturer('5Y4', 'Yamaha', 'ATV, UTV', '', 'Yamaha Motor Company', 'United States'));
+        $this->attach(new Manufacturer('5Z6', 'Suzuki', 'truck', '', 'Nissan', 'United States'));
+        $this->attach(new Manufacturer('50E', '', '', '', 'Lucid Motors', 'United States'));
+        $this->attach(new Manufacturer('50G', '', '', '', 'Karma Automotive', 'United States'));
+        $this->attach(new Manufacturer('51R', '', '', '', 'Brammo Motorcycles', 'United States'));
+        $this->attach(new Manufacturer('516', 'Autocar', 'truck', '', 'Autocar', 'United States'));
+        $this->attach(new Manufacturer('52C', '', '', '', 'GEM subsidiary of Polaris Inc.', 'United States'));
+        $this->attach(new Manufacturer('523', 'VPG', '', '', '', 'United States'));
+        $this->attach(new Manufacturer('53G', '', '', '', 'Coda Automotive', 'United States'));
+        $this->attach(new Manufacturer('53T', '', '', '', 'Think North America', 'United States', null, null, 'in Elkhart, IN'));
+        $this->attach(new Manufacturer('538', '', '', '', 'Zero Motorcycles', 'United States'));
+        $this->attach(new Manufacturer('546', 'EBR', '', '', 'EBR', 'United States'));
+        $this->attach(new Manufacturer('54C', '', 'trailer', '', 'Winnebago Industries', 'United States'));
+        $this->attach(new Manufacturer('54D', 'Isuzu', 'trucks', '', 'Spartan Motors/The Shyft Group', 'United States'));
+        $this->attach(new Manufacturer('54D', 'Chevrolet', 'trucks', '', 'Spartan Motors/The Shyft Group', 'United States'));
+        $this->attach(new Manufacturer('55S', 'Mercedes-Benz', 'car', '', 'Mercedes-Benz', 'United States'));
+        $this->attach(new Manufacturer('56K', '', '', '', 'Indian Motorcycle International, LLC', 'United States', null, null, 'Polaris subsidiary'));
+        $this->attach(new Manufacturer('57W', '', '', '', 'Mobility Ventures', 'United States'));
+        $this->attach(new Manufacturer('57X', 'Polaris', '', 'Slingshot', 'Polaris', 'United States'));
+        $this->attach(new Manufacturer('58A', 'Lexus', 'car', '', 'TMMK', 'United States'));
+        $this->attach(new Manufacturer('6AB', 'MAN', '', '', 'MAN', 'Australia'));
+        $this->attach(new Manufacturer('6FM', 'Mack', '', '', 'Mack Trucks', 'Australia'));
+        $this->attach(new Manufacturer('6FP', 'Ford', '', '', 'Ford Motor Company', 'Australia'));
+        $this->attach(new Manufacturer('6F1', 'Ford', '', '', 'Ford Motor Company', 'Australia'));
+        $this->attach(new Manufacturer('6F2', 'Iveco', '', '', 'Iveco Trucks Australia Ltd.', 'Australia'));
+        $this->attach(new Manufacturer('6F4', 'Nissan', '', '', 'Nissan Motor', 'Australia'));
+        $this->attach(new Manufacturer('6F5', 'Kenworth', '', '', 'Kenworth', 'Australia'));
+        $this->attach(new Manufacturer('6G', '', '', '', 'General Motors', 'Australia'));
+        $this->attach(new Manufacturer('6G1', 'Holden', '', '', 'General Motors-Holden', 'Australia', 2002));
+        $this->attach(new Manufacturer('6G2', 'Pontiac', '', '', 'Pontiac', 'Australia'));
+        $this->attach(new Manufacturer('6G3', 'Chevrolet', '', '', 'Chevrolet', 'Australia'));
+        $this->attach(new Manufacturer('6H', 'Holden', '', '', 'Holden', 'Australia'));
+        $this->attach(new Manufacturer('6H8', '', '', '', 'General Motors-Holden', 'Australia', null, 2002));
+        $this->attach(new Manufacturer('6MM', 'Mitsubishi', '', '', 'Mitsubishi Motors', 'Australia'));
+        $this->attach(new Manufacturer('6MP', 'Mercury', '', 'Capri', 'Mercury', 'Australia'));
+        $this->attach(new Manufacturer('6T1', 'Toyota', '', '', 'Toyota Motor Corporation', 'Australia'));
+        $this->attach(new Manufacturer('6T9', '', '', 'Trailer', '', 'Australia'));
+        $this->attach(new Manufacturer('6U9', '', '', '', 'Privately Imported car in Australia', 'Australia', null, null, 'Low Volume (Grey) Import Vehicles which don\'t have 17 Digit VIN.'));
+        $this->attach(new Manufacturer('6ZZ', '', '', '', 'Privately Imported car in Australia', 'Australia', null, null, 'Low Volume (Grey) Import Vehicles which don\'t have 17 Digit VIN.'));
+        $this->attach(new Manufacturer('7A1', 'Mitsubishi', '', '', 'Mitsubishi', 'New Zealand'));
+        $this->attach(new Manufacturer('7A3', 'Honda', '', '', 'Honda', 'New Zealand'));
+        $this->attach(new Manufacturer('7A4', 'Toyota', '', '', 'Toyota', 'New Zealand'));
+        $this->attach(new Manufacturer('7A5', 'Ford', '', '', 'Ford', 'New Zealand'));
+        $this->attach(new Manufacturer('7A7', 'Nissan', '', '', 'Nissan', 'New Zealand'));
+        $this->attach(new Manufacturer('7A8', '', '', '', 'NZ Transport Agency', 'New Zealand', null, 2009, '', true));
+        $this->attach(new Manufacturer('7AT', '', '', '', 'NZ Transport Agency', 'New Zealand', 2009, null, '', true));
+        $this->attach(new Manufacturer('7FA', 'Honda', 'SUV', '', 'Honda Manufacturing of Indiana', 'United States'));
+        $this->attach(new Manufacturer('7FC', 'Rivian', 'truck', '', 'Rivian', 'United States'));
+        $this->attach(new Manufacturer('7GZ', 'GMC', 'incomplete', '', 'Navistar International', 'United States'));
+        $this->attach(new Manufacturer('7G2', 'Tesla', '', 'Cybertruck', 'Tesla', 'United States'));
+        $this->attach(new Manufacturer('7G2', 'Tesla', '', 'Semi', 'Tesla', 'United States'));
+        $this->attach(new Manufacturer('7H4', 'Hino', 'truck', '', '', 'United States'));
+        $this->attach(new Manufacturer('7JR', 'Volvo', 'car', '', 'Volvo Cars', 'United States'));
+        $this->attach(new Manufacturer('7JZ', 'Proterra', '', '', '', 'United States', 2019, null, '', true));
+        $this->attach(new Manufacturer('7KG', '', '', '', 'Vanderhall Motor Works', 'United States'));
+        $this->attach(new Manufacturer('7MM', 'Mazda', 'SUV', '', 'MTMUS (Mazda-Toyota Joint Venture)', 'United States'));
+        $this->attach(new Manufacturer('7MU', 'Toyota', 'SUV', '', 'MTMUS (Mazda-Toyota Joint Venture)', 'United States'));
+        $this->attach(new Manufacturer('7NA', '', '', '', 'Navistar Defense', 'United States'));
+        $this->attach(new Manufacturer('7NY', '', '', '', 'Lordstown Motors', 'United States'));
+        $this->attach(new Manufacturer('7PD', 'Rivian', 'SUV', '', 'Rivian', 'United States'));
+        $this->attach(new Manufacturer('7RZ', '', '', '', 'Electric Last Mile Solutions', 'United States'));
+        $this->attach(new Manufacturer('7R4', '', '', '', 'Icon Electric Vehicles', 'United States'));
+        $this->attach(new Manufacturer('7SA', 'Tesla', 'SUV', '', 'Tesla', 'United States', 2022, null, '', true));
+        $this->attach(new Manufacturer('7SU', 'Blue Arc', 'electric trucks', '', 'The Shyft Group', 'United States'));
+        $this->attach(new Manufacturer('7SV', 'Toyota', 'SUV', '', 'TMMTX', 'United States'));
+        $this->attach(new Manufacturer('7SX', '', '', '', 'Global Electric Motorcars', 'United States'));
+        $this->attach(new Manufacturer('7Z0', 'Zoox', '', '', 'Zoox', 'United States'));
+        $this->attach(new Manufacturer('8AC', 'Mercedes-Benz', 'vans', '', 'Mercedes-Benz', 'Argentina'));
+        $this->attach(new Manufacturer('8AD', 'Peugeot', '', '', 'Peugeot', 'Argentina'));
+        $this->attach(new Manufacturer('8AE', 'Peugeot', 'van', '', 'Peugeot', 'Argentina'));
+        $this->attach(new Manufacturer('8AF', 'Ford', '', '', 'Ford Motor Company', 'Argentina'));
+        $this->attach(new Manufacturer('8AG', 'Chevrolet', '', '', 'General Motors', 'Argentina'));
+        $this->attach(new Manufacturer('8AJ', 'Toyota', '', '', 'Toyota', 'Argentina'));
+        $this->attach(new Manufacturer('8AK', 'Suzuki', '', '', 'Suzuki', 'Argentina'));
+        $this->attach(new Manufacturer('8AN', 'Nissan', '', '', 'Nissan', 'Argentina'));
+        $this->attach(new Manufacturer('8AP', 'Fiat', '', '', 'Fiat', 'Argentina'));
+        $this->attach(new Manufacturer('8AT', 'Iveco', '', '', 'Iveco', 'Argentina'));
+        $this->attach(new Manufacturer('8AW', 'Volkswagen', '', '', 'Volkswagen', 'Argentina'));
+        $this->attach(new Manufacturer('8A1', 'Renault', '', '', 'Renault', 'Argentina'));
+        $this->attach(new Manufacturer('8A3', 'Scania', '', '', 'Scania', 'Argentina'));
+        $this->attach(new Manufacturer('8BB', '', '', '', 'Agrale Argentina S.A', 'Argentina'));
+        $this->attach(new Manufacturer('8BC', 'Citroën', '', '', 'Citroën', 'Argentina'));
+        $this->attach(new Manufacturer('8BN', 'Mercedes-Benz', 'incomplete', '', 'Mercedes-Benz', 'Argentina'));
+        $this->attach(new Manufacturer('8BR', 'Mercedes-Benz', 'bus', '', 'Mercedes-Benz', 'Argentina'));
+        $this->attach(new Manufacturer('8BT', 'Mercedes-Benz', 'MPV', '', 'Mercedes-Benz', 'Argentina'));
+        $this->attach(new Manufacturer('8BU', 'Mercedes-Benz', 'truck', '', 'Mercedes-Benz', 'Argentina'));
+        $this->attach(new Manufacturer('8CH', 'Honda', 'motorcycle', '', 'Honda', 'Argentina'));
+        $this->attach(new Manufacturer('8C3', 'Honda', 'car/SUV', '', 'Honda', 'Argentina'));
+        $this->attach(new Manufacturer('8F9', '', '', '', 'Reborn Electric Motors SPA', 'Chile'));
+        $this->attach(new Manufacturer('8GD', 'Peugeot', '', '', 'Automotores Franco Chilena S.A Peugeot', 'Chile'));
+        $this->attach(new Manufacturer('8GG', 'GMC', '', '', 'General Motors Chile Ltda.', 'Chile'));
+        $this->attach(new Manufacturer('8G1', 'Renault', '', '', 'Automotores Franco Chilena S.A Renault', 'Chile'));
+        $this->attach(new Manufacturer('8L4', 'Great Wall Motors', '', '', 'Ciudad del Auto Ciauto Cia. Ltda.', 'Ecuador'));
+        $this->attach(new Manufacturer('8LB', 'GMC', '', '', 'General Motors OBB', 'Ecuador'));
+        $this->attach(new Manufacturer('8LF', 'Maresa', '', '', 'Mazda', 'Ecuador'));
+        $this->attach(new Manufacturer('8LG', 'Aymesa', '', '', 'Hyundai Motor & Kia', 'Ecuador'));
+        $this->attach(new Manufacturer('8XD', 'Ford', '', '', 'Ford Motor Venezuela', 'Venezuela'));
+        $this->attach(new Manufacturer('8XJ', 'Mack', '', '', 'Mack de Venezuela C.A.', 'Venezuela'));
+        $this->attach(new Manufacturer('8XV', 'Iveco', '', '', 'Iveco Venezuela C.A.', 'Venezuela'));
+        $this->attach(new Manufacturer('8Z1', 'GMC', '', '', 'General Motors Venezolana C.A.', 'Venezuela'));
+        $this->attach(new Manufacturer('829', '', '', '', 'Quantum Motors', 'Bolivia'));
+        $this->attach(new Manufacturer('9AM', 'Massari', '', '', 'Massari', 'Brazil'));
+        $this->attach(new Manufacturer('9BD', 'Fiat', '', '', 'Fiat Automóveis', 'Brazil'));
+        $this->attach(new Manufacturer('9BF', 'Ford', '', '', 'Ford Brasil', 'Brazil'));
+        $this->attach(new Manufacturer('9BG', 'Chevrolet', '', '', 'General Motors do Brasil', 'Brazil'));
+        $this->attach(new Manufacturer('9BH', 'Hyundai', '', '', 'Hyundai Motor Brasil', 'Brazil'));
+        $this->attach(new Manufacturer('9BM', 'Mercedes-Benz', 'commercial truck', '', '', 'Brazil'));
+        $this->attach(new Manufacturer('9BM', 'Mercedes-Benz', 'car', '', '', 'Brazil'));
+        $this->attach(new Manufacturer('9BM', 'Mercedes-Benz', 'SUV', '', '', 'Brazil'));
+        $this->attach(new Manufacturer('9BN', 'Mafersa', '', '', 'Mafersa', 'Brazil'));
+        $this->attach(new Manufacturer('9BR', 'Toyota', '', '', 'Toyota', 'Brazil'));
+        $this->attach(new Manufacturer('9BS', 'Scania', '', '', 'Scania Brazil', 'Brazil'));
+        $this->attach(new Manufacturer('9BV', 'Volvo', '', '', 'Volvo Trucks', 'Brazil'));
+        $this->attach(new Manufacturer('9BW', 'Volkswagen', '', '', 'Volkswagen do Brasil', 'Brazil'));
+        $this->attach(new Manufacturer('9BY', 'Agrale', '', '', 'Agrale S.A.', 'Brazil'));
+        $this->attach(new Manufacturer('9C2', 'Honda', '', '', 'Honda Motorcycles', 'Brazil'));
+        $this->attach(new Manufacturer('9C6', 'Yamaha', '', '', 'Yamaha Motor', 'Brazil'));
+        $this->attach(new Manufacturer('9CD', 'Suzuki', 'motorcycles', '', 'J. Toledo Motos do Brasil', 'Brazil'));
+        $this->attach(new Manufacturer('9DW', 'Kenworth', 'trucks', '', 'Volkswagen', 'Brazil'));
+        $this->attach(new Manufacturer('9DW', 'Peterbilt', 'trucks', '', 'Volkswagen', 'Brazil'));
+        $this->attach(new Manufacturer('9FB̈́', 'Sofasa', '', '', 'Renault', 'Colombia'));
+        $this->attach(new Manufacturer('9FC', 'Mazda', '', '', 'Compañía Colombiana Automotriz S.A.', 'Colombia'));
+        $this->attach(new Manufacturer('9GA', 'Chevrolet', '', '', 'GM Colmotores S.A.', 'Colombia'));
+        $this->attach(new Manufacturer('9UJ', 'Chery', '', '', 'Chery Socma S.A.', 'Uruguay'));
+        $this->attach(new Manufacturer('9UK', 'Lifan', '', '', 'Lifan', 'Uruguay'));
+        $this->attach(new Manufacturer('9UW', 'Kia', '', '', 'Nordex S.A.', 'Uruguay'));
+        $this->attach(new Manufacturer('9V7', 'Citroen', '', '', 'Nordex S.A.', 'Uruguay'));
+        $this->attach(new Manufacturer('9V8', 'Peugeot', '', '', 'Nordex S.A.', 'Uruguay'));
+        $this->attach(new Manufacturer('93C', 'Chevrolet', 'SUV', '', 'General Motors do Brasil', 'Brazil'));
+        $this->attach(new Manufacturer('93H', 'Honda', 'car/SUV', '', 'Honda', 'Brazil'));
+        $this->attach(new Manufacturer('93K', 'Volvo', '', '', 'Volvo Trucks', 'Brazil'));
+        $this->attach(new Manufacturer('93P', 'Volare', '', '', 'Volare', 'Brazil'));
+        $this->attach(new Manufacturer('93R', 'Toyota', '', '', 'Toyota', 'Brazil'));
+        $this->attach(new Manufacturer('93S', '', '', '', 'Navistar International', 'Brazil'));
+        $this->attach(new Manufacturer('93U', 'Audi', '', '', 'Audi', 'Brazil', 1999, 2006));
+        $this->attach(new Manufacturer('93V', '', '', '', 'Navistar International', 'Brazil'));
+        $this->attach(new Manufacturer('93W', 'Fiat', '', 'Ducato', 'Iveco', 'Brazil', 2000, 2016));
+        $this->attach(new Manufacturer('93X', 'Suzuki', '', 'Jimny', 'Souza Ramos', 'Brazil'));
+        $this->attach(new Manufacturer('93X', 'Mitsubishi', '', '', 'Souza Ramos', 'Brazil'));
+        $this->attach(new Manufacturer('93Y', 'Renault', '', '', 'Renault do Brasil', 'Brazil'));
+        $this->attach(new Manufacturer('93Z', 'Iveco', '', '', 'Iveco', 'Brazil'));
+        $this->attach(new Manufacturer('932', 'Harley-Davidson', '', '', 'Harley-Davidson', 'Brazil'));
+        $this->attach(new Manufacturer('935', 'Citroën', '', '', 'Citroën', 'Brazil'));
+        $this->attach(new Manufacturer('936', 'Peugeot', '', '', 'Peugeot', 'Brazil'));
+        $this->attach(new Manufacturer('937', 'Dodge', '', '', 'Dodge', 'Brazil'));
+        $this->attach(new Manufacturer('94D', 'Nissan', '', '', 'Nissan', 'Brazil'));
+        $this->attach(new Manufacturer('94G', 'Indabra', '', '', 'Indabra', 'Brazil'));
+        $this->attach(new Manufacturer('94M', '', '', '', 'HVR-Busscar', 'Brazil'));
+        $this->attach(new Manufacturer('94N', '', '', '', 'RWM Brazil', 'Brazil'));
+        $this->attach(new Manufacturer('94T', '', '', '', 'Troller Veículos Especiais', 'Brazil'));
+        $this->attach(new Manufacturer('953', '', '', '', 'VW Truck & Bus', 'Brazil'));
+        $this->attach(new Manufacturer('953', '', '', '', 'MAN Truck & Bus', 'Brazil'));
+        $this->attach(new Manufacturer('95P', 'Hyundai', '', '', 'CAOA', 'Brazil'));
+        $this->attach(new Manufacturer('95P', 'CAOA', '', 'Chery', 'CAOA', 'Brazil'));
+        $this->attach(new Manufacturer('95V', 'Dafra', '', '', 'Dafra Motos', 'Brazil', null, null, 'motorscooters from SYM'));
+        $this->attach(new Manufacturer('95V', 'Ducati', '', '', 'Dafra Motos', 'Brazil'));
+        $this->attach(new Manufacturer('95V', 'KTM', '', '', 'Dafra Motos', 'Brazil'));
+        $this->attach(new Manufacturer('95V', 'MV', '', 'Agusta', 'Dafra Motos', 'Brazil'));
+        $this->attach(new Manufacturer('95V', 'BMW', 'motorcycles', '', 'Dafra Motos', 'Brazil', 2009, 2016));
+        $this->attach(new Manufacturer('95Z', 'Buell Motorcycle Company', '', '', 'Harley-Davidson Brazil', 'Brazil'));
+        $this->attach(new Manufacturer('96P', 'Kawasaki', '', '', 'Kawasaki', 'Brazil'));
+        $this->attach(new Manufacturer('97N', 'Triumph', '', '', 'Triumph Motorcycles Ltd', 'Brazil'));
+        $this->attach(new Manufacturer('988', 'Jeep', '', '', 'Goiana plant', 'Brazil'));
+        $this->attach(new Manufacturer('988', 'Fiat', '', '', 'Goiana plant', 'Brazil'));
+        $this->attach(new Manufacturer('98M', 'BMW', 'car/SUV', '', 'BMW', 'Brazil'));
+        $this->attach(new Manufacturer('98R', 'Chery', '', '', 'Chery', 'Brazil'));
+        $this->attach(new Manufacturer('99A', 'Audi', '', '', 'Audi', 'Brazil', 2016));
+        $this->attach(new Manufacturer('99J', 'JLR', '', '', 'Jaguar Land Rover', 'Brazil'));
+        $this->attach(new Manufacturer('99K', 'Haojue', '', '', 'JTZ Indústria e Comércio de Motos', 'Brazil'));
+        $this->attach(new Manufacturer('99K', 'Kymco', '', '', 'JTZ Indústria e Comércio de Motos', 'Brazil'));
+        $this->attach(new Manufacturer('99L', 'BYD', '', '', 'BYD', 'Brazil'));
+        $this->attach(new Manufacturer('99Z', 'BMW', '', '', 'BMW Motorrad Motorcycle', 'Brazil', 2017));
     }
 }

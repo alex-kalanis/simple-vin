@@ -15,7 +15,7 @@ class DeeperVinTest extends CommonTestClass
 {
     public function testManufacturer(): void
     {
-        $lib = Manufacturer::init(
+        $lib = new Manufacturer(
             'foo',
             'bar',
             'baz',
@@ -44,14 +44,16 @@ class DeeperVinTest extends CommonTestClass
         $lib = new SimpleVin(new XDateDeep());
 //print_r(['get1', $lib->restoreChecksumCharacter('KF900000200000000')]);
 //print_r(['get2', $lib->restoreChecksumCharacter('JS000000000000000')]);
-//print_r(['get3', $lib->restoreChecksumCharacter('WDX00000610000000')]);
+//print_r(['get3', $lib->restoreChecksumCharacter('3B400000510000000')]);
 //print_r(['get4', $lib->restoreChecksumCharacter('WDX00000570000000')]);
 //print_r(['get5', $lib->restoreChecksumCharacter('ZCG00000070000000')]);
+//print_r(['get6', $lib->restoreChecksumCharacter('5L100000970000000')]);
         $this->assertTrue($lib->isValid('KF900000200000000'), 'Must pass because it\'s correct format.');
         $this->assertTrue($lib->isValid('JS000000000000000'), 'Must pass because it\'s correct format.');
-        $this->assertTrue($lib->isValid('WDX00000610000000'), 'Must pass because it\'s correct format.');
+        $this->assertTrue($lib->isValid('3B400000510000000'), 'Must pass because it\'s correct format.');
         $this->assertTrue($lib->isValid('WDX00000570000000'), 'Must pass because it\'s correct format.');
         $this->assertTrue($lib->isValid('ZCG00000070000000'), 'Must pass because it\'s correct format.');
+        $this->assertTrue($lib->isValid('5L100000970000000'), 'Must pass because it\'s correct format.');
     }
 
     public function testManufacturerGetDataFailedNumber(): void
@@ -73,6 +75,7 @@ class DeeperVinTest extends CommonTestClass
             'from' => null,
             'to' => null,
             'notes' => '',
+            'canCompareDates' => false,
         ]], array_map(function ($data) {
                 return (array) $data;
             }, $lib->getWorldManufacturer('KF900000200000000'))
@@ -92,6 +95,7 @@ class DeeperVinTest extends CommonTestClass
             'from' => null,
             'to' => null,
             'notes' => '',
+            'canCompareDates' => false,
         ]], array_map(function ($data) {
                 return (array) $data;
             }, $lib->getWorldManufacturer('JS000000000000000'))
@@ -101,10 +105,10 @@ class DeeperVinTest extends CommonTestClass
     public function testManufacturerGetDataEmptyYear(): void
     {
         $lib = new DeeperVin(new XDateDeep());
-        $this->assertEmpty($lib->getWorldManufacturer('WDX00000610000000'));
+        $this->assertEmpty($lib->getWorldManufacturer('3B400000510000000'));
     }
 
-    public function testManufacturerGetDataKnownYear(): void
+    public function testManufacturerGetDataKnownYearEu(): void
     {
         $lib = new DeeperVin(new XDateDeep());
         $this->assertEquals([0 => [
@@ -117,9 +121,30 @@ class DeeperVinTest extends CommonTestClass
             'from' => 2005,
             'to' => 2009,
             'notes' => '',
+            'canCompareDates' => false,
         ]], array_map(function ($data) {
                 return (array) $data;
             }, $lib->getWorldManufacturer('WDX00000570000000'))
+        );
+    }
+
+    public function testManufacturerGetDataKnownYearUsa(): void
+    {
+        $lib = new DeeperVin(new XDateDeep());
+        $this->assertEquals([0 => [
+            'code' => '5L1',
+            'brand' => 'Lincoln',
+            'types' => 'SUV',
+            'model' => '',
+            'manufacturer' => 'Lincoln',
+            'country' => 'United States',
+            'from' => 2004,
+            'to' => 2009,
+            'notes' => '',
+            'canCompareDates' => true,
+        ]], array_map(function ($data) {
+                return (array) $data;
+            }, $lib->getWorldManufacturer('5L100000970000000'))
         );
     }
 
@@ -136,6 +161,7 @@ class DeeperVinTest extends CommonTestClass
             'from' => null,
             'to' => null,
             'notes' => '',
+            'canCompareDates' => false,
         ], [
             'code' => 'ZCG',
             'brand' => '',
@@ -146,6 +172,7 @@ class DeeperVinTest extends CommonTestClass
             'from' => null,
             'to' => null,
             'notes' => '',
+            'canCompareDates' => false,
         ]], array_map(function ($data) {
                 return (array) $data;
             }, $lib->getWorldManufacturer('ZCG00000070000000'))

@@ -49,6 +49,6 @@ final class Years extends ArrayObject
 
     public function checkStart(int $passed): bool
     {
-        return in_array($passed, [1980, 2010, 2040, ]);
+        return in_array($passed, [1980, 2010, 2040,]);
     }
 }

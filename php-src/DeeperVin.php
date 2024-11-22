@@ -34,18 +34,29 @@ class DeeperVin
             return [];
         }
 
-        $available = $this->worldManufacturerIdentifiers->getByCode(substr($vinOrWmi, 0, 3));
-        if ($available) {
-            return $this->filterByYears($this->simple->getModelYear($vinOrWmi), $available);
-        }
-
         return $this->filterByYears(
             $this->simple->getModelYear($vinOrWmi),
-            $this->worldManufacturerIdentifiers->getByCode(substr($vinOrWmi, 0, 2))
+            $this->getByCode($vinOrWmi)
         );
     }
 
     /**
+     * @param string $code
+     * @return Manufacturer[]
+     */
+    protected function getByCode(string $code): array
+    {
+        $used = [];
+        foreach ($this->worldManufacturerIdentifiers as $item) {
+            if (is_object($item) && is_a($item, Manufacturer::class) && str_starts_with($code, $item->code)) {
+                $used[] = $item;
+            }
+        }
+        return $used;
+    }
+
+    /**
+     * Years matters only for americans
      * @param int|null $year
      * @param Manufacturer[] $availableManufacturers
      * @return Manufacturer[]
@@ -53,21 +64,53 @@ class DeeperVin
     protected function filterByYears(?int $year, array $availableManufacturers): array
     {
         if (is_null($year)) {
-            return $availableManufacturers;
+            return $this->filterLongest($availableManufacturers);
         }
 
+        // years from
         $passedFrom = [];
         foreach ($availableManufacturers as $availableManufacturer) {
+            if (!$availableManufacturer->canCompareDates) {
+                $passedFrom[] = $availableManufacturer;
+                continue;
+            }
             if (is_null($availableManufacturer->from) || ($availableManufacturer->from <= $year)) {
                 $passedFrom[] = $availableManufacturer;
             }
         }
+
+        // years to
         $passedTo = [];
         foreach ($passedFrom as $availableManufacturer) {
+            if (!$availableManufacturer->canCompareDates) {
+                $passedTo[] = $availableManufacturer;
+                continue;
+            }
             if (is_null($availableManufacturer->to) || ($availableManufacturer->to >= $year)) {
                 $passedTo[] = $availableManufacturer;
             }
         }
-        return $passedTo;
+
+        return $this->filterLongest($passedTo);
+    }
+
+    /**
+     * @param Manufacturer[] $entries
+     * @return Manufacturer[]
+     */
+    protected function filterLongest(array $entries): array
+    {
+        $longestCodeLen = 0;
+        foreach ($entries as $item) {
+            $longestCodeLen = max($longestCodeLen, strlen($item->code));
+        }
+        $onlyLongest = [];
+        foreach ($entries as $item) {
+            if (strlen($item->code) == $longestCodeLen) {
+                $onlyLongest[] = $item;
+            }
+        }
+
+        return $onlyLongest;
     }
 }
