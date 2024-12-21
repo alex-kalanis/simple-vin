@@ -28,7 +28,7 @@ class DeeperVin
      * @param string $vinOrWmi
      * @return Manufacturer[]
      */
-    public function getWorldManufacturer(string $vinOrWmi): array
+    public function getPossibleManufacturers(string $vinOrWmi): array
     {
         if (!$this->simple->isValid($vinOrWmi)) {
             return [];

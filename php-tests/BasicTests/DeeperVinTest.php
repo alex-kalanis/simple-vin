@@ -59,7 +59,7 @@ class DeeperVinTest extends CommonTestClass
     public function testManufacturerGetDataFailedNumber(): void
     {
         $lib = new DeeperVin(new XDateDeep());
-        $this->assertEmpty($lib->getWorldManufacturer('WDX00000000000000'));
+        $this->assertEmpty($lib->getPossibleManufacturers('WDX00000000000000'));
     }
 
     public function testManufacturerGetDataLongIdentifier(): void
@@ -76,9 +76,9 @@ class DeeperVinTest extends CommonTestClass
             'to' => null,
             'notes' => '',
             'canCompareDates' => false,
-        ]], array_map(function ($data) {
+        ]], array_map(function (Manufacturer $data) {
                 return (array) $data;
-            }, $lib->getWorldManufacturer('KF900000200000000'))
+            }, $lib->getPossibleManufacturers('KF900000200000000'))
         );
     }
 
@@ -96,16 +96,16 @@ class DeeperVinTest extends CommonTestClass
             'to' => null,
             'notes' => '',
             'canCompareDates' => false,
-        ]], array_map(function ($data) {
+        ]], array_map(function (Manufacturer $data) {
                 return (array) $data;
-            }, $lib->getWorldManufacturer('JS000000000000000'))
+            }, $lib->getPossibleManufacturers('JS000000000000000'))
         );
     }
 
     public function testManufacturerGetDataEmptyYear(): void
     {
         $lib = new DeeperVin(new XDateDeep());
-        $this->assertEmpty($lib->getWorldManufacturer('3B400000510000000'));
+        $this->assertEmpty($lib->getPossibleManufacturers('3B400000510000000'));
     }
 
     public function testManufacturerGetDataKnownYearEu(): void
@@ -122,9 +122,9 @@ class DeeperVinTest extends CommonTestClass
             'to' => 2009,
             'notes' => '',
             'canCompareDates' => false,
-        ]], array_map(function ($data) {
+        ]], array_map(function (Manufacturer $data) {
                 return (array) $data;
-            }, $lib->getWorldManufacturer('WDX00000570000000'))
+            }, $lib->getPossibleManufacturers('WDX00000570000000'))
         );
     }
 
@@ -142,9 +142,9 @@ class DeeperVinTest extends CommonTestClass
             'to' => 2009,
             'notes' => '',
             'canCompareDates' => true,
-        ]], array_map(function ($data) {
+        ]], array_map(function (Manufacturer $data) {
                 return (array) $data;
-            }, $lib->getWorldManufacturer('5L100000970000000'))
+            }, $lib->getPossibleManufacturers('5L100000970000000'))
         );
     }
 
@@ -173,9 +173,9 @@ class DeeperVinTest extends CommonTestClass
             'to' => null,
             'notes' => '',
             'canCompareDates' => false,
-        ]], array_map(function ($data) {
+        ]], array_map(function (Manufacturer $data) {
                 return (array) $data;
-            }, $lib->getWorldManufacturer('ZCG00000070000000'))
+            }, $lib->getPossibleManufacturers('ZCG00000070000000'))
         );
     }
 }

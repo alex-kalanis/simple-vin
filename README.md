@@ -28,6 +28,10 @@ $m = $lib->getWorldManufacturer('TMP......D.......'); // Skoda Trolleybuses
 $y = $lib->getModelYear('TMP......D.......'); // 2013
 $k = $lib->restoreChecksumCharacter('1FTKR1AD_APA11957'); // X
 $c = $lib->restoreChecksum('1FTKR1AD_APA11957'); // 1FTKR1ADXAPA11957
+
+// extended vin check
+$lib = new \kalanis\simple_vin\DeeperVin(); // can be set via DI, usually no more dependency need
+$manufacturers = $lib->getPossibleManufacturers('ZAP......D.......'); // Piaggio, Vespa, Gilera
 ```
 
 (Refer to [Composer Documentation](https://github.com/composer/composer/blob/master/doc/00-intro.md#introduction) if you are not
