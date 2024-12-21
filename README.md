@@ -18,6 +18,9 @@ Ported from .Net library [Vin](https://github.com/dalenewman/Vin) .
 composer.phar require alex-kalanis/simple-vin
 ```
 
+(Refer to [Composer Documentation](https://github.com/composer/composer/blob/master/doc/00-intro.md#introduction) if you are not
+familiar with composer)
+
 ## API usage
 
 ```php
@@ -33,9 +36,6 @@ $c = $lib->restoreChecksum('1FTKR1AD_APA11957'); // 1FTKR1ADXAPA11957
 $lib = new \kalanis\simple_vin\DeeperVin(); // can be set via DI, usually no more dependency need
 $manufacturers = $lib->getPossibleManufacturers('ZAP......D.......'); // Piaggio, Vespa, Gilera
 ```
-
-(Refer to [Composer Documentation](https://github.com/composer/composer/blob/master/doc/00-intro.md#introduction) if you are not
-familiar with composer)
 
 ## Sources
 
