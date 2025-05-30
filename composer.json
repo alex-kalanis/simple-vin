@@ -2,7 +2,10 @@
     "name": "alex-kalanis/simple-vin",
     "description": "Simple checking of Vehicle Identification Numbers",
     "keywords": [
-        "vin"
+        "vin",
+        "cars",
+        "car",
+        "identification"
     ],
     "license": "BSD-3-Clause",
     "type": "library",
@@ -22,6 +25,11 @@
     "autoload": {
         "psr-4": {
             "kalanis\\simple_vin\\": "php-src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\": "php-tests/"
         }
     },
     "scripts": {

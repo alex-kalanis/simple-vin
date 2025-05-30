@@ -1,7 +1,8 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace tests;
 
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CommonTestClass

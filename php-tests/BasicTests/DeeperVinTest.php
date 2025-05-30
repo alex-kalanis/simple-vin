@@ -1,15 +1,11 @@
 <?php
 
-namespace BasicTests;
+namespace tests\BasicTests;
 
-
-use CommonTestClass;
-use DateTimeImmutable;
+use tests\CommonTestClass;
 use kalanis\simple_vin\DeeperVin;
 use kalanis\simple_vin\SimpleVin;
 use kalanis\simple_vin\Support\Manufacturer;
-use Psr\Clock\ClockInterface;
-
 
 class DeeperVinTest extends CommonTestClass
 {
@@ -177,14 +173,5 @@ class DeeperVinTest extends CommonTestClass
                 return (array) $data;
             }, $lib->getPossibleManufacturers('ZCG00000070000000'))
         );
-    }
-}
-
-
-class XDateDeep implements ClockInterface
-{
-    public function now(): DateTimeImmutable
-    {
-        return new DateTimeImmutable('2016-07-28');
     }
 }

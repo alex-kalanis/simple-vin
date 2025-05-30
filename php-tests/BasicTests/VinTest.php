@@ -1,12 +1,10 @@
 <?php
 
-namespace BasicTests;
+namespace tests\BasicTests;
 
 
-use CommonTestClass;
-use DateTimeImmutable;
+use tests\CommonTestClass;
 use kalanis\simple_vin\SimpleVin;
-use Psr\Clock\ClockInterface;
 
 
 class VinTest extends CommonTestClass
@@ -186,23 +184,5 @@ class VinTest extends CommonTestClass
     {
         $lib = new SimpleVin(new XDate());
         $this->assertNull($lib->getModelYear('O'));
-    }
-}
-
-
-class XDate implements ClockInterface
-{
-    public function now(): DateTimeImmutable
-    {
-        return new DateTimeImmutable('2016-07-28');
-    }
-}
-
-
-class XDate2 implements ClockInterface
-{
-    public function now(): DateTimeImmutable
-    {
-        return new DateTimeImmutable('2043-07-28');
     }
 }
